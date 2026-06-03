@@ -270,3 +270,65 @@ typeWriter,
 typeWriter();
 
 }
+// MENU HAMBURGUER
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const menu =
+document.getElementById("menu");
+
+if(menuBtn){
+
+menuBtn.addEventListener("click",()=>{
+
+menu.classList.toggle("active");
+
+});
+
+}
+
+// MODO ESCURO
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+if(themeBtn){
+
+themeBtn.addEventListener("click",()=>{
+
+document.body.classList.toggle("dark");
+
+});
+
+}
+
+// TAMANHO DA FONTE
+
+let tamanhoFonte = 100;
+
+document
+.getElementById("fontPlus")
+.addEventListener("click",()=>{
+
+tamanhoFonte += 10;
+
+document.body.style.fontSize =
+tamanhoFonte + "%";
+
+});
+
+document
+.getElementById("fontMinus")
+.addEventListener("click",()=>{
+
+tamanhoFonte -= 10;
+
+if(tamanhoFonte < 80){
+tamanhoFonte = 80;
+}
+
+document.body.style.fontSize =
+tamanhoFonte + "%";
+
+});
