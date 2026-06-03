@@ -1,31 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 :root {
-    --primary-color: #1b5e20;
-    --secondary-color: #2e7d32;
-    --accent-color: #ffd54f;
-    --text-dark: #263238;
-    --bg-light: #f4f9f4;
-    --white: #ffffff;
+    --bg-main: #f8faf7;
+    --primary: #0f3d1a;
+    --accent: #5cdb7d;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #1c2a1e;
+    --text-muted: #536356;
 }
 
 body {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-    line-height: 1.6;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
 }
 
-/* Menu de Navegação */
+/* Navbar Slim Minimalista */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
-    padding: 15px 8
+    background: rgba(15, 61, 26, 0.92);
+    backdrop-filter: blur(10px); /* Efeito Vidro Escovado */
+    padding: 20px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar .logo {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.navbar .logo span { color: var(--accent); }
+
+.navbar nav ul { display: flex; list-style: none; }
+
+.navbar nav ul li { margin-left: 25px; }
+
+.navbar nav ul li a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar nav ul li a:hover, .navbar nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* Hero Section Minimalista */
+.hero {
+    background: linear-gradient(135deg, rgba(15, 61, 26, 0.95), rgba(8, 36, 15, 0.85)), 
+                url('
