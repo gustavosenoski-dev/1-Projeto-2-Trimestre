@@ -5,6 +5,13 @@
 const darkModeBtn =
 document.getElementById("darkMode");
 
+if(localStorage.getItem("tema") === "dark"){
+document.body.classList.add("dark");
+if(darkModeBtn){
+darkModeBtn.innerHTML = "☀️";
+}
+}
+
 if(darkModeBtn){
 
 darkModeBtn.addEventListener("click",()=>{
@@ -12,9 +19,23 @@ darkModeBtn.addEventListener("click",()=>{
 document.body.classList.toggle("dark");
 
 if(document.body.classList.contains("dark")){
+
+localStorage.setItem(
+"tema",
+"dark"
+);
+
 darkModeBtn.innerHTML = "☀️";
+
 }else{
+
+localStorage.setItem(
+"tema",
+"light"
+);
+
 darkModeBtn.innerHTML = "🌙";
+
 }
 
 });
@@ -25,18 +46,36 @@ darkModeBtn.innerHTML = "🌙";
 // CONTADOR DE ÁRVORES
 // =====================
 
-let contador = 0;
+let contador =
+Number(
+localStorage.getItem(
+"arvores"
+)
+) || 0;
+
+const arvoresElemento =
+document.getElementById(
+"arvores"
+);
+
+if(arvoresElemento){
+arvoresElemento.innerText =
+contador;
+}
 
 function plantarArvore(){
 
 contador++;
 
-const arvores =
-document.getElementById("arvores");
+localStorage.setItem(
+"arvores",
+contador
+);
 
-if(arvores){
+if(arvoresElemento){
 
-arvores.innerText = contador;
+arvoresElemento.innerText =
+contador;
 
 }
 
@@ -78,16 +117,16 @@ correta:0
 
 {
 pergunta:
-"Qual tecnologia ajuda a monitorar lavouras?",
+"Qual tecnologia auxilia o monitoramento das lavouras?",
 
 respostas:[
-"Lixo",
-"Drones",
+"Plástico",
 "Fumaça",
-"Plástico"
+"Drones",
+"Lixo"
 ],
 
-correta:1
+correta:2
 },
 
 {
@@ -97,7 +136,7 @@ pergunta:
 respostas:[
 "Preservar o ambiente",
 "Poluir rios",
-"Destruir florestas",
+"Destruir habitats",
 "Aumentar erosão"
 ],
 
@@ -125,21 +164,28 @@ let pontos = 0;
 
 function carregarPergunta(){
 
-const perguntaElemento =
-document.getElementById("pergunta");
-
-const respostasElemento =
-document.getElementById("respostas");
-
-if(!perguntaElemento || !respostasElemento){
-return;
-}
-
 const pergunta =
 perguntas[perguntaAtual];
 
+const perguntaElemento =
+document.getElementById(
+"pergunta"
+);
+
+const respostasElemento =
+document.getElementById(
+"respostas"
+);
+
+if(
+!perguntaElemento ||
+!respostasElemento
+){
+return;
+}
+
 perguntaElemento.innerHTML =
-pergunta.pergunta;
+`Pergunta ${perguntaAtual+1} de ${perguntas.length}<br><br>${pergunta.pergunta}`;
 
 let html = "";
 
@@ -158,7 +204,8 @@ ${resposta}
 
 });
 
-respostasElemento.innerHTML = html;
+respostasElemento.innerHTML =
+html;
 
 }
 
@@ -185,40 +232,45 @@ botao.disabled = true;
 
 function proximaPergunta(){
 
-const resultado =
-document.getElementById("resultado");
-
-if(!resultado){
-return;
-}
-
 perguntaAtual++;
 
-if(perguntaAtual < perguntas.length){
+if(
+perguntaAtual <
+perguntas.length
+){
 
 carregarPergunta();
 
 }else{
 
-document.getElementById("pergunta")
-.innerHTML =
+document.getElementById(
+"pergunta"
+).innerHTML =
 "🎉 Quiz Finalizado!";
 
-document.getElementById("respostas")
-.innerHTML = "";
+document.getElementById(
+"respostas"
+).innerHTML =
+"";
 
 let classificacao = "";
 
-if(pontos <= 2){
+if(pontos <= 1){
 
 classificacao =
-"🌱 Aprendiz da Sustentabilidade";
+"🌱 Aprendiz";
+
+}
+else if(pontos <= 3){
+
+classificacao =
+"🌿 Guardião Ambiental";
 
 }
 else if(pontos <= 4){
 
 classificacao =
-"🌿 Guardião da Natureza";
+"🌳 Protetor do Campo";
 
 }
 else{
@@ -228,11 +280,16 @@ classificacao =
 
 }
 
-resultado.innerHTML =
+document.getElementById(
+"resultado"
+).innerHTML =
 
 `
-Você acertou ${pontos}
-de ${perguntas.length} perguntas.
+Você acertou
+<b>${pontos}</b>
+de
+<b>${perguntas.length}</b>
+perguntas.
 
 <br><br>
 
@@ -243,7 +300,11 @@ ${classificacao}
 
 }
 
-if(document.getElementById("pergunta")){
+if(
+document.getElementById(
+"pergunta"
+)
+){
 carregarPergunta();
 }
 
@@ -255,14 +316,21 @@ function calcular(){
 
 let total = 0;
 
-const marcados =
+let tecnologias = [];
+
+const selecionados =
 document.querySelectorAll(
 'input[type="checkbox"]:checked'
 );
 
-marcados.forEach(item=>{
+selecionados.forEach(item=>{
 
 total += Number(item.value);
+
+const texto =
+item.parentElement.innerText;
+
+tecnologias.push(texto);
 
 });
 
@@ -303,17 +371,72 @@ if(resultado){
 resultado.innerHTML =
 
 `
+<h3>Resultado da Simulação</h3>
+
+<p>
 Pontuação Sustentável:
+<b>${total}%</b>
+</p>
 
-<strong>${total}%</strong>
-
-<br><br>
-
+<p>
 Classificação:
+<b>${nivel}</b>
+</p>
 
-<strong>${nivel}</strong>
+<p>
+Tecnologias Selecionadas:
+</p>
+
+<p>
+${tecnologias.join("<br>")}
+</p>
+
+<p>
+Sua propriedade possui potencial para reduzir impactos ambientais,
+economizar recursos naturais e aumentar a produtividade.
+</p>
 `;
 
 }
 
 }
+
+// =====================
+// ANIMAÇÃO AO ROLAR
+// =====================
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = "1";
+entry.target.style.transform =
+"translateY(0px)";
+
+}
+
+});
+
+},
+{
+threshold:0.1
+}
+);
+
+document
+.querySelectorAll(".card")
+.forEach(card=>{
+
+card.style.opacity = "0";
+card.style.transform =
+"translateY(40px)";
+card.style.transition =
+"0.8s";
+
+observer.observe(card);
+
+});
