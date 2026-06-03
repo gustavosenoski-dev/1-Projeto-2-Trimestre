@@ -2,14 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
 
-<link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -21,23 +19,12 @@
 </div>
 
 <nav>
-
-<a href="index.html">Início</a>
-
-<a href="solucoes.html">Soluções</a>
-
-<a href="guarapuava.html">Guarapuava</a>
-
-<a href="tecnologias.html">Tecnologias</a>
-
-<a href="quiz.html">Quiz</a>
-
-<a href="simulador.html">Simulador</a>
-
-<a href="regulamento.html">Regulamento</a>
-
-<a href="contato.html">Contato</a>
-
+<a href="#inicio">Início</a>
+<a href="#solucoes">Soluções</a>
+<a href="#guarapuava">Guarapuava</a>
+<a href="#tecnologias">Tecnologias</a>
+<a href="#quiz">Quiz</a>
+<a href="#simulador">Simulador</a>
 </nav>
 
 <button id="darkMode">
@@ -46,92 +33,113 @@
 
 </header>
 
-<section class="hero">
+<section id="inicio" class="hero">
 
 <h1>
 Agro Forte, Futuro Sustentável
 </h1>
 
 <p>
-
-Soluções sustentáveis para fortalecer a agropecuária,
-preservar o meio ambiente e construir um futuro melhor
-para Guarapuava e para todo o Brasil.
-
+Como a tecnologia e a sustentabilidade podem transformar o campo,
+preservar o meio ambiente e construir um futuro melhor.
 </p>
 
-<a href="solucoes.html" class="btn">
-Explorar Soluções
+<a href="#solucoes" class="btn">
+Conhecer Soluções
 </a>
 
 </section>
 
-<section class="section">
+<section id="solucoes" class="section">
 
-<h2>
-🌿 O Futuro do Agro
-</h2>
+<h2>💡 Soluções Sustentáveis</h2>
 
 <div class="cards">
 
 <div class="card">
-
-<span>🌱</span>
-
-<h2>Agricultura Sustentável</h2>
-
-<p>
-
-Uso consciente dos recursos naturais,
-rotação de culturas e preservação do solo.
-
-</p>
-
+<span>💧</span>
+<h3>Irrigação Inteligente</h3>
+<p>Sensores evitam desperdício de água.</p>
 </div>
 
 <div class="card">
-
-<span>🐄</span>
-
-<h2>Pecuária Sustentável</h2>
-
-<p>
-
-Bem-estar animal,
-manejo inteligente e redução dos impactos ambientais.
-
-</p>
-
-</div>
-
-<div class="card">
-
 <span>☀️</span>
-
-<h2>Energia Limpa</h2>
-
-<p>
-
-Produção de energia através de fontes renováveis,
-como a energia solar.
-
-</p>
-
+<h3>Energia Solar</h3>
+<p>Energia limpa para propriedades rurais.</p>
 </div>
 
 <div class="card">
-
 <span>🚁</span>
+<h3>Drones Agrícolas</h3>
+<p>Monitoramento eficiente das plantações.</p>
+</div>
 
-<h2>Tecnologia Rural</h2>
+<div class="card">
+<span>♻️</span>
+<h3>Biodigestores</h3>
+<p>Transformação de resíduos em energia.</p>
+</div>
 
-<p>
+</div>
 
-Uso de drones, sensores e inteligência artificial
-para aumentar a produtividade.
+</section>
 
-</p>
+<section id="guarapuava" class="section">
 
+<h2>🌎 Guarapuava Sustentável</h2>
+
+<div class="cards">
+
+<div class="card">
+<span>❄️</span>
+<h3>Desafio das Geadas</h3>
+<p>Proteção das lavouras contra baixas temperaturas.</p>
+</div>
+
+<div class="card">
+<span>🌱</span>
+<h3>Conservação do Solo</h3>
+<p>Práticas agrícolas responsáveis.</p>
+</div>
+
+<div class="card">
+<span>💦</span>
+<h3>Uso Consciente da Água</h3>
+<p>Economia e preservação dos recursos hídricos.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="tecnologias" class="section">
+
+<h2>🚀 Tecnologias do Futuro</h2>
+
+<div class="cards">
+
+<div class="card">
+<span>🧠</span>
+<h3>Inteligência Artificial</h3>
+<p>Análise de clima e produtividade.</p>
+</div>
+
+<div class="card">
+<span>📡</span>
+<h3>Sensores IoT</h3>
+<p>Monitoramento em tempo real.</p>
+</div>
+
+<div class="card">
+<span>🛰️</span>
+<h3>GPS Agrícola</h3>
+<p>Maior precisão nas operações.</p>
+</div>
+
+<div class="card">
+<span>🚜</span>
+<h3>Máquinas Inteligentes</h3>
+<p>Mais eficiência e menos desperdício.</p>
 </div>
 
 </div>
@@ -140,202 +148,95 @@ para aumentar a produtividade.
 
 <section class="contador">
 
-<h2>
-🌳 Árvores Virtuais Plantadas
-</h2>
+<h2>🌳 Árvores Virtuais Plantadas</h2>
 
 <div id="arvores">
 0
 </div>
 
-<button
-class="btn"
-onclick="plantarArvore()">
-
+<button class="btn" onclick="plantarArvore()">
 Plantar Árvore
-
 </button>
 
 </section>
 
-<section class="section">
+<section id="quiz" class="section">
 
-<h2>
-💡 Nossas Propostas
-</h2>
+<h2>🧠 Quiz Sustentável</h2>
 
-<div class="cards">
+<div class="quiz-box">
 
-<div class="card">
+<h3 id="pergunta"></h3>
 
-<span>💧</span>
+<div id="respostas"></div>
 
-<h2>Irrigação Inteligente</h2>
+<button class="btn" onclick="proximaPergunta()">
+Próxima Pergunta
+</button>
 
-<p>
-
-Sensores detectam a necessidade de água,
-evitando desperdícios.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<span>♻️</span>
-
-<h2>Biodigestores</h2>
-
-<p>
-
-Transformação de resíduos orgânicos em energia.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<span>🌳</span>
-
-<h2>Reflorestamento</h2>
-
-<p>
-
-Recuperação de áreas degradadas e proteção da fauna.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<span>🌎</span>
-
-<h2>Proteção das Nascentes</h2>
-
-<p>
-
-Garantia de água limpa para futuras gerações.
-
-</p>
-
-</div>
+<h3 id="resultado"></h3>
 
 </div>
 
 </section>
 
-<section class="section">
+<section id="simulador" class="section">
 
-<h2>
-📊 Impacto Sustentável
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<span>💦</span>
-
-<h2>Economia de Água</h2>
+<h2>🌿 Simulador Sustentável</h2>
 
 <p>
-
-Redução do desperdício através de sistemas inteligentes.
-
+Escolha as tecnologias utilizadas na propriedade:
 </p>
+
+<div class="opcoes">
+
+<label>
+<input type="checkbox" value="20">
+☀️ Energia Solar
+</label>
+
+<label>
+<input type="checkbox" value="25">
+💧 Irrigação Inteligente
+</label>
+
+<label>
+<input type="checkbox" value="30">
+🚁 Drones Agrícolas
+</label>
+
+<label>
+<input type="checkbox" value="35">
+♻️ Biodigestor
+</label>
+
+<label>
+<input type="checkbox" value="15">
+🌳 Reflorestamento
+</label>
 
 </div>
 
-<div class="card">
+<button class="btn" onclick="calcular()">
+Calcular Sustentabilidade
+</button>
 
-<span>⚡</span>
-
-<h2>Energia Renovável</h2>
-
-<p>
-
-Menor dependência de combustíveis fósseis.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<span>🌲</span>
-
-<h2>Mais Florestas</h2>
-
-<p>
-
-Preservação da biodiversidade e captura de carbono.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<span>🚜</span>
-
-<h2>Mais Produção</h2>
-
-<p>
-
-Tecnologia aumentando a eficiência do campo.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>
-🎯 Objetivo do Projeto
-</h2>
-
-<p style="max-width:900px; margin:auto; text-align:center;">
-
-Este projeto foi desenvolvido para demonstrar como a tecnologia,
-a sustentabilidade e a inovação podem transformar a agropecuária.
-Através de soluções modernas e conscientes, é possível produzir mais,
-preservar o meio ambiente e garantir qualidade de vida para as futuras gerações.
-
-</p>
+<h2 id="resultadoSimulador"></h2>
 
 </section>
 
 <footer>
 
-<h3>
-🌱 AGRINHO 2026
-</h3>
+<h3>🌱 AGRINHO 2026</h3>
 
 <p>
-
-Agro Forte, Futuro Sustentável
-
-</p>
-
-<br>
-
-<p>
-
-Projeto desenvolvido para o Programa Agrinho 2026.
-
+Projeto desenvolvido para demonstrar soluções sustentáveis
+para o futuro da agropecuária.
 </p>
 
 </footer>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
