@@ -6,21 +6,23 @@
 <title>Agrinho 2026</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
   <div class="logo">🌱 Agrinho 2026</div>
+
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
   <nav>
     <a href="index.html">Início</a>
     <a href="solucoes.html">Soluções</a>
-    <a href="estudos.html">Estudos</a>
     <a href="tecnologias.html">Tecnologias</a>
     <a href="galeria.html">Galeria</a>
-    <a href="referencias.html">Referências</a>
   </nav>
 </header>
 
+<!-- ACCESSIBILITY -->
 <div class="access">
   <button onclick="increaseFont()">A+</button>
   <button onclick="decreaseFont()">A-</button>
@@ -28,34 +30,67 @@
   <button onclick="toggleTheme()">🌙</button>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <h1>Agro Forte, Futuro Sustentável</h1>
-  <p>Tecnologia, inovação e sustentabilidade transformando o campo brasileiro.</p>
+  <p>
+    O projeto apresenta como a agricultura moderna pode unir tecnologia,
+    preservação ambiental e desenvolvimento econômico, garantindo
+    um futuro sustentável para o campo brasileiro.
+  </p>
 </section>
 
+<!-- STATS -->
 <section class="stats">
-  <div class="stat">
+
+  <div class="card">
     <h2 class="count" data-target="1200">0</h2>
-    <p>Árvores preservadas</p>
+    <p>Árvores preservadas com práticas sustentáveis</p>
   </div>
-  <div class="stat">
+
+  <div class="card">
     <h2 class="count" data-target="5000">0</h2>
-    <p>Água economizada</p>
+    <p>Litros de água economizados com irrigação inteligente</p>
   </div>
-  <div class="stat">
+
+  <div class="card">
     <h2 class="count" data-target="800">0</h2>
-    <p>Energia limpa</p>
+    <p>Fazendas utilizando energia limpa</p>
   </div>
+
 </section>
 
+<!-- CONTENT -->
 <section class="grid">
-  <div class="card">🌱 Sustentabilidade no campo</div>
-  <div class="card">🚜 Tecnologia agrícola</div>
-  <div class="card">🌎 Preservação ambiental</div>
+
+  <div class="card">
+    <h3>🌱 Sustentabilidade no Campo</h3>
+    <p>
+      A sustentabilidade agrícola busca equilibrar produção e preservação ambiental,
+      reduzindo impactos e garantindo recursos para futuras gerações.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🚜 Agricultura Moderna</h3>
+    <p>
+      O uso de sensores, drones e inteligência artificial permite maior eficiência
+      na produção agrícola com menor desperdício de recursos.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🌎 Impacto Ambiental</h3>
+    <p>
+      A adoção de tecnologias verdes reduz emissão de carbono e melhora a qualidade
+      do solo e da água no meio rural.
+    </p>
+  </div>
+
 </section>
 
 <footer>
-  <p>Projeto Agrinho 2026 - Desenvolvido com foco em sustentabilidade</p>
+  <p>Projeto Agrinho 2026 • Desenvolvido com foco em inovação e sustentabilidade</p>
 </footer>
 
 <script src="script.js"></script>

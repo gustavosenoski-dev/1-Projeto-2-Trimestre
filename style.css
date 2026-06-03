@@ -1,15 +1,13 @@
 /* =========================
-   AGRINHO 2026 - STYLE
-   Agro Forte, Futuro Sustentável
+   AGRINHO 2026 PREMIUM UI
 ========================= */
 
 :root{
   --bg:#0b1220;
-  --card:rgba(255,255,255,0.08);
   --text:#ffffff;
-  --primary:#2ecc71;
-  --secondary:#3498db;
-  --glass:rgba(255,255,255,0.1);
+  --card:rgba(255,255,255,0.08);
+  --primary:#00e676;
+  --secondary:#00b0ff;
 }
 
 *{
@@ -17,19 +15,17 @@
   padding:0;
   box-sizing:border-box;
   font-family:Arial, sans-serif;
-  scroll-behavior:smooth;
 }
 
 body{
   background:linear-gradient(135deg,#0b1220,#111a2e);
   color:var(--text);
   transition:0.3s;
+  line-height:1.6;
 }
 
+/* LIGHT MODE */
 body.light{
-  --bg:#f4f6f8;
-  --text:#111;
-  --card:rgba(0,0,0,0.05);
   background:#f4f6f8;
   color:#111;
 }
@@ -39,21 +35,21 @@ header{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(0,0,0,0.3);
-  backdrop-filter:blur(10px);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
-  z-index:1000;
+  padding:14px 20px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  z-index:999;
 }
 
 .logo{
-  font-size:20px;
   font-weight:bold;
   color:var(--primary);
 }
 
+/* NAV */
 nav{
   display:flex;
   gap:15px;
@@ -62,14 +58,14 @@ nav{
 nav a{
   color:white;
   text-decoration:none;
-  transition:0.3s;
+  font-weight:500;
 }
 
 nav a:hover{
   color:var(--primary);
 }
 
-/* HAMBURGUER */
+/* MOBILE MENU */
 .menu-btn{
   display:none;
   font-size:28px;
@@ -85,7 +81,7 @@ nav a:hover{
   align-items:center;
   text-align:center;
   padding:20px;
-  background:linear-gradient(120deg,#1abc9c,#3498db);
+  background:linear-gradient(120deg,#00c853,#0091ea);
 }
 
 .hero h1{
@@ -93,28 +89,54 @@ nav a:hover{
 }
 
 .hero p{
-  max-width:600px;
+  max-width:700px;
   margin-top:10px;
+  font-size:1.2rem;
 }
 
-/* CARDS */
+/* ACCESSIBILITY PANEL */
+.access{
+  position:fixed;
+  top:80px;
+  right:15px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  background:rgba(255,255,255,0.1);
+  padding:10px;
+  border-radius:12px;
+  backdrop-filter:blur(10px);
+}
+
+.access button{
+  padding:8px;
+  border:none;
+  cursor:pointer;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
-  padding:40px;
+  padding:50px 20px;
 }
 
+/* CARD PREMIUM */
 .card{
   background:var(--card);
   padding:20px;
-  border-radius:15px;
+  border-radius:16px;
   backdrop-filter:blur(10px);
   transition:0.3s;
+  border:1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-6px);
+  border-color:var(--primary);
 }
 
 /* STATS */
@@ -127,40 +149,37 @@ nav a:hover{
 }
 
 .stat h2{
-  font-size:2rem;
+  font-size:2.5rem;
   color:var(--primary);
+}
+
+/* BUTTONS */
+button{
+  background:var(--primary);
+  color:#000;
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px;
   background:#000;
   margin-top:40px;
 }
 
-/* ACCESSIBILITY BAR */
-.access{
-  position:fixed;
-  top:60px;
-  right:10px;
-  background:var(--glass);
-  padding:10px;
-  border-radius:10px;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-
-/* RESPONSIVO */
+/* MOBILE */
 @media(max-width:768px){
   nav{
     display:none;
-    flex-direction:column;
     position:absolute;
     top:60px;
     right:0;
     background:#000;
+    flex-direction:column;
     width:200px;
     padding:10px;
   }
@@ -171,5 +190,9 @@ footer{
 
   .menu-btn{
     display:block;
+  }
+
+  .hero h1{
+    font-size:2rem;
   }
 }
