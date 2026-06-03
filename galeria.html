@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,133 +8,142 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+.filtros {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+.filtros button {
+  padding: 10px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.filtros button:hover {
+  transform: scale(1.05);
+  background: #2e7d32;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.item {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+}
+
+.item h3 {
+  text-align: center;
+  padding: 10px;
+  background: white;
+}
+
+/* esconder filtro */
+.hide {
+  display: none;
+}
+</style>
 
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-🌱 AGRINHO 2026
-</div>
-
-<nav>
-
-<a href="index.html">Início</a>
-<a href="#galeria">Galeria</a>
-<a href="#tecnologias">Tecnologias</a>
-
-</nav>
-
+<div class="logo">🌱 AGRINHO 2026</div>
 </header>
 
-<section class="hero">
+<section class="section">
 
-<div class="hero-content">
+<h2>📸 Galeria Rural</h2>
 
-<h1>
-📸 Galeria Rural
-</h1>
-
-<p>
-
-Exemplos reais de tecnologia, inovação e sustentabilidade no campo.
-
-</p>
-
+<div class="filtros">
+<button onclick="filtrar('todos')">Todos</button>
+<button onclick="filtrar('drones')">Drones</button>
+<button onclick="filtrar('plantas')">Plantas</button>
+<button onclick="filtrar('maquinas')">Máquinas</button>
 </div>
 
-</section>
+<div class="galeria">
 
-<section id="galeria" class="section">
-
-<h2>
-🌾 Galeria de Imagens
-</h2>
-
-<div class="gallery">
-
-<div class="gallery-item">
-
-<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80">
-
-<h3>Agricultura Moderna</h3>
-
+<!-- DRONES -->
+<div class="item drones">
+<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854">
+<h3>Drones no Campo</h3>
 </div>
 
-<div class="gallery-item">
-
-<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80">
-
-<h3>Produção Sustentável</h3>
-
+<div class="item drones">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+<h3>Monitoramento Aéreo</h3>
 </div>
 
-<div class="gallery-item">
-
-<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80">
-
+<!-- PLANTAS -->
+<div class="item plantas">
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399">
 <h3>Preservação Ambiental</h3>
-
 </div>
 
-<div class="gallery-item">
-
-<img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80">
-
+<div class="item plantas">
+<img src="https://images.unsplash.com/photo-1472396961693-142e6e269027">
 <h3>Biodiversidade</h3>
-
 </div>
 
-<div class="gallery-item">
-
-<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80">
-
-<h3>Lavouras</h3>
-
+<!-- MÁQUINAS -->
+<div class="item maquinas">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef">
+<h3>Tratores Modernos</h3>
 </div>
 
-<div class="gallery-item">
-
-<img src="https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1200&q=80">
-
-<h3>Campo e Tecnologia</h3>
-
+<div class="item maquinas">
+<img src="https://images.unsplash.com/photo-1492496913980-501348b61469">
+<h3>Tecnologia no Campo</h3>
 </div>
 
 </div>
 
 </section>
 
-<section id="tecnologias" class="section destaque">
+<script>
+function filtrar(categoria){
+  const itens = document.querySelectorAll(".item");
 
-<h2>
-🚀 O Futuro Está no Campo
-</h2>
+  itens.forEach(item => {
 
-<p>
+    if(categoria === "todos"){
+      item.classList.remove("hide");
+    }
+    else if(item.classList.contains(categoria)){
+      item.classList.remove("hide");
+    }
+    else {
+      item.classList.add("hide");
+    }
 
-A união entre tecnologia, pesquisa científica e sustentabilidade
-será fundamental para alimentar o mundo nas próximas décadas.
-
-</p>
-
-</section>
-
-<footer>
-
-<p>
-🌱 Agrinho 2026 - Agro Forte, Futuro Sustentável
-</p>
-
-</footer>
-
-<script src="script.js"></script>
+  });
+}
+</script>
 
 </body>
 </html>

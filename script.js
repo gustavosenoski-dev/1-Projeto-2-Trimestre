@@ -1,334 +1,57 @@
-// ===========================
-// CONTADORES ANIMADOS
-// ===========================
+// =========================
+// AGRINHO 2026 JS
+// =========================
 
-const counters =
-document.querySelectorAll(".contador");
-
-const animateCounter = (counter) => {
-
-const target =
-+counter.getAttribute("data-target");
-
-const updateCounter = () => {
-
-const current =
-+counter.innerText;
-
-const increment =
-target / 100;
-
-if(current < target){
-
-counter.innerText =
-Math.ceil(current + increment);
-
-setTimeout(
-updateCounter,
-20
-);
-
-}else{
-
-counter.innerText =
-target.toLocaleString("pt-BR");
-
+// MENU
+function toggleMenu(){
+  document.querySelector("nav").classList.toggle("active");
 }
 
+// DARK MODE
+function toggleTheme(){
+  document.body.classList.toggle("light");
+  localStorage.setItem("theme",
+    document.body.classList.contains("light") ? "light":"dark"
+  );
+}
+
+// LOAD THEME
+window.onload = () => {
+  if(localStorage.getItem("theme")==="light"){
+    document.body.classList.add("light");
+  }
+  animateCounters();
 };
 
-updateCounter();
+// FONT SIZE
+let fontSize = 16;
 
-};
-
-counters.forEach(counter=>{
-
-animateCounter(counter);
-
-});
-
-// ===========================
-// ANIMAÇÃO AO ROLAR
-// ===========================
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
+function increaseFont(){
+  fontSize += 2;
+  document.body.style.fontSize = fontSize+"px";
 }
 
-});
-
-},
-
-{
-threshold:0.15
+function decreaseFont(){
+  fontSize -= 2;
+  document.body.style.fontSize = fontSize+"px";
 }
 
-);
-
-document
-.querySelectorAll(
-".card, .stat-card"
-)
-.forEach(el=>{
-
-observer.observe(el);
-
-});
-
-// ===========================
-// EFEITO HEADER
-// ===========================
-
-window.addEventListener(
-"scroll",
-()=>{
-
-const header =
-document.querySelector("header");
-
-if(window.scrollY > 50){
-
-header.style.background =
-"rgba(0,0,0,.65)";
-
-}else{
-
-header.style.background =
-"rgba(0,0,0,.2)";
-
+function resetFont(){
+  fontSize = 16;
+  document.body.style.fontSize = fontSize+"px";
 }
 
+// COUNTERS
+function animateCounters(){
+  const counters = document.querySelectorAll(".count");
+  counters.forEach(counter=>{
+    let target = +counter.getAttribute("data-target");
+    let count = 0;
+
+    let interval = setInterval(()=>{
+      count++;
+      counter.innerText = count;
+      if(count >= target) clearInterval(interval);
+    },20);
+  });
 }
-);
-
-// ===========================
-// EFEITO PARALLAX HERO
-// ===========================
-
-window.addEventListener(
-"scroll",
-()=>{
-
-const hero =
-document.querySelector(".hero");
-
-if(hero){
-
-hero.style.backgroundPositionY =
-window.scrollY * 0.4 + "px";
-
-}
-
-}
-);
-
-// ===========================
-// EFEITO NOS CARDS
-// ===========================
-
-document
-.querySelectorAll(".card")
-.forEach(card=>{
-
-card.addEventListener(
-"mousemove",
-(e)=>{
-
-const rect =
-card.getBoundingClientRect();
-
-const x =
-e.clientX - rect.left;
-
-const y =
-e.clientY - rect.top;
-
-card.style.transform =
-`
-perspective(1000px)
-rotateX(${(y-rect.height/2)/25}deg)
-rotateY(${-(x-rect.width/2)/25}deg)
-translateY(-10px)
-`;
-
-});
-
-card.addEventListener(
-"mouseleave",
-()=>{
-
-card.style.transform =
-"translateY(0px)";
-
-});
-
-});
-
-// ===========================
-// BOTÃO VOLTAR AO TOPO
-// ===========================
-
-const topButton =
-document.createElement("button");
-
-topButton.innerHTML = "⬆";
-
-topButton.id = "topButton";
-
-document.body.appendChild(topButton);
-
-topButton.style.position = "fixed";
-topButton.style.bottom = "25px";
-topButton.style.right = "25px";
-topButton.style.width = "55px";
-topButton.style.height = "55px";
-topButton.style.border = "none";
-topButton.style.borderRadius = "50%";
-topButton.style.cursor = "pointer";
-topButton.style.fontSize = "22px";
-topButton.style.background = "#4CAF50";
-topButton.style.color = "white";
-topButton.style.display = "none";
-topButton.style.zIndex = "9999";
-
-window.addEventListener(
-"scroll",
-()=>{
-
-if(window.scrollY > 400){
-
-topButton.style.display =
-"block";
-
-}else{
-
-topButton.style.display =
-"none";
-
-}
-
-}
-);
-
-topButton.addEventListener(
-"click",
-()=>{
-
-window.scrollTo({
-
-top:0,
-behavior:"smooth"
-
-});
-
-}
-);
-
-// ===========================
-// EFEITO DE DIGITAÇÃO
-// ===========================
-
-const heroTitle =
-document.querySelector(".hero h1");
-
-if(heroTitle){
-
-const text =
-heroTitle.innerHTML;
-
-heroTitle.innerHTML = "";
-
-let i = 0;
-
-function typeWriter(){
-
-if(i < text.length){
-
-heroTitle.innerHTML +=
-text.charAt(i);
-
-i++;
-
-setTimeout(
-typeWriter,
-50
-);
-
-}
-
-}
-
-typeWriter();
-
-}
-// MENU HAMBURGUER
-
-const menuBtn =
-document.getElementById("menuBtn");
-
-const menu =
-document.getElementById("menu");
-
-if(menuBtn){
-
-menuBtn.addEventListener("click",()=>{
-
-menu.classList.toggle("active");
-
-});
-
-}
-
-// MODO ESCURO
-
-const themeBtn =
-document.getElementById("themeBtn");
-
-if(themeBtn){
-
-themeBtn.addEventListener("click",()=>{
-
-document.body.classList.toggle("dark");
-
-});
-
-}
-
-// TAMANHO DA FONTE
-
-let tamanhoFonte = 100;
-
-document
-.getElementById("fontPlus")
-.addEventListener("click",()=>{
-
-tamanhoFonte += 10;
-
-document.body.style.fontSize =
-tamanhoFonte + "%";
-
-});
-
-document
-.getElementById("fontMinus")
-.addEventListener("click",()=>{
-
-tamanhoFonte -= 10;
-
-if(tamanhoFonte < 80){
-tamanhoFonte = 80;
-}
-
-document.body.style.fontSize =
-tamanhoFonte + "%";
-
-});
