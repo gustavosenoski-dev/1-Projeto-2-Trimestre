@@ -788,3 +788,25 @@ body {
     font-size: 0.85rem;
   }
 }
+/* Complemento para a Página Inicial (Grid de Destaques) */
+.grid-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.feature-item {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-item span {
+  font-size: 2rem; /* Controla o tamanho dos emojis para não ficarem gigantes */
+}
