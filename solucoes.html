@@ -1,37 +1,144 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Soluções</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soluções Sustentáveis — AgroForte 2026</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<script src="js/nav-footer.js"></script>
 
-<header>
-  <div class="logo">Soluções</div>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <nav>
-    <a href="index.html">Início</a>
-  </nav>
-</header>
-
-<section class="grid">
-  <div class="card">
-    <h3>Energia Solar</h3>
-    <p>Reduz custos e impacto ambiental.</p>
-  </div>
-
-  <div class="card">
-    <h3>Irrigação Inteligente</h3>
-    <p>Uso eficiente da água no campo.</p>
-  </div>
-
-  <div class="card">
-    <h3>Biodigestores</h3>
-    <p>Transforma resíduos em energia.</p>
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Início</a><span class="breadcrumb-sep">/</span>Soluções</div>
+    <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">12 Soluções</div>
+    <h1 class="section-title" style="margin-top:12px;">Soluções Sustentáveis</h1>
+    <p class="section-sub" style="color:rgba(255,255,255,.6);">Propostas originais para transformar a agropecuária de Guarapuava, unindo tecnologia, meio ambiente e produtividade.</p>
   </div>
 </section>
 
-<script src="script.js"></script>
+<section class="section">
+  <div class="container">
+
+    <!-- Solução 1 -->
+    <div id="solar" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px;" class="fade-up">
+      <div>
+        <div class="tag">Energia Renovável</div>
+        <h2 class="section-title" style="font-size:2rem;">Energia Solar Rural</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0;">Painéis fotovoltaicos instalados em telhados, galpões e áreas abertas de propriedades rurais. Guarapuava recebe média de 4,8 horas de sol pico por dia — suficiente para gerar toda a energia de uma fazenda de médio porte.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Economia de até R$ 3.200/mês na conta de luz</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Retorno do investimento em 4–6 anos</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Redução de 60% das emissões de CO₂ da propriedade</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Créditos de energia excedente injetados na rede</span></li>
+        </ul>
+        <a href="tecnologias.html" class="btn btn-primary">Ver tecnologia completa →</a>
+      </div>
+      <div style="background:linear-gradient(135deg,#fff8e1,#fff3cd);border-radius:var(--radius-xl);height:320px;display:flex;align-items:center;justify-content:center;font-size:96px;">☀️</div>
+    </div>
+
+    <!-- Solução 2 -->
+    <div id="irrigacao" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px;" class="fade-up">
+      <div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:var(--radius-xl);height:320px;display:flex;align-items:center;justify-content:center;font-size:96px;">💧</div>
+      <div>
+        <div class="tag">Gestão Hídrica</div>
+        <h2 class="section-title" style="font-size:2rem;">Irrigação Inteligente</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0;">Sensores IoT instalados no solo medem temperatura, umidade e nutrientes em tempo real. Um algoritmo decide quando e quanto irrigar — nunca desperdiçando uma gota. Os dados são visualizados no celular do agricultor.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Redução de 40% no consumo de água</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Aumento de 25% na produtividade</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Monitoramento remoto 24h pelo celular</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Alertas automáticos de estresse hídrico</span></li>
+        </ul>
+        <a href="tecnologias.html" class="btn btn-primary">Ver tecnologia completa →</a>
+      </div>
+    </div>
+
+    <!-- Solução 3 -->
+    <div id="drones" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px;" class="fade-up">
+      <div>
+        <div class="tag">Tecnologia Aérea</div>
+        <h2 class="section-title" style="font-size:2rem;">Drones Agrícolas com IA</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0;">Drones equipados com câmeras multiespectrais capturam imagens que revelam o que o olho humano não enxerga: deficiências de nutrientes, focos de pragas e doenças em estágio inicial. Inteligência Artificial analisa os dados e gera relatórios automáticos.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Mapeamento de 1.000 ha em menos de 3 horas</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Detecção precoce de pragas e doenças</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Redução de 30% no uso de defensivos</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Aplicação precisa de insumos por pulverização</span></li>
+        </ul>
+        <a href="tecnologias.html" class="btn btn-primary">Ver tecnologia completa →</a>
+      </div>
+      <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:var(--radius-xl);height:320px;display:flex;align-items:center;justify-content:center;font-size:96px;">🚁</div>
+    </div>
+
+    <!-- Solução 4 -->
+    <div id="biodigestor" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px;" class="fade-up">
+      <div style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);border-radius:var(--radius-xl);height:320px;display:flex;align-items:center;justify-content:center;font-size:96px;">♻️</div>
+      <div>
+        <div class="tag">Economia Circular</div>
+        <h2 class="section-title" style="font-size:2rem;">Biodigestores Rurais</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0;">Dejetos de bovinos, suínos e aves são transformados em biogás (para cozinhar e gerar eletricidade) e biofertilizante líquido, rico em nitrogênio e fósforo. Zero desperdício, zero poluição de rios.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Elimina 100% dos odores de chiqueiros e estábulos</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Gera biogás equivalente a 40 botijões/mês por 100 suínos</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Biofertilizante vale 50% a menos que adubo químico</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Evita contaminação de lençóis freáticos</span></li>
+        </ul>
+        <a href="tecnologias.html" class="btn btn-primary">Ver tecnologia completa →</a>
+      </div>
+    </div>
+
+    <!-- Solução 5 -->
+    <div id="reflorestamento" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px;" class="fade-up">
+      <div>
+        <div class="tag">Biodiversidade</div>
+        <h2 class="section-title" style="font-size:2rem;">Reflorestamento com Nativas</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0;">Plantio de espécies nativas da Mata Atlântica nas margens de rios, nascentes e áreas de reserva legal. Araucárias, erva-mate, cedros e imbuias formam corredores ecológicos que atraem fauna e regulam o ciclo da água.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Recupera nascentes e aumenta a vazão dos rios</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Sequestro de 15 toneladas de CO₂/ha por ano</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Crédito de carbono pode gerar renda extra</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Regularização do CAR e conformidade legal</span></li>
+        </ul>
+        <a href="guarapuava.html" class="btn btn-primary">Ver plano para Guarapuava →</a>
+      </div>
+      <div style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7);border-radius:var(--radius-xl);height:320px;display:flex;align-items:center;justify-content:center;font-size:96px;">🌳</div>
+    </div>
+
+    <!-- Solução 6 -->
+    <div id="rotacao" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="fade-up">
+      <div style="background:linear-gradient(135deg,#fbe9e7,#ffccbc);border-radius:var(--radius-xl);height:320px;display:flex;align-items:center;justify-content:center;font-size:96px;">🌾</div>
+      <div>
+        <div class="tag">Manejo do Solo</div>
+        <h2 class="section-title" style="font-size:2rem;">Rotação e Plantio Direto</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0;">A combinação de rotação de culturas com plantio direto é a base da agricultura sustentável em Guarapuava. Soja, milho, trigo e aveia se revezam enriquecendo o solo, enquanto o plantio direto elimina a erosão e mantém a umidade.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Aumenta matéria orgânica do solo em 3 anos</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Reduz erosão em até 90% comparado ao convencional</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Diminui custo com fertilizantes em 35%</span></li>
+          <li style="display:flex;gap:12px;font-size:.9rem;color:var(--text-mid);">✅ <span>Controle natural de pragas pela diversificação</span></li>
+        </ul>
+        <a href="guarapuava.html" class="btn btn-primary">Ver plano para Guarapuava →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Simulador na página de soluções -->
+<section class="section" style="background:#f0ede6;padding-top:0;">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:48px;">
+      <div class="tag">Simulador</div>
+      <h2 class="section-title">Calcule seu impacto</h2>
+      <p class="section-sub" style="margin:12px auto 0;">Monte seu pacote de soluções sustentáveis e veja a diferença que você pode fazer.</p>
+    </div>
+    <div id="simulator-wrap" class="fade-up"></div>
+  </div>
+</section>
+
+<script src="js/script.js"></script>
 </body>
 </html>

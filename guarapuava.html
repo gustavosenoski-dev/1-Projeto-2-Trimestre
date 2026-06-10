@@ -1,59 +1,241 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guarapuava e o Agro</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guarapuava Sustentável — AgroForte 2026</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<script src="js/nav-footer.js"></script>
 
-<header>
-  <div class="logo">Guarapuava</div>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <nav>
-    <a href="index.html">Início</a>
-  </nav>
-</header>
-
-<section class="hero" style="height:60vh;">
-  <h1>Guarapuava e o Agro Sustentável</h1>
-  <p>Uma das regiões mais importantes do Paraná na agricultura.</p>
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Início</a><span class="breadcrumb-sep">/</span>Guarapuava</div>
+    <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">📍 Guarapuava, PR</div>
+    <h1 class="section-title" style="margin-top:12px;">Guarapuava Sustentável</h1>
+    <p class="section-sub" style="color:rgba(255,255,255,.6);">Nossa cidade tem vocação agropecuária. Descubra os desafios, as oportunidades e as propostas para um futuro mais verde.</p>
+  </div>
 </section>
 
-<section class="grid">
-
-  <div class="card">
-    <h3>❄️ Geadas</h3>
-    <p>Clima frio que influencia diretamente a produção agrícola local.</p>
+<!-- Apresentação da cidade -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+      <div class="fade-up">
+        <div class="tag">A Cidade</div>
+        <h2 class="section-title">Por que Guarapuava?</h2>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin:16px 0 24px;">Guarapuava é o maior município em extensão do Paraná e um dos principais centros agropecuários do estado. Com altitude média de 1.100 metros, clima subtropical e solos de alta fertilidade, a cidade reúne as condições ideais para a agropecuária sustentável.</p>
+        <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:24px;">Porém, como todo centro agrícola, enfrenta desafios: geadas frequentes, pressão sobre nascentes, erosão do solo e uso excessivo de agroquímicos. Este projeto propõe soluções concretas para cada um desses problemas.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;">
+          <div style="text-align:center;padding:24px;background:var(--cream);border-radius:var(--radius-md);">
+            <div style="font-size:2rem;font-family:var(--ff-display);font-weight:800;color:var(--green-500);" data-count="3126" data-suffix="km²">3.126km²</div>
+            <div style="font-size:.8rem;color:var(--text-light);margin-top:4px;">área total do município</div>
+          </div>
+          <div style="text-align:center;padding:24px;background:var(--green-900);border-radius:var(--radius-md);">
+            <div style="font-size:2rem;font-family:var(--ff-display);font-weight:800;color:var(--lime);" data-count="180" data-suffix="mil">180mil</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:4px;">habitantes (maior do interior do PR)</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" data-delay="2">
+        <!-- SVG mapa estilizado de Guarapuava -->
+        <div style="background:var(--green-900);border-radius:var(--radius-xl);padding:40px;display:flex;flex-direction:column;gap:20px;">
+          <div style="font-family:var(--ff-display);font-size:1.1rem;font-weight:700;color:var(--lime);text-align:center;margin-bottom:8px;">🗺️ Guarapuava — Paraná, Brasil</div>
+          <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;">
+            <!-- Fundo do mapa -->
+            <rect width="300" height="260" fill="#1A4A2E" rx="12"/>
+            <!-- Grid -->
+            <g stroke="rgba(181,240,62,.08)" stroke-width="1">
+              <line x1="0" y1="65" x2="300" y2="65"/>
+              <line x1="0" y1="130" x2="300" y2="130"/>
+              <line x1="0" y1="195" x2="300" y2="195"/>
+              <line x1="75" y1="0" x2="75" y2="260"/>
+              <line x1="150" y1="0" x2="150" y2="260"/>
+              <line x1="225" y1="0" x2="225" y2="260"/>
+            </g>
+            <!-- Silhueta do município -->
+            <path d="M80 40 L150 30 L220 55 L245 90 L250 130 L230 170 L200 200 L160 220 L120 215 L80 190 L55 155 L50 110 L60 70 Z" fill="rgba(46,155,90,.3)" stroke="var(--lime)" stroke-width="1.5"/>
+            <!-- Rio principal -->
+            <path d="M60 120 Q100 110 140 125 Q180 140 220 130" fill="none" stroke="#87CEEB" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="100" y="108" fill="#87CEEB" font-size="8" font-family="Inter">Rio Jordão</text>
+            <!-- Centro da cidade -->
+            <circle cx="150" cy="130" r="10" fill="var(--lime)" opacity=".9"/>
+            <circle cx="150" cy="130" r="16" fill="none" stroke="var(--lime)" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <text x="150" y="158" fill="white" font-size="9" font-family="Inter" text-anchor="middle" font-weight="600">Guarapuava</text>
+            <!-- Pontos de interesse -->
+            <circle cx="95" cy="80" r="5" fill="#B5F03E"/>
+            <text x="105" y="84" fill="rgba(255,255,255,.7)" font-size="7" font-family="Inter">Zona Rural N</text>
+            <circle cx="200" cy="85" r="5" fill="#B5F03E"/>
+            <text x="155" y="80" fill="rgba(255,255,255,.7)" font-size="7" font-family="Inter">Zona Rural L</text>
+            <circle cx="100" cy="175" r="5" fill="#B5F03E"/>
+            <text x="110" y="178" fill="rgba(255,255,255,.7)" font-size="7" font-family="Inter">Zona Rural S</text>
+            <!-- Legenda -->
+            <rect x="10" y="220" width="110" height="32" rx="6" fill="rgba(0,0,0,.3)"/>
+            <circle cx="22" cy="230" r="4" fill="var(--lime)"/>
+            <text x="30" y="234" fill="rgba(255,255,255,.7)" font-size="7" font-family="Inter">Zonas rurais</text>
+            <rect x="20" y="238" width="12" height="4" rx="2" fill="#87CEEB"/>
+            <text x="36" y="243" fill="rgba(255,255,255,.7)" font-size="7" font-family="Inter">Rios</text>
+            <!-- Bússola -->
+            <text x="268" y="28" fill="rgba(255,255,255,.4)" font-size="9" font-family="Inter" text-anchor="middle">N</text>
+            <line x1="268" y1="32" x2="268" y2="42" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>🌱 Conservação do Solo</h3>
-    <p>Técnicas de plantio direto e preservação da fertilidade.</p>
-  </div>
-
-  <div class="card">
-    <h3>💧 Recursos Hídricos</h3>
-    <p>Rios e nascentes fundamentais para irrigação e produção.</p>
-  </div>
-
-  <div class="card">
-    <h3>🚜 Produção Agrícola</h3>
-    <p>Soja, milho e trigo como base econômica regional.</p>
-  </div>
-
-  <div class="card">
-    <h3>🌎 Sustentabilidade</h3>
-    <p>Práticas agrícolas responsáveis preservando o meio ambiente.</p>
-  </div>
-
 </section>
 
-<footer>
-  <p>Guarapuava - referência em agricultura sustentável</p>
-</footer>
+<!-- Desafios -->
+<section class="section" style="background:#f0ede6;padding-top:0;">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:48px;">
+      <div class="tag">Diagnóstico</div>
+      <h2 class="section-title">Desafios da região</h2>
+      <p class="section-sub" style="margin:12px auto 0;">Conhecer os problemas é o primeiro passo para resolvê-los.</p>
+    </div>
+    <div class="challenges-grid fade-up">
+      <div class="challenge-item">
+        <strong>🌡️ Geadas Frequentes</strong>
+        <p>Guarapuava registra até 20 geadas/ano. Sensores climáticos e alertas precoces reduzem perdas nas lavouras.</p>
+      </div>
+      <div class="challenge-item" style="border-color:var(--earth);">
+        <strong>🌊 Erosão do Solo</strong>
+        <p>O manejo inadequado em terrenos inclinados provoca perda de 10–20 toneladas de solo por hectare/ano.</p>
+      </div>
+      <div class="challenge-item" style="border-color:var(--sky);">
+        <strong>💧 Pressão sobre Nascentes</strong>
+        <p>Desmatamento ciliar ameaça 40% das nascentes do município, comprometendo o abastecimento hídrico.</p>
+      </div>
+      <div class="challenge-item" style="border-color:#e67e22;">
+        <strong>🧪 Uso Excessivo de Agroquímicos</strong>
+        <p>Aplicações sem critério técnico contaminam rios e elevam custos de produção desnecessariamente.</p>
+      </div>
+      <div class="challenge-item" style="border-color:#8e44ad;">
+        <strong>📉 Jovens Deixando o Campo</strong>
+        <p>O êxodo rural reduz a mão de obra qualificada. Tecnologia e conectividade rural são essenciais para reter talentos.</p>
+      </div>
+      <div class="challenge-item" style="border-color:#e74c3c;">
+        <strong>🌿 Perda de Biodiversidade</strong>
+        <p>Fragmentação florestal isola populações de fauna nativa, reduzindo a resiliência dos ecossistemas locais.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script src="script.js"></script>
+<!-- Propostas -->
+<section class="section">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:56px;">
+      <div class="tag">Propostas</div>
+      <h2 class="section-title">Guarapuava do futuro</h2>
+      <p class="section-sub" style="margin:12px auto 0;">6 ações concretas para transformar nossa cidade em referência de agro sustentável.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card fade-up" data-delay="1">
+        <div class="card-icon card-icon-lime">☀️</div>
+        <div class="card-title">Programa Solar Municipal</div>
+        <p class="card-text">Incentivo fiscal para instalação de painéis solares em 500 propriedades rurais até 2028. Meta: gerar 15 MW de energia limpa na zona rural.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(13,43,26,.08);">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px;color:var(--text-mid);">
+            <span>Progresso estimado</span><span>35%</span>
+          </div>
+          <div style="height:6px;background:rgba(13,43,26,.08);border-radius:3px;"><div style="height:100%;width:35%;background:linear-gradient(90deg,var(--green-500),var(--lime));border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div class="card fade-up" data-delay="2">
+        <div class="card-icon card-icon-green">🚁</div>
+        <div class="card-title">Hub de Drones Rurais</div>
+        <p class="card-text">Central de serviços de drone compartilhado para pequenos e médios agricultores. Mapeamento acessível para todos os produtores da região.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(13,43,26,.08);">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px;color:var(--text-mid);">
+            <span>Progresso estimado</span><span>20%</span>
+          </div>
+          <div style="height:6px;background:rgba(13,43,26,.08);border-radius:3px;"><div style="height:100%;width:20%;background:linear-gradient(90deg,var(--green-500),var(--lime));border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div class="card fade-up" data-delay="3">
+        <div class="card-icon card-icon-sky">🌳</div>
+        <div class="card-title">Cinturão Verde Guarapuava</div>
+        <p class="card-text">Projeto de reflorestamento de 2.000 ha de matas ciliares e reservas legais até 2030, conectando fragmentos florestais isolados.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(13,43,26,.08);">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px;color:var(--text-mid);">
+            <span>Progresso estimado</span><span>45%</span>
+          </div>
+          <div style="height:6px;background:rgba(13,43,26,.08);border-radius:3px;"><div style="height:100%;width:45%;background:linear-gradient(90deg,var(--green-500),var(--lime));border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div class="card fade-up" data-delay="1">
+        <div class="card-icon card-icon-earth">💧</div>
+        <div class="card-title">Guardiões das Nascentes</div>
+        <p class="card-text">Programa de adoção de nascentes por produtores rurais, com apoio técnico, mudas nativas e monitoramento por satélite.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(13,43,26,.08);">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px;color:var(--text-mid);">
+            <span>Progresso estimado</span><span>60%</span>
+          </div>
+          <div style="height:6px;background:rgba(13,43,26,.08);border-radius:3px;"><div style="height:100%;width:60%;background:linear-gradient(90deg,var(--green-500),var(--lime));border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div class="card fade-up" data-delay="2">
+        <div class="card-icon card-icon-green">🌿</div>
+        <div class="card-title">Compostagem Rural Coletiva</div>
+        <p class="card-text">Redes de compostagem entre pequenas propriedades vizinhas, transformando resíduos orgânicos em adubo de alta qualidade para todos.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(13,43,26,.08);">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px;color:var(--text-mid);">
+            <span>Progresso estimado</span><span>25%</span>
+          </div>
+          <div style="height:6px;background:rgba(13,43,26,.08);border-radius:3px;"><div style="height:100%;width:25%;background:linear-gradient(90deg,var(--green-500),var(--lime));border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div class="card fade-up" data-delay="3">
+        <div class="card-icon card-icon-lime">📡</div>
+        <div class="card-title">Conectividade Rural 5G</div>
+        <p class="card-text">Expansão da rede de internet para zonas rurais, habilitando o uso de IoT, sensores, drones e aplicativos de gestão agrícola.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(13,43,26,.08);">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px;color:var(--text-mid);">
+            <span>Progresso estimado</span><span>15%</span>
+          </div>
+          <div style="height:6px;background:rgba(13,43,26,.08);border-radius:3px;"><div style="height:100%;width:15%;background:linear-gradient(90deg,var(--green-500),var(--lime));border-radius:3px;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" style="background:var(--green-900);">
+  <div class="container" style="max-width:800px;">
+    <div class="text-center fade-up" style="margin-bottom:56px;">
+      <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">Cronograma</div>
+      <h2 class="section-title" style="color:#fff;">Guarapuava 2026–2030</h2>
+      <p style="color:rgba(255,255,255,.6);margin:12px auto 0;font-size:1rem;max-width:500px;">Metas e marcos para a transição sustentável da agropecuária municipal.</p>
+    </div>
+    <div class="timeline fade-up">
+      <div class="timeline-item">
+        <div class="timeline-title">2026 — Diagnóstico e Planejamento</div>
+        <p class="timeline-text">Mapeamento completo das propriedades rurais, identificação de nascentes em risco e levantamento do potencial solar. Lançamento do portal AgroForte Guarapuava.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">2027 — Primeiros Projetos-Piloto</div>
+        <p class="timeline-text">Instalação de 50 sistemas solares em propriedades parceiras, implantação de 10 biodigestores e início do Cinturão Verde nas margens do Rio das Pedras.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">2028 — Expansão e Escala</div>
+        <p class="timeline-text">Hub de drones rural operacional, 200 propriedades com irrigação inteligente e programa de crédito de carbono ativo para reflorestadores.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">2029 — Integração Regional</div>
+        <p class="timeline-text">Guarapuava conectada em rede com municípios vizinhos, compartilhando dados climáticos, serviços de drone e bancos de mudas nativas.</p>
+      </div>
+      <div class="timeline-item" style="padding-bottom:0;">
+        <div class="timeline-title">2030 — Guarapuava Carbono Neutro</div>
+        <p class="timeline-text">Meta ambiciosa: zona rural com emissões líquidas zeradas, 2.000 ha reflorestados e Guarapuava reconhecida como modelo nacional de agro sustentável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/script.js"></script>
 </body>
 </html>

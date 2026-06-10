@@ -1,98 +1,356 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agrinho 2026</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroForte 2026 — Agro Forte, Futuro Sustentável</title>
+  <meta name="description" content="Projeto Agrinho 2026 — Soluções sustentáveis para a agropecuária de Guarapuava e o meio ambiente.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+<script src="js/nav-footer.js"></script>
 
-<header>
-  <div class="logo">🌱 Agrinho 2026</div>
-
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="solucoes.html">Soluções</a>
-    <a href="tecnologias.html">Tecnologias</a>
-    <a href="galeria.html">Galeria</a>
-  </nav>
-</header>
-
-<!-- ACCESSIBILITY -->
-<div class="access">
-  <button onclick="increaseFont()">A+</button>
-  <button onclick="decreaseFont()">A-</button>
-  <button onclick="resetFont()">Reset</button>
-  <button onclick="toggleTheme()">🌙</button>
-</div>
-
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="hero">
-  <h1>Agro Forte, Futuro Sustentável</h1>
-  <p>
-    O projeto apresenta como a agricultura moderna pode unir tecnologia,
-    preservação ambiental e desenvolvimento econômico, garantindo
-    um futuro sustentável para o campo brasileiro.
-  </p>
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Agrinho 2026 — Ensino Médio</span>
+      </div>
+      <h1 class="hero-title">
+        Agro <span class="accent">Forte,</span><br>
+        Futuro<br>Sustentável
+      </h1>
+      <p class="hero-desc">
+        Soluções tecnológicas e sustentáveis para transformar a agropecuária de Guarapuava, preservar o meio ambiente e construir um futuro mais verde para o Paraná.
+      </p>
+      <div class="hero-actions">
+        <a href="solucoes.html" class="btn btn-lime">🌱 Ver Soluções</a>
+        <a href="guarapuava.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.35);">📍 Guarapuava</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num" data-count="6" data-suffix="">6</div>
+          <div class="hero-stat-label">Páginas<br>interativas</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="12" data-suffix="">12</div>
+          <div class="hero-stat-label">Soluções<br>sustentáveis</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="100" data-suffix="%">100%</div>
+          <div class="hero-stat-label">HTML, CSS<br>& JavaScript</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-float hero-float-1">
+        <span style="font-size:24px;">🌿</span>
+        <div>
+          <strong>+40%</strong>
+          <span>menos água</span>
+        </div>
+      </div>
+      <div class="hero-card-main">
+        <div class="hero-card-inner">
+          <div class="hero-card-row">
+            <div class="hero-card-icon">☀️</div>
+            <div class="hero-card-text">
+              <strong>Energia Solar</strong>
+              <span>Painéis fotovoltaicos rurais</span>
+            </div>
+            <div class="hero-card-badge">Ativo</div>
+          </div>
+          <div class="hero-card-row">
+            <div class="hero-card-icon">🚁</div>
+            <div class="hero-card-text">
+              <strong>Drone Agrícola</strong>
+              <span>Monitoramento por IA</span>
+            </div>
+            <div class="hero-card-badge">Online</div>
+          </div>
+          <div class="hero-card-row">
+            <div class="hero-card-icon">💧</div>
+            <div class="hero-card-text">
+              <strong>Irrigação Inteligente</strong>
+              <span>Sensores IoT em campo</span>
+            </div>
+            <div class="hero-card-badge">Ativo</div>
+          </div>
+          <div class="hero-card-row">
+            <div class="hero-card-icon">♻️</div>
+            <div class="hero-card-text">
+              <strong>Biodigestor</strong>
+              <span>Resíduos → energia</span>
+            </div>
+            <div class="hero-card-badge">Ativo</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-float hero-float-2">
+        <span style="font-size:24px;">🌍</span>
+        <div>
+          <strong>-60%</strong>
+          <span>emissão de CO₂</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-
-  <div class="card">
-    <h2 class="count" data-target="1200">0</h2>
-    <p>Árvores preservadas com práticas sustentáveis</p>
+<!-- ── SOBRE O TEMA ── -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div class="fade-up">
+        <div class="tag">O Tema</div>
+        <h2 class="section-title">Por que sustentabilidade no agro?</h2>
+        <p class="section-sub">O agronegócio é o motor da economia paranaense, mas precisa evoluir. Com tecnologia e boas práticas, podemos produzir mais, gastar menos e preservar o que mais importa: nosso planeta.</p>
+        <div class="feature-list" style="margin-top:28px;">
+          <div class="feature-item">
+            <div class="feature-check" style="background:rgba(46,155,90,.15);">✅</div>
+            <div class="feature-item-text">
+              <strong style="color:var(--green-900);">Produtividade sem destruição</strong>
+              <p style="color:var(--text-mid);">Técnicas modernas aumentam a produção sem desmatar ou degradar o solo.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check" style="background:rgba(46,155,90,.15);">✅</div>
+            <div class="feature-item-text">
+              <strong style="color:var(--green-900);">Tecnologia acessível ao produtor</strong>
+              <p style="color:var(--text-mid);">Desde pequenas propriedades até grandes fazendas podem adotar inovações.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check" style="background:rgba(46,155,90,.15);">✅</div>
+            <div class="feature-item-text">
+              <strong style="color:var(--green-900);">Guarapuava como modelo</strong>
+              <p style="color:var(--text-mid);">Nossa cidade tem potencial para liderar a transição sustentável no Paraná.</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <a href="solucoes.html" class="btn btn-primary">Explorar Soluções →</a>
+        </div>
+      </div>
+      <div class="fade-up" data-delay="2">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="card" style="text-align:center;">
+            <div style="font-size:48px;margin-bottom:12px;">🌱</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--green-500);" data-count="85" data-suffix="%">85%</div>
+            <div style="font-size:.82rem;color:var(--text-light);">do PIB de Guarapuava vem do agro</div>
+          </div>
+          <div class="card" style="text-align:center;background:var(--green-900);">
+            <div style="font-size:48px;margin-bottom:12px;">💧</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--lime);" data-count="40" data-suffix="%">40%</div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.5);">de água economizada com irrigação inteligente</div>
+          </div>
+          <div class="card" style="text-align:center;background:var(--lime);">
+            <div style="font-size:48px;margin-bottom:12px;">☀️</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--green-900);" data-count="60" data-suffix="%">60%</div>
+            <div style="font-size:.82rem;color:var(--green-800);">redução de CO₂ com energia solar</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:48px;margin-bottom:12px;">🚁</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--green-500);" data-count="30" data-suffix="%">30%</div>
+            <div style="font-size:.82rem;color:var(--text-light);">menos insumos com drones agrícolas</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="card">
-    <h2 class="count" data-target="5000">0</h2>
-    <p>Litros de água economizados com irrigação inteligente</p>
-  </div>
-
-  <div class="card">
-    <h2 class="count" data-target="800">0</h2>
-    <p>Fazendas utilizando energia limpa</p>
-  </div>
-
 </section>
 
-<!-- CONTENT -->
-<section class="grid">
-
-  <div class="card">
-    <h3>🌱 Sustentabilidade no Campo</h3>
-    <p>
-      A sustentabilidade agrícola busca equilibrar produção e preservação ambiental,
-      reduzindo impactos e garantindo recursos para futuras gerações.
-    </p>
+<!-- ── SOLUÇÕES DESTAQUE ── -->
+<section class="section" style="background:#f0ede6;padding-top:0;">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:56px;">
+      <div class="tag">Destaques</div>
+      <h2 class="section-title">Nossas principais soluções</h2>
+      <p class="section-sub" style="margin:12px auto 0;">Tecnologias e práticas que transformam a agropecuária de Guarapuava.</p>
+    </div>
+    <div class="grid-3">
+      <div class="solution-card fade-up" data-delay="1">
+        <div class="solution-emoji" style="background:linear-gradient(135deg,#fff8e1,#fff3cd);">☀️</div>
+        <div class="solution-body">
+          <div class="card-title">Energia Solar Rural</div>
+          <p class="card-text">Painéis fotovoltaicos em propriedades rurais eliminam a conta de energia e geram créditos para revenda à rede elétrica.</p>
+          <a href="solucoes.html#solar" class="card-link">Ver detalhes →</a>
+        </div>
+      </div>
+      <div class="solution-card fade-up" data-delay="2">
+        <div class="solution-emoji" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">💧</div>
+        <div class="solution-body">
+          <div class="card-title">Irrigação Inteligente</div>
+          <p class="card-text">Sensores IoT no solo medem a umidade em tempo real e acionam a irrigação apenas quando necessário, economizando até 40% de água.</p>
+          <a href="solucoes.html#irrigacao" class="card-link">Ver detalhes →</a>
+        </div>
+      </div>
+      <div class="solution-card fade-up" data-delay="3">
+        <div class="solution-emoji" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">🚁</div>
+        <div class="solution-body">
+          <div class="card-title">Drones Agrícolas</div>
+          <p class="card-text">Equipados com câmeras multiespectrais e IA, os drones identificam pragas, deficiências nutricionais e estresse hídrico antes do olho humano.</p>
+          <a href="solucoes.html#drones" class="card-link">Ver detalhes →</a>
+        </div>
+      </div>
+      <div class="solution-card fade-up" data-delay="1">
+        <div class="solution-emoji" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">♻️</div>
+        <div class="solution-body">
+          <div class="card-title">Biodigestores</div>
+          <p class="card-text">Transformam dejetos animais em biogás para cozinhar e gerar eletricidade, além de produzir biofertilizante de alta qualidade.</p>
+          <a href="solucoes.html#biodigestor" class="card-link">Ver detalhes →</a>
+        </div>
+      </div>
+      <div class="solution-card fade-up" data-delay="2">
+        <div class="solution-emoji" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7);">🌳</div>
+        <div class="solution-body">
+          <div class="card-title">Reflorestamento</div>
+          <p class="card-text">Recuperação de áreas degradadas com espécies nativas da Mata Atlântica, restaurando nascentes e corredores ecológicos em Guarapuava.</p>
+          <a href="solucoes.html#reflorestamento" class="card-link">Ver detalhes →</a>
+        </div>
+      </div>
+      <div class="solution-card fade-up" data-delay="3">
+        <div class="solution-emoji" style="background:linear-gradient(135deg,#fbe9e7,#ffccbc);">🌿</div>
+        <div class="solution-body">
+          <div class="card-title">Rotação de Culturas</div>
+          <p class="card-text">Alternar cultivos melhora a estrutura do solo, quebra ciclos de pragas e reduz drasticamente o uso de agroquímicos.</p>
+          <a href="solucoes.html#rotacao" class="card-link">Ver detalhes →</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:40px;">
+      <a href="solucoes.html" class="btn btn-primary">Ver todas as soluções →</a>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>🚜 Agricultura Moderna</h3>
-    <p>
-      O uso de sensores, drones e inteligência artificial permite maior eficiência
-      na produção agrícola com menor desperdício de recursos.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>🌎 Impacto Ambiental</h3>
-    <p>
-      A adoção de tecnologias verdes reduz emissão de carbono e melhora a qualidade
-      do solo e da água no meio rural.
-    </p>
-  </div>
-
 </section>
 
-<footer>
-  <p>Projeto Agrinho 2026 • Desenvolvido com foco em inovação e sustentabilidade</p>
-</footer>
+<!-- ── FEATURE BAND ── -->
+<section class="feature-band">
+  <div class="container feature-band-inner">
+    <div class="fade-up">
+      <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">Guarapuava/PR</div>
+      <h2 class="section-title">Transformando nossa cidade</h2>
+      <p class="section-sub">Guarapuava tem vocação agropecuária desde sua fundação. Com as tecnologias certas, podemos ser referência nacional em agro sustentável.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-check">🌡️</div>
+          <div class="feature-item-text">
+            <strong>Resistência às geadas</strong>
+            <p>Sensores climáticos alertam produtores sobre risco de geada com até 48h de antecedência.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check">🌊</div>
+          <div class="feature-check">💧</div>
+          <div class="feature-item-text">
+            <strong>Proteção de nascentes</strong>
+            <p>Reflorestamento ciliar e monitoramento por satélite das bacias hidrográficas da região.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check">🌾</div>
+          <div class="feature-item-text">
+            <strong>Solo de alto potencial</strong>
+            <p>O Latossolo Vermelho de Guarapuava é um dos mais férteis do Paraná quando bem manejado.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <a href="guarapuava.html" class="btn btn-lime">Conheça o projeto →</a>
+      </div>
+    </div>
+    <div class="feature-visual-grid fade-up" data-delay="2">
+      <div class="fv-card">
+        <div style="font-size:2rem;margin-bottom:8px;">🌾</div>
+        <div class="fv-num" data-count="1100" data-suffix="m">1.100m</div>
+        <div class="fv-label">altitude média de Guarapuava</div>
+      </div>
+      <div class="fv-card">
+        <div style="font-size:2rem;margin-bottom:8px;">🌧️</div>
+        <div class="fv-num" data-count="1900" data-suffix="mm">1.900mm</div>
+        <div class="fv-label">chuva anual — ótima para o agro</div>
+      </div>
+      <div class="fv-card">
+        <div style="font-size:2rem;margin-bottom:8px;">🌡️</div>
+        <div class="fv-num" data-count="17" data-suffix="°C">17°C</div>
+        <div class="fv-label">temperatura média anual</div>
+      </div>
+      <div class="fv-card">
+        <div style="font-size:2rem;margin-bottom:8px;">🚜</div>
+        <div class="fv-num" data-count="4200" data-suffix="">4.200</div>
+        <div class="fv-label">propriedades rurais no município</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script src="script.js"></script>
+<!-- ── CONTADOR DE ÁRVORES ── -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div class="fade-up">
+        <div class="tag">Ação Interativa</div>
+        <h2 class="section-title">Plante uma árvore virtual</h2>
+        <p class="section-sub">Cada clique representa um compromisso. Junte-se ao movimento e ajude a plantar árvores virtuais — sensibilizando sobre a importância do reflorestamento em Guarapuava.</p>
+        <p style="font-size:.85rem;color:var(--text-light);margin-top:16px;">🌳 Suas árvores ficam salvas mesmo ao fechar o site!</p>
+      </div>
+      <div class="fade-up" data-delay="2">
+        <div class="counter-wrap">
+          <div class="counter-num" id="arvores-num">0</div>
+          <div class="counter-label">🌿 árvores plantadas por você</div>
+          <button class="counter-btn" id="plantar-btn">🌳 Plantar Árvore</button>
+          <div class="counter-trees" id="trees-visual"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUIZ ── -->
+<section class="section" style="background:#f0ede6;padding-top:0;">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:48px;">
+      <div class="tag">Quiz</div>
+      <h2 class="section-title">Teste seus conhecimentos</h2>
+      <p class="section-sub" style="margin:12px auto 0;">5 perguntas sobre agro sustentável e Guarapuava. Você sabe tudo?</p>
+    </div>
+    <div id="quiz-container" class="fade-up"></div>
+  </div>
+</section>
+
+<!-- ── SIMULADOR ── -->
+<section class="section">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:48px;">
+      <div class="tag">Simulador</div>
+      <h2 class="section-title">Calcule seu impacto ambiental</h2>
+      <p class="section-sub" style="margin:12px auto 0;">Escolha as tecnologias sustentáveis para sua propriedade e veja a diferença que você pode fazer.</p>
+    </div>
+    <div id="simulator-wrap" class="fade-up"></div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="section" style="padding-bottom:0;">
+  <div class="container">
+    <div style="background:var(--green-900);border-radius:var(--radius-xl);padding:72px 64px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;" class="fade-up">
+      <div>
+        <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">Agrinho 2026</div>
+        <h2 style="font-family:var(--ff-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;color:#fff;margin:16px 0 12px;line-height:1.15;">Explore todo o projeto</h2>
+        <p style="color:rgba(255,255,255,.6);font-size:1rem;line-height:1.7;">Acesse todas as páginas e descubra como a tecnologia pode transformar o agro de Guarapuava e inspirar um futuro mais sustentável para o Paraná.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
+        <a href="tecnologias.html" class="btn btn-lime">🚀 Tecnologias</a>
+        <a href="contato.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.3);">✉️ Contato</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/script.js"></script>
 </body>
 </html>
