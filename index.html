@@ -5,15 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgroForte 2026 — Agro Forte, Futuro Sustentável</title>
   <meta name="description" content="Projeto Agrinho 2026 — Soluções sustentáveis para a agropecuária de Guarapuava e o meio ambiente.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* ──────────────────────────────────────────────────────────────────
+       VARIÁVEIS GLOBAIS E REGRAS DE DESIGN (Tokens)
+       ────────────────────────────────────────────────────────────────── */
+    :root {
+      --green-900: #0d2b1a;
+      --green-800: #143d25;
+      --green-700: #1a4a2e;
+      --green-500: #2e9b5a;
+      --lime: #b5f03e;
+      --cream: #f9f8f6;
+      --sand: #f0ede6;
+      --text-dark: #111827;
+      --text-mid: #4b5563;
+      --text-light: #9ca3af;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-xl: 24px;
+      --ff-sans: 'Inter', sans-serif;
+      --ff-display: 'Big Shoulders Display', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Reset Geral */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--ff-sans); color: var(--text-dark); background-color: #ffffff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; display: inline-block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    
+    /* Layout Utilitários */
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 90px 0; }
+    .bg-sand { background-color: var(--sand); }
+    .text-center { text-align: center; }
+    
+    /* Componentes Reutilizáveis */
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(46,155,90,0.1); color: var(--green-700); margin-bottom: 16px; }
+    .tag-light { background: rgba(181,240,62,0.15); color: var(--lime); }
+    
+    .section-title { font-family: var(--ff-display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.05; color: var(--green-900); text-transform: uppercase; letter-spacing: -0.02em; }
+    .section-sub { font-size: 1.125rem; color: var(--text-mid); max-width: 650px; margin: 12px 0 0; }
+    .section-sub-center { margin-left: auto; margin-right: auto; }
+
+    /* Botões Padrão */
+    .btn { padding: 14px 28px; border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 600; text-align: center; transition: var(--transition); }
+    .btn-lime { background-color: var(--lime); color: var(--green-900); }
+    .btn-lime:hover { background-color: #c4f55c; transform: translateY(-2px); }
+    .btn-primary { background-color: var(--green-900); color: #ffffff; }
+    .btn-primary:hover { background-color: var(--green-800); transform: translateY(-2px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.3); color: #ffffff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: #ffffff; }
+
+    /* ──────────────────────────────────────────────────────────────────
+       1. HERO SECTION
+       ────────────────────────────────────────────────────────────────── */
+    .hero { background: linear-gradient(135deg, var(--green-900) 0%, #05140b 100%); padding: 120px 0 100px; color: #ffffff; overflow: hidden; position: relative; }
+    .hero-inner { display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center; }
+    @media (min-width: 992px) { .hero-inner { grid-template-columns: 1.1fr 0.9fr; } }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .hero-eyebrow-dot { width: 8px; height: 8px; background-color: var(--lime); border-radius: 50%; box-shadow: 0 0 12px var(--lime); }
+    
+    .hero-title { font-family: var(--ff-display); font-size: clamp(3.5rem, 6vw, 5.5rem); font-weight: 800; line-height: 0.95; text-transform: uppercase; margin-bottom: 24px; letter-spacing: -0.02em; }
+    .hero-title .accent { color: var(--lime); }
+    .hero-desc { font-size: 1.15rem; color: rgba(255,255,255,0.7); max-width: 540px; margin-bottom: 40px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 56px; }
+
+    /* Stats do Hero */
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
+    .hero-stat-num { font-family: var(--ff-display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800; color: var(--lime); line-height: 1; }
+    .hero-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; margin-top: 4px; }
+
+    /* Interface Visual Flutuante do Hero */
+    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-card-main { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 32px; border-radius: var(--radius-xl); backdrop-filter: blur(16px); width: 100%; max-width: 380px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
+    .hero-card-inner { display: flex; flex-direction: column; gap: 20px; }
+    .hero-card-row { display: flex; align-items: center; gap: 16px; background: rgba(255, 255, 255, 0.03); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.04); }
+    .hero-card-icon { font-size: 1.5rem; }
+    .hero-card-text { flex-grow: 1; display: flex; flex-direction: column; }
+    .hero-card-text strong { font-size: 0.95rem; font-weight: 600; color: #ffffff; }
+    .hero-card-text span { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .hero-card-badge { font-size: 0.7rem; font-weight: 600; color: var(--lime); background: rgba(181,240,62,0.1); padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+
+    /* Badges de Destaque Flutuantes */
+    .hero-float { position: absolute; background: #ffffff; color: var(--text-dark); padding: 16px; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px; z-index: 10; animation: floatAnimation 4s ease-in-out infinite; }
+    .hero-float-1 { top: -10px; left: -10px; }
+    .hero-float-2 { bottom: -10px; right: -10px; animation-delay: 2s; }
+    .hero-float display: flex; flex-direction: column;
+    .hero-float strong { display: block; font-family: var(--ff-display); font-size: 1.5rem; font-weight: 800; color: var(--green-500); line-height: 1; }
+    .hero-float span { font-size: 0.75rem; color: var(--text-mid); font-weight: 500; }
+
+    @keyframes floatAnimation {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ──────────────────────────────────────────────────────────────────
+       2. SOBRE O TEMA / GRID DE APRESENTAÇÃO
+       ────────────────────────────────────────────────────────────────── */
+    .grid-split { display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center; }
+    @media (min-width: 992px) { .grid-split { grid-template-columns: 1.1fr 0.9fr; gap: 80px; } }
+
+    .feature-list { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+    .feature-item { display: flex; gap: 16px; align-items: start; }
+    .feature-check { width: 28px; height: 28px; background: rgba(46,155,90,0.12); color: var(--green-500); display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+    .feature-item-text strong { display: block; font-size: 1.1rem; font-weight: 700; color: var(--green-900); margin-bottom: 4px; }
+    .feature-item-text p { color: var(--text-mid); font-size: 0.95rem; }
+
+    /* Grid de Mini Cards Estatísticos */
+    .mini-stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .stat-card { background: var(--cream); padding: 32px 24px; border-radius: var(--radius-xl); border: 1px solid rgba(13,43,26,0.04); transition: var(--transition); }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(13,43,26,0.04); }
+    .stat-card-dark { background: var(--green-900); color: #ffffff; }
+    .stat-card-lime { background: var(--lime); color: var(--green-900); }
+    .stat-card-emoji { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+    .stat-card-num { font-family: var(--ff-display); font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .stat-card-num-green { color: var(--green-500); }
+    .stat-card-num-lime { color: var(--lime); }
+    .stat-card-desc { font-size: 0.85rem; color: var(--text-mid); font-weight: 500; }
+    .stat-card-dark .stat-card-desc { color: rgba(255,255,255,0.5); }
+    .stat-card-lime .stat-card-desc { color: var(--green-800); }
+
+    /* ──────────────────────────────────────────────────────────────────
+       3. GRID DE SOLUÇÕES DESTAQUE
+       ────────────────────────────────────────────────────────────────── */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-top: 48px; }
+    .solution-card { background: #ffffff; border-radius: var(--radius-xl); border: 1px solid rgba(13,43,26,0.05); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+    .solution-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(13,43,26,0.06); border-color: rgba(46,155,90,0.15); }
+    
+    .solution-emoji-box { height: 110px; display: flex; align-items: center; padding-left: 32px; position: relative; }
+    .solution-emoji-inner { width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; }
+    
+    .solution-body { padding: 0 32px 32px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-title { font-size: 1.25rem; font-weight: 700; color: var(--green-900); margin-bottom: 12px; }
+    .card-text { font-size: 0.95rem; color: var(--text-mid); line-height: 1.6; flex-grow: 1; margin-bottom: 24px; }
+    .card-link { font-size: 0.9rem; font-weight: 600; color: var(--green-500); display: inline-flex; align-items: center; gap: 4px; transition: var(--transition); }
+    .card-link:hover { color: var(--green-700); gap: 8px; }
+
+    /* ──────────────────────────────────────────────────────────────────
+       4. FEATURE BAND (GUARAPUAVA IN FOCO)
+       ────────────────────────────────────────────────────────────────── */
+    .feature-band { background: var(--cream); border-top: 1px solid rgba(13,43,26,0.04); border-bottom: 1px solid rgba(13,43,26,0.04); }
+    .feature-band-inner { display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center; }
+    @media (min-width: 992px) { .feature-band-inner { grid-template-columns: 1.1fr 0.9fr; } }
+    
+    .feature-band-inner .feature-list { margin-top: 40px; }
+    .feature-band-inner .feature-check { background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.04); font-size: 1.1rem; width: 36px; height: 36px; }
+
+    .feature-visual-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .fv-card { background: #ffffff; padding: 28px 24px; border-radius: var(--radius-xl); border: 1px solid rgba(13,43,26,0.04); box-shadow: 0 10px 25px rgba(0,0,0,0.01); text-align: center; }
+    .fv-num { font-family: var(--ff-display); font-size: 2.25rem; font-weight: 800; color: var(--green-900); line-height: 1.1; margin-top: 8px; }
+    .fv-label { font-size: 0.8rem; color: var(--text-light); font-weight: 500; margin-top: 4px; line-height: 1.4; }
+
+    /* ──────────────────────────────────────────────────────────────────
+       5. INTERATIVIDADE: CONTADOR DE ÁRVORES
+       ────────────────────────────────────────────────────────────────── */
+    .counter-wrap { background: var(--cream); border: 1px solid rgba(13,43,26,0.04); border-radius: var(--radius-xl); padding: 40px; text-align: center; box-shadow: 0 20px 45px rgba(0,0,0,0.02); }
+    .counter-num { font-family: var(--ff-display); font-size: 5rem; font-weight: 800; color: var(--green-500); line-height: 1; }
+    .counter-label { font-size: 0.95rem; font-weight: 600; color: var(--text-mid); margin: 8px 0 24px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .counter-btn { width: 100%; max-width: 260px; padding: 16px 32px; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 700; background-color: var(--green-900); color: #ffffff; box-shadow: 0 10px 20px rgba(13,43,26,0.15); transition: var(--transition); }
+    .counter-btn:hover { background-color: var(--green-800); transform: translateY(-2px); box-shadow: 0 14px 28px rgba(13,43,26,0.2); }
+    .counter-btn:active { transform: translateY(0); }
+    .counter-trees { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 24px; min-height: 32px; max-height: 96px; overflow-y: auto; }
+
+    /* ──────────────────────────────────────────────────────────────────
+       6. SEÇÃO FINAL DE CHAMADA (CTA)
+       ────────────────────────────────────────────────────────────────── */
+    .cta-banner { background: var(--green-900); border-radius: var(--radius-xl); padding: 64px; display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(13,43,26,0.2); }
+    @media (min-width: 992px) { .cta-banner { grid-template-columns: 1fr auto; padding: 80px 72px; gap: 64px; } }
+    
+    .cta-title { font-family: var(--ff-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #ffffff; text-transform: uppercase; line-height: 1.05; margin: 12px 0; }
+    .cta-desc { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 580px; }
+    .cta-actions { display: flex; flex-direction: column; gap: 14px; min-width: 200px; }
+    
+    /* Classes vazias prontas de animação para acoplamento com o js/script.js */
+    .fade-up { opacity: 1; transform: none; }
+  </style>
 </head>
 <body>
 <script src="js/nav-footer.js"></script>
 
-<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
   <div class="container hero-inner">
     <div>
       <div class="hero-eyebrow">
@@ -21,23 +201,22 @@
         <span>Agrinho 2026 — Ensino Médio</span>
       </div>
       <h1 class="hero-title">
-        Agro <span class="accent">Forte,</span><br>
-        Futuro<br>Sustentável
+        Agro <span class="accent">Forte,</span><br>Futuro Sustentável
       </h1>
       <p class="hero-desc">
-        Soluções tecnológicas e sustentáveis para transformar a agropecuária de Guarapuava, preservar o meio ambiente e construir um futuro mais verde para o Paraná.
+        Soluções tecnológicas e sustentáveis para transformar a agropecuária de Guarapuava, preservar o meio ambiente e construir um amanhã resiliente para o Paraná.
       </p>
       <div class="hero-actions">
         <a href="solucoes.html" class="btn btn-lime">🌱 Ver Soluções</a>
-        <a href="guarapuava.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.35);">📍 Guarapuava</a>
+        <a href="guarapuava.html" class="btn btn-outline">📍 Guarapuava</a>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num" data-count="6" data-suffix="">6</div>
+          <div class="hero-stat-num" data-count="6">6</div>
           <div class="hero-stat-label">Páginas<br>interativas</div>
         </div>
         <div>
-          <div class="hero-stat-num" data-count="12" data-suffix="">12</div>
+          <div class="hero-stat-num" data-count="12">12</div>
           <div class="hero-stat-label">Soluções<br>sustentáveis</div>
         </div>
         <div>
@@ -46,6 +225,7 @@
         </div>
       </div>
     </div>
+    
     <div class="hero-visual">
       <div class="hero-float hero-float-1">
         <span style="font-size:24px;">🌿</span>
@@ -101,251 +281,246 @@
   </div>
 </section>
 
-<!-- ── SOBRE O TEMA ── -->
 <section class="section">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-      <div class="fade-up">
-        <div class="tag">O Tema</div>
-        <h2 class="section-title">Por que sustentabilidade no agro?</h2>
-        <p class="section-sub">O agronegócio é o motor da economia paranaense, mas precisa evoluir. Com tecnologia e boas práticas, podemos produzir mais, gastar menos e preservar o que mais importa: nosso planeta.</p>
-        <div class="feature-list" style="margin-top:28px;">
-          <div class="feature-item">
-            <div class="feature-check" style="background:rgba(46,155,90,.15);">✅</div>
-            <div class="feature-item-text">
-              <strong style="color:var(--green-900);">Produtividade sem destruição</strong>
-              <p style="color:var(--text-mid);">Técnicas modernas aumentam a produção sem desmatar ou degradar o solo.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-check" style="background:rgba(46,155,90,.15);">✅</div>
-            <div class="feature-item-text">
-              <strong style="color:var(--green-900);">Tecnologia acessível ao produtor</strong>
-              <p style="color:var(--text-mid);">Desde pequenas propriedades até grandes fazendas podem adotar inovações.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-check" style="background:rgba(46,155,90,.15);">✅</div>
-            <div class="feature-item-text">
-              <strong style="color:var(--green-900);">Guarapuava como modelo</strong>
-              <p style="color:var(--text-mid);">Nossa cidade tem potencial para liderar a transição sustentável no Paraná.</p>
-            </div>
+  <div class="container grid-split">
+    <div class="fade-up">
+      <div class="tag">O Tema</div>
+      <h2 class="section-title">Por que sustentabilidade no agro?</h2>
+      <p class="section-sub">O agronegócio é o motor da economia paranaense, mas precisa evoluir. Unindo tecnologia avançada e boas práticas, podemos produzir mais preservando os recursos naturais.</p>
+      
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-item-text">
+            <strong>Produtividade sem destruição</strong>
+            <p>Técnicas otimizadas expandem a capacidade produtiva sem a necessidade de novos desmatamentos.</p>
           </div>
         </div>
-        <div style="margin-top:32px;">
-          <a href="solucoes.html" class="btn btn-primary">Explorar Soluções →</a>
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-item-text">
+            <strong>Tecnologia acessível ao produtor</strong>
+            <p>Modelos desenhados para que de pequenas propriedades familiares a latifúndios possam se modernizar.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-item-text">
+            <strong>Guarapuava como modelo</strong>
+            <p>Nossa cidade possui escala territorial e clima propício para liderar a vanguarda verde do Paraná.</p>
+          </div>
         </div>
       </div>
-      <div class="fade-up" data-delay="2">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div class="card" style="text-align:center;">
-            <div style="font-size:48px;margin-bottom:12px;">🌱</div>
-            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--green-500);" data-count="85" data-suffix="%">85%</div>
-            <div style="font-size:.82rem;color:var(--text-light);">do PIB de Guarapuava vem do agro</div>
-          </div>
-          <div class="card" style="text-align:center;background:var(--green-900);">
-            <div style="font-size:48px;margin-bottom:12px;">💧</div>
-            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--lime);" data-count="40" data-suffix="%">40%</div>
-            <div style="font-size:.82rem;color:rgba(255,255,255,.5);">de água economizada com irrigação inteligente</div>
-          </div>
-          <div class="card" style="text-align:center;background:var(--lime);">
-            <div style="font-size:48px;margin-bottom:12px;">☀️</div>
-            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--green-900);" data-count="60" data-suffix="%">60%</div>
-            <div style="font-size:.82rem;color:var(--green-800);">redução de CO₂ com energia solar</div>
-          </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size:48px;margin-bottom:12px;">🚁</div>
-            <div style="font-family:var(--ff-display);font-size:1.8rem;font-weight:800;color:var(--green-500);" data-count="30" data-suffix="%">30%</div>
-            <div style="font-size:.82rem;color:var(--text-light);">menos insumos com drones agrícolas</div>
-          </div>
-        </div>
+      
+      <div style="margin-top: 40px;">
+        <a href="solucoes.html" class="btn btn-primary">Explorar Soluções →</a>
+      </div>
+    </div>
+    
+    <div class="mini-stats-grid fade-up" data-delay="2">
+      <div class="stat-card">
+        <span class="stat-card-emoji">🌱</span>
+        <div class="stat-card-num stat-card-num-green" data-count="85">85%</div>
+        <div class="stat-card-desc">do PIB municipal é derivado do agronegócio</div>
+      </div>
+      <div class="stat-card stat-card-dark">
+        <span class="stat-card-emoji">💧</span>
+        <div class="stat-card-num stat-card-num-lime" data-count="40">40%</div>
+        <div class="stat-card-desc">de economia hídrica através de irrigação inteligente</div>
+      </div>
+      <div class="stat-card stat-card-lime">
+        <span class="stat-card-emoji">☀️</span>
+        <div class="stat-card-num" style="color: var(--green-900);" data-count="60">60%</div>
+        <div class="stat-card-desc">de abatimento em gases CO₂ usando energia solar</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-emoji">🚁</span>
+        <div class="stat-card-num stat-card-num-green" data-count="30">30%</div>
+        <div class="stat-card-desc">de diminuição do desperdício de insumos com drones</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SOLUÇÕES DESTAQUE ── -->
-<section class="section" style="background:#f0ede6;padding-top:0;">
+<section class="section bg-sand">
   <div class="container">
-    <div class="text-center fade-up" style="margin-bottom:56px;">
+    <div class="text-center fade-up">
       <div class="tag">Destaques</div>
       <h2 class="section-title">Nossas principais soluções</h2>
-      <p class="section-sub" style="margin:12px auto 0;">Tecnologias e práticas que transformam a agropecuária de Guarapuava.</p>
+      <p class="section-sub section-sub-center">Aplicações práticas viáveis que transformam a agricultura e a pecuária locais.</p>
     </div>
+    
     <div class="grid-3">
-      <div class="solution-card fade-up" data-delay="1">
-        <div class="solution-emoji" style="background:linear-gradient(135deg,#fff8e1,#fff3cd);">☀️</div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji-box"><div class="solution-emoji-inner" style="background: #fff3cd;">☀️</div></div>
         <div class="solution-body">
-          <div class="card-title">Energia Solar Rural</div>
-          <p class="card-text">Painéis fotovoltaicos em propriedades rurais eliminam a conta de energia e geram créditos para revenda à rede elétrica.</p>
+          <h3 class="card-title">Energia Solar Rural</h3>
+          <p class="card-text">A captação fotovoltaica em fazendas reduz custos fixos a quase zero e possibilita a injeção do excedente na matriz energética estatal.</p>
           <a href="solucoes.html#solar" class="card-link">Ver detalhes →</a>
         </div>
       </div>
-      <div class="solution-card fade-up" data-delay="2">
-        <div class="solution-emoji" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">💧</div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji-box"><div class="solution-emoji-inner" style="background: #c8e6c9;">💧</div></div>
         <div class="solution-body">
-          <div class="card-title">Irrigação Inteligente</div>
-          <p class="card-text">Sensores IoT no solo medem a umidade em tempo real e acionam a irrigação apenas quando necessário, economizando até 40% de água.</p>
+          <h3 class="card-title">Irrigação Inteligente</h3>
+          <p class="card-text">Sensores acoplados ao solo mapeiam índices reais de umidade, evitando o estresse hídrico da planta e o gasto desnecessário de água.</p>
           <a href="solucoes.html#irrigacao" class="card-link">Ver detalhes →</a>
         </div>
       </div>
-      <div class="solution-card fade-up" data-delay="3">
-        <div class="solution-emoji" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">🚁</div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji-box"><div class="solution-emoji-inner" style="background: #bbdefb;">🚁</div></div>
         <div class="solution-body">
-          <div class="card-title">Drones Agrícolas</div>
-          <p class="card-text">Equipados com câmeras multiespectrais e IA, os drones identificam pragas, deficiências nutricionais e estresse hídrico antes do olho humano.</p>
+          <h3 class="card-title">Drones Agrícolas</h3>
+          <p class="card-text">Monitoramento aéreo constante dotado de lentes multiespectrais que identificam anomalias, focos de pragas e falhas de plantio com agilidade.</p>
           <a href="solucoes.html#drones" class="card-link">Ver detalhes →</a>
         </div>
       </div>
-      <div class="solution-card fade-up" data-delay="1">
-        <div class="solution-emoji" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">♻️</div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji-box"><div class="solution-emoji-inner" style="background: #e1bee7;">♻️</div></div>
         <div class="solution-body">
-          <div class="card-title">Biodigestores</div>
-          <p class="card-text">Transformam dejetos animais em biogás para cozinhar e gerar eletricidade, além de produzir biofertilizante de alta qualidade.</p>
+          <h3 class="card-title">Biodigestores</h3>
+          <p class="card-text">Processamento adequado de dejetos animais da pecuária, gerando biogás aproveitável e biofertilizantes orgânicos ricos em nutrientes.</p>
           <a href="solucoes.html#biodigestor" class="card-link">Ver detalhes →</a>
         </div>
       </div>
-      <div class="solution-card fade-up" data-delay="2">
-        <div class="solution-emoji" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7);">🌳</div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji-box"><div class="solution-emoji-inner" style="background: #a5d6a7;">🌳</div></div>
         <div class="solution-body">
-          <div class="card-title">Reflorestamento</div>
-          <p class="card-text">Recuperação de áreas degradadas com espécies nativas da Mata Atlântica, restaurando nascentes e corredores ecológicos em Guarapuava.</p>
+          <h3 class="card-title">Reflorestamento</h3>
+          <p class="card-text">Adensamento de matas ciliares nativas para a proteção das microbacias locais e criação de caminhos ecológicos para fauna.</p>
           <a href="solucoes.html#reflorestamento" class="card-link">Ver detalhes →</a>
         </div>
       </div>
-      <div class="solution-card fade-up" data-delay="3">
-        <div class="solution-emoji" style="background:linear-gradient(135deg,#fbe9e7,#ffccbc);">🌿</div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji-box"><div class="solution-emoji-inner" style="background: #ffccbc;">🌿</div></div>
         <div class="solution-body">
-          <div class="card-title">Rotação de Culturas</div>
-          <p class="card-text">Alternar cultivos melhora a estrutura do solo, quebra ciclos de pragas e reduz drasticamente o uso de agroquímicos.</p>
+          <h3 class="card-title">Rotação de Culturas</h3>
+          <p class="card-text">Planejamento cíclico que melhora consideravelmente a bioestrutura do solo e mitiga a proliferação crônica de pragas sazonais.</p>
           <a href="solucoes.html#rotacao" class="card-link">Ver detalhes →</a>
         </div>
       </div>
     </div>
-    <div class="text-center" style="margin-top:40px;">
+    
+    <div class="text-center" style="margin-top: 48px;">
       <a href="solucoes.html" class="btn btn-primary">Ver todas as soluções →</a>
     </div>
   </div>
 </section>
 
-<!-- ── FEATURE BAND ── -->
-<section class="feature-band">
+<section class="section feature-band">
   <div class="container feature-band-inner">
     <div class="fade-up">
-      <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">Guarapuava/PR</div>
-      <h2 class="section-title">Transformando nossa cidade</h2>
-      <p class="section-sub">Guarapuava tem vocação agropecuária desde sua fundação. Com as tecnologias certas, podemos ser referência nacional em agro sustentável.</p>
+      <div class="tag" style="background: rgba(13,43,26,0.06); color: var(--green-900);">Guarapuava / PR</div>
+      <h2 class="section-title">Transformando nossa realidade</h2>
+      <p class="section-sub">Unindo a fertilidade natural do nosso solo à tecnologia disruptiva, preparamos o município para se destacar no cenário nacional sustentável.</p>
+      
       <div class="feature-list">
         <div class="feature-item">
           <div class="feature-check">🌡️</div>
           <div class="feature-item-text">
-            <strong>Resistência às geadas</strong>
-            <p>Sensores climáticos alertam produtores sobre risco de geada com até 48h de antecedência.</p>
+            <strong>Resiliência preventiva a geadas</strong>
+            <p>Sistemas baseados em Internet das Coisas coletam dados microclimáticos locais, disparando alertas precoces aos agricultores da região.</p>
           </div>
         </div>
         <div class="feature-item">
-          <div class="feature-check">🌊</div>
           <div class="feature-check">💧</div>
           <div class="feature-item-text">
-            <strong>Proteção de nascentes</strong>
-            <p>Reflorestamento ciliar e monitoramento por satélite das bacias hidrográficas da região.</p>
+            <strong>Proteção ativa das bacias</strong>
+            <p>Cercamento tecnológico e reflorestamento planejado ao longo do Rio Jordão e Rio das Pedras para preservação dos mananciais hídricos.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-check">🌾</div>
           <div class="feature-item-text">
-            <strong>Solo de alto potencial</strong>
-            <p>O Latossolo Vermelho de Guarapuava é um dos mais férteis do Paraná quando bem manejado.</p>
+            <strong>Manejo do Latossolo Vermelho</strong>
+            <p>Tratamento correto da terra visando a conservação da matéria orgânica intrínseca das nossas terras de alta altitude.</p>
           </div>
         </div>
       </div>
-      <div style="margin-top:32px;">
-        <a href="guarapuava.html" class="btn btn-lime">Conheça o projeto →</a>
+      
+      <div style="margin-top: 40px;">
+        <a href="guarapuava.html" class="btn btn-primary">Conheça o projeto →</a>
       </div>
     </div>
+    
     <div class="feature-visual-grid fade-up" data-delay="2">
       <div class="fv-card">
-        <div style="font-size:2rem;margin-bottom:8px;">🌾</div>
-        <div class="fv-num" data-count="1100" data-suffix="m">1.100m</div>
-        <div class="fv-label">altitude média de Guarapuava</div>
+        <span style="font-size: 2rem;">🌾</span>
+        <div class="fv-num" data-count="1100">1.100m</div>
+        <div class="fv-label">Altitude média de planalto</div>
       </div>
       <div class="fv-card">
-        <div style="font-size:2rem;margin-bottom:8px;">🌧️</div>
-        <div class="fv-num" data-count="1900" data-suffix="mm">1.900mm</div>
-        <div class="fv-label">chuva anual — ótima para o agro</div>
+        <span style="font-size: 2rem;">Rain</span>
+        <div class="fv-num" data-count="1900">1.900mm</div>
+        <div class="fv-label">Índice pluviométrico anual ideal</div>
       </div>
       <div class="fv-card">
-        <div style="font-size:2rem;margin-bottom:8px;">🌡️</div>
-        <div class="fv-num" data-count="17" data-suffix="°C">17°C</div>
-        <div class="fv-label">temperatura média anual</div>
+        <span style="font-size: 2rem;">🌡️</span>
+        <div class="fv-num" data-count="17">17°C</div>
+        <div class="fv-label">Temperatura média anual balanceada</div>
       </div>
       <div class="fv-card">
-        <div style="font-size:2rem;margin-bottom:8px;">🚜</div>
-        <div class="fv-num" data-count="4200" data-suffix="">4.200</div>
-        <div class="fv-label">propriedades rurais no município</div>
+        <span style="font-size: 2rem;">🚜</span>
+        <div class="fv-num" data-count="4200">4.200+</div>
+        <div class="fv-label">Propriedades rurais cadastradas</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CONTADOR DE ÁRVORES ── -->
+<section class="section">
+  <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 64px; align-items: center;">
+    <div class="fade-up">
+      <div class="tag">Gamificação</div>
+      <h2 class="section-title">Plante uma árvore virtual</h2>
+      <p class="section-sub">Uma ferramenta lúdica de engajamento social. Deixe sua marca digital e visualize a expansão simbólica da cobertura florestal nativa do município.</p>
+      <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 20px; font-weight: 500;">🌳 Nota: Seus dados de plantio são preservados localmente no navegador.</p>
+    </div>
+    
+    <div class="fade-up" data-delay="2">
+      <div class="counter-wrap">
+        <div class="counter-num" id="arvores-num">0</div>
+        <div class="counter-label">Árvores Cultivadas</div>
+        <button class="counter-btn" id="plantar-btn">🌳 Plantar Árvore</button>
+        <div class="counter-trees" id="trees-visual"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-sand">
+  <div class="container">
+    <div class="text-center fade-up">
+      <div class="tag">Diagnóstico</div>
+      <h2 class="section-title">Avalie seus conhecimentos</h2>
+      <p class="section-sub section-sub-center">Responda ao nosso questionário rápido focado em sustentabilidade prática no ecossistema agrário.</p>
+    </div>
+    <div id="quiz-container" class="fade-up" style="margin-top: 40px;"></div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
-      <div class="fade-up">
-        <div class="tag">Ação Interativa</div>
-        <h2 class="section-title">Plante uma árvore virtual</h2>
-        <p class="section-sub">Cada clique representa um compromisso. Junte-se ao movimento e ajude a plantar árvores virtuais — sensibilizando sobre a importância do reflorestamento em Guarapuava.</p>
-        <p style="font-size:.85rem;color:var(--text-light);margin-top:16px;">🌳 Suas árvores ficam salvas mesmo ao fechar o site!</p>
-      </div>
-      <div class="fade-up" data-delay="2">
-        <div class="counter-wrap">
-          <div class="counter-num" id="arvores-num">0</div>
-          <div class="counter-label">🌿 árvores plantadas por você</div>
-          <button class="counter-btn" id="plantar-btn">🌳 Plantar Árvore</button>
-          <div class="counter-trees" id="trees-visual"></div>
-        </div>
-      </div>
+    <div class="text-center fade-up">
+      <div class="tag">Modelagem</div>
+      <h2 class="section-title">Simulador de Impacto</h2>
+      <p class="section-sub section-sub-center">Selecione e combine módulos tecnológicos para mensurar a redução de custos e de pegada de carbono.</p>
     </div>
+    <div id="simulator-wrap" class="fade-up" style="margin-top: 40px;"></div>
   </div>
 </section>
 
-<!-- ── QUIZ ── -->
-<section class="section" style="background:#f0ede6;padding-top:0;">
+<section class="section" style="padding-top: 0;">
   <div class="container">
-    <div class="text-center fade-up" style="margin-bottom:48px;">
-      <div class="tag">Quiz</div>
-      <h2 class="section-title">Teste seus conhecimentos</h2>
-      <p class="section-sub" style="margin:12px auto 0;">5 perguntas sobre agro sustentável e Guarapuava. Você sabe tudo?</p>
-    </div>
-    <div id="quiz-container" class="fade-up"></div>
-  </div>
-</section>
-
-<!-- ── SIMULADOR ── -->
-<section class="section">
-  <div class="container">
-    <div class="text-center fade-up" style="margin-bottom:48px;">
-      <div class="tag">Simulador</div>
-      <h2 class="section-title">Calcule seu impacto ambiental</h2>
-      <p class="section-sub" style="margin:12px auto 0;">Escolha as tecnologias sustentáveis para sua propriedade e veja a diferença que você pode fazer.</p>
-    </div>
-    <div id="simulator-wrap" class="fade-up"></div>
-  </div>
-</section>
-
-<!-- ── CTA FINAL ── -->
-<section class="section" style="padding-bottom:0;">
-  <div class="container">
-    <div style="background:var(--green-900);border-radius:var(--radius-xl);padding:72px 64px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;" class="fade-up">
+    <div class="cta-banner fade-up">
       <div>
-        <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">Agrinho 2026</div>
-        <h2 style="font-family:var(--ff-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;color:#fff;margin:16px 0 12px;line-height:1.15;">Explore todo o projeto</h2>
-        <p style="color:rgba(255,255,255,.6);font-size:1rem;line-height:1.7;">Acesse todas as páginas e descubra como a tecnologia pode transformar o agro de Guarapuava e inspirar um futuro mais sustentável para o Paraná.</p>
+        <div class="tag tag-light">Agrinho 2026</div>
+        <h2 class="cta-title">Explore as frentes do projeto</h2>
+        <p class="cta-desc">Navegue detalhadamente por cada página técnica desenvolvida e compreenda como a tecnologia limpa pode impulsionar o Paraná rumo às metas globais de carbono zero.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
+      <div class="cta-actions">
         <a href="tecnologias.html" class="btn btn-lime">🚀 Tecnologias</a>
-        <a href="contato.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.3);">✉️ Contato</a>
+        <a href="contato.html" class="btn btn-outline">✉️ Contato</a>
       </div>
     </div>
   </div>

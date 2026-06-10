@@ -7,27 +7,30 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<script src="js/nav-footer.js"></script>
 
-<section class="page-hero">
+<header class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="container page-hero-content">
-    <div class="breadcrumb"><a href="index.html">Início</a><span class="breadcrumb-sep">/</span>Tecnologias</div>
-    <div class="tag" style="background:rgba(181,240,62,.15);color:var(--lime);">AgroTech</div>
-    <h1 class="section-title" style="margin-top:12px;">Tecnologias do Futuro</h1>
-    <p class="section-sub" style="color:rgba(255,255,255,.6);">As inovações que estão transformando o campo brasileiro, da IA ao GPS agrícola, dos sensores IoT aos tratores autônomos.</p>
+    <nav class="breadcrumb" aria-label="Caminho da página">
+      <a href="index.html">Início</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Tecnologias</span>
+    </nav>
+    <div class="tag tag-lime-accent">AgroTech</div>
+    <h1 class="section-title title-hero-spacing">Tecnologias do Futuro</h1>
+    <p class="section-sub text-muted-hero">As inovações que estão transformando o campo brasileiro, da IA ao GPS agrícola, dos sensores IoT aos tratores autônomos.</p>
   </div>
-</section>
+</header>
 
-<section class="section">
+<main class="section">
   <div class="container">
     <div class="grid-2">
 
-      <div class="tech-card fade-up" data-delay="1">
+      <article class="tech-card fade-up" data-delay="1">
         <div class="tech-header">
-          <div class="tech-icon-wrap" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">🤖</div>
+          <div class="tech-icon-wrap bg-gradient-green" aria-hidden="true">🤖</div>
           <div>
-            <div class="tech-title">Inteligência Artificial no Campo</div>
+            <h2 class="tech-title">Inteligência Artificial no Campo</h2>
             <div class="tech-sub">Machine Learning & Deep Learning</div>
           </div>
         </div>
@@ -41,19 +44,19 @@
             <span class="tech-tag">NLP Agrícola</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tech-card fade-up" data-delay="2">
+      <article class="tech-card fade-up" data-delay="2">
         <div class="tech-header">
-          <div class="tech-icon-wrap" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">📡</div>
+          <div class="tech-icon-wrap bg-gradient-blue" aria-hidden="true">📡</div>
           <div>
-            <div class="tech-title">Sensores IoT Agrícolas</div>
+            <h2 class="tech-title">Sensores IoT Agrícolas</h2>
             <div class="tech-sub">Internet of Things no campo</div>
           </div>
         </div>
         <div class="tech-body">
           <p>Rede de sensores distribuídos no solo e nas plantas transmite dados em tempo real via LoRaWAN (tecnologia de longo alcance e baixo consumo). Um único gateway cobre até 15 km de raio sem fio.</p>
-          <p>Parâmetros monitorados: temperatura do solo, umidade volumétrica, pH, condutividade elétrica, nutrientes (N, P, K), temperatura do ar e radiação solar.</p>
+          <p>Parâmetros monitorados: temperatura do solo, umidade volumétrica, pH, condutividade elétrica, nutrientes (N, P, K), temperatura do air e radiação solar.</p>
           <div class="tech-tags">
             <span class="tech-tag">LoRaWAN</span>
             <span class="tech-tag">MQTT Protocol</span>
@@ -61,13 +64,13 @@
             <span class="tech-tag">Dashboards Rurais</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tech-card fade-up" data-delay="1">
+      <article class="tech-card fade-up" data-delay="1">
         <div class="tech-header">
-          <div class="tech-icon-wrap" style="background:linear-gradient(135deg,#fff8e1,#fff3cd);">🛰️</div>
+          <div class="tech-icon-wrap bg-gradient-yellow" aria-hidden="true">🛰️</div>
           <div>
-            <div class="tech-title">GPS de Alta Precisão RTK</div>
+            <h2 class="tech-title">GPS de Alta Precisão RTK</h2>
             <div class="tech-sub">Posicionamento centimétrico</div>
           </div>
         </div>
@@ -81,13 +84,13 @@
             <span class="tech-tag">Agricultura de Precisão</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tech-card fade-up" data-delay="2">
+      <article class="tech-card fade-up" data-delay="2">
         <div class="tech-header">
-          <div class="tech-icon-wrap" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">🚁</div>
+          <div class="tech-icon-wrap bg-gradient-purple" aria-hidden="true">🚁</div>
           <div>
-            <div class="tech-title">Drones VANT Multiespectrais</div>
+            <h2 class="tech-title">Drones VANT Multiespectrais</h2>
             <div class="tech-sub">Imageamento e pulverização</div>
           </div>
         </div>
@@ -101,13 +104,13 @@
             <span class="tech-tag">Fotogrametria</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tech-card fade-up" data-delay="1">
+      <article class="tech-card fade-up" data-delay="1">
         <div class="tech-header">
-          <div class="tech-icon-wrap" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7);">🚜</div>
+          <div class="tech-icon-wrap bg-gradient-forest" aria-hidden="true">🚜</div>
           <div>
-            <div class="tech-title">Tratores Elétricos e Autônomos</div>
+            <h2 class="tech-title">Tratores Elétricos e Autônomos</h2>
             <div class="tech-sub">Próxima geração agrícola</div>
           </div>
         </div>
@@ -121,13 +124,13 @@
             <span class="tech-tag">Telemetria 5G</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tech-card fade-up" data-delay="2">
+      <article class="tech-card fade-up" data-delay="2">
         <div class="tech-header">
-          <div class="tech-icon-wrap" style="background:linear-gradient(135deg,#fbe9e7,#ffccbc);">🧬</div>
+          <div class="tech-icon-wrap bg-gradient-orange" aria-hidden="true">🧬</div>
           <div>
-            <div class="tech-title">Biotecnologia e Bioinsumos</div>
+            <h2 class="tech-title">Biotecnologia e Bioinsumos</h2>
             <div class="tech-sub">Ciência a serviço do campo</div>
           </div>
         </div>
@@ -141,53 +144,53 @@
             <span class="tech-tag">Controle Biológico</span>
           </div>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
-</section>
+</main>
 
-<!-- Comparativo tecnologia -->
-<section class="section" style="background:#f0ede6;padding-top:0;">
+<section class="section section-table-bg">
   <div class="container">
-    <div class="text-center fade-up" style="margin-bottom:48px;">
+    <div class="text-center header-table-spacing fade-up">
       <div class="tag">Comparativo</div>
       <h2 class="section-title">Agro tradicional vs. Agro tecnológico</h2>
     </div>
-    <div class="fade-up" style="background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card);">
-      <table style="width:100%;border-collapse:collapse;">
+    
+    <div class="table-responsive-wrapper fade-up">
+      <table class="comparison-table">
         <thead>
-          <tr style="background:var(--green-900);">
-            <th style="padding:20px 24px;text-align:left;font-family:var(--ff-display);font-size:.9rem;color:rgba(255,255,255,.5);font-weight:600;">Parâmetro</th>
-            <th style="padding:20px 24px;text-align:center;font-family:var(--ff-display);font-size:.9rem;color:rgba(255,255,255,.7);font-weight:600;">🌾 Tradicional</th>
-            <th style="padding:20px 24px;text-align:center;font-family:var(--ff-display);font-size:.9rem;color:var(--lime);font-weight:700;">🚀 AgroTech</th>
+          <tr>
+            <th scope="col" class="table-th-left">Parâmetro</th>
+            <th scope="col" class="table-th-center">🌾 Tradicional</th>
+            <th scope="col" class="table-th-accent">🚀 AgroTech</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom:1px solid rgba(13,43,26,.06);">
-            <td style="padding:18px 24px;font-weight:600;font-size:.9rem;">Uso de água</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--text-mid);font-size:.9rem;">100% (irrigação fixa)</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--green-500);font-weight:600;font-size:.9rem;">60% (sensores IoT)</td>
+          <tr>
+            <th scope="row">Uso de água</th>
+            <td>100% (irrigação fixa)</td>
+            <td class="text-accent-green">60% (sensores IoT)</td>
           </tr>
-          <tr style="background:rgba(13,43,26,.02);border-bottom:1px solid rgba(13,43,26,.06);">
-            <td style="padding:18px 24px;font-weight:600;font-size:.9rem;">Defensivos agrícolas</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--text-mid);font-size:.9rem;">Aplicação em área total</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--green-500);font-weight:600;font-size:.9rem;">Aplicação pontual (drone)</td>
-          </tr>
-          <tr style="border-bottom:1px solid rgba(13,43,26,.06);">
-            <td style="padding:18px 24px;font-weight:600;font-size:.9rem;">Detectar pragas</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--text-mid);font-size:.9rem;">Visual, dias de atraso</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--green-500);font-weight:600;font-size:.9rem;">IA em horas, antes do dano</td>
-          </tr>
-          <tr style="background:rgba(13,43,26,.02);border-bottom:1px solid rgba(13,43,26,.06);">
-            <td style="padding:18px 24px;font-weight:600;font-size:.9rem;">Emissão de CO₂</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--text-mid);font-size:.9rem;">Alta (diesel + agroquímicos)</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--green-500);font-weight:600;font-size:.9rem;">Redução de até 60%</td>
+          <tr class="table-row-striped">
+            <th scope="row">Defensivos agrícolas</th>
+            <td>Aplicação em área total</td>
+            <td class="text-accent-green">Aplicação pontual (drone)</td>
           </tr>
           <tr>
-            <td style="padding:18px 24px;font-weight:600;font-size:.9rem;">Produtividade</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--text-mid);font-size:.9rem;">Estável / variável</td>
-            <td style="padding:18px 24px;text-align:center;color:var(--green-500);font-weight:600;font-size:.9rem;">+25% em média</td>
+            <th scope="row">Detectar pragas</th>
+            <td>Visual, dias de atraso</td>
+            <td class="text-accent-green">IA em horas, antes do dano</td>
+          </tr>
+          <tr class="table-row-striped">
+            <th scope="row">Emissão de CO₂</th>
+            <td>Alta (diesel + agroquímicos)</td>
+            <td class="text-accent-green">Redução de até 60%</td>
+          </tr>
+          <tr>
+            <th scope="row">Produtividade</th>
+            <td>Estável / variável</td>
+            <td class="text-accent-green">+25% em média</td>
           </tr>
         </tbody>
       </table>
@@ -195,6 +198,7 @@
   </div>
 </section>
 
+<script src="js/nav-footer.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
