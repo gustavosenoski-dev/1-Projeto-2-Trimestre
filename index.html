@@ -1,454 +1,816 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AgroFuturo Brasil — O futuro do agro brasileiro: tecnologia, sustentabilidade e inovação até 2050. Projeto Agrinho 2026." />
+  <meta name="keywords" content="agrinho, agronegócio, sustentabilidade, tecnologia agrícola, brasil 2050, agricultura de precisão" />
+  <meta name="author" content="AgroFuturo Brasil — Projeto Agrinho 2026" />
+  <title>AgroFuturo Brasil | Tecnologia, Sustentabilidade e Inovação</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Estilos específicos da index */
+
+    /* Hero counter bar */
+    .hero-counter-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-counter-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    /* Faixa de problemas */
+    .problems-banner {
+      background: linear-gradient(135deg, #1a0a0a 0%, #3d1515 100%);
+      border-top: 2px solid #5e1a1a;
+      border-bottom: 2px solid #5e1a1a;
+      padding: 3rem 0;
+    }
+
+    [data-theme="light"] .problems-banner {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+      border-color: #f5c6c6;
+    }
+
+    .problem-card {
+      background: rgba(220,53,69,0.1);
+      border: 1px solid rgba(220,53,69,0.25);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .problem-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(220,53,69,0.2); }
+
+    .problem-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .problem-title { font-size: 1rem; font-weight: 700; color: #e85d6e; margin-bottom: 0.4rem; }
+    .problem-body  { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Seção Soluções Rápidas */
+    .solution-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .solution-row.reverse { direction: rtl; }
+    .solution-row.reverse > * { direction: ltr; }
+
+    .solution-image-placeholder {
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Infográfico de emissões */
+    .emission-infographic {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+      justify-content: center;
+      height: 180px;
+      padding: 0 1rem;
+    }
+
+    .emission-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .emission-bar-fill {
+      width: 100%;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      transition: height 1.5s ease;
+      min-width: 30px;
+    }
+
+    .emission-bar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .emission-bar-val {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-green);
+    }
+
+    /* Número grande de destaque */
+    .big-number-block {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .big-number {
+      font-family: 'Sora', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-green), var(--accent-lime));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .big-number-label {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Quote / Destaque */
+    .quote-block {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-green);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.5rem 2rem;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    .quote-block::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--accent-green);
+      opacity: 0.3;
+      position: absolute;
+      top: -0.5rem;
+      left: 1rem;
+      font-family: serif;
+      line-height: 1;
+    }
+
+    /* Mapa ilustrativo simples */
+    .brazil-teaser {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* CTA Final */
+    .cta-section {
+      background: var(--gradient-hero);
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section h2 { color: #fff; margin-bottom: 1rem; }
+    .cta-section p  { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 2rem; }
+
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Linha do tempo inicial */
+    .timeline-horizontal {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .timeline-horizontal::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-lime), var(--accent-gold));
+    }
+
+    .tl-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 0.5rem;
+    }
+
+    .tl-dot {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      border: 3px solid var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 0 4px rgba(92,186,71,0.2);
+      z-index: 1;
+      position: relative;
+    }
+
+    .tl-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--accent-green);
+    }
+
+    .tl-desc { font-size: 0.8rem; color: var(--text-muted); text-align: center; line-height: 1.4; }
+
+    @media (max-width: 600px) {
+      .timeline-horizontal { grid-template-columns: repeat(2, 1fr); }
+      .timeline-horizontal::before { display: none; }
+      .solution-row, .solution-row.reverse { grid-template-columns: 1fr; direction: ltr; }
+    }
+
+    /* Ticker de Curiosidades */
+    .curiosity-ticker {
+      background: var(--accent-green);
+      color: #fff;
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker-scroll 40s linear infinite;
+    }
+
+    .ticker-inner:hover { animation-play-state: paused; }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .ticker-item {
+      display: inline-block;
+      padding: 0 2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .ticker-sep { opacity: 0.5; }
+  </style>
+</head>
 <body>
 
-<header>
-  Navbar
-  Hero Principal
-</header>
+  <!-- ============================
+       NAVBAR
+       ============================ -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" aria-label="AgroFuturo Brasil - Início">
+        <div class="nav-brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <span>Agro<span class="highlight">Futuro</span> Brasil</span>
+      </a>
 
-<main>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="solucoes.html">Soluções</a></li>
+        <li><a href="tecnologias.html">Tecnologias</a></li>
+        <li><a href="brasil2050.html">Brasil 2050</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
 
-<section id="sobre">
-  Sobre o Projeto
-</section>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-theme" aria-label="Alternar tema">
+          <span class="theme-icon">☀️</span>
+        </button>
+        <button id="hamburger" class="hamburger" aria-label="Menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
 
-<section id="problemas">
-  Problemas Atuais
-</section>
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="mobile-menu" role="menu">
+      <a href="index.html">🏠 Início</a>
+      <a href="solucoes.html">🌱 Soluções Sustentáveis</a>
+      <a href="tecnologias.html">🤖 Tecnologias</a>
+      <a href="brasil2050.html">🇧🇷 Brasil 2050</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </div>
+  </nav>
 
-<section id="estatisticas">
-  Estatísticas do Agro
-</section>
+  <!-- ============================
+       HERO
+       ============================ -->
+  <section class="hero" aria-label="Apresentação do projeto">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Conteúdo -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>🌿</span>
+            Projeto Agrinho 2026
+          </div>
 
-<section id="solucoes-preview">
-  Resumo das Soluções
-</section>
+          <h1>O Futuro do <em>Agro Brasileiro</em></h1>
 
-<section id="tecnologias-preview">
-  Resumo das Tecnologias
-</section>
+          <p class="hero-desc">
+            Tecnologia, sustentabilidade e inovação transformando o campo. 
+            Explore como Inteligência Artificial, IoT, drones e energia limpa 
+            estão redesenhando a agricultura nacional até 2050.
+          </p>
 
-<section id="guarapuava-preview">
-  Guarapuava em Destaque
-</section>
+          <div class="hero-actions">
+            <a href="solucoes.html" class="btn btn-primary">
+              🌱 Explorar Soluções
+            </a>
+            <a href="dashboard.html" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.4);">
+              📊 Ver Dashboard
+            </a>
+          </div>
 
-<section id="brasil-preview">
-  Brasil Agro
-</section>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="val" data-target="340" data-suffix="Bi">0</span>
+              <span class="lbl">Exportações/ano (USD)</span>
+            </div>
+            <div class="hero-stat">
+              <span class="val" data-target="27" data-suffix="%">0</span>
+              <span class="lbl">Do PIB brasileiro</span>
+            </div>
+            <div class="hero-stat">
+              <span class="val" data-target="1" data-suffix="°">0</span>
+              <span class="lbl">Maior exportador agro</span>
+            </div>
+          </div>
+        </div>
 
-<section id="futuro-preview">
-  Campo em 2050
-</section>
+        <!-- Visual Cards -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-visual-card">
+            <span class="icon">🤖</span>
+            <div>
+              <h4>IA no Campo</h4>
+              <p>Diagnóstico de doenças com 97% de precisão por visão computacional</p>
+            </div>
+          </div>
+          <div class="hero-visual-card">
+            <span class="icon">🛸</span>
+            <div>
+              <h4>Drones Agrícolas</h4>
+              <p>Pulverização de precisão — redução de 70% no uso de agrotóxicos</p>
+            </div>
+          </div>
+          <div class="hero-visual-card">
+            <span class="icon">🌱</span>
+            <div>
+              <h4>Agricultura Regenerativa</h4>
+              <p>Sequestro de carbono e recuperação de solos degradados</p>
+            </div>
+          </div>
+          <div class="hero-visual-card">
+            <span class="icon">📡</span>
+            <div>
+              <h4>IoT Rural</h4>
+              <p>+50 mil sensores monitorando lavouras em tempo real no Brasil</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="profissoes-preview">
-  Profissões do Futuro
-</section>
+  <!-- Ticker de curiosidades -->
+  <div class="curiosity-ticker" aria-label="Curiosidades sobre o agronegócio brasileiro">
+    <div class="ticker-inner">
+      <span class="ticker-item">🌾 O Brasil é o maior exportador de soja do mundo, representando 33% do total global</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item">🐄 O rebanho bovino brasileiro supera 214 milhões de cabeças</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item">🛸 Mais de 25 mil drones agrícolas operam no Brasil atualmente</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item">💧 A agricultura de precisão pode reduzir o uso de água em até 40%</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item">☀️ O Brasil tem potencial solar 6x maior que a Alemanha por unidade de área</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item">🌿 Bioinsumos podem substituir 30% dos fertilizantes químicos até 2030</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item">🤖 IA agrícola deve movimentar USD 4 bilhões no Brasil até 2030</span>
+      <span class="ticker-sep">|</span>
+    </div>
+  </div>
 
-<section id="acessar-paginas">
-  Links para todas as páginas
-</section>
+  <!-- ============================
+       PROBLEMAS ATUAIS
+       ============================ -->
+  <section class="problems-banner" aria-labelledby="problems-title">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">⚠️ Desafios do Campo</div>
+        <h2 id="problems-title" class="section-title" style="color:var(--text-primary);">
+          Os Grandes Desafios do Agro Brasileiro
+        </h2>
+        <p class="section-desc">
+          Para construirmos o futuro, precisamos enfrentar os problemas do presente com honestidade científica e soluções práticas.
+        </p>
+      </div>
 
-</main>
+      <div class="grid-3 animate-fade-up">
+        <div class="problem-card">
+          <span class="problem-icon">🌡️</span>
+          <div class="problem-title">Mudanças Climáticas</div>
+          <p class="problem-body">
+            O aquecimento global já reduziu em 10–15% a produtividade de culturas como trigo e milho nas últimas décadas. Até 2050, estima-se perda de 20–30% na produção sem adaptação tecnológica.
+          </p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">💧</span>
+          <div class="problem-title">Escassez Hídrica</div>
+          <p class="problem-body">
+            A agricultura consome 72% da água doce no Brasil. Regiões como o Nordeste e o Cerrado enfrentam secas progressivas, exigindo irrigação inteligente e uso racional.
+          </p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">🌍</span>
+          <div class="problem-title">Degradação do Solo</div>
+          <p class="problem-body">
+            Cerca de 40% dos solos agrícolas brasileiros apresentam algum grau de degradação devido à erosão, compactação e uso excessivo de insumos químicos.
+          </p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">🐛</span>
+          <div class="problem-title">Pragas e Doenças</div>
+          <p class="problem-body">
+            Pragas como a lagarta-do-cartucho e a ferrugem-da-soja causam prejuízos anuais de mais de R$ 15 bilhões, exigindo monitoramento contínuo e soluções biológicas.
+          </p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">🚛</span>
+          <div class="problem-title">Logística Deficiente</div>
+          <p class="problem-body">
+            O custo logístico representa 15–25% do valor dos produtos agrícolas no Brasil — um dos maiores do mundo — devido à infraestrutura precária de estradas e ferrovias.
+          </p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">📶</span>
+          <div class="problem-title">Conectividade Rural</div>
+          <p class="problem-body">
+            Apenas 38% dos imóveis rurais brasileiros têm acesso à internet de qualidade, impedindo a adoção de tecnologias digitais no campo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  Créditos
-</footer>
+  <!-- ============================
+       STATS PRINCIPAIS
+       ============================ -->
+  <section class="section" aria-labelledby="agro-stats-title">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">📊 Em Números</div>
+        <h2 id="agro-stats-title" class="section-title">O Peso do Agro na Economia Nacional</h2>
+        <p class="section-desc">Dados que revelam a importância estratégica do setor agrícola para o Brasil.</p>
+      </div>
 
+      <div class="grid-4 animate-fade-up">
+        <div class="stat-card">
+          <div class="stat-value" data-target="340" data-suffix="Bi">0</div>
+          <div class="stat-label">Exportações 2024 (USD)</div>
+          <div class="stat-change">↑ 8,3% vs 2023</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="27" data-suffix="%">0</div>
+          <div class="stat-label">Participação no PIB</div>
+          <div class="stat-change">↑ Maior em 20 anos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="16" data-suffix="Mi">0</div>
+          <div class="stat-label">Empregos Gerados</div>
+          <div class="stat-change">↑ Diretos e indiretos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="214" data-suffix="Mi">0</div>
+          <div class="stat-label">Cabeças de Gado</div>
+          <div class="stat-change">🐄 Maior rebanho do mundo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="33" data-suffix="%">0</div>
+          <div class="stat-label">Soja global (exp.)</div>
+          <div class="stat-change">🌍 Líder mundial</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="850" data-suffix="Mha">0</div>
+          <div class="stat-label">Área Agricultável Total</div>
+          <div class="stat-change">🗺️ 3ª maior do mundo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="2.2" data-suffix="t/ha">0</div>
+          <div class="stat-label">Produtividade Soja</div>
+          <div class="stat-change">↑ 180% em 30 anos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="65" data-suffix="%">0</div>
+          <div class="stat-label">Do Cerrado preservado</div>
+          <div class="stat-change">🌿 Meta: 80% até 2030</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       LINHA DO TEMPO
+       ============================ -->
+  <section class="section" style="background:var(--bg-secondary);" aria-labelledby="timeline-title">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">🕒 Linha do Tempo</div>
+        <h2 id="timeline-title" class="section-title">A Revolução do Campo: De 2026 a 2050</h2>
+        <p class="section-desc">Uma jornada de transformação tecnológica e sustentável do agronegócio brasileiro.</p>
+      </div>
+
+      <div class="timeline-horizontal animate-fade-up">
+        <div class="tl-node">
+          <div class="tl-dot">🌱</div>
+          <div class="tl-year">2026</div>
+          <div class="tl-desc">Expansão dos bioinsumos e primeiros tratores autônomos comerciais no Brasil</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot" style="background:var(--accent-teal);">🤖</div>
+          <div class="tl-year">2030</div>
+          <div class="tl-desc">IA gerenciando 30% das lavouras. Redução de 25% no uso de agroquímicos</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot" style="background:var(--accent-gold);">🛰️</div>
+          <div class="tl-year">2040</div>
+          <div class="tl-desc">Conectividade 6G rural, satélites agrícolas e robótica em escala nacional</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot" style="background:var(--accent-blue);">🌍</div>
+          <div class="tl-year">2050</div>
+          <div class="tl-desc">Agronegócio carbono-neutro. Brasil: maior exportador de alimentos do mundo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       DESTAQUES DE TECNOLOGIA
+       ============================ -->
+  <section class="section" aria-labelledby="tech-highlight-title">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">🔬 Tecnologia em Ação</div>
+        <h2 id="tech-highlight-title" class="section-title">As Ferramentas que Transformam o Campo</h2>
+        <p class="section-desc">Conheça as principais tecnologias que já estão sendo aplicadas no agro brasileiro.</p>
+      </div>
+
+      <div class="grid-3 animate-fade-up">
+        <div class="card">
+          <div class="card-icon green">🤖</div>
+          <div class="card-title">Inteligência Artificial</div>
+          <p class="card-body">
+            Algoritmos de visão computacional identificam pragas e doenças com precisão de 97%, analisando imagens de drones e satélites em tempo real. Sistemas de ML preveem colheitas com 3 meses de antecedência.
+          </p>
+          <div style="margin-top:1rem;">
+            <div class="progress-label"><span>Adoção no Brasil</span><span>38%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" data-width="38"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon blue">📡</div>
+          <div class="card-title">IoT e Sensores Inteligentes</div>
+          <p class="card-body">
+            Redes de sensores monitoram temperatura do solo, umidade, pH e nutrientes. Dados enviados à nuvem a cada 15 minutos permitem decisões agrícolas baseadas em evidências, não intuição.
+          </p>
+          <div style="margin-top:1rem;">
+            <div class="progress-label"><span>Adoção no Brasil</span><span>24%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" data-width="24"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon teal">🛸</div>
+          <div class="card-title">Drones Agrícolas</div>
+          <p class="card-body">
+            Com 25 mil unidades operando no Brasil, os drones cobrem 5–10 ha/hora para pulverização de precisão. O país é o 3° maior mercado de drones agrícolas do mundo.
+          </p>
+          <div style="margin-top:1rem;">
+            <div class="progress-label"><span>Adoção no Brasil</span><span>55%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" data-width="55"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon gold">🛰️</div>
+          <div class="card-title">GPS RTK e Agricultura de Precisão</div>
+          <p class="card-body">
+            O GPS RTK posiciona máquinas com precisão de ±2 cm, eliminando sobreposições de plantio e colheita. A agricultura de precisão reduz em 20% o uso de sementes e 30% o de fertilizantes.
+          </p>
+          <div style="margin-top:1rem;">
+            <div class="progress-label"><span>Adoção no Brasil</span><span>42%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" data-width="42"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon green">☀️</div>
+          <div class="card-title">Energia Solar Rural</div>
+          <p class="card-body">
+            Sistemas fotovoltaicos reduzem em até 90% os custos de energia de pivôs de irrigação. O agrossolar cresceu 380% no Brasil entre 2019 e 2024, com mais de 120 mil instalações rurais.
+          </p>
+          <div style="margin-top:1rem;">
+            <div class="progress-label"><span>Adoção no Brasil</span><span>31%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" data-width="31"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon teal">🔗</div>
+          <div class="card-title">Blockchain Agrícola</div>
+          <p class="card-body">
+            Rastreabilidade total da cadeia produtiva via blockchain garante autenticidade e segurança alimentar. Produtores que adotam a tecnologia conseguem preços 12–18% superiores no mercado externo.
+          </p>
+          <div style="margin-top:1rem;">
+            <div class="progress-label"><span>Adoção no Brasil</span><span>8%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" data-width="8"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="tecnologias.html" class="btn btn-primary">🔬 Ver Todas as Tecnologias</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PROJEÇÕES
+       ============================ -->
+  <section class="section" style="background:var(--bg-secondary);" aria-labelledby="projections-title">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">🔭 Projeções Futuras</div>
+        <h2 id="projections-title" class="section-title">Onde Estaremos em 2050?</h2>
+        <p class="section-desc">Modelos científicos projetam um agronegócio radicalmente mais eficiente, sustentável e tecnológico.</p>
+      </div>
+
+      <div class="grid-4 animate-fade-up">
+        <div class="stat-card" style="border-top: 3px solid var(--accent-green);">
+          <div class="tag tag-green" style="margin-bottom:0.75rem;">Produtividade</div>
+          <div class="stat-value">+85%</div>
+          <div class="stat-label">Aumento de produção agrícola até 2050</div>
+          <div class="stat-change">Sem aumentar área plantada</div>
+        </div>
+        <div class="stat-card" style="border-top: 3px solid var(--accent-blue);">
+          <div class="tag tag-blue" style="margin-bottom:0.75rem;">Água</div>
+          <div class="stat-value">-45%</div>
+          <div class="stat-label">Redução no uso de água para irrigação</div>
+          <div class="stat-change">Via IoT e irrigação inteligente</div>
+        </div>
+        <div class="stat-card" style="border-top: 3px solid var(--accent-teal);">
+          <div class="tag tag-teal" style="margin-bottom:0.75rem;">Carbono</div>
+          <div class="stat-value">-60%</div>
+          <div class="stat-label">Redução nas emissões de GEE do setor</div>
+          <div class="stat-change">Vs linha de base de 2020</div>
+        </div>
+        <div class="stat-card" style="border-top: 3px solid var(--accent-gold);">
+          <div class="tag tag-gold" style="margin-bottom:0.75rem;">Economia</div>
+          <div class="stat-value">R$2T</div>
+          <div class="stat-label">PIB do agro projetado em 2050</div>
+          <div class="stat-change">4x o valor atual</div>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem;" class="animate-fade-up">
+        <blockquote class="quote-block">
+          O agronegócio brasileiro tem o potencial único de alimentar 10 bilhões de pessoas 
+          até 2050 de forma sustentável — mas isso exige adoção acelerada de tecnologia, 
+          políticas públicas inteligentes e um compromisso genuíno com a conservação ambiental.
+          <footer style="font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem; font-style:normal;">
+            — Baseado em relatórios da EMBRAPA, FAO e WRI Brasil (2024)
+          </footer>
+        </blockquote>
+      </div>
+
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="brasil2050.html" class="btn btn-primary">🇧🇷 Explorar Brasil 2050</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CTA FINAL
+       ============================ -->
+  <section class="cta-section" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title">Explore o Futuro do Agro</h2>
+      <p>Aprofunde-se nas soluções, tecnologias e projeções que moldarão o Brasil de 2050.</p>
+      <div class="cta-buttons">
+        <a href="solucoes.html" class="btn btn-gold">🌱 Soluções Sustentáveis</a>
+        <a href="tecnologias.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5); color:#fff;">🤖 Tecnologias</a>
+        <a href="dashboard.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5); color:#fff;">📊 Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       RODAPÉ
+       ============================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="nav-brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                <path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <span style="font-family:'Sora',sans-serif; font-weight:800;">AgroFuturo Brasil</span>
+          </div>
+          <p>Projeto educativo desenvolvido para o Concurso Agrinho 2026. Conteúdo baseado em pesquisas da EMBRAPA, FAO, MAPA e instituições científicas brasileiras.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Páginas</h5>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="solucoes.html">Soluções</a></li>
+            <li><a href="tecnologias.html">Tecnologias</a></li>
+            <li><a href="brasil2050.html">Brasil 2050</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Temas</h5>
+          <ul>
+            <li><a href="solucoes.html#bioinsumos">Bioinsumos</a></li>
+            <li><a href="solucoes.html#energia">Energia Solar</a></li>
+            <li><a href="tecnologias.html#ia">IA Agrícola</a></li>
+            <li><a href="tecnologias.html#drones">Drones</a></li>
+            <li><a href="brasil2050.html#biomas">Biomas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Fontes</h5>
+          <ul>
+            <li><a href="#">EMBRAPA</a></li>
+            <li><a href="#">FAO Brasil</a></li>
+            <li><a href="#">MAPA</a></li>
+            <li><a href="#">WRI Brasil</a></li>
+            <li><a href="#">IBGE</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AgroFuturo Brasil — Projeto Agrinho 2026. Conteúdo educativo e autoral.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">HTML5</span>
+          <span class="footer-badge">CSS3</span>
+          <span class="footer-badge">JS ES6+</span>
+          <span class="footer-badge">Agrinho 2026</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top" aria-label="Voltar ao topo da página">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
 </body>
-<section class="hero">
-
-<div class="hero-content">
-
-<span class="badge">
-
-🏆 Projeto Agrinho 2026
-
-</span>
-
-<h1>
-
-O FUTURO DO CAMPO
-COMEÇA AGORA
-
-</h1>
-
-<p>
-
-Como a tecnologia, a sustentabilidade
-e a inovação podem transformar
-a agricultura brasileira.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="solucoes.html" class="btn">
-
-Conhecer Soluções
-
-</a>
-
-<a href="tecnologias.html" class="btn">
-
-Explorar Tecnologias
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-<section id="sobre">
-
-<h2>
-
-Uma nova geração para o agro
-
-</h2>
-
-<p>
-
-A agricultura brasileira está passando por
-uma revolução tecnológica.
-
-Com drones, inteligência artificial,
-satélites, sensores e energias renováveis,
-é possível produzir mais utilizando
-menos recursos naturais.
-
-</p>
-
-</section>
-<section id="problemas">
-
-<h2>
-
-Desafios do Campo
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-🌡️ Mudanças Climáticas
-
-</div>
-
-<div class="card">
-
-💧 Escassez de Água
-
-</div>
-
-<div class="card">
-
-🐛 Pragas
-
-</div>
-
-<div class="card">
-
-🌱 Degradação do Solo
-
-</div>
-
-<div class="card">
-
-🚜 Alto Custo de Produção
-
-</div>
-
-<div class="card">
-
-⚡ Dependência Energética
-
-</div>
-
-</div>
-
-</section>
-<section id="estatisticas">
-
-<div class="stat">
-
-<h3>25%</h3>
-
-<p>
-
-Participação no PIB
-
-</p>
-
-</div>
-
-<div class="stat">
-
-<h3>1 Bilhão</h3>
-
-<p>
-
-Pessoas alimentadas
-
-</p>
-
-</div>
-
-<div class="stat">
-
-<h3>210 Milhões</h3>
-
-<p>
-
-Hectares produtivos
-
-</p>
-
-</div>
-
-<div class="stat">
-
-<h3>+40%</h3>
-
-<p>
-
-Demanda até 2050
-
-</p>
-
-</div>
-
-</section>
-<section id="solucoes-preview">
-
-<h2>
-
-Soluções Sustentáveis
-
-</h2>
-
-<div class="grid">
-
-<div>
-
-☀️ Energia Solar
-
-</div>
-
-<div>
-
-💧 Irrigação Inteligente
-
-</div>
-
-<div>
-
-🚁 Drones Agrícolas
-
-</div>
-
-<div>
-
-♻️ Biodigestores
-
-</div>
-
-<div>
-
-🌳 Reflorestamento
-
-</div>
-
-<div>
-
-🌾 Plantio Direto
-
-</div>
-
-</div>
-
-<a href="solucoes.html">
-
-Ver página completa
-
-</a>
-
-</section>
-<section id="tecnologias-preview">
-
-<h2>
-
-Tecnologias do Futuro
-
-</h2>
-
-<div class="grid">
-
-🤖 Inteligência Artificial
-
-🛰️ Satélites
-
-📡 IoT
-
-🚜 Máquinas Autônomas
-
-📊 Big Data
-
-🔗 Blockchain
-
-</div>
-
-<a href="tecnologias.html">
-
-Ver tecnologias
-
-</a>
-
-</section>
-<section id="guarapuava-preview">
-
-<h2>
-
-Guarapuava e o Agro
-
-</h2>
-
-<p>
-
-Uma das cidades mais importantes
-do Paraná para a produção agrícola.
-
-</p>
-
-<a href="guarapuava.html">
-
-Conhecer Guarapuava
-
-</a>
-
-</section>
-<section id="brasil-preview">
-
-<h2>
-
-Brasil Agro
-
-</h2>
-
-<p>
-
-Conheça os estados produtores
-e suas principais culturas.
-
-</p>
-
-<a href="mapa-brasil.html">
-
-Abrir Mapa
-
-</a>
-
-</section>
-<section id="futuro-preview">
-
-<h2>
-
-O Campo em 2050
-
-</h2>
-
-<div class="timeline">
-
-2026
-
-2030
-
-2040
-
-2050
-
-</div>
-
-<a href="futuro2050.html">
-
-Ver Futuro Completo
-
-</a>
-
-</section>
-<section id="profissoes-preview">
-
-<h2>
-
-Profissões do Futuro
-
-</h2>
-
-<ul>
-
-<li>Engenheiro Agrônomo</li>
-
-<li>Especialista em IA</li>
-
-<li>Piloto de Drone</li>
-
-<li>Técnico IoT</li>
-
-<li>Analista de Dados</li>
-
-<li>Engenheiro Ambiental</li>
-
-</ul>
-
-<a href="profissoes.html">
-
-Explorar Carreiras
-
-</a>
-
-</section>
-<section id="paginas">
-
-<h2>
-
-Explorar Projeto
-
-</h2>
-
-<a href="solucoes.html">
-Soluções
-</a>
-
-<a href="tecnologias.html">
-Tecnologias
-</a>
-
-<a href="guarapuava.html">
-Guarapuava
-</a>
-
-<a href="futuro2050.html">
-Futuro 2050
-</a>
-
-<a href="mapa-brasil.html">
-Mapa do Brasil
-</a>
-
-<a href="dashboard.html">
-Dashboard
-</a>
-
-<a href="profissoes.html">
-Profissões
-</a>
-
-<a href="contato.html">
-Contato
-</a>
-
-<a href="regulamento.html">
-Regulamento
-</a>
-
-</section>
+</html>
