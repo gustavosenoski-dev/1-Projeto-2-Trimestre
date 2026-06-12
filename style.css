@@ -314,7 +314,7 @@ body.dark .nav-link:hover { background: rgba(255,255,255,.08); color: var(--gree
   display: block;
   font-weight: 900;
   background: linear-gradient(135deg, #fff 30%, var(--green-pale) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; -webkit-text-fill-color: transparent;
 }
 .hero-title .line2 {
   display: block;
