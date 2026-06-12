@@ -1,167 +1,172 @@
-/* ==========================
+/* =========================
    RESET
-========================== */
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 :root{
 
-    --primary:#2e7d32;
-    --secondary:#4caf50;
-    --light:#f5f7f4;
-    --dark:#121212;
-    --text:#333;
-    --white:#fff;
+    --primary:#2d6a4f;
+    --secondary:#40916c;
+    --accent:#95d5b2;
+
+    --bg:#f8faf8;
+    --card:#ffffff;
+    --text:#1f2937;
+    --text-light:#6b7280;
+
+    --shadow:0 15px 40px rgba(0,0,0,0.08);
+    --radius:18px;
+
+}
+
+body.dark{
+
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f1f5f9;
+    --text-light:#cbd5e1;
+
+    --shadow:0 15px 40px rgba(0,0,0,.35);
 
 }
 
 body{
 
     font-family:'Inter',sans-serif;
-
-    background:var(--light);
-
+    background:var(--bg);
     color:var(--text);
-
-    overflow-x:hidden;
-
+    line-height:1.8;
     transition:.4s;
 
 }
 
-/* ==========================
-   DARK MODE
-========================== */
+img{
 
-body.dark{
+    width:100%;
+    display:block;
+    border-radius:14px;
 
-    background:#111;
-    color:#eee;
+}
+
+.container{
+
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+
+}
+
+.section{
+
+    padding:100px 0;
+
+}
+
+.section-alt{
+
+    background:rgba(0,0,0,.03);
 
 }
 
 body.dark .section-alt{
 
-    background:#1b1b1b;
+    background:rgba(255,255,255,.03);
+
+}
+
+/* =========================
+   TITULOS
+========================= */
+
+.section-title{
+
+    text-align:center;
+    margin-bottom:70px;
+
+}
+
+.section-title span{
+
+    color:var(--secondary);
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:.9rem;
+
+}
+
+.section-title h2{
+
+    font-size:3rem;
+    margin-top:15px;
+    margin-bottom:15px;
+    font-weight:800;
+
+}
+
+.section-title p{
+
+    max-width:800px;
+    margin:auto;
+    color:var(--text-light);
+
+}
+
+.big-text{
+
+    font-size:1.25rem;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:var(--text-light);
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.85);
+    border-bottom:1px solid rgba(0,0,0,.08);
 
 }
 
 body.dark .header{
 
-    background:#181818;
-
-}
-
-/* ==========================
-   CONTAINER
-========================== */
-
-.container{
-
-    width:90%;
-    max-width:1400px;
-    margin:auto;
-
-}
-
-/* ==========================
-   ACESSIBILIDADE
-========================== */
-
-.floating-accessibility{
-
-    position:fixed;
-
-    right:20px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    z-index:9999;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-
-}
-
-.floating-accessibility button{
-
-    width:50px;
-
-    height:50px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:var(--primary);
-
-    color:white;
-
-    cursor:pointer;
-
-    font-weight:700;
-
-    transition:.3s;
-
-}
-
-.floating-accessibility button:hover{
-
-    transform:scale(1.1);
-
-}
-
-/* ==========================
-   HEADER
-========================== */
-
-.header{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    background:rgba(255,255,255,.95);
-
-    backdrop-filter:blur(15px);
-
-    z-index:999;
-
-    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    background:rgba(15,23,42,.9);
 
 }
 
 .header .container{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    padding:18px 0;
+    height:80px;
 
 }
 
 .logo{
 
-    font-size:1.6rem;
-
+    font-size:1.5rem;
     font-weight:800;
-
     color:var(--primary);
 
 }
@@ -169,7 +174,6 @@ body.dark .header{
 .nav{
 
     display:flex;
-
     gap:25px;
 
 }
@@ -177,50 +181,33 @@ body.dark .header{
 .nav a{
 
     text-decoration:none;
-
-    color:#444;
-
+    color:var(--text);
     font-weight:600;
-
     transition:.3s;
 
 }
 
 .nav a:hover{
 
-    color:var(--primary);
+    color:var(--secondary);
 
 }
 
-/* ==========================
+/* =========================
    HERO
-========================== */
+========================= */
 
 .hero{
 
     min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    position:relative;
-
     background:
-    linear-gradient(
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.55)
-    ),
-
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854");
-
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("img/banner.jpg");
     background-size:cover;
     background-position:center;
-
+    display:flex;
+    align-items:center;
+    text-align:center;
     color:white;
 
 }
@@ -234,15 +221,10 @@ body.dark .header{
 .hero-tag{
 
     display:inline-block;
-
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
-
     padding:10px 20px;
-
-    border-radius:30px;
-
+    border-radius:50px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
     margin-bottom:25px;
 
 }
@@ -250,613 +232,246 @@ body.dark .header{
 .hero h1{
 
     font-size:5rem;
-
     font-weight:900;
-
     margin-bottom:20px;
-
-    line-height:1.1;
 
 }
 
 .hero p{
 
-    font-size:1.3rem;
-
-    line-height:1.8;
-
-    margin-bottom:35px;
+    font-size:1.25rem;
+    margin-bottom:40px;
 
 }
 
 .hero-buttons{
 
     display:flex;
-
     justify-content:center;
-
     gap:20px;
-
     flex-wrap:wrap;
+
+}
+
+.btn-primary,
+.btn-secondary{
+
+    padding:15px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
 
 }
 
 .btn-primary{
 
-    background:var(--secondary);
-
-    color:white;
-
-    padding:15px 35px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-
-    font-weight:700;
+    background:white;
+    color:#111;
 
 }
 
 .btn-secondary{
 
     border:2px solid white;
-
     color:white;
 
-    padding:15px 35px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-
-    font-weight:700;
-
 }
 
-/* ==========================
-   SEÇÕES
-========================== */
+.btn-primary:hover,
+.btn-secondary:hover{
 
-.section{
-
-    padding:120px 0;
+    transform:translateY(-4px);
 
 }
-
-.section-alt{
-
-    background:#eef4ed;
-
-}
-
-.section-title{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-.section-title span{
-
-    color:var(--secondary);
-
-    font-weight:700;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-}
-
-.section-title h2{
-
-    font-size:3rem;
-
-    margin-top:10px;
-
-    margin-bottom:20px;
-
-}
-
-.big-text{
-
-    font-size:1.35rem;
-
-    line-height:1.9;
-
-    margin-bottom:25px;
-
-}
-
-/* ==========================
-   GRID DOS PROBLEMAS
-========================== */
+/* =========================
+   GRIDS
+========================= */
 
 .problem-grid,
-.objectives-grid{
+.objectives-grid,
+.tech-grid,
+.science-grid,
+.cities-grid,
+.future-grid,
+.sustainability-grid,
+.stats-grid{
 
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
 
 }
 
+/* =========================
+   CARDS MODERNOS
+========================= */
+
 .problem-card,
-.objective-card{
+.objective-card,
+.tech-card,
+.science-card,
+.city-card,
+.future-card,
+.sustain-card,
+.stat-card{
 
-    background:white;
-
-    padding:30px;
-
-    border-radius:20px;
-
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
     transition:.4s;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.06);
+    position:relative;
 
 }
 
 .problem-card:hover,
-.objective-card:hover{
+.objective-card:hover,
+.tech-card:hover,
+.science-card:hover,
+.city-card:hover,
+.future-card:hover,
+.sustain-card:hover,
+.stat-card:hover{
 
-    transform:
-    translateY(-10px);
+    transform:translateY(-10px);
+    box-shadow:0 25px 50px rgba(0,0,0,.15);
+
+}
+
+.problem-card,
+.objective-card,
+.tech-card,
+.science-card,
+.city-card,
+.future-card,
+.sustain-card,
+.stat-card{
+
+    padding:30px;
 
 }
 
 .problem-card h3,
-.objective-card h3{
+.objective-card h3,
+.tech-card h3,
+.science-card h3,
+.city-card h3,
+.future-card h3,
+.sustain-card h3,
+.stat-card h3{
 
     margin-bottom:15px;
-
-    color:var(--primary);
-
-}
-/* ==========================
-   INDICADORES
-========================== */
-
-.stats-grid{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    font-size:1.3rem;
 
 }
 
-.stat-card{
+.problem-card p,
+.objective-card p,
+.tech-card p,
+.science-card p,
+.city-card p,
+.future-card p,
+.sustain-card p,
+.stat-card p{
 
-    background:white;
-    border-radius:25px;
-    overflow:hidden;
-    cursor:pointer;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
-    transition:.4s;
-
-}
-
-.stat-card:hover{
-
-    transform:translateY(-10px);
+    color:var(--text-light);
 
 }
 
-.card-front{
+/* =========================
+   IMAGENS DOS CARDS
+========================= */
 
-    padding:35px;
-    text-align:center;
+.tech-card img,
+.city-card img,
+.stat-card img,
+.science-card img{
 
-}
-
-.card-front h3{
-
-    font-size:2rem;
-    margin-bottom:15px;
-    color:var(--primary);
-
-}
-
-.card-front span{
-
-    font-size:1.2rem;
-    font-weight:700;
-    color:#666;
+    height:220px;
+    object-fit:cover;
+    margin-bottom:20px;
+    border-radius:12px;
 
 }
 
-.card-info{
-
-    max-height:0;
-    overflow:hidden;
-
-    transition:.5s;
-
-    padding:0 35px;
-
-}
-
-.stat-card.active .card-info{
-
-    max-height:400px;
-    padding:0 35px 35px 35px;
-
-}
-
-.card-info ul{
-
-    margin-top:15px;
-    padding-left:20px;
-
-}
-
-.card-info li{
-
-    margin-bottom:10px;
-
-}
-
-/* ==========================
-   CIÊNCIA
-========================== */
-
-.science-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-}
-
-.science-card{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:25px;
-
-    border-top:6px solid var(--secondary);
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
-    transition:.4s;
-
-}
-
-.science-card:hover{
-
-    transform:
-    translateY(-12px);
-
-}
-
-.science-card h3{
-
-    margin-bottom:15px;
-
-    color:var(--primary);
-
-}
-
-/* ==========================
-   TECNOLOGIAS
-========================== */
-
-.tech-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(300px,1fr));
-
-    gap:30px;
-
-}
-
-.tech-card{
-
-    background:white;
-
-    border-radius:25px;
-
-    cursor:pointer;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
-    transition:.4s;
-
-}
-
-.tech-card:hover{
-
-    transform:
-    translateY(-10px);
-
-}
-
-.tech-card .card-front{
-
-    background:
-    linear-gradient(
-    135deg,
-    #4caf50,
-    #2e7d32
-    );
-
-    color:white;
-
-    padding:40px;
-
-}
-
-.tech-card .card-front h3{
-
-    color:white;
-
-    font-size:1.7rem;
-
-}
-
-.tech-card .card-info{
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:.5s;
-
-    padding:0 30px;
-
-}
-
-.tech-card.active .card-info{
-
-    max-height:350px;
-
-    padding:25px 30px 30px;
-
-}
-
-.tech-card ul{
-
-    margin-top:15px;
-
-    padding-left:20px;
-
-}
-
-.tech-card li{
-
-    margin-bottom:10px;
-
-}
-
-/* ==========================
-   GLASSMORPHISM
-========================== */
-
-.problem-card,
-.objective-card,
-.science-card{
-
-    backdrop-filter:blur(20px);
-
-    background:
-    rgba(255,255,255,.9);
-
-}
-
-/* ==========================
-   ANIMAÇÕES
-========================== */
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0);
-
-    }
-
-}
-
-.problem-card,
-.objective-card,
-.stat-card,
-.science-card,
-.tech-card{
-
-    animation:
-    fadeUp .8s ease;
-
-}
-
-/* ==========================
-   DARK MODE
-========================== */
-
-body.dark .stat-card,
-body.dark .science-card,
-body.dark .tech-card,
-body.dark .problem-card,
-body.dark .objective-card{
-
-    background:#1f1f1f;
-
-    color:#eee;
-
-}
-
-body.dark .card-front span{
-
-    color:#ccc;
-
-}
-/* ==========================
-   MAPA E REGIÕES
-========================== */
+/* =========================
+   MAPA SVG
+========================= */
 
 .map-container{
 
     display:grid;
-
-    grid-template-columns:1fr 2fr;
-
-    gap:30px;
-
-    align-items:start;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
 
 }
 
-.region-grid{
+.svg-map{
 
-    display:grid;
-
-    gap:20px;
-
-}
-
-.region-card{
-
-    background:white;
-
-    padding:25px;
-
+    background:var(--card);
+    padding:30px;
     border-radius:20px;
-
-    text-align:center;
-
-    font-size:1.2rem;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
 
 }
 
-.region-card:hover{
+.svg-map svg{
 
-    background:var(--secondary);
+    width:100%;
+    height:auto;
 
-    color:white;
+}
 
-    transform:translateY(-5px);
+.region{
+
+    fill:#d8f3dc;
+    stroke:#2d6a4f;
+    stroke-width:3;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.region:hover{
+
+    fill:#52b788;
+
+}
+
+.region.active{
+
+    fill:#2d6a4f;
 
 }
 
 .region-info{
 
-    background:white;
-
+    background:var(--card);
     padding:35px;
-
-    border-radius:25px;
-
-    min-height:350px;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
+    border-radius:20px;
+    box-shadow:var(--shadow);
 
 }
 
 .region-info h3{
 
-    color:var(--primary);
-
-    margin-bottom:20px;
-
-}
-
-/* ==========================
-   CIDADES
-========================== */
-
-.cities-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
-
-}
-
-.city-card{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:25px;
-
-    transition:.4s;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
-}
-
-.city-card:hover{
-
-    transform:translateY(-10px);
-
-}
-
-.city-card h3{
-
-    color:var(--primary);
-
     margin-bottom:15px;
+    font-size:2rem;
 
 }
 
-/* ==========================
-   BARRAS DE PROGRESSO
-========================== */
+/* =========================
+   BARRAS
+========================= */
 
 .comparison-card{
 
-    background:white;
-
+    background:var(--card);
     padding:40px;
-
-    border-radius:25px;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
+    border-radius:20px;
+    box-shadow:var(--shadow);
 
 }
 
@@ -868,83 +483,138 @@ body.dark .card-front span{
 
 .progress-item p{
 
-    margin-bottom:10px;
-
     font-weight:700;
+    margin-bottom:10px;
 
 }
 
 .progress-bar{
 
+    width:100%;
     height:18px;
-
-    background:#ddd;
-
+    background:#e5e7eb;
     border-radius:50px;
-
     overflow:hidden;
+
+}
+
+body.dark .progress-bar{
+
+    background:#334155;
 
 }
 
 .progress-fill{
 
     height:100%;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
     90deg,
-    #4caf50,
-    #2e7d32
+    #2d6a4f,
+    #52b788
     );
 
     border-radius:50px;
 
 }
 
-/* ==========================
+/* =========================
+   GALERIA
+========================= */
+
+.gallery-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+
+}
+
+.gallery-card{
+
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    height:280px;
+
+}
+
+.gallery-card img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+
+}
+
+.gallery-card:hover img{
+
+    transform:scale(1.1);
+
+}
+
+.gallery-overlay{
+
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.85)
+    );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:25px;
+    color:white;
+
+}
+
+.gallery-overlay h3{
+
+    margin-bottom:10px;
+
+}
+/* =========================
    TIMELINE
-========================== */
+========================= */
 
 .timeline{
 
     position:relative;
-
-    margin-top:50px;
+    max-width:1000px;
+    margin:auto;
 
 }
 
 .timeline::before{
 
     content:"";
-
     position:absolute;
-
     left:50%;
-
     top:0;
-
     width:4px;
-
     height:100%;
-
     background:var(--secondary);
+    transform:translateX(-50%);
 
 }
 
 .timeline-item{
 
-    background:white;
-
     width:45%;
-
+    background:var(--card);
     padding:25px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    margin-bottom:40px;
+    position:relative;
 
-    border-radius:20px;
+}
 
-    margin-bottom:30px;
+.timeline-item:nth-child(odd){
 
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.08);
+    margin-right:auto;
 
 }
 
@@ -957,181 +627,63 @@ body.dark .card-front span{
 .timeline-item h3{
 
     color:var(--primary);
-
     margin-bottom:10px;
 
 }
 
-/* ==========================
-   FUTURO
-========================== */
-
-.future-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
-
-}
-
-.future-card{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    transition:.4s;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
-}
-
-.future-card:hover{
-
-    transform:
-    translateY(-10px);
-
-}
-
-.future-card h3{
-
-    color:var(--primary);
-
-    margin-bottom:15px;
-
-}
-
-/* ==========================
-   SUSTENTABILIDADE
-========================== */
-
-.sustainability-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
-
-}
-
-.sustain-card{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    border-top:5px solid var(--secondary);
-
-    transition:.4s;
-
-}
-
-.sustain-card:hover{
-
-    transform:
-    translateY(-8px);
-
-}
-
-/* ==========================
-   CURIOSIDADES
-========================== */
-
-.facts-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
-
-}
-
-.fact-card{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-
-}
-
-/* ==========================
+/* =========================
    FAQ
-========================== */
+========================= */
 
 .faq{
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
+    max-width:1000px;
+    margin:auto;
 
 }
 
 .faq-item{
 
-    background:white;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    background:var(--card);
+    margin-bottom:20px;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
 
 }
 
 .faq-item h3{
 
-    color:var(--primary);
-
-    margin-bottom:15px;
+    padding:25px;
+    cursor:pointer;
+    font-size:1.1rem;
 
 }
 
-/* ==========================
+.faq-item p{
+
+    padding:0 25px 25px;
+    color:var(--text-light);
+
+}
+
+/* =========================
    FOOTER
-========================== */
+========================= */
 
 .footer{
 
-    background:#18351f;
-
+    background:#102a1d;
     color:white;
-
     text-align:center;
-
-    padding:60px 20px;
+    padding:70px 20px;
 
 }
 
 .footer h3{
 
     font-size:2rem;
-
     margin-bottom:15px;
 
 }
@@ -1139,20 +691,132 @@ body.dark .card-front span{
 .footer p{
 
     opacity:.9;
-
-    line-height:1.8;
+    margin-top:10px;
 
 }
 
-/* ==========================
-   RESPONSIVIDADE
-========================== */
+body.dark .footer{
 
-@media(max-width:900px){
+    background:#020617;
+
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+.floating-accessibility{
+
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:9999;
+
+}
+
+.floating-accessibility button{
+
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:var(--primary);
+    color:white;
+    font-weight:700;
+    font-size:1rem;
+    box-shadow:var(--shadow);
+    transition:.3s;
+
+}
+
+.floating-accessibility button:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* =========================
+   MODO ESCURO COMPLETO
+========================= */
+
+body.dark .problem-card,
+body.dark .objective-card,
+body.dark .tech-card,
+body.dark .science-card,
+body.dark .city-card,
+body.dark .future-card,
+body.dark .sustain-card,
+body.dark .stat-card,
+body.dark .comparison-card,
+body.dark .region-info,
+body.dark .svg-map,
+body.dark .faq-item,
+body.dark .timeline-item{
+
+    background:#1e293b;
+    color:#f8fafc;
+
+}
+
+body.dark .card-info,
+body.dark .faq-item p,
+body.dark .problem-card p,
+body.dark .science-card p,
+body.dark .future-card p{
+
+    color:#cbd5e1;
+
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+.problem-card,
+.objective-card,
+.tech-card,
+.science-card,
+.city-card,
+.future-card,
+.sustain-card,
+.stat-card,
+.gallery-card{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:1000px){
 
     .hero h1{
 
-        font-size:3rem;
+        font-size:3.5rem;
 
     }
 
@@ -1174,19 +838,19 @@ body.dark .card-front span{
 
     }
 
+}
+
+@media(max-width:768px){
+
     .nav{
 
         display:none;
 
     }
 
-}
-
-@media(max-width:600px){
-
     .hero h1{
 
-        font-size:2.4rem;
+        font-size:2.7rem;
 
     }
 
@@ -1196,15 +860,23 @@ body.dark .card-front span{
 
     }
 
-    .big-text{
+    .hero-buttons{
 
-        font-size:1.1rem;
+        flex-direction:column;
 
     }
 
-    .floating-accessibility{
+    .problem-grid,
+    .objectives-grid,
+    .tech-grid,
+    .science-grid,
+    .cities-grid,
+    .future-grid,
+    .sustainability-grid,
+    .stats-grid,
+    .gallery-grid{
 
-        right:10px;
+        grid-template-columns:1fr;
 
     }
 

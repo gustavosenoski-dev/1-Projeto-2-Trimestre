@@ -1,21 +1,10 @@
 /* ==========================
-   CARDS CLICÁVEIS
-========================== */
-
-function toggleCard(card){
-
-    card.classList.toggle("active");
-
-}
-
-/* ==========================
    MODO ESCURO
 ========================== */
 
-const themeBtn =
-document.getElementById("themeToggle");
+const themeBtn = document.getElementById("themeToggle");
 
-themeBtn.addEventListener("click",()=>{
+themeBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
 
@@ -32,271 +21,204 @@ themeBtn.addEventListener("click",()=>{
 });
 
 /* ==========================
-   AUMENTAR E DIMINUIR FONTE
+   TAMANHO DA FONTE
 ========================== */
 
-let currentSize = 100;
+let currentFont = 100;
 
-document
-.getElementById("fontIncrease")
-.addEventListener("click",()=>{
+document.getElementById("fontIncrease")
+.addEventListener("click", () => {
 
-    currentSize += 10;
+    currentFont += 5;
 
     document.body.style.fontSize =
-    currentSize + "%";
+    currentFont + "%";
 
 });
 
-document
-.getElementById("fontDecrease")
-.addEventListener("click",()=>{
+document.getElementById("fontDecrease")
+.addEventListener("click", () => {
 
-    currentSize -= 10;
-
-    if(currentSize < 80){
-
-        currentSize = 80;
-
-    }
+    currentFont -= 5;
 
     document.body.style.fontSize =
-    currentSize + "%";
+    currentFont + "%";
 
 });
 
 /* ==========================
-   MAPA / REGIÕES
-========================== */
-
-function showRegion(region){
-
-const info =
-document.getElementById("regionInfo");
-
-const regions = {
-
-oeste:`
-
-<h3>🌽 Região Oeste</h3>
-
-<p>
-A região Oeste é uma das mais produtivas
-do Paraná.
-</p>
-
-<ul>
-<li><strong>Cidade destaque:</strong> Cascavel</li>
-<li><strong>Produção:</strong> Milho, Frango e Suínos</li>
-<li><strong>Participação:</strong> 32%</li>
-<li><strong>Tecnologia:</strong> Agricultura de Precisão</li>
-</ul>
-
-`,
-
-norte:`
-
-<h3>🌱 Região Norte</h3>
-
-<p>
-Importante centro agrícola e tecnológico.
-</p>
-
-<ul>
-<li><strong>Cidade destaque:</strong> Londrina</li>
-<li><strong>Produção:</strong> Soja, Café e Milho</li>
-<li><strong>Participação:</strong> 21%</li>
-<li><strong>Tecnologia:</strong> Pesquisas Agrícolas</li>
-</ul>
-
-`,
-
-sul:`
-
-<h3>🌾 Região Sul</h3>
-
-<p>
-Conhecida pela produção de trigo e cevada.
-</p>
-
-<ul>
-<li><strong>Cidade destaque:</strong> Guarapuava</li>
-<li><strong>Produção:</strong> Trigo e Cevada</li>
-<li><strong>Participação:</strong> 18%</li>
-<li><strong>Tecnologia:</strong> Monitoramento Climático</li>
-</ul>
-
-`,
-
-centro:`
-
-<h3>🚜 Centro-Sul</h3>
-
-<p>
-Região estratégica para o desenvolvimento
-agrícola estadual.
-</p>
-
-<ul>
-<li><strong>Cidade destaque:</strong> Ponta Grossa</li>
-<li><strong>Produção:</strong> Soja e Milho</li>
-<li><strong>Participação:</strong> 15%</li>
-<li><strong>Tecnologia:</strong> Sensores Inteligentes</li>
-</ul>
-
-`
-
-};
-
-info.innerHTML = regions[region];
-
-}
-
-/* ==========================
-   FAQ ACORDEÃO
+   FAQ INTERATIVO
 ========================== */
 
 const faqItems =
 document.querySelectorAll(".faq-item");
 
-faqItems.forEach(item=>{
+faqItems.forEach(item => {
 
-const answer =
-item.querySelector("p");
+    const title =
+    item.querySelector("h3");
 
-answer.style.display = "none";
+    const content =
+    item.querySelector("p");
 
-item.addEventListener("click",()=>{
+    content.style.display = "none";
 
-if(answer.style.display === "block"){
+    title.addEventListener("click", () => {
 
-answer.style.display = "none";
+        const aberto =
+        content.style.display === "block";
 
-}else{
+        document
+        .querySelectorAll(".faq-item p")
+        .forEach(p => {
 
-answer.style.display = "block";
+            p.style.display = "none";
 
-}
+        });
 
-});
+        if(!aberto){
+
+            content.style.display = "block";
+
+        }
+
+    });
 
 });
 
 /* ==========================
-   ANIMAÇÃO DAS BARRAS
+   MAPA SVG
 ========================== */
 
-const bars =
-document.querySelectorAll(".progress-fill");
+const regioes = {
 
-window.addEventListener("load",()=>{
+    oeste: `
+        <h3>Oeste do Paraná</h3>
+        <p>
+        Região líder em produção de soja,
+        milho, aves e suínos.
+        </p>
 
-bars.forEach(bar=>{
+        <ul>
+            <li>Cidade destaque: Cascavel</li>
+            <li>Forte cooperativismo</li>
+            <li>Alta tecnologia agrícola</li>
+        </ul>
+    `,
 
-const width =
-bar.style.width;
+    norte: `
+        <h3>Norte do Paraná</h3>
+        <p>
+        Região com forte produção agrícola
+        e centros de pesquisa.
+        </p>
 
-bar.style.width = "0";
+        <ul>
+            <li>Londrina e Maringá</li>
+            <li>Universidades agrícolas</li>
+            <li>Inovação tecnológica</li>
+        </ul>
+    `,
 
-setTimeout(()=>{
+    centro: `
+        <h3>Centro-Sul</h3>
+        <p>
+        Destaque para trigo, cevada e
+        agricultura mecanizada.
+        </p>
 
-bar.style.width = width;
+        <ul>
+            <li>Guarapuava</li>
+            <li>Grandes propriedades</li>
+            <li>Alta produtividade</li>
+        </ul>
+    `,
 
-bar.style.transition =
-"2s ease";
+    sul: `
+        <h3>Sul do Paraná</h3>
+        <p>
+        Forte produção agropecuária e
+        preservação ambiental.
+        </p>
 
-},500);
+        <ul>
+            <li>Produção leiteira</li>
+            <li>Agricultura familiar</li>
+            <li>Sustentabilidade</li>
+        </ul>
+    `
+};
 
-});
+const mapa =
+document.querySelectorAll(".region");
+
+const info =
+document.getElementById("regionInfo");
+
+mapa.forEach(regiao => {
+
+    regiao.addEventListener("click", () => {
+
+        mapa.forEach(r => {
+
+            r.classList.remove("active");
+
+        });
+
+        regiao.classList.add("active");
+
+        info.innerHTML =
+        regioes[regiao.id];
+
+    });
 
 });
 
 /* ==========================
-   HEADER TRANSPARENTE
-========================== */
-
-window.addEventListener("scroll",()=>{
-
-const header =
-document.querySelector(".header");
-
-if(window.scrollY > 100){
-
-header.style.background =
-"rgba(255,255,255,.98)";
-
-header.style.boxShadow =
-"0 5px 20px rgba(0,0,0,.1)";
-
-}else{
-
-header.style.background =
-"rgba(255,255,255,.92)";
-
-header.style.boxShadow =
-"none";
-
-}
-
-});
-
-/* ==========================
-   SCROLL SUAVE
-========================== */
-
-document
-.querySelectorAll('a[href^="#"]')
-.forEach(anchor=>{
-
-anchor.addEventListener("click",function(e){
-
-e.preventDefault();
-
-document
-.querySelector(this.getAttribute("href"))
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-});
-
-});
-
-/* ==========================
-   ANIMAÇÃO AO ENTRAR NA TELA
+   ANIMAÇÃO AO ROLAR
 ========================== */
 
 const observer =
-new IntersectionObserver(entries=>{
+new IntersectionObserver(entries => {
 
-entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-if(entry.isIntersecting){
+        if(entry.isIntersecting){
 
-entry.target.style.opacity = "1";
-entry.target.style.transform =
-"translateY(0)";
+            entry.target.classList.add("show");
 
-}
+        }
 
-});
+    });
 
 });
 
 document
 .querySelectorAll(
-".problem-card,.objective-card,.science-card,.tech-card,.city-card,.future-card,.sustain-card,.fact-card"
+".problem-card, .objective-card, .tech-card, .science-card, .city-card, .future-card, .sustain-card, .stat-card, .gallery-card"
 )
-.forEach(card=>{
+.forEach(card => {
 
-card.style.opacity = "0";
-card.style.transform =
-"translateY(40px)";
-card.style.transition =
-".8s ease";
-
-observer.observe(card);
+    observer.observe(card);
 
 });
+.image-preview{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.preview-box img{
+    max-width:90%;
+    max-height:90vh;
+    border-radius:20px;
+}
+
+.nav a.active{
+    color:#52b788;
+    font-weight:800;
+}
