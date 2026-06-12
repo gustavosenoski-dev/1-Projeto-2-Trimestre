@@ -202,23 +202,3 @@ document
     observer.observe(card);
 
 });
-.image-preview{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.9);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-}
-
-.preview-box img{
-    max-width:90%;
-    max-height:90vh;
-    border-radius:20px;
-}
-
-.nav a.active{
-    color:#52b788;
-    font-weight:800;
-}
