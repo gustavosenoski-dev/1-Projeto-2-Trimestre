@@ -1,483 +1,302 @@
 /* ==========================
-   LOADER
+   CARDS CLICÁVEIS
 ========================== */
 
-window.addEventListener("load", () => {
+function toggleCard(card){
 
-    const loader = document.getElementById("loader");
+    card.classList.toggle("active");
 
-    setTimeout(() => {
-
-        loader.classList.add("hide");
-
-    }, 1200);
-
-});
+}
 
 /* ==========================
-   ANO AUTOMÁTICO
+   MODO ESCURO
 ========================== */
 
-document.getElementById("currentYear").textContent =
-new Date().getFullYear();
-
-/* ==========================
-   DARK MODE
-========================== */
-
-const themeToggle =
+const themeBtn =
 document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
+themeBtn.addEventListener("click",()=>{
 
     document.body.classList.toggle("dark");
 
+    if(document.body.classList.contains("dark")){
+
+        themeBtn.textContent = "☀️";
+
+    }else{
+
+        themeBtn.textContent = "🌙";
+
+    }
+
 });
 
 /* ==========================
-   AUMENTAR FONTE
+   AUMENTAR E DIMINUIR FONTE
 ========================== */
 
-let fontSize = 100;
+let currentSize = 100;
 
 document
 .getElementById("fontIncrease")
-.addEventListener("click", () => {
+.addEventListener("click",()=>{
 
-    fontSize += 10;
+    currentSize += 10;
 
     document.body.style.fontSize =
-    fontSize + "%";
+    currentSize + "%";
 
 });
 
 document
 .getElementById("fontDecrease")
-.addEventListener("click", () => {
+.addEventListener("click",()=>{
 
-    if(fontSize > 70){
+    currentSize -= 10;
 
-        fontSize -= 10;
+    if(currentSize < 80){
 
-        document.body.style.fontSize =
-        fontSize + "%";
+        currentSize = 80;
 
     }
+
+    document.body.style.fontSize =
+    currentSize + "%";
 
 });
 
 /* ==========================
-   MENU MOBILE
+   MAPA / REGIÕES
 ========================== */
 
-const menuBtn =
-document.querySelector(".menu-mobile");
+function showRegion(region){
 
-const nav =
-document.querySelector(".nav");
+const info =
+document.getElementById("regionInfo");
 
-if(menuBtn){
+const regions = {
 
-    menuBtn.addEventListener("click", () => {
+oeste:`
 
-        nav.classList.toggle("active");
+<h3>🌽 Região Oeste</h3>
 
-    });
+<p>
+A região Oeste é uma das mais produtivas
+do Paraná.
+</p>
 
-}
+<ul>
+<li><strong>Cidade destaque:</strong> Cascavel</li>
+<li><strong>Produção:</strong> Milho, Frango e Suínos</li>
+<li><strong>Participação:</strong> 32%</li>
+<li><strong>Tecnologia:</strong> Agricultura de Precisão</li>
+</ul>
 
-/* ==========================
-   BOTÃO TOPO
-========================== */
+`,
 
-const backToTop =
-document.getElementById("backToTop");
+norte:`
 
-window.addEventListener("scroll", () => {
+<h3>🌱 Região Norte</h3>
 
-    if(window.scrollY > 500){
+<p>
+Importante centro agrícola e tecnológico.
+</p>
 
-        backToTop.classList.add("show");
+<ul>
+<li><strong>Cidade destaque:</strong> Londrina</li>
+<li><strong>Produção:</strong> Soja, Café e Milho</li>
+<li><strong>Participação:</strong> 21%</li>
+<li><strong>Tecnologia:</strong> Pesquisas Agrícolas</li>
+</ul>
 
-    }else{
+`,
 
-        backToTop.classList.remove("show");
+sul:`
 
-    }
+<h3>🌾 Região Sul</h3>
 
-});
+<p>
+Conhecida pela produção de trigo e cevada.
+</p>
 
-backToTop.addEventListener("click", () => {
+<ul>
+<li><strong>Cidade destaque:</strong> Guarapuava</li>
+<li><strong>Produção:</strong> Trigo e Cevada</li>
+<li><strong>Participação:</strong> 18%</li>
+<li><strong>Tecnologia:</strong> Monitoramento Climático</li>
+</ul>
 
-    window.scrollTo({
+`,
 
-        top:0,
-        behavior:"smooth"
+centro:`
 
-    });
+<h3>🚜 Centro-Sul</h3>
 
-});
-/* ==========================
-   MODAL DOS INDICADORES
-========================== */
+<p>
+Região estratégica para o desenvolvimento
+agrícola estadual.
+</p>
 
-const infoModal =
-document.getElementById("infoModal");
+<ul>
+<li><strong>Cidade destaque:</strong> Ponta Grossa</li>
+<li><strong>Produção:</strong> Soja e Milho</li>
+<li><strong>Participação:</strong> 15%</li>
+<li><strong>Tecnologia:</strong> Sensores Inteligentes</li>
+</ul>
 
-const infoTitle =
-document.getElementById("infoTitle");
-
-const infoText =
-document.getElementById("infoText");
-
-const closeInfo =
-document.getElementById("closeInfo");
-
-function showStatInfo(tipo){
-
-    const dados = {
-
-        soja:{
-
-            titulo:"Produção de Soja",
-
-            texto:`
-
-            <p><strong>Produção:</strong> 25 milhões de toneladas</p>
-
-            <p><strong>Participação Nacional:</strong> cerca de 18%</p>
-
-            <p><strong>Principais Destinos:</strong> China, Europa e América do Sul</p>
-
-            <p><strong>Importância:</strong> uma das principais culturas agrícolas do Paraná.</p>
-
-            `
-
-        },
-
-        milho:{
-
-            titulo:"Produção de Milho",
-
-            texto:`
-
-            <p><strong>Produção:</strong> 15 milhões de toneladas</p>
-
-            <p><strong>Participação Nacional:</strong> aproximadamente 12%</p>
-
-            <p><strong>Uso:</strong> alimentação humana, animal e exportação.</p>
-
-            <p><strong>Destaque:</strong> uma das maiores safras do país.</p>
-
-            `
-
-        },
-
-        municipios:{
-
-            titulo:"Municípios do Paraná",
-
-            texto:`
-
-            <p><strong>Total:</strong> 399 municípios.</p>
-
-            <p><strong>Área:</strong> mais de 199 mil km².</p>
-
-            <p><strong>Destaque:</strong> forte presença agrícola em praticamente todo o estado.</p>
-
-            `
-
-        },
-
-        exportacao:{
-
-            titulo:"Exportações",
-
-            texto:`
-
-            <p><strong>Mais de 100 países importadores.</strong></p>
-
-            <p><strong>Porto Principal:</strong> Paranaguá.</p>
-
-            <p><strong>Produtos:</strong> soja, milho, carne de frango e derivados.</p>
-
-            <p><strong>Impacto:</strong> bilhões de reais movimentados anualmente.</p>
-
-            `
-
-        }
-
-    };
-
-    infoTitle.innerHTML =
-    dados[tipo].titulo;
-
-    infoText.innerHTML =
-    dados[tipo].texto;
-
-    infoModal.classList.add("active");
-
-}
-
-closeInfo.addEventListener("click", () => {
-
-    infoModal.classList.remove("active");
-
-});
-
-window.addEventListener("click", (e) => {
-
-    if(e.target === infoModal){
-
-        infoModal.classList.remove("active");
-
-    }
-
-});
-/* ==========================
-   MAPA INTERATIVO
-========================== */
-
-const mapInfo =
-document.getElementById("mapInfo");
-
-const regionButtons =
-document.querySelectorAll("[data-region]");
-
-const regioes = {
-
-    oeste:{
-
-        titulo:"🌽 Região Oeste",
-
-        cidade:"Cascavel, Toledo e Marechal Cândido Rondon",
-
-        producao:"Milho, Frango e Suínos",
-
-        participacao:"32% da produção agrícola estadual",
-
-        cor:"#4CAF50"
-
-    },
-
-    norte:{
-
-        titulo:"🌱 Região Norte",
-
-        cidade:"Londrina, Apucarana e Arapongas",
-
-        producao:"Soja, Café e Milho",
-
-        participacao:"21% da produção agrícola estadual",
-
-        cor:"#8BC34A"
-
-    },
-
-    sul:{
-
-        titulo:"🌾 Região Sul",
-
-        cidade:"Ponta Grossa, União da Vitória e Irati",
-
-        producao:"Soja, Milho e Feijão",
-
-        participacao:"15% da produção agrícola estadual",
-
-        cor:"#66BB6A"
-
-    },
-
-    centro:{
-
-        titulo:"🚜 Centro-Sul",
-
-        cidade:"Guarapuava, Prudentópolis e Pitanga",
-
-        producao:"Trigo, Cevada e Florestas Plantadas",
-
-        participacao:"18% da produção agrícola estadual",
-
-        cor:"#2E7D32"
-
-    }
+`
 
 };
 
-regionButtons.forEach(btn => {
+info.innerHTML = regions[region];
 
-    btn.addEventListener("click", () => {
-
-        const regiao =
-        regioes[btn.dataset.region];
-
-        mapInfo.innerHTML = `
-
-        <h3>${regiao.titulo}</h3>
-
-        <p><strong>Cidades:</strong> ${regiao.cidade}</p>
-
-        <p><strong>Produção:</strong> ${regiao.producao}</p>
-
-        <p><strong>Participação:</strong> ${regiao.participacao}</p>
-
-        <div style="
-            width:100%;
-            height:15px;
-            background:#ddd;
-            border-radius:20px;
-            margin-top:15px;
-        ">
-            <div style="
-                width:${regiao.participacao.match(/\d+/)[0]}%;
-                height:100%;
-                background:${regiao.cor};
-                border-radius:20px;
-            "></div>
-        </div>
-
-        `;
-
-        regionButtons.forEach(b => {
-
-            b.style.background = "#2e7d32";
-
-        });
-
-        btn.style.background =
-        regiao.cor;
-
-    });
-
-});
+}
 
 /* ==========================
-   FAQ
+   FAQ ACORDEÃO
 ========================== */
 
 const faqItems =
 document.querySelectorAll(".faq-item");
 
-faqItems.forEach(item => {
+faqItems.forEach(item=>{
 
-    item.addEventListener("click", () => {
+const answer =
+item.querySelector("p");
 
-        item.classList.toggle("active");
+answer.style.display = "none";
 
-    });
+item.addEventListener("click",()=>{
+
+if(answer.style.display === "block"){
+
+answer.style.display = "none";
+
+}else{
+
+answer.style.display = "block";
+
+}
+
+});
 
 });
 
 /* ==========================
-   GALERIA MODAL
+   ANIMAÇÃO DAS BARRAS
 ========================== */
 
-const galleryImages =
-document.querySelectorAll(".gallery-item img");
+const bars =
+document.querySelectorAll(".progress-fill");
 
-const imageModal =
-document.getElementById("imageModal");
+window.addEventListener("load",()=>{
 
-const modalImage =
-document.getElementById("modalImage");
+bars.forEach(bar=>{
 
-const closeModal =
-document.querySelector(".close-modal");
+const width =
+bar.style.width;
 
-if(galleryImages.length){
+bar.style.width = "0";
 
-    galleryImages.forEach(img => {
+setTimeout(()=>{
 
-        img.addEventListener("click", () => {
+bar.style.width = width;
 
-            modalImage.src =
-            img.src;
+bar.style.transition =
+"2s ease";
 
-            imageModal.classList.add("active");
+},500);
 
-        });
-
-    });
-
-}
-
-if(closeModal){
-
-    closeModal.addEventListener("click", () => {
-
-        imageModal.classList.remove("active");
-
-    });
-
-}
-
-/* ==========================
-   CONTADORES
-========================== */
-
-const counters =
-document.querySelectorAll(".counter");
-
-counters.forEach(counter => {
-
-    const updateCounter = () => {
-
-        const target =
-        +counter.getAttribute("data-target");
-
-        const current =
-        +counter.innerText;
-
-        const increment =
-        target / 100;
-
-        if(current < target){
-
-            counter.innerText =
-            Math.ceil(current + increment);
-
-            setTimeout(updateCounter,20);
-
-        }else{
-
-            counter.innerText =
-            target.toLocaleString("pt-BR");
-
-        }
-
-    };
-
-    updateCounter();
+});
 
 });
 
 /* ==========================
-   ANIMAÇÃO AO ROLAR
+   HEADER TRANSPARENTE
+========================== */
+
+window.addEventListener("scroll",()=>{
+
+const header =
+document.querySelector(".header");
+
+if(window.scrollY > 100){
+
+header.style.background =
+"rgba(255,255,255,.98)";
+
+header.style.boxShadow =
+"0 5px 20px rgba(0,0,0,.1)";
+
+}else{
+
+header.style.background =
+"rgba(255,255,255,.92)";
+
+header.style.boxShadow =
+"none";
+
+}
+
+});
+
+/* ==========================
+   SCROLL SUAVE
+========================== */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document
+.querySelector(this.getAttribute("href"))
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+/* ==========================
+   ANIMAÇÃO AO ENTRAR NA TELA
 ========================== */
 
 const observer =
-new IntersectionObserver(entries => {
+new IntersectionObserver(entries=>{
 
-    entries.forEach(entry => {
+entries.forEach(entry=>{
 
-        if(entry.isIntersecting){
+if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+entry.target.style.opacity = "1";
+entry.target.style.transform =
+"translateY(0)";
 
-        }
+}
 
-    });
+});
 
 });
 
 document
 .querySelectorAll(
-".stat-card, .tech-card, .highlight-card, .gallery-item"
+".problem-card,.objective-card,.science-card,.tech-card,.city-card,.future-card,.sustain-card,.fact-card"
 )
-.forEach(el => {
+.forEach(card=>{
 
-    el.classList.add("fade-up");
+card.style.opacity = "0";
+card.style.transform =
+"translateY(40px)";
+card.style.transition =
+".8s ease";
 
-    observer.observe(el);
+observer.observe(card);
 
 });
