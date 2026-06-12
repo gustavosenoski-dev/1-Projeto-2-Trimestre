@@ -949,3 +949,129 @@ body.dark .footer{
     }
 
 }
+/* ==========================
+   COMPARAÇÃO
+========================== */
+
+.chart{
+    max-width:800px;
+    margin:auto;
+}
+
+.bar{
+    margin-bottom:25px;
+}
+
+.bar p{
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.progress{
+    height:25px;
+    background:linear-gradient(
+        90deg,
+        #2e7d32,
+        #81c784
+    );
+    border-radius:50px;
+}
+
+/* ==========================
+   MODAL INDICADORES
+========================== */
+
+.info-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.info-modal.active{
+    display:flex;
+}
+
+.info-content{
+    background:white;
+    width:90%;
+    max-width:700px;
+    padding:35px;
+    border-radius:20px;
+    position:relative;
+}
+
+.info-content h2{
+    color:#2e7d32;
+    margin-bottom:20px;
+}
+
+#closeInfo{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+/* ==========================
+   MAPA MELHORADO
+========================== */
+
+.map-buttons button.active{
+    background:#1b5e20;
+    transform:scale(1.05);
+}
+
+.map-info{
+    min-height:300px;
+}
+
+/* ==========================
+   HERO MAIS MODERNO
+========================== */
+
+.hero h1{
+
+    font-size:5rem;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #8bc34a
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+
+/* ==========================
+   CARDS MAIS BONITOS
+========================== */
+
+.stat-card,
+.tech-card,
+.highlight-card{
+
+    border:1px solid rgba(255,255,255,.3);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.12);
+
+}
+
+/* ==========================
+   DARK MODE MODAL
+========================== */
+
+body.dark .info-content{
+    background:#1f1f1f;
+    color:white;
+}

@@ -1,105 +1,74 @@
 /* ==========================
-   AGROFORTE PARANÁ 2026
+   LOADER
 ========================== */
-
-/* LOADER */
 
 window.addEventListener("load", () => {
 
     const loader = document.getElementById("loader");
 
-    if(loader){
-        setTimeout(() => {
-            loader.classList.add("hide");
-        }, 800);
+    setTimeout(() => {
+
+        loader.classList.add("hide");
+
+    }, 1200);
+
+});
+
+/* ==========================
+   ANO AUTOMÁTICO
+========================== */
+
+document.getElementById("currentYear").textContent =
+new Date().getFullYear();
+
+/* ==========================
+   DARK MODE
+========================== */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+});
+
+/* ==========================
+   AUMENTAR FONTE
+========================== */
+
+let fontSize = 100;
+
+document
+.getElementById("fontIncrease")
+.addEventListener("click", () => {
+
+    fontSize += 10;
+
+    document.body.style.fontSize =
+    fontSize + "%";
+
+});
+
+document
+.getElementById("fontDecrease")
+.addEventListener("click", () => {
+
+    if(fontSize > 70){
+
+        fontSize -= 10;
+
+        document.body.style.fontSize =
+        fontSize + "%";
+
     }
 
 });
 
-/* DARK MODE */
-
-const themeToggle = document.getElementById("themeToggle");
-
-if(themeToggle){
-
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("dark");
-
-        localStorage.setItem(
-            "theme",
-            document.body.classList.contains("dark")
-            ? "dark"
-            : "light"
-        );
-
-    });
-
-}
-
-if(localStorage.getItem("theme") === "dark"){
-
-    document.body.classList.add("dark");
-
-}
-
-/* AUMENTAR E DIMINUIR FONTE */
-
-let currentFontSize = 100;
-
-const increaseBtn = document.getElementById("fontIncrease");
-const decreaseBtn = document.getElementById("fontDecrease");
-
-if(increaseBtn){
-
-    increaseBtn.addEventListener("click", () => {
-
-        if(currentFontSize < 140){
-
-            currentFontSize += 10;
-
-            document.body.style.fontSize =
-            currentFontSize + "%";
-
-        }
-
-    });
-
-}
-
-if(decreaseBtn){
-
-    decreaseBtn.addEventListener("click", () => {
-
-        if(currentFontSize > 80){
-
-            currentFontSize -= 10;
-
-            document.body.style.fontSize =
-            currentFontSize + "%";
-
-        }
-
-    });
-
-}
-
-/* ALTO CONTRASTE */
-
-const contrastToggle =
-document.getElementById("contrastToggle");
-
-if(contrastToggle){
-
-    contrastToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("contrast");
-
-    });
-
-}
-
-/* MENU MOBILE */
+/* ==========================
+   MENU MOBILE
+========================== */
 
 const menuBtn =
 document.querySelector(".menu-mobile");
@@ -117,97 +86,9 @@ if(menuBtn){
 
 }
 
-document.querySelectorAll(".nav a")
-.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        nav.classList.remove("active");
-
-    });
-
-});
-
-/* CONTADORES */
-
-const counters =
-document.querySelectorAll(".counter");
-
-const animateCounters = () => {
-
-    counters.forEach(counter => {
-
-        const target =
-        +counter.dataset.target;
-
-        const current =
-        +counter.innerText;
-
-        const increment =
-        target / 100;
-
-        if(current < target){
-
-            counter.innerText =
-            Math.ceil(current + increment);
-
-            setTimeout(
-                animateCounters,
-                20
-            );
-
-        }else{
-
-            counter.innerText =
-            target.toLocaleString("pt-BR");
-
-        }
-
-    });
-
-};
-
-const counterSection =
-document.getElementById("indicadores");
-
-let countersStarted = false;
-
-window.addEventListener("scroll", () => {
-
-    if(
-        counterSection &&
-        !countersStarted &&
-        window.scrollY >
-        counterSection.offsetTop - 400
-    ){
-
-        countersStarted = true;
-
-        animateCounters();
-
-    }
-
-});
-
-/* FAQ */
-
-const faqItems =
-document.querySelectorAll(".faq-item");
-
-faqItems.forEach(item => {
-
-    const question =
-    item.querySelector(".faq-question");
-
-    question.addEventListener("click", () => {
-
-        item.classList.toggle("active");
-
-    });
-
-});
-
-/* BOTÃO VOLTAR AO TOPO */
+/* ==========================
+   BOTÃO TOPO
+========================== */
 
 const backToTop =
 document.getElementById("backToTop");
@@ -226,72 +107,136 @@ window.addEventListener("scroll", () => {
 
 });
 
-if(backToTop){
+backToTop.addEventListener("click", () => {
 
-    backToTop.addEventListener("click", () => {
+    window.scrollTo({
 
-        window.scrollTo({
-
-            top:0,
-            behavior:"smooth"
-
-        });
-
-    });
-
-}
-
-/* MODAL DA GALERIA */
-
-const galleryImages =
-document.querySelectorAll(".gallery-item img");
-
-const modal =
-document.getElementById("imageModal");
-
-const modalImage =
-document.getElementById("modalImage");
-
-const closeModal =
-document.querySelector(".close-modal");
-
-galleryImages.forEach(img => {
-
-    img.addEventListener("click", () => {
-
-        modal.classList.add("active");
-
-        modalImage.src = img.src;
+        top:0,
+        behavior:"smooth"
 
     });
 
 });
+/* ==========================
+   MODAL DOS INDICADORES
+========================== */
 
-if(closeModal){
+const infoModal =
+document.getElementById("infoModal");
 
-    closeModal.addEventListener("click", () => {
+const infoTitle =
+document.getElementById("infoTitle");
 
-        modal.classList.remove("active");
+const infoText =
+document.getElementById("infoText");
 
-    });
+const closeInfo =
+document.getElementById("closeInfo");
 
-}
+function showStatInfo(tipo){
 
-if(modal){
+    const dados = {
 
-    modal.addEventListener("click", e => {
+        soja:{
 
-        if(e.target === modal){
+            titulo:"Produção de Soja",
 
-            modal.classList.remove("active");
+            texto:`
+
+            <p><strong>Produção:</strong> 25 milhões de toneladas</p>
+
+            <p><strong>Participação Nacional:</strong> cerca de 18%</p>
+
+            <p><strong>Principais Destinos:</strong> China, Europa e América do Sul</p>
+
+            <p><strong>Importância:</strong> uma das principais culturas agrícolas do Paraná.</p>
+
+            `
+
+        },
+
+        milho:{
+
+            titulo:"Produção de Milho",
+
+            texto:`
+
+            <p><strong>Produção:</strong> 15 milhões de toneladas</p>
+
+            <p><strong>Participação Nacional:</strong> aproximadamente 12%</p>
+
+            <p><strong>Uso:</strong> alimentação humana, animal e exportação.</p>
+
+            <p><strong>Destaque:</strong> uma das maiores safras do país.</p>
+
+            `
+
+        },
+
+        municipios:{
+
+            titulo:"Municípios do Paraná",
+
+            texto:`
+
+            <p><strong>Total:</strong> 399 municípios.</p>
+
+            <p><strong>Área:</strong> mais de 199 mil km².</p>
+
+            <p><strong>Destaque:</strong> forte presença agrícola em praticamente todo o estado.</p>
+
+            `
+
+        },
+
+        exportacao:{
+
+            titulo:"Exportações",
+
+            texto:`
+
+            <p><strong>Mais de 100 países importadores.</strong></p>
+
+            <p><strong>Porto Principal:</strong> Paranaguá.</p>
+
+            <p><strong>Produtos:</strong> soja, milho, carne de frango e derivados.</p>
+
+            <p><strong>Impacto:</strong> bilhões de reais movimentados anualmente.</p>
+
+            `
 
         }
 
-    });
+    };
+
+    infoTitle.innerHTML =
+    dados[tipo].titulo;
+
+    infoText.innerHTML =
+    dados[tipo].texto;
+
+    infoModal.classList.add("active");
 
 }
 
-/* MAPA INTERATIVO */
+closeInfo.addEventListener("click", () => {
+
+    infoModal.classList.remove("active");
+
+});
+
+window.addEventListener("click", (e) => {
+
+    if(e.target === infoModal){
+
+        infoModal.classList.remove("active");
+
+    }
+
+});
+/* ==========================
+   MAPA INTERATIVO
+========================== */
 
 const mapInfo =
 document.getElementById("mapInfo");
@@ -299,26 +244,62 @@ document.getElementById("mapInfo");
 const regionButtons =
 document.querySelectorAll("[data-region]");
 
-const regions = {
+const regioes = {
 
-    oeste: {
-        titulo: "Oeste do Paraná",
-        texto: "Grande produção de soja, milho e aves."
+    oeste:{
+
+        titulo:"🌽 Região Oeste",
+
+        cidade:"Cascavel, Toledo e Marechal Cândido Rondon",
+
+        producao:"Milho, Frango e Suínos",
+
+        participacao:"32% da produção agrícola estadual",
+
+        cor:"#4CAF50"
+
     },
 
-    norte: {
-        titulo: "Norte do Paraná",
-        texto: "Referência em agricultura moderna."
+    norte:{
+
+        titulo:"🌱 Região Norte",
+
+        cidade:"Londrina, Apucarana e Arapongas",
+
+        producao:"Soja, Café e Milho",
+
+        participacao:"21% da produção agrícola estadual",
+
+        cor:"#8BC34A"
+
     },
 
-    sul: {
-        titulo: "Sul do Paraná",
-        texto: "Produção diversificada e sustentável."
+    sul:{
+
+        titulo:"🌾 Região Sul",
+
+        cidade:"Ponta Grossa, União da Vitória e Irati",
+
+        producao:"Soja, Milho e Feijão",
+
+        participacao:"15% da produção agrícola estadual",
+
+        cor:"#66BB6A"
+
     },
 
-    centro: {
-        titulo: "Centro-Sul",
-        texto: "Destaque para grãos e pecuária."
+    centro:{
+
+        titulo:"🚜 Centro-Sul",
+
+        cidade:"Guarapuava, Prudentópolis e Pitanga",
+
+        producao:"Trigo, Cevada e Florestas Plantadas",
+
+        participacao:"18% da produção agrícola estadual",
+
+        cor:"#2E7D32"
+
     }
 
 };
@@ -327,33 +308,152 @@ regionButtons.forEach(btn => {
 
     btn.addEventListener("click", () => {
 
-        const region =
-        regions[btn.dataset.region];
+        const regiao =
+        regioes[btn.dataset.region];
 
         mapInfo.innerHTML = `
 
-            <h3>${region.titulo}</h3>
+        <h3>${regiao.titulo}</h3>
 
-            <p>${region.texto}</p>
+        <p><strong>Cidades:</strong> ${regiao.cidade}</p>
 
-            <div class="map-buttons">
-                ${document.querySelector(".map-buttons").innerHTML}
-            </div>
+        <p><strong>Produção:</strong> ${regiao.producao}</p>
+
+        <p><strong>Participação:</strong> ${regiao.participacao}</p>
+
+        <div style="
+            width:100%;
+            height:15px;
+            background:#ddd;
+            border-radius:20px;
+            margin-top:15px;
+        ">
+            <div style="
+                width:${regiao.participacao.match(/\d+/)[0]}%;
+                height:100%;
+                background:${regiao.cor};
+                border-radius:20px;
+            "></div>
+        </div>
 
         `;
 
-        location.reload;
+        regionButtons.forEach(b => {
+
+            b.style.background = "#2e7d32";
+
+        });
+
+        btn.style.background =
+        regiao.cor;
 
     });
 
 });
 
-/* ANIMAÇÕES AO ROLAR */
+/* ==========================
+   FAQ
+========================== */
 
-const animatedElements =
-document.querySelectorAll(
-".stat-card, .tech-card, .gallery-item, .highlight-card, .timeline-item"
-);
+const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        item.classList.toggle("active");
+
+    });
+
+});
+
+/* ==========================
+   GALERIA MODAL
+========================== */
+
+const galleryImages =
+document.querySelectorAll(".gallery-item img");
+
+const imageModal =
+document.getElementById("imageModal");
+
+const modalImage =
+document.getElementById("modalImage");
+
+const closeModal =
+document.querySelector(".close-modal");
+
+if(galleryImages.length){
+
+    galleryImages.forEach(img => {
+
+        img.addEventListener("click", () => {
+
+            modalImage.src =
+            img.src;
+
+            imageModal.classList.add("active");
+
+        });
+
+    });
+
+}
+
+if(closeModal){
+
+    closeModal.addEventListener("click", () => {
+
+        imageModal.classList.remove("active");
+
+    });
+
+}
+
+/* ==========================
+   CONTADORES
+========================== */
+
+const counters =
+document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+    const updateCounter = () => {
+
+        const target =
+        +counter.getAttribute("data-target");
+
+        const current =
+        +counter.innerText;
+
+        const increment =
+        target / 100;
+
+        if(current < target){
+
+            counter.innerText =
+            Math.ceil(current + increment);
+
+            setTimeout(updateCounter,20);
+
+        }else{
+
+            counter.innerText =
+            target.toLocaleString("pt-BR");
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+
+/* ==========================
+   ANIMAÇÃO AO ROLAR
+========================== */
 
 const observer =
 new IntersectionObserver(entries => {
@@ -368,49 +468,16 @@ new IntersectionObserver(entries => {
 
     });
 
-},{
-    threshold:0.15
 });
 
-animatedElements.forEach(el => {
+document
+.querySelectorAll(
+".stat-card, .tech-card, .highlight-card, .gallery-item"
+)
+.forEach(el => {
 
     el.classList.add("fade-up");
 
     observer.observe(el);
 
 });
-
-/* HEADER SOMBRA */
-
-const header =
-document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 50){
-
-        header.style.boxShadow =
-        "0 10px 20px rgba(0,0,0,.08)";
-
-    }else{
-
-        header.style.boxShadow =
-        "none";
-
-    }
-
-});
-
-/* ANO AUTOMÁTICO NO FOOTER */
-
-const yearSpan =
-document.getElementById("currentYear");
-
-if(yearSpan){
-
-    yearSpan.textContent =
-    new Date().getFullYear();
-
-}
-
-/* FIM */

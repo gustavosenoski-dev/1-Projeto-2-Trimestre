@@ -3,968 +3,906 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paraná AgroTech | Agrinho 2026</title>
+<title>Paraná AgroTech</title>
 
-    <meta name="description"
-        content="Paraná AgroTech - Tecnologia, inovação e sustentabilidade no agronegócio paranaense.">
+<link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- LOADER -->
+<!-- LOADER -->
 
-    <div class="page-loader" id="loader">
+<div class="page-loader" id="loader">
 
-        <div class="loader-circle"></div>
+<div class="loader-circle"></div>
 
-    </div>
+</div>
 
-    <!-- ACESSIBILIDADE -->
+<!-- ACESSIBILIDADE -->
 
-    <div class="floating-accessibility">
+<div class="floating-accessibility">
 
-        <button id="fontIncrease">A+</button>
+<button id="fontIncrease">A+</button>
 
-        <button id="fontDecrease">A-</button>
+<button id="fontDecrease">A-</button>
 
-        <button id="themeToggle">🌙</button>
+<button id="themeToggle">🌙</button>
 
-    </div>
+</div>
 
-    <!-- HEADER -->
+<!-- HEADER -->
 
-    <header class="header">
+<header class="header">
 
-        <div class="container">
+<div class="container">
 
-            <div class="logo">
+<div class="logo">
 
-                🌱 Paraná AgroTech
+🌱 Paraná AgroTech
 
-            </div>
+</div>
 
-            <nav class="nav">
+<nav class="nav">
 
-                <a href="#inicio">Início</a>
-                <a href="#indicadores">Indicadores</a>
-                <a href="#tecnologia">Tecnologia</a>
-                <a href="#ciencia">Ciência</a>
-                <a href="#regioes">Regiões</a>
-                <a href="#futuro">Futuro</a>
-                <a href="#mapa">Mapa</a>
-                <a href="#galeria">Galeria</a>
-                <a href="#faq">FAQ</a>
+<a href="#inicio">Início</a>
 
-            </nav>
+<a href="#indicadores">Indicadores</a>
 
-            <button class="menu-mobile">
+<a href="#comparacao">Comparação</a>
 
-                ☰
+<a href="#tecnologia">Tecnologia</a>
 
-            </button>
+<a href="#ciencia">Ciência</a>
 
-        </div>
+<a href="#regioes">Regiões</a>
 
-    </header>
+<a href="#mapa">Mapa</a>
 
-    <!-- HERO -->
+<a href="#galeria">Galeria</a>
 
-    <section id="inicio" class="hero">
+</nav>
 
-        <div class="container hero-content">
+</div>
 
-            <span class="hero-badge">
+</header>
 
-                AGRINHO 2026
+<!-- HERO -->
 
-            </span>
+<section id="inicio" class="hero">
 
-            <h1>
+<div class="container hero-content">
 
-                Paraná AgroTech
+<span class="hero-badge">
 
-            </h1>
+INOVAÇÃO NO CAMPO
 
-            <p>
+</span>
 
-                O Paraná é uma potência agrícola que une inovação,
-                pesquisa científica e sustentabilidade para alimentar
-                milhões de pessoas no Brasil e no mundo.
+<h1>
 
-            </p>
+Paraná AgroTech
 
-            <div class="hero-buttons">
+</h1>
 
-                <a href="#indicadores" class="btn-primary">
+<p>
 
-                    Explorar Dados
+Tecnologia, ciência e sustentabilidade transformando o agronegócio paranaense.
 
-                </a>
+</p>
 
-                <a href="#tecnologia" class="btn-secondary">
+<div class="hero-buttons">
 
-                    Ver Tecnologias
+<a href="#indicadores" class="btn-primary">
 
-                </a>
+Explorar Dados
 
-            </div>
+</a>
 
-        </div>
+<a href="#tecnologia" class="btn-secondary">
 
-    </section>
+Ver Tecnologias
 
-    <!-- INDICADORES -->
+</a>
 
-    <section id="indicadores" class="section">
+</div>
 
-        <div class="container">
+</div>
 
-            <div class="section-title">
+</section>
 
-                <span>Indicadores</span>
+<!-- INDICADORES -->
 
-                <h2>
+<section id="indicadores" class="section">
 
-                    O Agro Paranaense em Números
+<div class="container">
 
-                </h2>
+<div class="section-title">
 
-                <p>
+<span>Indicadores</span>
 
-                    O Paraná está entre os estados mais importantes
-                    para a produção de alimentos no Brasil.
+<h2>
 
-                </p>
+O Agro Paranaense em Números
 
-            </div>
+</h2>
 
-            <div class="stats-grid">
+<p>
 
-                <div class="stat-card">
+Dados que mostram a força do Paraná no agronegócio nacional.
 
-                    <h3 class="counter"
-                        data-target="25000000">
+</p>
 
-                        0
+</div>
 
-                    </h3>
+<div class="stats-grid">
 
-                    <p>
+<div class="stat-card" onclick="showStatInfo('soja')">
 
-                        Toneladas de Soja
+<h3>25.000.000</h3>
 
-                    </p>
+<p>Toneladas de Soja</p>
 
-                </div>
+</div>
 
-                <div class="stat-card">
+<div class="stat-card" onclick="showStatInfo('milho')">
 
-                    <h3 class="counter"
-                        data-target="15000000">
+<h3>15.000.000</h3>
 
-                        0
+<p>Toneladas de Milho</p>
 
-                    </h3>
+</div>
 
-                    <p>
+<div class="stat-card" onclick="showStatInfo('municipios')">
 
-                        Toneladas de Milho
+<h3>399</h3>
 
-                    </p>
+<p>Municípios</p>
 
-                </div>
+</div>
 
-                <div class="stat-card">
+<div class="stat-card" onclick="showStatInfo('exportacao')">
 
-                    <h3 class="counter"
-                        data-target="399">
+<h3>100+</h3>
 
-                        0
+<p>Países Importadores</p>
 
-                    </h3>
+</div>
 
-                    <p>
+</div>
 
-                        Municípios
+</div>
 
-                    </p>
+</section>
 
-                </div>
+<!-- COMPARAÇÃO -->
 
-                <div class="stat-card">
+<section id="comparacao" class="section technology">
 
-                    <h3 class="counter"
-                        data-target="100">
+<div class="container">
 
-                        0
+<div class="section-title">
 
-                    </h3>
+<span>Comparação</span>
 
-                    <p>
+<h2>
 
-                        Países Importadores
+Participação do Paraná no Brasil
 
-                    </p>
+</h2>
 
-                </div>
+</div>
 
-            </div>
+<div class="chart">
 
-        </div>
+<div class="bar">
 
-    </section>
+<p>🐔 Frango - 35%</p>
 
-    <!-- TECNOLOGIA -->
+<div class="progress" style="width:35%"></div>
 
-    <section id="tecnologia"
-        class="section technology">
+</div>
 
-        <div class="container">
+<div class="bar">
 
-            <div class="section-title">
+<p>🌾 Soja - 18%</p>
 
-                <span>Inovação</span>
+<div class="progress" style="width:18%"></div>
 
-                <h2>
+</div>
 
-                    Tecnologia no Campo
+<div class="bar">
 
-                </h2>
+<p>🌽 Milho - 12%</p>
 
-            </div>
+<div class="progress" style="width:12%"></div>
 
-            <div class="tech-grid">
+</div>
 
-                <div class="tech-card">
+</div>
 
-                    <div class="tech-icon">
+</div>
 
-                        🚁
+</section>
+<!-- CIÊNCIA -->
 
-                    </div>
+<section id="ciencia" class="section">
 
-                    <h3>
+    <div class="container">
 
-                        Drones Agrícolas
+        <div class="section-title">
 
-                    </h3>
-
-                    <p>
-
-                        Monitoramento aéreo,
-                        identificação de pragas
-                        e pulverização inteligente.
-
-                    </p>
-
-                </div>
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-
-                        📡
-
-                    </div>
-
-                    <h3>
-
-                        GPS Agrícola
-
-                    </h3>
-
-                    <p>
-
-                        Plantio e colheita
-                        com alta precisão.
-
-                    </p>
-
-                </div>
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-
-                        🤖
-
-                    </div>
-
-                    <h3>
-
-                        Inteligência Artificial
-
-                    </h3>
-
-                    <p>
-
-                        Auxilia produtores
-                        através da análise
-                        de dados climáticos.
-
-                    </p>
-
-                </div>
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-
-                        🌦️
-
-                    </div>
-
-                    <h3>
-
-                        Sensores Inteligentes
-
-                    </h3>
-
-                    <p>
-
-                        Monitoram umidade,
-                        temperatura e nutrientes.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- CIÊNCIA -->
-
-    <section id="ciencia" class="section">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Ciência</span>
-
-                <h2>
-                    Ciência Aplicada ao Agronegócio
-                </h2>
-
-                <p>
-                    A pesquisa científica permite aumentar a produtividade,
-                    reduzir desperdícios e tornar o agro mais sustentável.
-                </p>
-
-            </div>
-
-            <div class="tech-grid">
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-                        🛰️
-                    </div>
-
-                    <h3>
-                        Satélites
-                    </h3>
-
-                    <p>
-                        Monitoram lavouras e identificam áreas que precisam
-                        de atenção através de imagens de alta resolução.
-                    </p>
-
-                </div>
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-                        🧪
-                    </div>
-
-                    <h3>
-                        Biotecnologia
-                    </h3>
-
-                    <p>
-                        Desenvolvimento de sementes mais resistentes
-                        a pragas e mudanças climáticas.
-                    </p>
-
-                </div>
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-                        📊
-                    </div>
-
-                    <h3>
-                        Big Data
-                    </h3>
-
-                    <p>
-                        Milhões de dados ajudam a prever safras
-                        e melhorar a tomada de decisões.
-                    </p>
-
-                </div>
-
-                <div class="tech-card">
-
-                    <div class="tech-icon">
-                        🌐
-                    </div>
-
-                    <h3>
-                        Internet das Coisas
-                    </h3>
-
-                    <p>
-                        Sensores inteligentes enviam dados em tempo real
-                        para produtores rurais.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- REGIÕES DE DESTAQUE -->
-
-    <section id="regioes" class="section technology">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Regiões</span>
-
-                <h2>
-                    Cidades que Impulsionam o Agro Paranaense
-                </h2>
-
-            </div>
-
-            <div class="highlight-grid">
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🌾 Guarapuava
-                    </h3>
-
-                    <p>
-                        Referência nacional em trigo, cevada,
-                        soja e florestas plantadas.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🚜 Cascavel
-                    </h3>
-
-                    <p>
-                        Um dos maiores polos tecnológicos
-                        do agronegócio brasileiro.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🌱 Londrina
-                    </h3>
-
-                    <p>
-                        Destaque em pesquisa científica,
-                        universidades e inovação agrícola.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🌽 Maringá
-                    </h3>
-
-                    <p>
-                        Importante centro de cooperativas
-                        e produção agrícola.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🐔 Toledo
-                    </h3>
-
-                    <p>
-                        Referência nacional na produção
-                        de aves e suínos.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🚢 Paranaguá
-                    </h3>
-
-                    <p>
-                        Possui um dos portos mais importantes
-                        para exportação de grãos do Brasil.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- AGRO DO FUTURO -->
-
-    <section id="futuro" class="section">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>2050</span>
-
-                <h2>
-                    Como Será o Agro do Futuro?
-                </h2>
-
-                <p>
-                    As próximas décadas serão marcadas pela integração
-                    entre inteligência artificial, automação e sustentabilidade.
-                </p>
-
-            </div>
-
-            <div class="highlight-grid">
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🤖 Robôs Agrícolas
-                    </h3>
-
-                    <p>
-                        Equipamentos capazes de plantar,
-                        monitorar e colher automaticamente.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🚜 Máquinas Autônomas
-                    </h3>
-
-                    <p>
-                        Tratores inteligentes operando
-                        com mínima intervenção humana.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🛰️ Agricultura Espacial
-                    </h3>
-
-                    <p>
-                        Uso avançado de satélites para
-                        monitoramento total das lavouras.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>
-                        🌱 Produção Sustentável
-                    </h3>
-
-                    <p>
-                        Mais alimentos produzidos utilizando
-                        menos recursos naturais.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- MAPA -->
-
-    <section id="mapa" class="section map-section">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Mapa</span>
-
-                <h2>
-                    Regiões Produtivas do Paraná
-                </h2>
-
-                <p>
-                    Conheça algumas das regiões que movimentam
-                    a economia agrícola do estado.
-                </p>
-
-            </div>
-
-            <div class="map-wrapper">
-
-                <div class="map-image">
-
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/9/93/Parana_Municip_Map.svg"
-                        alt="Mapa do Paraná">
-
-                </div>
-
-                <div class="map-info" id="mapInfo">
-
-                    <h3>
-                        Selecione uma Região
-                    </h3>
-
-                    <p>
-                        Clique em uma das opções abaixo para visualizar informações.
-                    </p>
-
-                    <div class="map-buttons">
-
-                        <button data-region="oeste">
-                            Oeste
-                        </button>
-
-                        <button data-region="norte">
-                            Norte
-                        </button>
-
-                        <button data-region="sul">
-                            Sul
-                        </button>
-
-                        <button data-region="centro">
-                            Centro-Sul
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- SUSTENTABILIDADE -->
-
-    <section id="sustentabilidade" class="section technology">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Sustentabilidade</span>
-
-                <h2>
-                    Produzir Mais Preservando o Meio Ambiente
-                </h2>
-
-            </div>
-
-            <div class="highlight-grid">
-
-                <div class="highlight-card">
-
-                    <h3>🌳 Reflorestamento</h3>
-
-                    <p>
-                        Recuperação de áreas degradadas e preservação ambiental.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>💧 Uso Inteligente da Água</h3>
-
-                    <p>
-                        Sistemas modernos reduzem desperdícios na irrigação.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>♻️ Energia Renovável</h3>
-
-                    <p>
-                        Fazendas utilizam energia solar e biogás.
-                    </p>
-
-                </div>
-
-                <div class="highlight-card">
-
-                    <h3>🌱 Agricultura Sustentável</h3>
-
-                    <p>
-                        Produção eficiente com menor impacto ambiental.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- GALERIA -->
-
-    <section id="galeria" class="section">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Galeria</span>
-
-                <h2>
-                    O Agro Paranaense em Imagens
-                </h2>
-
-            </div>
-
-            <div class="gallery-grid">
-
-                <div class="gallery-item">
-                    <img src="images/drone.jpg" alt="Drone agrícola">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/trator.jpg" alt="Trator moderno">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/colheitadeira.jpg" alt="Colheitadeira">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/soja.jpg" alt="Plantação de soja">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/trigo.jpg" alt="Campo de trigo">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/porto.jpg" alt="Porto de Paranaguá">
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FAQ -->
-
-    <section id="faq" class="section technology">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Dúvidas</span>
-
-                <h2>
-                    Perguntas Frequentes
-                </h2>
-
-            </div>
-
-            <div class="faq-container">
-
-                <div class="faq-item">
-
-                    <div class="faq-question">
-                        O que é o Paraná AgroTech?
-                    </div>
-
-                    <div class="faq-answer">
-
-                        Um projeto que apresenta a importância
-                        da tecnologia e da inovação no agro paranaense.
-
-                    </div>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <div class="faq-question">
-                        Qual a importância do Paraná?
-                    </div>
-
-                    <div class="faq-answer">
-
-                        O estado é um dos maiores produtores
-                        agrícolas do Brasil.
-
-                    </div>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <div class="faq-question">
-                        Como a tecnologia ajuda o campo?
-                    </div>
-
-                    <div class="faq-answer">
-
-                        Aumenta a produtividade,
-                        reduz desperdícios e melhora decisões.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CTA FINAL -->
-
-    <section class="cta-section">
-
-        <div class="container">
+            <span>Ciência</span>
 
             <h2>
-                O Futuro do Agro Começa Agora
+                Pesquisa Científica no Campo
             </h2>
 
             <p>
-
-                Tecnologia, ciência e sustentabilidade estão
-                transformando o Paraná em uma referência mundial.
-
-            </p>
-
-            <a href="#inicio" class="btn-primary">
-
-                Voltar ao Início
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <div class="container">
-
-            <h3>
-                🌱 Paraná AgroTech
-            </h3>
-
-            <p>
-
-                Tecnologia, inovação e sustentabilidade
-                conectando o campo ao futuro.
-
-            </p>
-
-            <p>
-
-                Desenvolvido para o Agrinho 2026
-
-            </p>
-
-            <p>
-
-                © <span id="currentYear"></span>
-                Paraná AgroTech
-
+                Universidades, institutos de pesquisa e empresas de tecnologia
+                ajudam a tornar o Paraná uma referência agrícola.
             </p>
 
         </div>
 
-    </footer>
+        <div class="tech-grid">
 
-    <!-- BOTÃO TOPO -->
+            <div class="tech-card">
 
-    <button id="backToTop">
+                <div class="tech-icon">🧪</div>
 
-        ↑
+                <h3>Biotecnologia</h3>
 
-    </button>
+                <p>
+                    Desenvolvimento de sementes resistentes a pragas,
+                    doenças e mudanças climáticas.
+                </p>
 
-    <!-- MODAL -->
+            </div>
 
-    <div class="modal" id="imageModal">
+            <div class="tech-card">
 
-        <span class="close-modal">
+                <div class="tech-icon">🛰️</div>
 
-            &times;
+                <h3>Satélites</h3>
 
-        </span>
+                <p>
+                    Monitoramento em tempo real das lavouras
+                    através de imagens de alta precisão.
+                </p>
 
-        <img
-            id="modalImage"
-            src=""
-            alt="Imagem ampliada">
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">📊</div>
+
+                <h3>Big Data</h3>
+
+                <p>
+                    Milhões de dados analisados para prever
+                    produtividade e riscos climáticos.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">🌐</div>
+
+                <h3>Internet das Coisas</h3>
+
+                <p>
+                    Sensores conectados coletam informações
+                    importantes para os produtores.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <!-- SCRIPT -->
+</section>
 
-    <script src="script.js"></script>
+<!-- TECNOLOGIAS -->
+
+<section id="tecnologia" class="section technology">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Inovação</span>
+
+            <h2>
+                Tecnologias que Transformam o Agro
+            </h2>
+
+        </div>
+
+        <div class="tech-grid">
+
+            <div class="tech-card">
+
+                <div class="tech-icon">🚁</div>
+
+                <h3>Drones Agrícolas</h3>
+
+                <p>
+                    Monitoramento aéreo, pulverização e
+                    identificação rápida de problemas.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">📡</div>
+
+                <h3>GPS Agrícola</h3>
+
+                <p>
+                    Plantio e colheita com precisão centimétrica.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">🤖</div>
+
+                <h3>Inteligência Artificial</h3>
+
+                <p>
+                    Sistemas inteligentes auxiliam na tomada
+                    de decisões no campo.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">🌦️</div>
+
+                <h3>Sensores Inteligentes</h3>
+
+                <p>
+                    Controle de umidade, temperatura e nutrientes.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">🚜</div>
+
+                <h3>Tratores Autônomos</h3>
+
+                <p>
+                    Máquinas capazes de operar praticamente
+                    sem intervenção humana.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon">☀️</div>
+
+                <h3>Energia Solar Rural</h3>
+
+                <p>
+                    Redução de custos e produção sustentável.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REGIÕES -->
+
+<section id="regioes" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Regiões</span>
+
+            <h2>
+                Cidades de Destaque no Paraná
+            </h2>
+
+        </div>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card">
+
+                <h3>🌾 Guarapuava</h3>
+
+                <p>
+                    Destaque na produção de trigo,
+                    cevada, soja e florestas plantadas.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🚜 Cascavel</h3>
+
+                <p>
+                    Polo tecnológico do agronegócio e
+                    sede de grandes eventos agrícolas.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🌱 Londrina</h3>
+
+                <p>
+                    Importante centro de pesquisa
+                    e desenvolvimento agrícola.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🌽 Maringá</h3>
+
+                <p>
+                    Forte presença de cooperativas
+                    e produção de grãos.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🐔 Toledo</h3>
+
+                <p>
+                    Referência nacional na produção
+                    de aves e suínos.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🚢 Paranaguá</h3>
+
+                <p>
+                    Porto estratégico para exportação
+                    de produtos agrícolas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- AGRO DO FUTURO -->
+
+<section id="futuro" class="section technology">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>2050</span>
+
+            <h2>
+                O Futuro do Agronegócio
+            </h2>
+
+            <p>
+                Tecnologias emergentes prometem revolucionar
+                a produção de alimentos nas próximas décadas.
+            </p>
+
+        </div>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card">
+
+                <h3>🤖 Robôs Agrícolas</h3>
+
+                <p>
+                    Colheita, plantio e monitoramento automatizados.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🛰️ Agricultura de Precisão</h3>
+
+                <p>
+                    Controle total das lavouras através de satélites.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>🌎 Sustentabilidade</h3>
+
+                <p>
+                    Produzir mais alimentos usando menos recursos.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>📡 IA no Campo</h3>
+
+                <p>
+                    Sistemas inteligentes auxiliando produtores em tempo real.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- MAPA INTERATIVO -->
+
+<section id="mapa" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Mapa Interativo</span>
+
+            <h2>
+                Regiões Produtivas do Paraná
+            </h2>
+
+            <p>
+                Clique em uma região para visualizar informações.
+            </p>
+
+        </div>
+
+        <div class="map-wrapper">
+
+            <div class="map-image">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Parana_Municip_Map.svg"
+                    alt="Mapa do Paraná">
+
+            </div>
+
+            <div class="map-info" id="mapInfo">
+
+                <h3>
+                    Selecione uma Região
+                </h3>
+
+                <p>
+                    As informações aparecerão aqui.
+                </p>
+
+                <div class="map-buttons">
+
+                    <button data-region="oeste">
+                        Oeste
+                    </button>
+
+                    <button data-region="norte">
+                        Norte
+                    </button>
+
+                    <button data-region="sul">
+                        Sul
+                    </button>
+
+                    <button data-region="centro">
+                        Centro-Sul
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SUSTENTABILIDADE -->
+
+<section id="sustentabilidade" class="section technology">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Sustentabilidade</span>
+
+            <h2>
+                Produzir e Preservar
+            </h2>
+
+        </div>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card">
+
+                <h3>🌳 Reflorestamento</h3>
+
+                <p>
+                    Recuperação de áreas degradadas.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>💧 Economia de Água</h3>
+
+                <p>
+                    Irrigação inteligente reduz desperdícios.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>☀️ Energia Solar</h3>
+
+                <p>
+                    Energia limpa utilizada em propriedades rurais.
+                </p>
+
+            </div>
+
+            <div class="highlight-card">
+
+                <h3>♻️ Agricultura Sustentável</h3>
+
+                <p>
+                    Produção eficiente com menor impacto ambiental.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section id="galeria" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Galeria Tecnológica</span>
+
+            <h2>
+                Agro Moderno do Paraná
+            </h2>
+
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1492496913980-501348b61469" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section id="faq" class="section technology">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Perguntas Frequentes</span>
+
+            <h2>
+                Tire Suas Dúvidas
+            </h2>
+
+        </div>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Qual a importância do Paraná no agro?
+                </div>
+
+                <div class="faq-answer">
+                    O Paraná é um dos maiores produtores agrícolas do Brasil.
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Como a tecnologia ajuda?
+                </div>
+
+                <div class="faq-answer">
+                    Melhora produtividade, reduz custos e evita desperdícios.
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    O que é agricultura de precisão?
+                </div>
+
+                <div class="faq-answer">
+                    Uso de sensores, GPS, IA e satélites para decisões mais eficientes.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MODAL DOS INDICADORES -->
+
+<div id="infoModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeInfo">&times;</span>
+
+        <h2 id="infoTitle"></h2>
+
+        <div id="infoText"></div>
+
+    </div>
+
+</div>
+
+<!-- CTA FINAL -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <h2>
+            O Futuro do Campo Está Aqui
+        </h2>
+
+        <p>
+            Ciência, inovação e sustentabilidade impulsionando o Paraná.
+        </p>
+
+        <a href="#inicio" class="btn-primary">
+
+            Voltar ao Início
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <h3>
+            🌱 Paraná AgroTech
+        </h3>
+
+        <p>
+            Tecnologia, inovação e sustentabilidade conectando o campo ao futuro.
+        </p>
+
+        <p>
+            Projeto desenvolvido para o Agrinho 2026.
+        </p>
+
+        <p>
+            © <span id="currentYear"></span> Paraná AgroTech
+        </p>
+
+    </div>
+
+</footer>
+
+<button id="backToTop">
+    ↑
+</button>
+
+<script src="script.js"></script>
 
 </body>
 
