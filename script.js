@@ -1090,4 +1090,4 @@ navLinks.forEach(link => {
     menuToggle.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', false);
   });
-});
+}); 
