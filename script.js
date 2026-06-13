@@ -1090,4 +1090,264 @@ navLinks.forEach(link => {
     menuToggle.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', false);
   });
-}); 
+});
+/* ============================================================
+   data.js — Dados centralizados do Paraná AgroTech v4
+============================================================ */
+
+const DATA = {
+
+  /* ---- LINHA DO TEMPO ---- */
+  timeline: [
+    {year:'1850',icon:'🐂',title:'Era do Arado',desc:'Primeiros colonos utilizam arado de tração animal. Produção manual e extensiva dominam o campo paranaense.'},
+    {year:'1930',icon:'🚜',title:'Mecanização Inicial',desc:'Chegada dos primeiros tratores importados. A tração mecânica começa a substituir os animais na lavoura.'},
+    {year:'1950',icon:'☕',title:'Ciclo do Café',desc:'O Paraná se torna o maior produtor de café do Brasil. As fazendas de café moldam a economia e a sociedade paranaense.'},
+    {year:'1970',icon:'🌱',title:'Revolução Verde',desc:'Introdução de sementes melhoradas, fertilizantes químicos e defensivos. Produtividade dispara, mas surgem preocupações ambientais.'},
+    {year:'1975',icon:'🏢',title:'EMBRAPA Soja',desc:'Fundação da EMBRAPA Soja em Londrina. Pesquisas desenvolvem variedades adaptadas ao clima do Paraná, transformando o estado no celeiro nacional.'},
+    {year:'1990',icon:'🛰️',title:'GPS Agrícola',desc:'Primeiros sistemas de GPS chegam ao campo. Início do conceito de agricultura de precisão com guia automático nos tratores.'},
+    {year:'2000',icon:'💻',title:'Agricultura Digital',desc:'Computadores e softwares de gestão agrícola chegam às fazendas. Registros digitais e planejamento computadorizado ganham espaço.'},
+    {year:'2008',icon:'📡',title:'Sensores IoT',desc:'Sensores de solo conectados via internet começam a monitorar umidade, temperatura e pH. Dados em tempo real chegam ao celular do produtor.'},
+    {year:'2015',icon:'🚁',title:'Era dos Drones',desc:'Drones agrícolas com câmeras multiespectrais mapeiam lavouras inteiras em horas. Detecção precoce de pragas e doenças revoluciona o manejo.'},
+    {year:'2020',icon:'🧠',title:'IA no Campo',desc:'Inteligência Artificial analisa imagens de satélite e dados de sensores para prever produtividade e recomendar aplicação localizada de insumos.'},
+    {year:'2024',icon:'🤖',title:'Robótica Agrícola',desc:'Robôs autônomos realizam plantio, colheita seletiva e monitoramento. Tratores sem motorista operam 24h com precisão centimétrica.'},
+    {year:'2026',icon:'🌿',title:'AgriTech Sustentável',desc:'Paraná lidera integração de tecnologia e sustentabilidade. IA, energia solar, IoT e biotecnologia convergem para uma agricultura carbono-neutro.'},
+  ],
+
+  /* ---- MAPA — REGIÕES ---- */
+  regions: {
+    noroeste:{
+      icon:'🌽',title:'Noroeste do Paraná',
+      desc:'Região de solo arenoso e clima quente, destaque na produção de cana-de-açúcar, soja, mandioca e pecuária extensiva. Grande potencial para irrigação tecnológica.',
+      tags:['🌾 Cana-de-açúcar','🌱 Soja','🥕 Mandioca','🐄 Pecuária'],
+      techs:['Irrigação por gotejamento','Sensores de umidade do solo','Drones para mapeamento','Sistemas de fertirrigação automatizada'],
+      curiosities:['A região produz mais de 40% da cana-de-açúcar paranaense.','Umuarama possui uma das maiores agroindústrias de mandioca do Brasil.','O clima semiárido exige sistemas de irrigação de alta eficiência.'],
+      cities:'📍 Umuarama, Paranavaí, Cianorte, Loanda',
+      img:'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=70'
+    },
+    norte:{
+      icon:'☕',title:'Norte do Paraná',
+      desc:'Berço do café paranaense e hoje um dos maiores polos de soja, trigo e milho do estado. Abriga Londrina e Maringá, centros de inovação, pesquisa e cooperativismo.',
+      tags:['☕ Café','🌱 Soja','🌾 Trigo','🔬 Pesquisa'],
+      techs:['EMBRAPA Soja (Londrina)','Sensores climáticos de precisão','Tratores autônomos com GPS RTK','Análise espectral por satélite NDVI'],
+      curiosities:['Londrina abriga a EMBRAPA Soja, referência mundial em pesquisa.','Maringá é a 2ª cidade mais informatizada do Brasil.','A região produziu o primeiro cultivar de soja adaptado ao trópico.'],
+      cities:'📍 Londrina, Maringá, Apucarana, Cambé',
+      img:'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&q=70'
+    },
+    nordeste:{
+      icon:'🌿',title:'Nordeste do Paraná',
+      desc:'Região de transição climática com diversidade de culturas como algodão, amendoim, milho e cana. Área em expansão tecnológica com suporte de cooperativas regionais.',
+      tags:['🌿 Algodão','🥜 Amendoim','🌽 Milho','🌡️ Clima Diverso'],
+      techs:['Monitoramento climático por drones','Aplicação variável de defensivos VRT','Georreferenciamento de talhões','Controle biológico de pragas'],
+      curiosities:['Jacarezinho é a capital do café da região nordeste.','A área tem a maior diversidade de culturas do Paraná.','Pioneira na adoção de controle biológico de pragas na cana.'],
+      cities:'📍 Jacarezinho, Bandeirantes, Cornélio Procópio',
+      img:'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=70'
+    },
+    oeste:{
+      icon:'🐔',title:'Oeste do Paraná',
+      desc:'O coração do agronegócio paranaense. Líder absoluto em soja, milho, aves e suínos. Itaipu fornece energia limpa para toda a agroindústria da região.',
+      tags:['🌱 Soja','🐔 Aves','🐷 Suínos','⚡ Itaipu'],
+      techs:['Granjas automatizadas com IoT','Tratores GPS precisão centimétrica','Biodigestores para geração de energia','Drones para pulverização de lavouras'],
+      curiosities:['Cascavel é a capital tecnológica do agronegócio paranaense.','Toledo abate mais de 600 mil frangos por dia.','A Itaipu gera energia suficiente para toda a agroindústria da região.'],
+      cities:'📍 Cascavel, Toledo, Foz do Iguaçu, Marechal Cândido Rondon',
+      img:'https://images.unsplash.com/photo-1589923188651-268a9765e432?w=600&q=70'
+    },
+    centroOeste:{
+      icon:'🌾',title:'Centro-Oeste do Paraná',
+      desc:'Região de alta produção de grãos, especialmente soja e milho, com grande expansão tecnológica e forte adoção de agricultura de precisão e automação.',
+      tags:['🌱 Soja','🌽 Milho','🚜 Automação','🎯 Precisão'],
+      techs:['Plantadeiras com controle de taxa variável','Pulverização por drone','Sensores de nutrientes no solo','Plataformas de gestão agrícola digital'],
+      curiosities:['Campo Mourão é o maior polo de esmagamento de soja do estado.','A região tem a maior taxa de adoção de agricultura de precisão do Paraná.','Mamborê produz sementes de alta tecnologia genética.'],
+      cities:'📍 Campo Mourão, Mamborê, Ubiratã, Goioerê',
+      img:'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=70'
+    },
+    centro:{
+      icon:'🌾',title:'Centro do Paraná',
+      desc:'Guarapuava é um dos maiores polos de trigo do Brasil. Região de grande diversidade produtiva com destaque para pecuária, avicultura e grãos de inverno.',
+      tags:['🌾 Trigo','🐄 Pecuária','🌱 Soja','🐔 Avicultura'],
+      techs:['Semeadoras de trigo de alta precisão','Monitoramento de pastagens por satélite','Sistemas de rastreamento de gado','Estações climáticas automatizadas'],
+      curiosities:['Guarapuava é uma das cidades com maior produção de trigo por hectare do Brasil.','A região tem as maiores altitudes agrícolas do Paraná (1.100m).','O clima frio favorece cultivares especiais de alta qualidade.'],
+      cities:'📍 Guarapuava, Pitanga, Irati, Turvo',
+      img:'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=600&q=70'
+    },
+    leste:{
+      icon:'🌲',title:'Leste do Paraná',
+      desc:'Região de relevo acidentado com produção de batata, feijão e horticultura. Próxima à capital Curitiba, abriga centros de pesquisa e processamento agroindustrial.',
+      tags:['🥔 Batata','🫘 Feijão','🥦 Horticultura','🏭 Agroindústria'],
+      techs:['Hidroponia e cultivo protegido','Sensores de solo para culturas especiais','Rastreabilidade por QR Code','Logística refrigerada inteligente'],
+      curiosities:['Castro é a capital leiteira do Paraná com produção recorde.','Ponta Grossa tem o maior terminal graneleiro privado do sul do Brasil.','A região produz mais de 60% da batata consumida no Paraná.'],
+      cities:'📍 Ponta Grossa, Castro, Lapa, Palmeira',
+      img:'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=70'
+    },
+    sudoeste:{
+      icon:'🐄',title:'Sudoeste do Paraná',
+      desc:'Região de forte agricultura familiar, destaque para leite, soja, milho e feijão. Grande adoção de cooperativismo e tecnologias acessíveis para pequenos produtores.',
+      tags:['🥛 Leite','🌱 Soja','🫘 Feijão','🤝 Cooperativas'],
+      techs:['Ordenhadeiras robotizadas','Resfriadores de leite inteligentes','Apps de gestão para pequenos produtores','Energia solar em propriedades familiares'],
+      curiosities:['Francisco Beltrão tem a maior concentração de agricultores orgânicos certificados do PR.','A cooperativa C.Vale é uma das 10 maiores do Brasil.','Dois Vizinhos abriga um dos maiores centros de pesquisa em avicultura.'],
+      cities:'📍 Francisco Beltrão, Pato Branco, Dois Vizinhos, Chopinzinho',
+      img:'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=70'
+    },
+    sul:{
+      icon:'🍃',title:'Sul do Paraná',
+      desc:'Região fria com destaque para erva-mate, maçã, produção leiteira e sustentabilidade ambiental. Alto índice de preservação da Mata Atlântica.',
+      tags:['🍃 Erva-mate','🍎 Maçã','🥛 Leite','🌿 Sustentabilidade'],
+      techs:['Secadores de erva-mate sustentáveis','Sensores de geada para pomares','Sistemas de certificação orgânica digital','Biodigestores em propriedades leiteiras'],
+      curiosities:['São Mateus do Sul possui a maior reserva de xisto do Brasil.','A região produz 80% da erva-mate do Paraná.','Palmas tem a temperatura mínima média mais baixa do estado: -3°C.'],
+      cities:'📍 União da Vitória, São Mateus do Sul, Palmas, Bituruna',
+      img:'https://images.unsplash.com/photo-1504608524841-42f0f88b6b0e?w=600&q=70'
+    },
+    sudeste:{
+      icon:'🏭',title:'Sudeste do Paraná',
+      desc:'Celeiro nacional de trigo, cevada e aveia. Campos Gerais com alto grau de mecanização e tecnologia de precisão. Área estratégica para exportação via corredor ferroviário.',
+      tags:['🌾 Trigo','🌽 Cevada','🚜 Mecanização','🎯 Precisão'],
+      techs:['Colhedoras com rendimento por parcela','Mapeamento de solo por eletrocondutividade','Sistemas de irrigação por pivô central','Análise de qualidade de grãos por IA'],
+      curiosities:['Ponta Grossa é conhecida como a "Capital do Agronegócio" do PR.','Os Campos Gerais têm o maior índice de mecanização agrícola do estado.','Castro detém o recorde brasileiro de produtividade leiteira por vaca.'],
+      cities:'📍 Ponta Grossa, Castro, Tibagi, Carambeí',
+      img:'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=600&q=70'
+    },
+    metro:{
+      icon:'🏙️',title:'Região Metropolitana de Curitiba',
+      desc:'Polo industrial e tecnológico do Paraná. Abriga startups de AgTech, centros de pesquisa agroindustrial e o Porto de Paranaguá — maior porto graneleiro da América Latina.',
+      tags:['🔬 Pesquisa','💻 AgTech','🚢 Paranaguá','🏭 Agroindústria'],
+      techs:['Startups de AgTech no hub de inovação','IA para análise de commodities','Blockchain para rastreabilidade de alimentos','Porto automatizado com IA logística'],
+      curiosities:['Paranaguá é o maior porto exportador de grãos da América Latina.','Curitiba tem mais de 80 startups de tecnologia agrícola registradas.','O Tecnoparque Industrial de Curitiba abriga laboratórios de biotecnologia.'],
+      cities:'📍 Curitiba, Paranaguá, São José dos Pinhais, Araucária',
+      img:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=70'
+    }
+  },
+
+  /* ---- DASHBOARD ---- */
+  dashboard:[
+    {icon:'🌱',val:'25M ton',label:'Produção de Soja',trend:'+8% ↑',up:true},
+    {icon:'🐔',val:'35%',label:'Frango Nacional',trend:'+2% ↑',up:true},
+    {icon:'🌽',val:'15M ton',label:'Produção de Milho',trend:'+5% ↑',up:true},
+    {icon:'🚢',val:'R$ 48Bi',label:'Exportações 2024',trend:'+12% ↑',up:true},
+    {icon:'💧',val:'40%',label:'Economia de Água (IoT)',trend:'Meta: 50%',up:true},
+    {icon:'☀️',val:'28mil',label:'Propriedades com Solar',trend:'+40% ↑',up:true},
+    {icon:'🤖',val:'12mil',label:'Tratores Autônomos',trend:'+18% ↑',up:true},
+    {icon:'🔬',val:'847',label:'Pesquisadores EMBRAPA',trend:'Ativo',up:true},
+  ],
+
+  barChartData:[
+    {label:'Soja',val:25,max:30,unit:'M ton'},
+    {label:'Milho',val:15,max:30,unit:'M ton'},
+    {label:'Trigo',val:4.2,max:30,unit:'M ton'},
+    {label:'Frango',val:4.8,max:30,unit:'M ton'},
+    {label:'Suíno',val:1.9,max:30,unit:'M ton'},
+    {label:'Leite',val:3.6,max:30,unit:'B litros'},
+  ],
+
+  donutData:[
+    {label:'Drones',pct:68,color:'#40916c'},
+    {label:'IoT/Sensores',pct:54,color:'#74c69d'},
+    {label:'IA Agrícola',pct:41,color:'#f5c518'},
+    {label:'GPS Precisão',pct:79,color:'#b7e4c7'},
+    {label:'Energia Solar',pct:35,color:'#06b6d4'},
+  ],
+
+  /* ---- QUIZ ---- */
+  quiz:[
+    {q:'Qual é a porcentagem da produção brasileira de frango que vem do Paraná?',opts:['25%','30%','35%','40%'],a:2,exp:'O Paraná é responsável por 35% de todo o frango produzido no Brasil, tornando-o líder absoluto no setor avícola nacional.'},
+    {q:'O que significa a sigla IoT no contexto da agricultura?',opts:['Irrigação de Tecnologia','Internet of Things','Índice de Otimização Técnica','Insumos Orgânicos Totais'],a:1,exp:'IoT (Internet das Coisas) são dispositivos conectados que coletam e transmitem dados, como sensores de solo na agricultura.'},
+    {q:'Qual cidade do Paraná abriga a EMBRAPA Soja?',opts:['Curitiba','Maringá','Londrina','Cascavel'],a:2,exp:'A EMBRAPA Soja está localizada em Londrina e é referência mundial em pesquisa de soja tropical.'},
+    {q:'Qual tecnologia permite analisar a saúde das plantas por cor invisível ao olho humano?',opts:['GPS','NDVI com câmera multiespectral','Termômetro digital','Pluviômetro'],a:1,exp:'O NDVI (Índice de Vegetação por Diferença Normalizada) usa câmeras multiespectrais em drones e satélites para detectar estresse nas plantas.'},
+    {q:'Quantos países recebem produtos do agronegócio paranaense?',opts:['50 países','75 países','Mais de 100 países','Mais de 150 países'],a:2,exp:'O Paraná exporta para mais de 100 países, demonstrando a importância global do seu agronegócio.'},
+    {q:'Qual é o maior porto graneleiro da América Latina?',opts:['Porto de Santos-SP','Porto de Paranaguá-PR','Porto de Rio Grande-RS','Porto de Vitória-ES'],a:1,exp:'O Porto de Paranaguá é o maior porto exportador de grãos da América Latina, essencial para as exportações do agronegócio.'},
+    {q:'Quanto pode ser reduzido o uso de defensivos com aplicação localizada por drone?',opts:['10%','20%','30%','50%'],a:2,exp:'A aplicação localizada por drone pode reduzir o uso de defensivos em até 30%, diminuindo custos e impacto ambiental.'},
+    {q:'Qual tecnologia permite ao trator trabalhar sozinho com precisão de centímetros?',opts:['Bluetooth agrícola','GPS RTK com piloto automático','WiFi rural','Rádio AM'],a:1,exp:'O GPS RTK (Cinemático em Tempo Real) permite precisão centimétrica, possibilitando tratores operarem de forma autônoma.'},
+    {q:'Qual é o percentual da produção agrícola nacional que vem do Paraná?',opts:['Mais de 10%','Mais de 15%','Mais de 20%','Mais de 30%'],a:2,exp:'O Paraná responde por mais de 20% da produção agrícola nacional, sendo um dos estados mais produtivos do Brasil.'},
+    {q:'Qual energia renovável lidera a adoção em propriedades rurais do Paraná?',opts:['Eólica','Hidrelétrica','Solar fotovoltaica','Biomassa'],a:2,exp:'A energia solar fotovoltaica lidera a adoção em propriedades rurais, com retorno do investimento em 5-7 anos e zero emissões.'},
+  ],
+
+  /* ---- CURIOSIDADES ---- */
+  curiosities:[
+    {n:'01',icon:'🌱',title:'Soja Tropical',desc:'O Paraná foi pioneiro na adaptação da soja ao clima tropical. As pesquisas da EMBRAPA Soja em Londrina revolucionaram a agricultura brasileira nos anos 70.'},
+    {n:'02',icon:'🚁',title:'Drones Registrados',desc:'O Paraná possui mais de 8.000 drones agrícolas registrados, sendo o estado com maior densidade de drones por hectare cultivado do Brasil.'},
+    {n:'03',icon:'💧',title:'Rio Paraná',desc:'O Rio Paraná, fronteira natural do estado, tem seu volume de água monitorado por sensores IoT que ajudam agricultores a planejar a irrigação de suas lavouras.'},
+    {n:'04',icon:'⚡',title:'Itaipu e Agricultura',desc:'Itaipu Binacional fornece energia para mais de 30 mil propriedades rurais do Paraná, incentivando a eletrificação de equipamentos agrícolas e redução de diesel.'},
+    {n:'05',icon:'🤖',title:'Robôs na Colheita',desc:'Fazendas da região de Cascavel já utilizam robôs para colheita seletiva de frutas e hortaliças, aumentando a produtividade em 40% comparado à colheita manual.'},
+    {n:'06',icon:'🛰️',title:'Satélites Monitorando',desc:'Mais de 1.200 satélites monitoram as lavouras paranaenses diariamente, gerando relatórios automáticos de saúde das plantações disponíveis em aplicativos móveis.'},
+    {n:'07',icon:'🌿',title:'Florestas de Carbono',desc:'Proprietários rurais do Paraná vendem créditos de carbono por preservar a Mata Atlântica. Em 2024, mais de R$ 120 milhões foram gerados nessa economia verde.'},
+    {n:'08',icon:'📱',title:'App do Agricultor',desc:'O aplicativo "PR Rural" tem mais de 400.000 agricultores cadastrados e oferece previsão climática por talhão, cotação de commodities e recomendações de IA.'},
+    {n:'09',icon:'🏆',title:'Cooperativas Líderes',desc:'As cooperativas paranaenses COAMO, C.Vale e COCAMAR estão entre as 10 maiores cooperativas agrícolas do Brasil, conectando 120 mil produtores à tecnologia.'},
+  ],
+
+  /* ---- FAQ ---- */
+  faq:[
+    {q:'O que é agricultura de precisão?',a:'É o uso integrado de GPS, sensores, drones e IA para gerenciar cada ponto da lavoura individualmente. Em vez de tratar toda a área igual, cada metro quadrado recebe o manejo exato que precisa, economizando insumos e maximizando a produção.'},
+    {q:'Como os drones ajudam os agricultores?',a:'Drones com câmeras multiespectrais voam sobre as lavouras capturando imagens que revelam problemas invisíveis ao olho humano: deficiências nutricionais, estresse hídrico, focos de pragas e fungos. Tudo isso em fração do tempo e custo de uma vistoria manual.'},
+    {q:'O que a Inteligência Artificial faz na agricultura?',a:'A IA processa dados de satélites, sensores e histórico climático para prever problemas, recomendar ações precisas e otimizar recursos. Ela indica quando irrigar, quanto fertilizar, quando colher e até prevê pragas antes delas aparecerem.'},
+    {q:'Por que o Paraná é referência no agronegócio?',a:'O Paraná combina clima favorável, solo fértil, centros de pesquisa de excelência como a EMBRAPA Soja, cooperativas fortes e alta adoção tecnológica. O estado lidera a produção nacional de frango e é top 3 em soja, milho e trigo.'},
+    {q:'Como a tecnologia ajuda o meio ambiente?',a:'Tecnologia permite produzir mais com menos impacto: drones reduzem defensivos em 30%, sensores evitam irrigação excessiva (economia de 40% de água), energia solar elimina emissões e o monitoramento por satélite protege áreas de reserva legal.'},
+    {q:'Pequenos produtores também podem usar essas tecnologias?',a:'Sim! Cooperativas, apps de baixo custo, drones por assinatura e programas do governo democratizam o acesso. Um smartphone com o app certo já entrega previsão climática e cotações em tempo real para qualquer produtor.'},
+    {q:'Quais são as principais cooperativas do Paraná?',a:'COAMO (Campo Mourão), C.Vale (Palotina), COCAMAR (Maringá), LAR (Medianeira), CASTROLANDA (Castro) e FRISIA (Carambeí) são as principais, unindo mais de 150 mil produtores ao mercado global com tecnologia de ponta.'},
+    {q:'O que é NDVI e para que serve?',a:'NDVI (Índice de Vegetação por Diferença Normalizada) é uma medida de saúde das plantas feita por câmeras em satélites e drones. Plantas saudáveis refletem mais infravermelho, gerando mapas coloridos que mostram onde a lavoura está com problemas antes de ser visível a olho nu.'},
+  ],
+
+  /* ---- CONQUISTAS ---- */
+  achievements:[
+    {id:'welcome',icon:'👋',title:'Bem-vindo!',desc:'Acessou o site'},
+    {id:'scroll50',icon:'📜',title:'Explorador',desc:'Leu metade do conteúdo'},
+    {id:'scroll100',icon:'🗺️',title:'Desbravador',desc:'Leu tudo!'},
+    {id:'map1',icon:'🗺️',title:'Cartógrafo',desc:'Explorou o mapa'},
+    {id:'map5',icon:'🌍',title:'Geógrafo',desc:'Visitou 5 regiões'},
+    {id:'mapAll',icon:'🏅',title:'Conhecedor do PR',desc:'Visitou todas as regiões'},
+    {id:'quiz1',icon:'🧠',title:'Curioso',desc:'Fez o quiz'},
+    {id:'quiz100',icon:'🏆',title:'Mestre AgroTech',desc:'Acertou tudo no quiz'},
+    {id:'calc1',icon:'🔢',title:'Calculista',desc:'Usou uma calculadora'},
+    {id:'calcAll',icon:'📊',title:'Analista',desc:'Usou todas as calculadoras'},
+    {id:'game1',icon:'🎮',title:'Fazendeiro',desc:'Jogou FazendaTech'},
+    {id:'game500',icon:'⭐',title:'Fazenda Top',desc:'500+ pontos no jogo'},
+    {id:'ai1',icon:'🤖',title:'Tech Talker',desc:'Conversou com AgroBot'},
+    {id:'dark',icon:'🌙',title:'Notívago',desc:'Ativou o modo escuro'},
+    {id:'share',icon:'📢',title:'Compartilhador',desc:'Compartilhou resultado'},
+    {id:'settings',icon:'⚙️',title:'Configurador',desc:'Ajustou as configurações'},
+  ],
+
+  /* ---- JOGO — SHOP ---- */
+  shopItems:[
+    {id:'sensor',icon:'📡',name:'Sensores IoT',desc:'Monitoramento de solo em tempo real',cost:5000,prod:8,water:-15,carbon:-5,points:100},
+    {id:'drone',icon:'🚁',name:'Drone Agrícola',desc:'Mapeamento e pulverização precisa',cost:12000,prod:12,water:-8,carbon:-8,points:200},
+    {id:'gps',icon:'🛰️',name:'GPS de Precisão',desc:'Piloto automático centimétrico',cost:8000,prod:6,water:-3,carbon:-6,points:150},
+    {id:'ia',icon:'🧠',name:'IA Agrícola',desc:'Previsão e recomendações por IA',cost:18000,prod:18,water:-20,carbon:-12,points:350},
+    {id:'solar',icon:'☀️',name:'Energia Solar',desc:'Painel fotovoltaico 10kW',cost:22000,prod:4,water:0,carbon:-30,points:400},
+    {id:'trator',icon:'🚜',name:'Trator Autônomo',desc:'Opera 24h sem motorista',cost:35000,prod:22,water:-5,carbon:-18,points:500},
+    {id:'biodig',icon:'♻️',name:'Biodigestor',desc:'Energia do lixo orgânico',cost:14000,prod:2,water:0,carbon:-25,points:300},
+    {id:'gotejamento',icon:'💧',name:'Irrigação Gotejamento',desc:'Reduz 60% do consumo de água',cost:9000,prod:10,water:-40,carbon:-4,points:200},
+    {id:'satelite',icon:'🔭',name:'Imagens de Satélite',desc:'Monitoramento NDVI semanal',cost:3000,prod:5,water:-10,carbon:-3,points:80},
+    {id:'robot',icon:'🤖',name:'Robô Colhedor',desc:'Colheita seletiva automatizada',cost:50000,prod:28,water:-6,carbon:-15,points:600},
+  ],
+
+  /* ---- EVENTOS DO JOGO ---- */
+  gameEvents:[
+    {type:'bad',icon:'🌧️',msg:'Chuva excessiva! Perdeu 15% da produção.',prod:-15,money:-5000},
+    {type:'bad',icon:'🦟',msg:'Praga detectada! Custos de controle altos.',prod:-8,money:-8000},
+    {type:'bad',icon:'🌡️',msg:'Seca severa! Irrigação emergencial necessária.',prod:-20,money:-10000},
+    {type:'bad',icon:'💹',msg:'Queda no preço da commodity! Receita menor.',prod:0,money:-12000},
+    {type:'good',icon:'🌤️',msg:'Clima perfeito! Produção aumentou 10%.',prod:10,money:5000},
+    {type:'good',icon:'💰',msg:'Alta no preço da soja! Colheita mais lucrativa.',prod:0,money:15000},
+    {type:'good',icon:'🏆',msg:'Prêmio de produtividade recebido!',prod:0,money:20000},
+    {type:'good',icon:'🤝',msg:'Cooperativa negociou melhor preço!',prod:0,money:10000},
+    {type:'neutral',icon:'🔬',msg:'Pesquisa de solo revelou deficiência de zinco. Corrija!',prod:-5,money:-3000},
+    {type:'neutral',icon:'📡',msg:'Sensor detectou problema precoce. Dano minimizado.',prod:-3,money:-2000},
+  ],
+
+  /* ---- IA — BASE DE CONHECIMENTO ---- */
+  aiKB:[
+    {keys:['drone','drones','voo'],resp:'🚁 Os drones agrícolas são aeronaves não tripuladas equipadas com câmeras multiespectrais e sensores. No Paraná, eles mapeiam lavouras inteiras em horas, detectam pragas precocemente e fazem pulverização cirúrgica reduzindo defensivos em até 30%! São uma das tecnologias mais adotadas no estado.'},
+    {keys:['ia','inteligência artificial','machine learning','algoritmo'],resp:'🧠 A IA no agronegócio processa dados de satélites, sensores de solo e histórico climático para recomendar ações precisas. No Paraná, ela prevê quando irrigar, quanto fertilizar, onde aplicar defensivos e até antecipa doenças antes de aparecerem. A EMBRAPA já tem modelos de IA que predizem safras meses antes da colheita!'},
+    {keys:['soja','feijão','milho','trigo','cana','cultura'],resp:'🌱 O Paraná é top produtor nacional! Soja: 25 milhões de toneladas (18% do Brasil). Milho: 15 milhões de toneladas. Trigo: líder absoluto no Brasil. Cana-de-açúcar no Noroeste. Frango: 35% da produção nacional! Cada cultura usa tecnologias específicas para maximizar a produção.'},
+    {keys:['água','irrigação','hídrico','gotejamento'],resp:'💧 O Paraná lidera o uso racional da água na agricultura! Com sensores IoT de umidade no solo e irrigação por gotejamento controlada por IA, as fazendas economizam até 40% da água. O Rio Paraná tem sensores que monitoram o nível e ajudam no planejamento hídrico regional.'},
+    {keys:['solar','energia','renovável','painel','fotovoltaico'],resp:'☀️ O Paraná tem mais de 28 mil propriedades rurais com energia solar instalada! Com a irradiação média de 5,0 kWh/m²/dia, o retorno do investimento em painéis é de 5-7 anos. Combinado com biodigestores, muitas fazendas já são 100% energeticamente autossuficientes.'},
+    {keys:['iot','sensor','monitoramento','internet'],resp:'📡 IoT (Internet das Coisas) no campo paranaense são sensores espalhados pela lavoura medindo temperatura do solo, umidade, pH, nutrientes e microclima. Os dados chegam ao celular do produtor em tempo real e acionam automaticamente a irrigação quando necessário. São mais de 180 mil sensores ativos no PR!'},
+    {keys:['embrapa','pesquisa','universidade','ciência'],resp:'🔬 A EMBRAPA Soja em Londrina é referência mundial! Desenvolveu cultivares de soja adaptados ao trópico brasileiro. A UTFPR, UEM, UEL e UFPR formam pesquisadores em agrotecnologia. O Paraná tem mais de 800 pesquisadores dedicados à inovação agrícola.'},
+    {keys:['cooperativa','coamo','c.vale','cocamar'],resp:'🤝 As cooperativas são o motor da inovação rural no Paraná! COAMO (500 mil hectares monitorados), C.Vale (maior exportadora de frango), COCAMAR (pioneira em bioestimulantes), LAR (energia solar em cooperados). Elas conectam mais de 150 mil agricultores à tecnologia e ao mercado global.'},
+    {keys:['paranaguá','porto','exportação','embarque'],resp:'🚢 O Porto de Paranaguá é o maior porto graneleiro da América Latina! Em 2024 exportou mais de 48 bilhões de dólares em commodities. Usa IA para otimizar filas de caminhões, sistema automatizado de carregamento de navios e rastreabilidade blockchain de toda a carga.'},
+    {keys:['carbono','sustentável','sustentabilidade','verde','ambiental'],resp:'🌿 O Paraná é referência em agricultura sustentável! Com 40% do território em áreas de conservação, o estado lidera a venda de créditos de carbono. Fazendas que adotam plantio direto e preservam nascentes recebem pagamento por serviços ambientais. Meta: carbono neutro no agronegócio até 2035!'},
+    {keys:['trator','autônomo','robô','maquinário','mecanização'],resp:'🚜 O Paraná tem mais de 12 mil tratores com GPS de alta precisão e piloto automático! Alguns já operam completamente autônomos 24h por dia. Os robôs colhedores chegaram às fazendas de café e frutas, aumentando a produtividade em 40% comparado à colheita manual.'},
+    {keys:['paraná','estado','produção','brasil'],resp:'🌾 O Paraná é o estado mais tecnológico do agronegócio brasileiro! Responsável por: 35% do frango nacional, 18% da soja, 100% do liderança em trigo, 28% das exportações agrícolas. Com apenas 2,3% do território nacional, produz mais de 20% dos alimentos do país. É o estado que alimenta o Brasil!'},
+    {keys:['quiz','jogo','game','pontuação','score'],resp:'🎮 Você pode testar seus conhecimentos no Quiz AgroTech (10 perguntas sobre o agronegócio paranaense) e jogar o FazendaTech — simulador onde você gerencia uma fazenda virtual aplicando tecnologias reais! Acesse pelas seções acima.'},
+    {keys:['calculadora','calcular','economia','roi'],resp:'📊 O site tem 6 calculadoras interativas: 💧 Economia de Água, 🌿 Redução de CO₂, 📈 Simulador de Produção, ⚡ Energia Solar, 🧪 Redução de Insumos e 💰 ROI Tecnológico. Cada uma usa dados reais do agronegócio paranaense para dar resultados precisos!'},
+  ],
+
+};
