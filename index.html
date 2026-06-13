@@ -1,470 +1,467 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <meta name="description" content="Paraná AgroTech — Ciência, Tecnologia, Inovação e Sustentabilidade no Agronegócio. Projeto Agrinho 2026."/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Paraná AgroTech — Ciência, Tecnologia, Inovação e Sustentabilidade no Agronegócio Paranaense. Projeto educacional Agrinho 2026." />
+  <meta name="keywords" content="agronegócio, paraná, tecnologia, sustentabilidade, agrinho, agrotech" />
+  <meta name="author" content="Paraná AgroTech — Agrinho 2026" />
+  <meta property="og:title" content="Paraná AgroTech | Ciência e Tecnologia no Campo" />
+  <meta property="og:description" content="O estado que alimenta o Brasil e o mundo com ciência, tecnologia de ponta e amor à terra." />
   <title>Paraná AgroTech | Ciência, Tecnologia e Sustentabilidade</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<!-- ===== LOADER ===== -->
-<div id="pageLoader" class="page-loader">
+<!-- ========= LOADER ========= -->
+<div id="pageLoader" class="page-loader" aria-hidden="true" role="status">
   <div class="loader-inner">
-    <div class="mascot-loader" id="mascotLoader"></div>
+    <div class="loader-leaf">🌿</div>
     <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
-    <p class="loader-text" id="loaderText">Inicializando AgroTech…</p>
+    <p class="loader-text">Carregando Paraná AgroTech…</p>
   </div>
 </div>
 
-<!-- ===== PROGRESSO DE LEITURA ===== -->
-<div id="readProgress" class="read-progress"></div>
+<!-- ========= BARRA DE PROGRESSO DE LEITURA ========= -->
+<div id="readProgress" class="read-progress" aria-hidden="true" role="progressbar" aria-label="Progresso de leitura"></div>
 
-<!-- ===== SKIP LINK ===== -->
-<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
-
-<!-- ===== TOAST DE CONQUISTA ===== -->
-<div id="achievementToast" class="achievement-toast" hidden>
-  <span class="ach-icon" id="achIcon"></span>
-  <div class="ach-text"><strong id="achTitle"></strong><span id="achDesc"></span></div>
-</div>
-
-<!-- ===== BARRA DE ACESSIBILIDADE ===== -->
-<div class="access-bar" id="accessBar">
+<!-- ========= ACESSIBILIDADE ========= -->
+<div class="access-bar" id="accessBar" role="toolbar" aria-label="Ferramentas de acessibilidade">
   <button id="fontIncrease" aria-label="Aumentar fonte" title="Aumentar fonte">A+</button>
   <button id="fontDecrease" aria-label="Diminuir fonte" title="Diminuir fonte">A−</button>
-  <button id="themeToggle"  aria-label="Alternar tema"  title="Tema escuro/claro">🌙</button>
+  <button id="themeToggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">🌙</button>
   <button id="highContrast" aria-label="Alto contraste" title="Alto contraste">◑</button>
-  <button id="settingsBtn"  aria-label="Configurações"  title="Configurações">⚙️</button>
-  <div class="lang-menu">
-    <button class="lang-btn" id="langToggle" aria-label="Idioma">🌐</button>
-    <div class="lang-dropdown" id="langDropdown">
-      <button data-lang="pt">🇧🇷 Português</button>
-      <button data-lang="en">🇺🇸 English</button>
-      <button data-lang="es">🇪🇸 Español</button>
-      <button data-lang="de">🇩🇪 Deutsch</button>
-      <button data-lang="zh">🇨🇳 中文</button>
+  <div class="lang-menu" id="langMenu">
+    <button class="lang-btn" id="langToggle" aria-label="Mudar idioma" aria-haspopup="true" aria-expanded="false">🌐</button>
+    <div class="lang-dropdown" id="langDropdown" role="menu">
+      <button data-lang="pt" role="menuitem">🇧🇷 Português</button>
+      <button data-lang="en" role="menuitem">🇺🇸 English</button>
+      <button data-lang="es" role="menuitem">🇪🇸 Español</button>
+      <button data-lang="de" role="menuitem">🇩🇪 Deutsch</button>
+      <button data-lang="zh" role="menuitem">🇨🇳 中文</button>
     </div>
   </div>
 </div>
 
-<!-- ===== MODAL DE CONFIGURAÇÕES ===== -->
-<div id="settingsModal" class="modal-overlay" hidden>
-  <div class="modal-box settings-box" role="dialog" aria-modal="true" aria-label="Configurações">
-    <button class="modal-close" id="settingsClose" aria-label="Fechar">✕</button>
-    <h2 class="modal-title">⚙️ Configurações</h2>
-    <div class="settings-group">
-      <h4>Aparência</h4>
-      <label class="toggle-row"><span>Modo Escuro</span><input type="checkbox" id="cfg-dark"/></label>
-      <label class="toggle-row"><span>Alto Contraste</span><input type="checkbox" id="cfg-contrast"/></label>
-      <label class="toggle-row"><span>Reduzir Animações</span><input type="checkbox" id="cfg-motion"/></label>
-    </div>
-    <div class="settings-group">
-      <h4>Tamanho do Texto</h4>
-      <div class="font-slider-row">
-        <span>Pequeno</span>
-        <input type="range" id="cfg-font" min="85" max="130" value="100" step="5"/>
-        <span>Grande</span>
-      </div>
-      <p class="font-preview" id="fontPreview">Texto de exemplo</p>
-    </div>
-    <div class="settings-group">
-      <h4>Notificações</h4>
-      <label class="toggle-row"><span>Conquistas</span><input type="checkbox" id="cfg-ach" checked/></label>
-      <label class="toggle-row"><span>Sons de Feedback</span><input type="checkbox" id="cfg-sound"/></label>
-    </div>
-    <div class="settings-group">
-      <h4>Idioma</h4>
-      <select id="cfg-lang" class="settings-select">
-        <option value="pt">🇧🇷 Português</option>
-        <option value="en">🇺🇸 English</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="zh">🇨🇳 中文</option>
-      </select>
-    </div>
-    <div class="settings-actions">
-      <button class="tool-btn" id="saveSettings">Salvar Configurações</button>
-      <button class="btn-outline" id="resetSettings">Restaurar Padrões</button>
-    </div>
+<!-- ========= BOTÃO VOLTAR AO TOPO ========= -->
+<button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo" hidden>↑</button>
+
+<!-- ========= SISTEMA DE CONQUISTAS ========= -->
+<div id="achievementToast" class="achievement-toast" role="alert" aria-live="polite" hidden>
+  <span class="ach-icon" id="achIcon"></span>
+  <div class="ach-text">
+    <strong id="achTitle"></strong>
+    <span id="achDesc"></span>
   </div>
 </div>
 
-<!-- ===== IA FLUTUANTE (AGRO-BOT) ===== -->
-<button id="aiFloatBtn" class="ai-float-btn" aria-label="Abrir assistente AgroBot IA">
-  <div class="ai-mascot-mini"></div>
-  <span class="ai-float-label">AgroBot</span>
-  <span class="ai-float-ping"></span>
-</button>
-
-<div id="aiPanel" class="ai-panel" hidden role="dialog" aria-modal="true" aria-label="Assistente AgroBot">
-  <div class="ai-panel-header">
-    <div class="ai-mascot-sm"></div>
-    <div>
-      <strong>AgroBot IA</strong>
-      <span class="ai-status">● Online</span>
-    </div>
-    <button class="ai-close" id="aiClose" aria-label="Fechar assistente">✕</button>
-  </div>
-  <div class="ai-messages" id="aiMessages">
-    <div class="ai-msg bot">
-      <div class="ai-bubble">Olá! Sou o <strong>AgroBot</strong> 🤖🌿, seu assistente de tecnologia agrícola! Pergunte sobre drones, IA no campo, sustentabilidade, o Paraná e muito mais!</div>
-    </div>
-    <div class="ai-quick-btns" id="aiQuickBtns">
-      <button class="ai-quick" data-q="O que são drones agrícolas?">🚁 Drones</button>
-      <button class="ai-quick" data-q="Como a IA ajuda no campo?">🧠 IA no campo</button>
-      <button class="ai-quick" data-q="O Paraná é líder em quê?">🌾 Paraná</button>
-      <button class="ai-quick" data-q="O que é agricultura sustentável?">🌿 Sustentabilidade</button>
-      <button class="ai-quick" data-q="Como economizar água na irrigação?">💧 Irrigação</button>
-      <button class="ai-quick" data-q="O que é IoT no agronegócio?">📡 IoT</button>
-    </div>
-  </div>
-  <div class="ai-input-row">
-    <input type="text" id="aiInput" placeholder="Pergunte sobre agronegócio…" autocomplete="off"/>
-    <button id="aiSend" aria-label="Enviar pergunta">➤</button>
-  </div>
-</div>
-
-<!-- ===== PESQUISA INTERNA ===== -->
-<div id="searchOverlay" class="search-overlay" hidden>
+<!-- ========= PESQUISA INTERNA ========= -->
+<div id="searchOverlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Pesquisa no site" hidden>
   <div class="search-box">
     <button id="searchClose" class="search-close" aria-label="Fechar pesquisa">✕</button>
-    <input type="search" id="searchInput" class="search-input" placeholder="Pesquisar no site… (ex: drones, soja, IA)" autocomplete="off"/>
-    <div id="searchResults" class="search-results"></div>
+    <label for="searchInput" class="sr-only">Pesquisar no site</label>
+    <input type="search" id="searchInput" class="search-input" placeholder="Pesquisar no site… (ex: drones, soja, IA)" autocomplete="off" />
+    <div id="searchResults" class="search-results" aria-live="polite"></div>
   </div>
 </div>
 
-<!-- ===== BOTÃO VOLTAR AO TOPO ===== -->
-<button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" hidden>↑</button>
-
-<!-- ===== HEADER ===== -->
-<header class="header" id="header">
+<!-- ========= HEADER ========= -->
+<header class="header" id="header" role="banner">
   <div class="container header-inner">
-    <a href="#inicio" class="logo">
-      <div class="logo-mascot"></div>
+    <a href="#inicio" class="logo" aria-label="Paraná AgroTech — página inicial">
+      <span class="logo-icon" aria-hidden="true">🌿</span>
       <span class="logo-text">Paraná<strong>AgroTech</strong></span>
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav" id="nav">
-      <a href="#inicio"      class="nav-link">Início</a>
-      <a href="#sobre"       class="nav-link">Sobre</a>
-      <a href="#timeline"    class="nav-link">História</a>
-      <a href="#tecnologias" class="nav-link">Tecnologias</a>
+    <nav class="nav" id="nav" aria-label="Navegação principal" role="navigation">
+      <a href="#inicio"      class="nav-link" data-i18n="nav.inicio">Início</a>
+      <a href="#sobre"       class="nav-link" data-i18n="nav.sobre">Sobre</a>
+      <a href="#timeline"    class="nav-link">Linha do Tempo</a>
+      <a href="#desafios"    class="nav-link" data-i18n="nav.desafios">Desafios</a>
+      <a href="#solucoes"    class="nav-link" data-i18n="nav.solucoes">Soluções</a>
       <a href="#dashboard"   class="nav-link">Dashboard</a>
-      <a href="#ferramentas" class="nav-link">Calculadoras</a>
-      <a href="#mapa"        class="nav-link">Mapa</a>
-      <a href="#jogo"        class="nav-link">🎮 Jogo</a>
+      <a href="#ferramentas" class="nav-link">Ferramentas</a>
+      <a href="#tecnologias" class="nav-link" data-i18n="nav.tecnologias">Tecnologias</a>
+      <a href="#mapa"        class="nav-link" data-i18n="nav.mapa">Mapa</a>
       <a href="#quiz"        class="nav-link">Quiz</a>
-      <a href="#faq"         class="nav-link">FAQ</a>
-      <button id="searchToggle" class="nav-search-btn" aria-label="Pesquisar">🔍</button>
+      <a href="#faq"         class="nav-link" data-i18n="nav.faq">FAQ</a>
+      <button id="searchToggle" class="nav-search-btn" aria-label="Abrir pesquisa">🔍</button>
     </nav>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section id="inicio" class="hero">
-  <canvas id="heroCanvas"></canvas>
-  <div class="hero-overlay"></div>
-  <div class="container hero-content" id="main-content">
+<!-- ========= HERO ========= -->
+<section id="inicio" class="hero" aria-label="Seção principal">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container hero-content">
     <div class="hero-eyebrow reveal">
-      <span class="eyebrow-dot"></span>
-      <span>CIÊNCIA · TECNOLOGIA · INOVAÇÃO · SUSTENTABILIDADE</span>
+      <span class="eyebrow-dot" aria-hidden="true"></span>
+      <span data-i18n="hero.eyebrow">CIÊNCIA · TECNOLOGIA · INOVAÇÃO · SUSTENTABILIDADE</span>
     </div>
-    <!-- MASCOTE HERO -->
-    <div class="mascot-hero reveal" id="mascotHero" aria-label="AgroBot mascote do Paraná AgroTech"></div>
-    <h1 class="hero-title reveal"><span class="line1">Paraná</span><span class="line2 accent">AgroTech</span></h1>
-    <p class="hero-sub reveal">O estado que alimenta o Brasil e o mundo — com ciência, tecnologia de ponta e amor à terra.</p>
+    <h1 class="hero-title reveal">
+      <span class="line1">Paraná</span>
+      <span class="line2 accent" data-i18n="hero.line2">AgroTech</span>
+    </h1>
+    <p class="hero-sub reveal" data-i18n="hero.sub">
+      O estado que alimenta o Brasil e o mundo — com ciência, tecnologia de ponta e amor à terra.
+    </p>
     <div class="hero-ctas reveal">
-      <a href="#sobre" class="btn-primary">Descobrir o Projeto</a>
-      <a href="#jogo"  class="btn-ghost">🎮 Jogar Agora</a>
+      <a href="#sobre"       class="btn-primary" data-i18n="hero.cta1">Descobrir o Projeto</a>
+      <a href="#dashboard"   class="btn-ghost"   data-i18n="hero.cta2">Ver Dashboard</a>
     </div>
-    <div class="hero-stats reveal">
-      <div class="hstat"><span class="hstat-num">35%</span><span class="hstat-lbl">Frango Brasileiro</span></div>
-      <div class="hstat-div"></div>
-      <div class="hstat"><span class="hstat-num">25M</span><span class="hstat-lbl">Ton. de Soja</span></div>
-      <div class="hstat-div"></div>
-      <div class="hstat"><span class="hstat-num">+100</span><span class="hstat-lbl">Países Parceiros</span></div>
+    <div class="hero-stats reveal" role="list" aria-label="Estatísticas do Paraná">
+      <div class="hstat" role="listitem">
+        <span class="hstat-num" aria-label="35 por cento">35%</span>
+        <span class="hstat-lbl" data-i18n="hero.stat1">Frango Brasileiro</span>
+      </div>
+      <div class="hstat-div" aria-hidden="true"></div>
+      <div class="hstat" role="listitem">
+        <span class="hstat-num" aria-label="25 milhões de toneladas">25M</span>
+        <span class="hstat-lbl" data-i18n="hero.stat2">Ton. de Soja</span>
+      </div>
+      <div class="hstat-div" aria-hidden="true"></div>
+      <div class="hstat" role="listitem">
+        <span class="hstat-num" aria-label="mais de 100">+100</span>
+        <span class="hstat-lbl" data-i18n="hero.stat3">Países Parceiros</span>
+      </div>
     </div>
   </div>
-  <div class="scroll-indicator"><div class="scroll-arrow"></div></div>
+  <div class="scroll-indicator" aria-hidden="true"><div class="scroll-arrow"></div></div>
 </section>
 
-<!-- ===== SOBRE ===== -->
-<section id="sobre" class="section">
+<!-- ========= SOBRE ========= -->
+<section id="sobre" class="section" data-search-section="sobre" aria-labelledby="sobre-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Sobre o Projeto</span>
-      <h2>Ciência e Tecnologia<br>Transformando o Campo</h2>
+      <span class="section-eyebrow" data-i18n="sobre.eyebrow">Sobre o Projeto</span>
+      <h2 id="sobre-title" data-i18n="sobre.title">Ciência e Tecnologia<br>Transformando o Campo</h2>
     </div>
     <div class="sobre-grid">
       <div class="sobre-text reveal">
-        <p class="lead">O Paraná AgroTech mostra como ciência, tecnologia e sustentabilidade estão revolucionando o agronegócio paranaense através de soluções inteligentes e inovadoras.</p>
-        <p>Produtores utilizam sensores, satélites, drones e inteligência artificial para monitorar lavouras, prever problemas climáticos e aumentar a eficiência produtiva.</p>
-        <p>Essas tecnologias ajudam a produzir mais alimentos, reduzir custos e preservar recursos naturais, contribuindo para um futuro mais sustentável.</p>
-        <div class="sobre-badges">
-          <span class="badge">🏆 Líder em Frango</span>
-          <span class="badge">🌱 Top Soja</span>
-          <span class="badge">🚢 Porto Exportador</span>
-          <span class="badge">🔬 Inovação</span>
+        <p class="lead" data-i18n="sobre.lead">O Paraná AgroTech mostra como ciência, tecnologia e sustentabilidade estão revolucionando o agronegócio paranaense através de soluções inteligentes e inovadoras.</p>
+        <p data-i18n="sobre.p1">Produtores utilizam sensores, satélites, drones e inteligência artificial para monitorar lavouras, prever problemas climáticos e aumentar a eficiência produtiva.</p>
+        <p data-i18n="sobre.p2">Essas tecnologias ajudam a produzir mais alimentos, reduzir custos e preservar recursos naturais, contribuindo para um futuro mais sustentável.</p>
+        <div class="sobre-badges" role="list" aria-label="Destaques do Paraná">
+          <span class="badge" role="listitem">🏆 <span data-i18n="sobre.b1">Líder em Frango</span></span>
+          <span class="badge" role="listitem">🌱 <span data-i18n="sobre.b2">Top Soja</span></span>
+          <span class="badge" role="listitem">🚢 <span data-i18n="sobre.b3">Porto Exportador</span></span>
+          <span class="badge" role="listitem">🔬 <span data-i18n="sobre.b4">Inovação</span></span>
         </div>
       </div>
       <div class="sobre-visual reveal">
         <div class="sobre-img-stack">
-          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80" alt="Lavoura paranaense" loading="lazy"/>
-          <div class="sobre-img-badge"><span>📊</span><span>Inovação no Campo</span></div>
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80"
+               alt="Vista aérea de lavoura paranaense com plantações alinhadas em fileiras" loading="lazy" />
+          <div class="sobre-img-badge" aria-hidden="true">
+            <span class="badge-num">📊</span>
+            <span data-i18n="sobre.imgbadge">Inovação no Campo</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== BRASIL ===== -->
-<section class="section section-dark">
+<!-- ========= BRASIL + PARANÁ ========= -->
+<section id="brasil" class="section section-dark" data-search-section="brasil" aria-labelledby="brasil-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">O Brasil e o Paraná</span>
-      <h2>Um Estado que Move<br>a Economia Nacional</h2>
+      <span class="section-eyebrow" data-i18n="brasil.eyebrow">O Brasil e o Paraná</span>
+      <h2 id="brasil-title" data-i18n="brasil.title">Um Estado que Move<br>a Economia Nacional</h2>
     </div>
     <div class="brasil-grid">
-      <div class="brasil-fact reveal"><div class="fact-icon">🇧🇷</div><h3>Brasil no Mundo</h3><p>O Brasil é o maior exportador de soja, café, carne bovina e suco de laranja do mundo — e o Paraná é peça central nessa cadeia.</p></div>
-      <div class="brasil-fact reveal"><div class="fact-icon">🌾</div><h3>Paraná no Brasil</h3><p>O Paraná responde por mais de 20% da produção agrícola nacional, sendo referência em grãos, aves, suínos e lácteos.</p></div>
-      <div class="brasil-fact reveal"><div class="fact-icon">🚀</div><h3>Tecnologia de Ponta</h3><p>Com centros de pesquisa como a EMBRAPA e universidades de excelência, o Paraná lidera a adoção de agrotecnologia no país.</p></div>
-      <div class="brasil-fact reveal"><div class="fact-icon">🌍</div><h3>Impacto Global</h3><p>Produtos paranaenses chegam a mais de 100 países, alimentando milhões de pessoas e gerando bilhões em divisas.</p></div>
+      <div class="brasil-fact reveal">
+        <div class="fact-icon" aria-hidden="true">🇧🇷</div>
+        <h3 data-i18n="brasil.f1t">Brasil no Mundo</h3>
+        <p data-i18n="brasil.f1p">O Brasil é o maior exportador de soja, café, carne bovina e suco de laranja do mundo — e o Paraná é peça central nessa cadeia.</p>
+      </div>
+      <div class="brasil-fact reveal">
+        <div class="fact-icon" aria-hidden="true">🌾</div>
+        <h3 data-i18n="brasil.f2t">Paraná no Brasil</h3>
+        <p data-i18n="brasil.f2p">O Paraná responde por mais de 20% da produção agrícola nacional, sendo referência em grãos, aves, suínos e lácteos.</p>
+      </div>
+      <div class="brasil-fact reveal">
+        <div class="fact-icon" aria-hidden="true">🚀</div>
+        <h3 data-i18n="brasil.f3t">Tecnologia de Ponta</h3>
+        <p data-i18n="brasil.f3p">Com centros de pesquisa como a EMBRAPA e universidades de excelência, o Paraná lidera a adoção de agrotecnologia no país.</p>
+      </div>
+      <div class="brasil-fact reveal">
+        <div class="fact-icon" aria-hidden="true">🌍</div>
+        <h3 data-i18n="brasil.f4t">Impacto Global</h3>
+        <p data-i18n="brasil.f4p">Produtos paranaenses chegam a mais de 100 países, alimentando milhões de pessoas e gerando bilhões em divisas para o país.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== LINHA DO TEMPO ===== -->
-<section id="timeline" class="section section-alt">
+<!-- ========= LINHA DO TEMPO ========= -->
+<section id="timeline" class="section section-alt" data-search-section="timeline" aria-labelledby="timeline-title">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">Evolução Histórica</span>
-      <h2>Linha do Tempo da<br>Tecnologia Agrícola</h2>
+      <h2 id="timeline-title">Linha do Tempo da<br>Tecnologia Agrícola</h2>
+      <p>Do arado de madeira ao trator autônomo: a incrível jornada da inovação no campo paranaense.</p>
     </div>
-    <div class="timeline-wrap reveal" id="timelineWrap"></div>
+    <div class="timeline-wrap reveal" role="list" aria-label="Linha do tempo da evolução tecnológica">
+      <!-- Gerada via JS -->
+    </div>
   </div>
 </section>
 
-<!-- ===== DESAFIOS ===== -->
-<section id="desafios" class="section">
+<!-- ========= DESAFIOS ========= -->
+<section id="desafios" class="section" data-search-section="desafios" aria-labelledby="desafios-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Desafios</span>
-      <h2>Os Grandes Desafios<br>do Agronegócio</h2>
+      <span class="section-eyebrow" data-i18n="desafios.eyebrow">Desafios</span>
+      <h2 id="desafios-title" data-i18n="desafios.title">Os Grandes Desafios<br>do Agronegócio</h2>
     </div>
     <div class="challenges-grid">
-      <div class="challenge-card reveal"><div class="challenge-img"><img src="https://images.unsplash.com/photo-1504608524841-42f0f88b6b0e?w=700&q=80" alt="Mudanças climáticas" loading="lazy"/><div class="challenge-num">01</div></div><div class="challenge-body"><h3>🌡️ Mudanças Climáticas</h3><p>Secas, geadas e eventos extremos afetam diretamente a produtividade agrícola, exigindo adaptação constante.</p></div></div>
-      <div class="challenge-card reveal"><div class="challenge-img"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=700&q=80" alt="Recursos hídricos" loading="lazy"/><div class="challenge-num">02</div></div><div class="challenge-body"><h3>💧 Uso da Água</h3><p>O uso inadequado da irrigação gera desperdícios e eleva custos, tornando a gestão hídrica um imperativo.</p></div></div>
-      <div class="challenge-card reveal"><div class="challenge-img"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80" alt="Pragas" loading="lazy"/><div class="challenge-num">03</div></div><div class="challenge-body"><h3>🦟 Pragas e Doenças</h3><p>Insetos, fungos e doenças agrícolas causam prejuízos milionários a cada safra, demandando vigilância constante.</p></div></div>
-      <div class="challenge-card reveal"><div class="challenge-img"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=80" alt="Crescimento populacional" loading="lazy"/><div class="challenge-num">04</div></div><div class="challenge-body"><h3>👥 Crescimento Populacional</h3><p>A demanda por alimentos cresce sem parar, exigindo maior eficiência produtiva com menos recursos naturais.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SOLUÇÕES ===== -->
-<section id="solucoes" class="section section-alt">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-eyebrow">Soluções Tecnológicas</span>
-      <h2>Como a Tecnologia<br>Resolve Esses Problemas</h2>
-    </div>
-    <div class="solutions-grid">
-      <div class="sol-card reveal" style="--c:#22c55e"><div class="sol-icon">🚁</div><h3>Drones Agrícolas</h3><p>Monitoram grandes áreas rapidamente e identificam falhas, pragas e doenças nas plantações com alta precisão.</p><div class="sol-tag">Monitoramento</div></div>
-      <div class="sol-card reveal" style="--c:#3b82f6"><div class="sol-icon">🧠</div><h3>Inteligência Artificial</h3><p>Analisa milhares de dados para prever problemas e auxiliar produtores nas decisões certas, no momento certo.</p><div class="sol-tag">Previsão</div></div>
-      <div class="sol-card reveal" style="--c:#8b5cf6"><div class="sol-icon">🛰️</div><h3>Satélites</h3><p>Acompanham lavouras em tempo real através de imagens de alta resolução e análise espectral do solo.</p><div class="sol-tag">Análise</div></div>
-      <div class="sol-card reveal" style="--c:#f59e0b"><div class="sol-icon">📡</div><h3>Sensores IoT</h3><p>Medem temperatura, umidade e nutrientes do solo continuamente, enviando dados em tempo real.</p><div class="sol-tag">Dados</div></div>
-      <div class="sol-card reveal" style="--c:#ef4444"><div class="sol-icon">🤖</div><h3>Automação</h3><p>Máquinas modernas executam tarefas agrícolas com muito mais precisão, velocidade e eficiência.</p><div class="sol-tag">Eficiência</div></div>
-      <div class="sol-card reveal" style="--c:#06b6d4"><div class="sol-icon">☀️</div><h3>Energia Renovável</h3><p>Painéis solares e outras fontes limpas ajudam a reduzir custos operacionais e impactos ambientais.</p><div class="sol-tag">Sustentável</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DASHBOARD ===== -->
-<section id="dashboard" class="section section-dark">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-eyebrow">Dashboard Interativo</span>
-      <h2>O Paraná em<br>Números Reais</h2>
-    </div>
-    <div class="dashboard-grid reveal" id="dashboardGrid"></div>
-    <div class="dashboard-chart-area reveal">
-      <div class="chart-card">
-        <h3>📊 Produção por Cultura (safra 2023/24)</h3>
-        <div class="bar-chart" id="barChart"></div>
+      <div class="challenge-card reveal">
+        <div class="challenge-img">
+          <img src="https://images.unsplash.com/photo-1504608524841-42f0f88b6b0e?w=700&q=80" alt="Nuvens de tempestade representando mudanças climáticas na agricultura" loading="lazy" />
+          <div class="challenge-num" aria-hidden="true">01</div>
+        </div>
+        <div class="challenge-body">
+          <h3>🌡️ <span data-i18n="desafios.c1t">Mudanças Climáticas</span></h3>
+          <p data-i18n="desafios.c1p">Secas, geadas e eventos extremos afetam diretamente a produtividade agrícola, exigindo adaptação constante.</p>
+        </div>
       </div>
-      <div class="chart-card">
-        <h3>🔬 Adoção de Tecnologias no Campo</h3>
-        <div class="donut-chart-wrap">
-          <canvas id="donutCanvas" width="200" height="200"></canvas>
-          <div class="donut-legend" id="donutLegend"></div>
+      <div class="challenge-card reveal">
+        <div class="challenge-img">
+          <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=700&q=80" alt="Rio e recursos hídricos essenciais para irrigação agrícola" loading="lazy" />
+          <div class="challenge-num" aria-hidden="true">02</div>
+        </div>
+        <div class="challenge-body">
+          <h3>💧 <span data-i18n="desafios.c2t">Uso da Água</span></h3>
+          <p data-i18n="desafios.c2p">O uso inadequado da irrigação gera desperdícios e eleva custos, tornando a gestão hídrica um imperativo.</p>
+        </div>
+      </div>
+      <div class="challenge-card reveal">
+        <div class="challenge-img">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80" alt="Plantas em campo representando risco de pragas e doenças agrícolas" loading="lazy" />
+          <div class="challenge-num" aria-hidden="true">03</div>
+        </div>
+        <div class="challenge-body">
+          <h3>🦟 <span data-i18n="desafios.c3t">Pragas e Doenças</span></h3>
+          <p data-i18n="desafios.c3p">Insetos, fungos e doenças agrícolas causam prejuízos milionários a cada safra, demandando vigilância constante.</p>
+        </div>
+      </div>
+      <div class="challenge-card reveal">
+        <div class="challenge-img">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=80" alt="Crianças representando crescimento populacional e demanda por alimentos" loading="lazy" />
+          <div class="challenge-num" aria-hidden="true">04</div>
+        </div>
+        <div class="challenge-body">
+          <h3>👥 <span data-i18n="desafios.c4t">Crescimento Populacional</span></h3>
+          <p data-i18n="desafios.c4p">A demanda por alimentos cresce sem parar, exigindo maior eficiência produtiva com menos recursos naturais.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== INDICADORES ===== -->
-<section id="indicadores" class="section section-dark">
+<!-- ========= SOLUÇÕES ========= -->
+<section id="solucoes" class="section section-alt" data-search-section="solucoes" aria-labelledby="solucoes-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Indicadores</span>
-      <h2>O Paraná em Números</h2>
+      <span class="section-eyebrow" data-i18n="solucoes.eyebrow">Soluções Tecnológicas</span>
+      <h2 id="solucoes-title" data-i18n="solucoes.title">Como a Tecnologia<br>Resolve Esses Problemas</h2>
     </div>
-    <div class="stats-big reveal">
-      <div class="stat-big"><span class="stat-number" data-target="35">0</span><span class="stat-unit">%</span><span class="stat-label">Produção Brasileira de Frango</span><div class="stat-bar"><div class="stat-fill" style="width:35%"></div></div></div>
-      <div class="stat-big"><span class="stat-number" data-target="18">0</span><span class="stat-unit">%</span><span class="stat-label">Produção Brasileira de Soja</span><div class="stat-bar"><div class="stat-fill" style="width:18%"></div></div></div>
-      <div class="stat-big"><span class="stat-number" data-target="12">0</span><span class="stat-unit">%</span><span class="stat-label">Produção Brasileira de Milho</span><div class="stat-bar"><div class="stat-fill" style="width:12%"></div></div></div>
-      <div class="stat-big"><span class="stat-number" data-target="28">0</span><span class="stat-unit">%</span><span class="stat-label">Exportações Agrícolas Nacionais</span><div class="stat-bar"><div class="stat-fill" style="width:28%"></div></div></div>
-    </div>
-    <div class="prod-cards">
-      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80" alt="Soja" loading="lazy"/><div class="prod-body"><h3>🌱 Soja</h3><p class="prod-num">25M <span>ton</span></p><p>Entre os maiores produtores do Brasil</p></div></div>
-      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1601593768799-76d5a4f9c51b?w=600&q=80" alt="Milho" loading="lazy"/><div class="prod-body"><h3>🌽 Milho</h3><p class="prod-num">15M <span>ton</span></p><p>Essencial para alimentação humana e ração</p></div></div>
-      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=600&q=80" alt="Frango" loading="lazy"/><div class="prod-body"><h3>🐔 Frango</h3><p class="prod-num">#1 <span>BR</span></p><p>Líder absoluto na produção nacional</p></div></div>
-      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Exportações" loading="lazy"/><div class="prod-body"><h3>🚢 Exportações</h3><p class="prod-num">+100 <span>países</span></p><p>Produtos paranaenses no mundo inteiro</p></div></div>
+    <div class="solutions-grid">
+      <div class="sol-card reveal" style="--c:#22c55e"><div class="sol-icon" aria-hidden="true">🚁</div><h3 data-i18n="sol.s1t">Drones Agrícolas</h3><p data-i18n="sol.s1p">Monitoram grandes áreas rapidamente e identificam falhas, pragas e doenças nas plantações com alta precisão.</p><div class="sol-tag" data-i18n="sol.s1tag">Monitoramento</div></div>
+      <div class="sol-card reveal" style="--c:#3b82f6"><div class="sol-icon" aria-hidden="true">🧠</div><h3 data-i18n="sol.s2t">Inteligência Artificial</h3><p data-i18n="sol.s2p">Analisa milhares de dados para prever problemas e auxiliar produtores nas decisões certas, no momento certo.</p><div class="sol-tag" data-i18n="sol.s2tag">Previsão</div></div>
+      <div class="sol-card reveal" style="--c:#8b5cf6"><div class="sol-icon" aria-hidden="true">🛰️</div><h3 data-i18n="sol.s3t">Satélites</h3><p data-i18n="sol.s3p">Acompanham lavouras em tempo real através de imagens de alta resolução e análise espectral do solo.</p><div class="sol-tag" data-i18n="sol.s3tag">Análise</div></div>
+      <div class="sol-card reveal" style="--c:#f59e0b"><div class="sol-icon" aria-hidden="true">📡</div><h3 data-i18n="sol.s4t">Sensores IoT</h3><p data-i18n="sol.s4p">Medem temperatura, umidade e nutrientes do solo continuamente, enviando dados em tempo real.</p><div class="sol-tag" data-i18n="sol.s4tag">Dados</div></div>
+      <div class="sol-card reveal" style="--c:#ef4444"><div class="sol-icon" aria-hidden="true">🤖</div><h3 data-i18n="sol.s5t">Automação</h3><p data-i18n="sol.s5p">Máquinas modernas executam tarefas agrícolas com muito mais precisão, velocidade e eficiência.</p><div class="sol-tag" data-i18n="sol.s5tag">Eficiência</div></div>
+      <div class="sol-card reveal" style="--c:#06b6d4"><div class="sol-icon" aria-hidden="true">☀️</div><h3 data-i18n="sol.s6t">Energia Renovável</h3><p data-i18n="sol.s6p">Painéis solares e outras fontes limpas ajudam a reduzir custos operacionais e impactos ambientais.</p><div class="sol-tag" data-i18n="sol.s6tag">Sustentável</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== CALCULADORAS ===== -->
-<section id="ferramentas" class="section section-alt">
+<!-- ========= DASHBOARD DINÂMICO ========= -->
+<section id="dashboard" class="section section-dark" data-search-section="dashboard" aria-labelledby="dashboard-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Dashboard Interativo</span>
+      <h2 id="dashboard-title">O Paraná em<br>Tempo Real</h2>
+      <p>Indicadores dinâmicos do agronegócio paranaense atualizados e animados.</p>
+    </div>
+    <div class="dashboard-grid reveal" id="dashboardGrid" role="list" aria-label="Indicadores do agronegócio paranaense">
+      <!-- Gerado via JS -->
+    </div>
+    <div class="dashboard-chart-area reveal">
+      <div class="chart-card" aria-label="Gráfico de produção por cultura">
+        <h3>📊 Produção por Cultura (safra 2023/24)</h3>
+        <div class="bar-chart" id="barChart" role="img" aria-label="Gráfico de barras com produção por cultura agrícola"></div>
+      </div>
+      <div class="chart-card" aria-label="Adoção de tecnologias no campo">
+        <h3>🔬 Adoção de Tecnologias no Campo</h3>
+        <div class="donut-chart-wrap">
+          <canvas id="donutCanvas" width="220" height="220" aria-label="Gráfico de rosca mostrando adoção de tecnologias"></canvas>
+          <div class="donut-legend" id="donutLegend" role="list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= INDICADORES ========= -->
+<section id="indicadores" class="section section-dark" data-search-section="indicadores" aria-labelledby="indicadores-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="indicadores.eyebrow">Indicadores</span>
+      <h2 id="indicadores-title" data-i18n="indicadores.title">O Paraná em Números</h2>
+    </div>
+    <div class="stats-big reveal" role="list" aria-label="Indicadores de produção">
+      <div class="stat-big" role="listitem">
+        <span class="stat-number" data-target="35" aria-label="35 por cento">0</span>
+        <span class="stat-unit" aria-hidden="true">%</span>
+        <span class="stat-label" data-i18n="ind.s1">Produção Brasileira de Frango</span>
+        <div class="stat-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="35% da produção brasileira de frango"><div class="stat-fill" style="width:35%"></div></div>
+      </div>
+      <div class="stat-big" role="listitem">
+        <span class="stat-number" data-target="18" aria-label="18 por cento">0</span>
+        <span class="stat-unit" aria-hidden="true">%</span>
+        <span class="stat-label" data-i18n="ind.s2">Produção Brasileira de Soja</span>
+        <div class="stat-bar" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" aria-label="18% da produção brasileira de soja"><div class="stat-fill" style="width:18%"></div></div>
+      </div>
+      <div class="stat-big" role="listitem">
+        <span class="stat-number" data-target="12" aria-label="12 por cento">0</span>
+        <span class="stat-unit" aria-hidden="true">%</span>
+        <span class="stat-label" data-i18n="ind.s3">Produção Brasileira de Milho</span>
+        <div class="stat-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="12% da produção brasileira de milho"><div class="stat-fill" style="width:12%"></div></div>
+      </div>
+      <div class="stat-big" role="listitem">
+        <span class="stat-number" data-target="28" aria-label="28 por cento">0</span>
+        <span class="stat-unit" aria-hidden="true">%</span>
+        <span class="stat-label" data-i18n="ind.s4">Exportações Agrícolas Nacionais</span>
+        <div class="stat-bar" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" aria-label="28% das exportações agrícolas nacionais"><div class="stat-fill" style="width:28%"></div></div>
+      </div>
+    </div>
+    <div class="prod-cards">
+      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80" alt="Campo de soja no Paraná" loading="lazy" /><div class="prod-body"><h3 data-i18n="ind.p1t">🌱 Soja</h3><p class="prod-num">25M <span>ton</span></p><p data-i18n="ind.p1p">Entre os maiores produtores do Brasil</p></div></div>
+      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1601593768799-76d5a4f9c51b?w=600&q=80" alt="Plantação de milho no Paraná" loading="lazy" /><div class="prod-body"><h3 data-i18n="ind.p2t">🌽 Milho</h3><p class="prod-num">15M <span>ton</span></p><p data-i18n="ind.p2p">Essencial para alimentação humana e ração</p></div></div>
+      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=600&q=80" alt="Granja de frango no Paraná" loading="lazy" /><div class="prod-body"><h3 data-i18n="ind.p3t">🐔 Frango</h3><p class="prod-num">#1 <span>BR</span></p><p data-i18n="ind.p3p">Líder absoluto na produção nacional</p></div></div>
+      <div class="prod-card reveal"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Porto de Paranaguá com navios cargueiros" loading="lazy" /><div class="prod-body"><h3 data-i18n="ind.p4t">🚢 Exportações</h3><p class="prod-num">+100 <span>países</span></p><p data-i18n="ind.p4p">Produtos paranaenses no mundo inteiro</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FERRAMENTAS INTERATIVAS ========= -->
+<section id="ferramentas" class="section section-alt" data-search-section="ferramentas" aria-labelledby="ferramentas-title">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">Ferramentas Educacionais</span>
-      <h2>Calculadoras de<br>Impacto Tecnológico</h2>
+      <h2 id="ferramentas-title">Calcule o Impacto<br>da Tecnologia</h2>
+      <p>Simuladores interativos para entender como a tecnologia muda a agricultura.</p>
     </div>
     <div class="tools-grid">
 
-      <!-- Calculadora Água -->
-      <div class="tool-card reveal">
-        <div class="tool-header"><span class="tool-icon">💧</span><h3>Economia de Água</h3><p>Calcule quanto você economiza com irrigação inteligente</p></div>
+      <!-- Calculadora de Água -->
+      <div class="tool-card reveal" id="toolWater" aria-labelledby="tool-water-title">
+        <div class="tool-header">
+          <span class="tool-icon" aria-hidden="true">💧</span>
+          <h3 id="tool-water-title">Calculadora de Água</h3>
+          <p>Descubra quanto água você pode economizar com irrigação inteligente</p>
+        </div>
         <div class="tool-body">
-          <div class="form-group"><label>Área (hectares)</label><input type="number" id="areaHa" value="100" min="1" max="50000"/></div>
-          <div class="form-group"><label>Irrigação atual</label>
-            <select id="irrigType">
-              <option value="inundacao">Inundação (11.000 m³/ha)</option>
-              <option value="aspersao">Aspersão (7.500 m³/ha)</option>
-              <option value="sulco">Sulco (9.000 m³/ha)</option>
-              <option value="gotejamento_simples">Gotejamento Simples (4.500 m³/ha)</option>
+          <div class="form-group">
+            <label for="areaHectares">Área da propriedade (hectares)</label>
+            <input type="number" id="areaHectares" min="1" max="10000" value="100" aria-describedby="areaHint" />
+            <span id="areaHint" class="input-hint">Entre 1 e 10.000 hectares</span>
+          </div>
+          <div class="form-group">
+            <label for="irrigType">Tipo de irrigação atual</label>
+            <select id="irrigType" aria-label="Selecione o tipo de irrigação atual">
+              <option value="aspersao">Aspersão convencional</option>
+              <option value="sulco">Irrigação por sulco</option>
+              <option value="inundacao">Inundação</option>
+              <option value="gotejamento">Gotejamento (base)</option>
             </select>
           </div>
-          <div class="form-group"><label>Cultura</label>
-            <select id="cultureWater">
+          <div class="form-group">
+            <label for="cultureType">Cultura principal</label>
+            <select id="cultureType" aria-label="Selecione a cultura principal">
               <option value="soja">Soja</option>
               <option value="milho">Milho</option>
               <option value="trigo">Trigo</option>
               <option value="cana">Cana-de-açúcar</option>
-              <option value="tomate">Tomate</option>
             </select>
           </div>
-          <button class="tool-btn" id="calcWater">💧 Calcular Economia</button>
-          <div class="tool-result" id="waterResult" hidden></div>
+          <button class="tool-btn" id="calcWater" aria-live="polite">Calcular Economia</button>
+          <div class="tool-result" id="waterResult" role="region" aria-live="polite" aria-label="Resultado do cálculo de água" hidden></div>
         </div>
       </div>
 
-      <!-- Calculadora Carbono -->
-      <div class="tool-card reveal">
-        <div class="tool-header"><span class="tool-icon">🌿</span><h3>Redução de CO₂</h3><p>Veja a redução de carbono com práticas sustentáveis</p></div>
+      <!-- Calculadora de Carbono -->
+      <div class="tool-card reveal" id="toolCarbon" aria-labelledby="tool-carbon-title">
+        <div class="tool-header">
+          <span class="tool-icon" aria-hidden="true">🌿</span>
+          <h3 id="tool-carbon-title">Calculadora de Carbono</h3>
+          <p>Veja a redução de CO₂ ao adotar práticas sustentáveis</p>
+        </div>
         <div class="tool-body">
-          <div class="form-group"><label>Horas de máquinas/mês</label><input type="number" id="machineHours" value="200" min="1" max="5000"/></div>
-          <div class="form-group"><label>Combustível atual</label>
-            <select id="fuelType">
-              <option value="diesel">Diesel (2,68 kg CO₂/L)</option>
-              <option value="gasolina">Gasolina (2,31 kg CO₂/L)</option>
-              <option value="biodiesel">Biodiesel B100 (0,54 kg CO₂/L)</option>
+          <div class="form-group">
+            <label for="machineHours">Horas de máquinas por mês</label>
+            <input type="number" id="machineHours" min="1" max="2000" value="200" />
+          </div>
+          <div class="form-group">
+            <label for="fuelType">Combustível atual</label>
+            <select id="fuelType" aria-label="Tipo de combustível">
+              <option value="diesel">Diesel convencional</option>
+              <option value="biodiesel">Biodiesel B10</option>
+              <option value="gasolina">Gasolina</option>
             </select>
           </div>
-          <div class="form-group"><label>Área reflorestada (ha)</label><input type="number" id="reforestArea" value="0" min="0" max="10000"/></div>
-          <div class="form-group"><label>Energia solar instalada (%)</label>
-            <select id="solarPct">
-              <option value="0">0% — Sem solar</option>
-              <option value="30">30% — Parcial</option>
-              <option value="60">60% — Majoritária</option>
-              <option value="100">100% — Total</option>
+          <div class="form-group">
+            <label for="solarPanel">Painéis solares instalados?</label>
+            <select id="solarPanel" aria-label="Possui painéis solares">
+              <option value="nao">Não possuo</option>
+              <option value="parcial">Parcialmente (30%)</option>
+              <option value="sim">Sim, completo (100%)</option>
             </select>
           </div>
-          <button class="tool-btn" id="calcCarbon">🌿 Calcular CO₂</button>
-          <div class="tool-result" id="carbonResult" hidden></div>
+          <button class="tool-btn" id="calcCarbon">Calcular Redução de CO₂</button>
+          <div class="tool-result" id="carbonResult" role="region" aria-live="polite" aria-label="Resultado do cálculo de carbono" hidden></div>
         </div>
       </div>
 
-      <!-- Calculadora Produtividade -->
-      <div class="tool-card reveal">
-        <div class="tool-header"><span class="tool-icon">📈</span><h3>Simulador de Produção</h3><p>Estime o ganho com tecnologias agrícolas</p></div>
+      <!-- Simulador de Produtividade -->
+      <div class="tool-card reveal" id="toolProd" aria-labelledby="tool-prod-title">
+        <div class="tool-header">
+          <span class="tool-icon" aria-hidden="true">📈</span>
+          <h3 id="tool-prod-title">Simulador de Produtividade</h3>
+          <p>Estime o ganho de produção com tecnologias agrícolas</p>
+        </div>
         <div class="tool-body">
-          <div class="form-group"><label>Produtividade atual (sc/ha)</label><input type="number" id="prodAtual" value="60" min="1" max="300"/></div>
-          <div class="form-group"><label>Tecnologias a adotar</label>
-            <div class="checkbox-group">
-              <label class="check-label"><input type="checkbox" class="tech-check" value="5"> 🚁 Drones (+5%)</label>
-              <label class="check-label"><input type="checkbox" class="tech-check" value="12"> 🧠 IA Agrícola (+12%)</label>
-              <label class="check-label"><input type="checkbox" class="tech-check" value="8"> 📡 Sensores IoT (+8%)</label>
-              <label class="check-label"><input type="checkbox" class="tech-check" value="6"> 🛰️ Satélites (+6%)</label>
-              <label class="check-label"><input type="checkbox" class="tech-check" value="10"> 🤖 Automação (+10%)</label>
-              <label class="check-label"><input type="checkbox" class="tech-check" value="4"> ☀️ Energia Solar (+4%)</label>
+          <div class="form-group">
+            <label for="prodAtual">Produtividade atual (sacas/ha)</label>
+            <input type="number" id="prodAtual" min="10" max="200" value="60" />
+          </div>
+          <div class="form-group">
+            <label>Tecnologias que pretende adotar</label>
+            <div class="checkbox-group" role="group" aria-label="Selecione as tecnologias">
+              <label class="check-label"><input type="checkbox" id="techDrone" value="5"> 🚁 Drones (+5%)</label>
+              <label class="check-label"><input type="checkbox" id="techIA" value="12"> 🧠 IA Agrícola (+12%)</label>
+              <label class="check-label"><input type="checkbox" id="techIoT" value="8"> 📡 Sensores IoT (+8%)</label>
+              <label class="check-label"><input type="checkbox" id="techSat" value="6"> 🛰️ Satélites (+6%)</label>
+              <label class="check-label"><input type="checkbox" id="techAuto" value="10"> 🤖 Automação (+10%)</label>
             </div>
           </div>
-          <button class="tool-btn" id="calcProd">📈 Simular Produção</button>
-          <div class="tool-result" id="prodResult" hidden></div>
-        </div>
-      </div>
-
-      <!-- Calculadora Energia -->
-      <div class="tool-card reveal">
-        <div class="tool-header"><span class="tool-icon">⚡</span><h3>Calculadora de Energia</h3><p>Economia com painéis solares na propriedade rural</p></div>
-        <div class="tool-body">
-          <div class="form-group"><label>Consumo mensal (kWh)</label><input type="number" id="energyConsume" value="3000" min="100" max="500000"/></div>
-          <div class="form-group"><label>Tarifa atual (R$/kWh)</label><input type="number" id="energyTariff" value="0.80" step="0.01" min="0.1" max="5"/></div>
-          <div class="form-group"><label>Área disponível para painel (m²)</label><input type="number" id="solarArea" value="500" min="10" max="100000"/></div>
-          <div class="form-group"><label>Estado/Irradiação</label>
-            <select id="solarState">
-              <option value="5.0">Paraná (5,0 kWh/m²/dia)</option>
-              <option value="5.5">São Paulo (5,5)</option>
-              <option value="5.8">Mato Grosso (5,8)</option>
-              <option value="6.0">Nordeste (6,0)</option>
-              <option value="4.5">Sul (4,5)</option>
-            </select>
-          </div>
-          <button class="tool-btn" id="calcEnergy">⚡ Calcular Economia Solar</button>
-          <div class="tool-result" id="energyResult" hidden></div>
-        </div>
-      </div>
-
-      <!-- Calculadora Insumos -->
-      <div class="tool-card reveal">
-        <div class="tool-header"><span class="tool-icon">🧪</span><h3>Redução de Insumos</h3><p>Economia com aplicação localizada de defensivos</p></div>
-        <div class="tool-body">
-          <div class="form-group"><label>Área (hectares)</label><input type="number" id="insArea" value="200" min="1" max="50000"/></div>
-          <div class="form-group"><label>Custo defensivos atual (R$/ha/ano)</label><input type="number" id="insDefensivos" value="1200" min="100" max="20000"/></div>
-          <div class="form-group"><label>Custo fertilizantes (R$/ha/ano)</label><input type="number" id="insFertilizantes" value="900" min="100" max="20000"/></div>
-          <div class="form-group"><label>Tecnologia de aplicação</label>
-            <select id="insTech">
-              <option value="convencional">Convencional (base)</option>
-              <option value="drone">Drone (reduz 30%)</option>
-              <option value="vrt">Aplicação por taxa variável VRT (reduz 25%)</option>
-              <option value="ia_solo">IA + Análise de Solo (reduz 38%)</option>
-            </select>
-          </div>
-          <button class="tool-btn" id="calcInsumos">🧪 Calcular Redução</button>
-          <div class="tool-result" id="insumosResult" hidden></div>
-        </div>
-      </div>
-
-      <!-- Calculadora ROI -->
-      <div class="tool-card reveal">
-        <div class="tool-header"><span class="tool-icon">💰</span><h3>ROI Tecnológico</h3><p>Retorno do investimento em tecnologia agrícola</p></div>
-        <div class="tool-body">
-          <div class="form-group"><label>Investimento em tecnologia (R$)</label><input type="number" id="roiInvest" value="150000" min="1000"/></div>
-          <div class="form-group"><label>Ganho estimado de produção (%)</label><input type="number" id="roiGain" value="20" min="1" max="200"/></div>
-          <div class="form-group"><label>Receita atual anual (R$)</label><input type="number" id="roiRevenue" value="800000" min="1000"/></div>
-          <div class="form-group"><label>Redução de custos estimada (%)</label><input type="number" id="roiCostReduction" value="15" min="0" max="100"/></div>
-          <div class="form-group"><label>Custos operacionais anuais (R$)</label><input type="number" id="roiCosts" value="400000" min="1000"/></div>
-          <button class="tool-btn" id="calcROI">💰 Calcular ROI</button>
-          <div class="tool-result" id="roiResult" hidden></div>
+          <button class="tool-btn" id="calcProd">Simular Produtividade</button>
+          <div class="tool-result" id="prodResult" role="region" aria-live="polite" aria-label="Resultado da simulação de produtividade" hidden></div>
         </div>
       </div>
 
@@ -472,179 +469,173 @@
   </div>
 </section>
 
-<!-- ===== TECNOLOGIAS ===== -->
-<section id="tecnologias" class="section">
+<!-- ========= TECNOLOGIAS ========= -->
+<section id="tecnologias" class="section" data-search-section="tecnologias" aria-labelledby="tecnologias-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Tecnologias</span>
-      <h2>As Ferramentas que<br>Revolucionam o Campo</h2>
+      <span class="section-eyebrow" data-i18n="tecnologias.eyebrow">Tecnologias</span>
+      <h2 id="tecnologias-title" data-i18n="tecnologias.title">As Ferramentas que<br>Revolucionam o Campo</h2>
     </div>
     <div class="tech-showcase">
-      <div class="tech-tabs reveal" role="tablist">
-        <button class="tech-tab active" data-tab="drones"   role="tab">🚁 Drones</button>
-        <button class="tech-tab" data-tab="satelites" role="tab">🛰️ Satélites</button>
-        <button class="tech-tab" data-tab="ia"        role="tab">🧠 IA</button>
-        <button class="tech-tab" data-tab="iot"       role="tab">📡 IoT</button>
-        <button class="tech-tab" data-tab="maquinas"  role="tab">🚜 Máquinas</button>
-        <button class="tech-tab" data-tab="solar"     role="tab">☀️ Solar</button>
+      <div class="tech-tabs reveal" role="tablist" aria-label="Tecnologias agrícolas">
+        <button class="tech-tab active" data-tab="drones"    role="tab" aria-selected="true"  aria-controls="tab-drones">🚁 <span data-i18n="tech.tab1">Drones</span></button>
+        <button class="tech-tab"        data-tab="satelites" role="tab" aria-selected="false" aria-controls="tab-satelites">🛰️ <span data-i18n="tech.tab2">Satélites</span></button>
+        <button class="tech-tab"        data-tab="ia"        role="tab" aria-selected="false" aria-controls="tab-ia">🧠 <span data-i18n="tech.tab3">IA</span></button>
+        <button class="tech-tab"        data-tab="iot"       role="tab" aria-selected="false" aria-controls="tab-iot">📡 <span data-i18n="tech.tab4">IoT</span></button>
+        <button class="tech-tab"        data-tab="maquinas"  role="tab" aria-selected="false" aria-controls="tab-maquinas">🚜 <span data-i18n="tech.tab5">Máquinas</span></button>
+        <button class="tech-tab"        data-tab="solar"     role="tab" aria-selected="false" aria-controls="tab-solar">☀️ <span data-i18n="tech.tab6">Solar</span></button>
       </div>
       <div class="tech-panels reveal">
-        <div class="tech-panel active" id="tab-drones"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900&q=80" alt="Drone agrícola" loading="lazy"/><div class="tech-info"><h3>🚁 Drones Agrícolas</h3><p>Voam sobre hectares de lavoura capturando imagens multiespectrais, identificando problemas invisíveis ao olho humano.</p><ul><li>📸 Mapeamento aéreo de alta resolução</li><li>🦟 Detecção precoce de pragas e doenças</li><li>💊 Pulverização inteligente e localizada</li><li>📈 Análise do crescimento das culturas</li></ul></div></div>
-        <div class="tech-panel" id="tab-satelites"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900&q=80" alt="Satélite" loading="lazy"/><div class="tech-info"><h3>🛰️ Satélites</h3><p>Permitem monitoramento agrícola em escala regional, rastreando o desenvolvimento das lavouras em tempo real.</p><ul><li>🌤️ Monitoramento climático preciso</li><li>🌿 Análise de índice de vegetação (NDVI)</li><li>📅 Planejamento de safras</li><li>🗺️ Imagens em tempo real de alta resolução</li></ul></div></div>
-        <div class="tech-panel" id="tab-ia"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="IA" loading="lazy"/><div class="tech-info"><h3>🧠 Inteligência Artificial</h3><p>Algoritmos avançados processam terabytes de dados para fornecer recomendações precisas aos agricultores.</p><ul><li>🔮 Previsão de produtividade por talhão</li><li>🧪 Diagnóstico automático de doenças</li><li>💡 Recomendações de adubação</li><li>📊 Análise preditiva de mercado</li></ul></div></div>
-        <div class="tech-panel" id="tab-iot"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" alt="IoT" loading="lazy"/><div class="tech-info"><h3>📡 Sensores IoT</h3><p>Dispositivos conectados coletam dados do solo e da atmosfera em tempo real.</p><ul><li>💧 Monitoramento de umidade do solo</li><li>🌡️ Temperatura e microclima</li><li>🧂 Análise de nutrientes disponíveis</li><li>🚿 Irrigação inteligente e automatizada</li></ul></div></div>
-        <div class="tech-panel" id="tab-maquinas"><img src="https://images.unsplash.com/photo-1589923188651-268a9765e432?w=900&q=80" alt="Máquinas" loading="lazy"/><div class="tech-info"><h3>🚜 Tratores Autônomos</h3><p>Equipados com GPS de alta precisão e sistemas de navegação autônoma, trabalham com mínima intervenção humana.</p><ul><li>🎯 Plantio com precisão centimétrica</li><li>⏱️ Operação 24 horas por dia</li><li>♻️ Menor desperdício de insumos</li><li>📱 Controle remoto via smartphone</li></ul></div></div>
-        <div class="tech-panel" id="tab-solar"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80" alt="Solar" loading="lazy"/><div class="tech-info"><h3>☀️ Energia Solar</h3><p>Propriedades rurais adotam painéis fotovoltaicos para gerar energia limpa, reduzir custos e ganhar autonomia energética.</p><ul><li>⚡ Geração on-grid e off-grid</li><li>💰 Retorno do investimento em 5-7 anos</li><li>🌿 Zero emissões de carbono</li><li>🔋 Armazenamento em baterias</li></ul></div></div>
+        <div class="tech-panel active" id="tab-drones" role="tabpanel" aria-labelledby="tech-tab-drones">
+          <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900&q=80" alt="Drone agrícola sobrevoando lavoura" loading="lazy" />
+          <div class="tech-info">
+            <h3>🚁 <span data-i18n="tech.d1t">Drones Agrícolas</span></h3>
+            <p data-i18n="tech.d1p">Voam sobre hectares de lavoura capturando imagens multiespectrais, identificando problemas invisíveis ao olho humano.</p>
+            <ul>
+              <li data-i18n="tech.d1l1">📸 Mapeamento aéreo de alta resolução</li>
+              <li data-i18n="tech.d1l2">🦟 Detecção precoce de pragas e doenças</li>
+              <li data-i18n="tech.d1l3">💊 Pulverização inteligente e localizada</li>
+              <li data-i18n="tech.d1l4">📈 Análise do crescimento das culturas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-panel" id="tab-satelites" role="tabpanel" aria-labelledby="tech-tab-satelites">
+          <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900&q=80" alt="Satélite artificial em órbita da Terra" loading="lazy" />
+          <div class="tech-info">
+            <h3>🛰️ <span data-i18n="tech.d2t">Satélites</span></h3>
+            <p data-i18n="tech.d2p">Permitem monitoramento agrícola em escala regional, rastreando o desenvolvimento das lavouras em tempo real.</p>
+            <ul>
+              <li data-i18n="tech.d2l1">🌤️ Monitoramento climático preciso</li>
+              <li data-i18n="tech.d2l2">🌿 Análise de índice de vegetação (NDVI)</li>
+              <li data-i18n="tech.d2l3">📅 Planejamento de safras</li>
+              <li data-i18n="tech.d2l4">🗺️ Imagens em tempo real de alta resolução</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-panel" id="tab-ia" role="tabpanel" aria-labelledby="tech-tab-ia">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="Representação de inteligência artificial com dados e redes neurais" loading="lazy" />
+          <div class="tech-info">
+            <h3>🧠 <span data-i18n="tech.d3t">Inteligência Artificial</span></h3>
+            <p data-i18n="tech.d3p">Algoritmos avançados processam terabytes de dados para fornecer recomendações precisas aos agricultores.</p>
+            <ul>
+              <li data-i18n="tech.d3l1">🔮 Previsão de produtividade por talhão</li>
+              <li data-i18n="tech.d3l2">🧪 Diagnóstico automático de doenças</li>
+              <li data-i18n="tech.d3l3">💡 Recomendações de adubação</li>
+              <li data-i18n="tech.d3l4">📊 Análise preditiva de mercado</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-panel" id="tab-iot" role="tabpanel" aria-labelledby="tech-tab-iot">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" alt="Placa de circuito com sensores de IoT" loading="lazy" />
+          <div class="tech-info">
+            <h3>📡 <span data-i18n="tech.d4t">Sensores IoT</span></h3>
+            <p data-i18n="tech.d4p">Dispositivos conectados coletam dados do solo e da atmosfera, enviando informações em tempo real para o produtor.</p>
+            <ul>
+              <li data-i18n="tech.d4l1">💧 Monitoramento de umidade do solo</li>
+              <li data-i18n="tech.d4l2">🌡️ Temperatura e microclima</li>
+              <li data-i18n="tech.d4l3">🧂 Análise de nutrientes disponíveis</li>
+              <li data-i18n="tech.d4l4">🚿 Irrigação inteligente e automatizada</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-panel" id="tab-maquinas" role="tabpanel" aria-labelledby="tech-tab-maquinas">
+          <img src="https://images.unsplash.com/photo-1589923188651-268a9765e432?w=900&q=80" alt="Trator autônomo trabalhando em lavoura" loading="lazy" />
+          <div class="tech-info">
+            <h3>🚜 <span data-i18n="tech.d5t">Tratores Autônomos</span></h3>
+            <p data-i18n="tech.d5p">Equipados com GPS de alta precisão e sistemas de navegação autônoma, trabalham com mínima intervenção humana.</p>
+            <ul>
+              <li data-i18n="tech.d5l1">🎯 Plantio com precisão centimétrica</li>
+              <li data-i18n="tech.d5l2">⏱️ Operação 24 horas por dia</li>
+              <li data-i18n="tech.d5l3">♻️ Menor desperdício de insumos</li>
+              <li data-i18n="tech.d5l4">📱 Controle remoto via smartphone</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-panel" id="tab-solar" role="tabpanel" aria-labelledby="tech-tab-solar">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80" alt="Painéis solares em propriedade rural do Paraná" loading="lazy" />
+          <div class="tech-info">
+            <h3>☀️ <span data-i18n="tech.d6t">Energia Solar</span></h3>
+            <p data-i18n="tech.d6p">Propriedades rurais adotam painéis fotovoltaicos para gerar energia limpa, reduzir custos e ganhar autonomia energética.</p>
+            <ul>
+              <li data-i18n="tech.d6l1">⚡ Geração de energia on-grid e off-grid</li>
+              <li data-i18n="tech.d6l2">💰 Retorno do investimento em 5-7 anos</li>
+              <li data-i18n="tech.d6l3">🌿 Zero emissões de carbono</li>
+              <li data-i18n="tech.d6l4">🔋 Armazenamento em baterias</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== MAPA SVG MELHORADO ===== -->
-<section id="mapa" class="section section-alt">
+<!-- ========= MAPA INTERATIVO ========= -->
+<section id="mapa" class="section section-alt" data-search-section="mapa" aria-labelledby="mapa-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Mapa Interativo</span>
-      <h2>Regiões Agrícolas<br>do Paraná</h2>
-      <p>Clique em uma região para explorar produção, tecnologias e curiosidades</p>
+      <span class="section-eyebrow" data-i18n="mapa.eyebrow">Mapa Interativo</span>
+      <h2 id="mapa-title" data-i18n="mapa.title">Regiões Agrícolas<br>do Paraná</h2>
+      <p data-i18n="mapa.sub">Clique em uma região para explorar suas características agrícolas</p>
     </div>
     <div class="map-layout reveal">
       <div class="map-wrap">
-        <!-- SVG aprimorado com shape mais fiel ao Paraná -->
-        <svg id="mapaSVG" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa do Paraná">
-          <defs>
-            <filter id="mapShadow"><feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.2"/></filter>
-            <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#b3d9f5;stop-opacity:0.6"/>
-              <stop offset="100%" style="stop-color:#87ceeb;stop-opacity:0.4"/>
-            </linearGradient>
-          </defs>
-
-          <!-- Fundo água -->
-          <rect width="600" height="480" fill="transparent"/>
-
-          <!-- NOROESTE — cana, soja, mandioca -->
-          <path id="reg-noroeste" class="map-region" data-region="noroeste"
-            d="M 45,40 L 80,32 L 140,28 L 190,30 L 200,38 L 205,70 L 200,110 L 170,125 L 120,130 L 70,118 L 48,100 Z"
-            tabindex="0" role="button" aria-label="Noroeste do Paraná"/>
-          <text x="125" y="82" class="map-label">Noroeste</text>
-
-          <!-- NORTE — café, soja, trigo, pesquisa -->
-          <path id="reg-norte" class="map-region" data-region="norte"
-            d="M 200,38 L 290,32 L 355,30 L 370,40 L 375,75 L 365,115 L 310,125 L 240,125 L 205,110 L 200,70 Z"
-            tabindex="0" role="button" aria-label="Norte do Paraná"/>
-          <text x="285" y="82" class="map-label">Norte</text>
-
-          <!-- NORDESTE — algodão, milho, amendoim -->
-          <path id="reg-nordeste" class="map-region" data-region="nordeste"
-            d="M 370,40 L 450,38 L 510,45 L 525,60 L 515,110 L 480,130 L 420,135 L 375,115 L 365,75 Z"
-            tabindex="0" role="button" aria-label="Nordeste do Paraná"/>
-          <text x="440" y="90" class="map-label">Nordeste</text>
-
-          <!-- OESTE — soja, aves, suínos, Itaipu -->
-          <path id="reg-oeste" class="map-region" data-region="oeste"
-            d="M 45,100 L 70,118 L 120,130 L 130,175 L 140,220 L 110,255 L 68,265 L 42,240 L 38,180 Z"
-            tabindex="0" role="button" aria-label="Oeste do Paraná"/>
-          <text x="82" y="190" class="map-label">Oeste</text>
-
-          <!-- CENTRO-OESTE — soja, milho, automação -->
-          <path id="reg-centroOeste" class="map-region" data-region="centroOeste"
-            d="M 120,130 L 170,125 L 200,130 L 240,125 L 250,165 L 245,205 L 200,220 L 155,225 L 130,210 L 130,175 Z"
-            tabindex="0" role="button" aria-label="Centro-Oeste do Paraná"/>
-          <text x="185" y="178" class="map-label" style="font-size:9px">C.Oeste</text>
-
-          <!-- CENTRO — trigo, pecuária, aves -->
-          <path id="reg-centro" class="map-region" data-region="centro"
-            d="M 240,125 L 310,125 L 365,115 L 385,130 L 390,165 L 375,205 L 335,215 L 275,215 L 245,205 L 250,165 Z"
-            tabindex="0" role="button" aria-label="Centro do Paraná"/>
-          <text x="315" y="172" class="map-label">Centro</text>
-
-          <!-- LESTE — batata, feijão, horticultura -->
-          <path id="reg-leste" class="map-region" data-region="leste"
-            d="M 385,130 L 420,135 L 480,130 L 515,145 L 525,180 L 515,235 L 470,260 L 420,265 L 390,240 L 375,205 L 390,165 Z"
-            tabindex="0" role="button" aria-label="Leste do Paraná"/>
-          <text x="450" y="200" class="map-label">Leste</text>
-
-          <!-- SUDOESTE — leite, soja, feijão, cooperativas -->
-          <path id="reg-sudoeste" class="map-region" data-region="sudoeste"
-            d="M 42,240 L 68,265 L 95,280 L 110,320 L 95,370 L 60,380 L 35,360 L 30,295 Z"
-            tabindex="0" role="button" aria-label="Sudoeste do Paraná"/>
-          <text x="68" y="325" class="map-label" style="font-size:8.5px">Sudoeste</text>
-
-          <!-- SUL — erva-mate, maçã, leite, sustentabilidade -->
-          <path id="reg-sul" class="map-region" data-region="sul"
-            d="M 95,280 L 130,268 L 155,260 L 200,265 L 245,270 L 255,315 L 240,360 L 175,375 L 110,370 L 95,340 L 95,320 Z"
-            tabindex="0" role="button" aria-label="Sul do Paraná"/>
-          <text x="172" y="318" class="map-label">Sul</text>
-
-          <!-- SUDESTE — trigo, cevada, exportação -->
-          <path id="reg-sudeste" class="map-region" data-region="sudeste"
-            d="M 245,205 L 275,215 L 335,215 L 375,205 L 390,240 L 420,265 L 410,310 L 380,355 L 310,365 L 255,360 L 255,315 L 245,270 Z"
-            tabindex="0" role="button" aria-label="Sudeste do Paraná"/>
-          <text x="325" y="295" class="map-label">Sudeste</text>
-
-          <!-- METROPOLITANA — pesquisa, agtech, Porto Paranaguá -->
-          <path id="reg-metro" class="map-region" data-region="metro"
-            d="M 420,265 L 470,260 L 515,270 L 545,310 L 540,370 L 500,400 L 440,395 L 400,365 L 380,335 L 380,310 L 410,285 Z"
-            tabindex="0" role="button" aria-label="Região Metropolitana de Curitiba"/>
-          <text x="465" y="330" class="map-label" style="font-size:8px">R.Metrop.</text>
-
-          <!-- Rio Paraná (linha azul) -->
-          <path d="M 38,40 Q 40,120 38,180 Q 36,240 30,310 Q 28,355 35,400" stroke="#4fc3f7" stroke-width="3" fill="none" opacity="0.7" stroke-dasharray="6,3"/>
-          <text x="12" y="200" style="fill:#4fc3f7;font-size:8px;transform:rotate(-90deg);transform-origin:20px 200px" aria-hidden="true">Rio Paraná</text>
-
-          <!-- Litoral (linhas decorativas) -->
-          <path d="M 540,310 Q 555,340 558,380 Q 555,410 545,430" stroke="#81d4fa" stroke-width="2" fill="none" opacity="0.5"/>
-          <text x="550" y="360" style="fill:#81d4fa;font-size:7px" aria-hidden="true">Litoral</text>
-
-          <!-- Ícones decorativos das capitais/cidades importantes -->
-          <circle cx="470" cy="290" r="5" fill="#f5c518" opacity="0.9" aria-hidden="true"/>
-          <text x="480" y="287" style="fill:#f5c518;font-size:7px;font-weight:700" aria-hidden="true">Curitiba</text>
-
-          <circle cx="298" cy="72" r="4" fill="#74c69d" opacity="0.9" aria-hidden="true"/>
-          <text x="308" y="70" style="fill:#74c69d;font-size:7px;font-weight:700" aria-hidden="true">Londrina</text>
-
-          <circle cx="245" cy="75" r="4" fill="#74c69d" opacity="0.9" aria-hidden="true"/>
-          <text x="255" y="73" style="fill:#74c69d;font-size:7px;font-weight:700" aria-hidden="true">Maringá</text>
-
-          <circle cx="148" cy="178" r="4" fill="#74c69d" opacity="0.9" aria-hidden="true"/>
-          <text x="158" y="176" style="fill:#74c69d;font-size:7px;font-weight:700" aria-hidden="true">Cascavel</text>
-
-          <!-- Estrelinhas decorativas -->
-          <circle cx="315" cy="172" r="3" fill="#fbbf24" opacity="0.7" aria-hidden="true"/>
-          <circle cx="68" cy="190" r="3" fill="#fbbf24" opacity="0.7" aria-hidden="true"/>
-          <circle cx="460" cy="340" r="3" fill="#fbbf24" opacity="0.7" aria-hidden="true"/>
+        <svg id="mapaSVG" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa interativo das regiões do Paraná — clique em uma região para ver detalhes">
+          <rect width="520" height="420" fill="transparent"/>
+          <path id="reg-noroeste"    class="map-region" data-region="noroeste"    d="M 60,60 L 180,50 L 195,75 L 190,130 L 130,145 L 65,130 Z" tabindex="0" role="button" aria-label="Noroeste do Paraná"/>
+          <text x="120" y="105" class="map-label" pointer-events="none" aria-hidden="true">Noroeste</text>
+          <path id="reg-norte"       class="map-region" data-region="norte"       d="M 195,50 L 340,45 L 350,60 L 340,130 L 195,130 L 190,130 L 195,75 Z" tabindex="0" role="button" aria-label="Norte do Paraná"/>
+          <text x="255" y="97" class="map-label" pointer-events="none" aria-hidden="true">Norte</text>
+          <path id="reg-nordeste"    class="map-region" data-region="nordeste"    d="M 350,45 L 460,55 L 455,140 L 340,130 L 350,60 Z" tabindex="0" role="button" aria-label="Nordeste do Paraná"/>
+          <text x="385" y="100" class="map-label" pointer-events="none" aria-hidden="true">Nordeste</text>
+          <path id="reg-oeste"       class="map-region" data-region="oeste"       d="M 60,130 L 130,145 L 140,220 L 100,260 L 55,250 Z" tabindex="0" role="button" aria-label="Oeste do Paraná"/>
+          <text x="82" y="200" class="map-label" pointer-events="none" aria-hidden="true">Oeste</text>
+          <path id="reg-centroOeste" class="map-region" data-region="centroOeste" d="M 130,145 L 190,130 L 230,140 L 240,210 L 180,250 L 140,220 Z" tabindex="0" role="button" aria-label="Centro-Oeste do Paraná"/>
+          <text x="160" y="198" class="map-label" style="font-size:8px" pointer-events="none" aria-hidden="true">C.Oeste</text>
+          <path id="reg-centro"      class="map-region" data-region="centro"      d="M 230,140 L 340,130 L 360,145 L 345,220 L 240,210 Z" tabindex="0" role="button" aria-label="Centro do Paraná"/>
+          <text x="278" y="185" class="map-label" pointer-events="none" aria-hidden="true">Centro</text>
+          <path id="reg-leste"       class="map-region" data-region="leste"       d="M 360,145 L 455,140 L 460,230 L 400,270 L 345,220 Z" tabindex="0" role="button" aria-label="Leste do Paraná"/>
+          <text x="395" y="200" class="map-label" pointer-events="none" aria-hidden="true">Leste</text>
+          <path id="reg-sudoeste"    class="map-region" data-region="sudoeste"    d="M 55,250 L 100,260 L 130,310 L 90,370 L 50,360 Z" tabindex="0" role="button" aria-label="Sudoeste do Paraná"/>
+          <text x="72" y="315" class="map-label" style="font-size:8px" pointer-events="none" aria-hidden="true">S.Oeste</text>
+          <path id="reg-sul"         class="map-region" data-region="sul"         d="M 100,260 L 180,250 L 240,270 L 230,350 L 130,370 L 90,370 Z" tabindex="0" role="button" aria-label="Sul do Paraná"/>
+          <text x="158" y="315" class="map-label" pointer-events="none" aria-hidden="true">Sul</text>
+          <path id="reg-sudeste"     class="map-region" data-region="sudeste"     d="M 240,210 L 345,220 L 400,270 L 360,360 L 230,350 L 240,270 Z" tabindex="0" role="button" aria-label="Sudeste do Paraná"/>
+          <text x="300" y="295" class="map-label" pointer-events="none" aria-hidden="true">Sudeste</text>
+          <path id="reg-metro"       class="map-region" data-region="metro"       d="M 400,270 L 460,230 L 470,310 L 440,370 L 360,360 Z" tabindex="0" role="button" aria-label="Região Metropolitana de Curitiba"/>
+          <text x="405" y="316" class="map-label" style="font-size:7px" pointer-events="none" aria-hidden="true">Metrop.</text>
+          <circle cx="270" cy="97" r="3" fill="#fbbf24" opacity="0.8" aria-hidden="true"/>
+          <circle cx="405" cy="97" r="3" fill="#fbbf24" opacity="0.8" aria-hidden="true"/>
+          <circle cx="100" cy="340" r="3" fill="#fbbf24" opacity="0.8" aria-hidden="true"/>
         </svg>
-
-        <!-- Legenda do mapa -->
-        <div class="map-legend">
-          <div class="legend-row"><span class="leg-color" style="background:var(--green-pale)"></span><span>Regiões agrícolas</span></div>
-          <div class="legend-row"><span class="leg-color" style="background:var(--green-mid)"></span><span>Região selecionada</span></div>
-          <div class="legend-row"><span class="leg-color" style="background:#4fc3f7"></span><span>Rio Paraná</span></div>
-          <div class="legend-row"><span style="color:#f5c518;font-size:10px">●</span><span>Curitiba (capital)</span></div>
-          <div class="legend-row"><span style="color:#74c69d;font-size:10px">●</span><span>Principais cidades</span></div>
-        </div>
       </div>
-
-      <!-- Painel de informações da região -->
       <div class="map-info" id="mapInfo">
-        <div id="mapDefault">
-          <div class="map-info-icon">🗺️</div>
-          <h3>Explore o Paraná</h3>
-          <p>Selecione uma região no mapa ou clique em um dos botões abaixo para ver detalhes sobre produção agrícola, tecnologias utilizadas e curiosidades.</p>
-          <div class="map-regions-list" id="mapRegionList"></div>
+        <div class="map-info-default" id="mapDefault">
+          <div class="map-info-icon" aria-hidden="true">🗺️</div>
+          <h3 data-i18n="mapa.default.title">Explore o Paraná</h3>
+          <p data-i18n="mapa.default.sub">Selecione uma região no mapa para ver detalhes sobre sua produção agrícola, tecnologias e destaques.</p>
+          <div class="map-regions-list" role="list" aria-label="Lista de regiões do Paraná">
+            <span class="mreg-pill noroeste-pill" role="listitem" tabindex="0">Noroeste</span>
+            <span class="mreg-pill norte-pill"    role="listitem" tabindex="0">Norte</span>
+            <span class="mreg-pill nordeste-pill" role="listitem" tabindex="0">Nordeste</span>
+            <span class="mreg-pill oeste-pill"    role="listitem" tabindex="0">Oeste</span>
+            <span class="mreg-pill centroOeste-pill" role="listitem" tabindex="0">C.Oeste</span>
+            <span class="mreg-pill centro-pill"   role="listitem" tabindex="0">Centro</span>
+            <span class="mreg-pill leste-pill"    role="listitem" tabindex="0">Leste</span>
+            <span class="mreg-pill sudoeste-pill" role="listitem" tabindex="0">Sudoeste</span>
+            <span class="mreg-pill sul-pill"      role="listitem" tabindex="0">Sul</span>
+            <span class="mreg-pill sudeste-pill"  role="listitem" tabindex="0">Sudeste</span>
+            <span class="mreg-pill metro-pill"    role="listitem" tabindex="0">Metrop.</span>
+          </div>
         </div>
-        <div id="mapDetail" style="display:none">
-          <button class="map-back" id="mapBack">← Voltar</button>
-          <div class="map-detail-icon" id="mapDetailIcon"></div>
+        <div class="map-info-detail" id="mapDetail" style="display:none" role="region" aria-live="polite">
+          <button class="map-back" id="mapBack" aria-label="Voltar ao mapa geral">← <span data-i18n="mapa.back">Voltar</span></button>
+          <div class="map-detail-icon" id="mapDetailIcon" aria-hidden="true"></div>
           <h3 id="mapDetailTitle"></h3>
-
-          <!-- Sub-abas da região -->
-          <div class="map-detail-tabs">
-            <button class="map-dtab active" data-dtab="geral">📋 Geral</button>
-            <button class="map-dtab" data-dtab="tech">⚙️ Tecnologias</button>
-            <button class="map-dtab" data-dtab="curiosity">💡 Curiosidades</button>
-            <button class="map-dtab" data-dtab="image">📸 Imagem</button>
+          <p id="mapDetailDesc"></p>
+          <div class="map-detail-tabs" role="tablist" aria-label="Detalhes da região">
+            <button class="map-dtab active" data-dtab="geral" role="tab" aria-selected="true">📋 Geral</button>
+            <button class="map-dtab" data-dtab="tech" role="tab" aria-selected="false">⚙️ Tecnologias</button>
+            <button class="map-dtab" data-dtab="curiosity" role="tab" aria-selected="false">💡 Curiosidades</button>
           </div>
           <div class="map-dtab-content" id="mapDtabContent"></div>
         </div>
@@ -653,226 +644,295 @@
   </div>
 </section>
 
-<!-- ===== JOGO — FAZENDA TECH ===== -->
-<section id="jogo" class="section section-dark">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-eyebrow">🎮 Simulação Educativa</span>
-      <h2>FazendaTech —<br>Gerencie sua Fazenda</h2>
-      <p>Aplique tecnologias, gerencie recursos e compete pelo ranking das melhores fazendas do Paraná!</p>
-    </div>
-
-    <div class="game-layout reveal">
-      <!-- Painel da Fazenda -->
-      <div class="game-main">
-        <div class="game-hud">
-          <div class="hud-item"><span class="hud-icon">💰</span><div><span class="hud-val" id="g-money">R$ 50.000</span><span class="hud-lbl">Capital</span></div></div>
-          <div class="hud-item"><span class="hud-icon">🌾</span><div><span class="hud-val" id="g-prod">60 sc/ha</span><span class="hud-lbl">Produtividade</span></div></div>
-          <div class="hud-item"><span class="hud-icon">💧</span><div><span class="hud-val" id="g-water">100%</span><span class="hud-lbl">Água</span></div></div>
-          <div class="hud-item"><span class="hud-icon">🌿</span><div><span class="hud-val" id="g-carbon">100%</span><span class="hud-lbl">Carbono</span></div></div>
-          <div class="hud-item"><span class="hud-icon">⭐</span><div><span class="hud-val" id="g-score">0</span><span class="hud-lbl">Pontuação</span></div></div>
-          <div class="hud-item"><span class="hud-icon">📅</span><div><span class="hud-val" id="g-season">Safra 1</span><span class="hud-lbl">Ciclo</span></div></div>
-        </div>
-
-        <!-- Campo visual da fazenda -->
-        <div class="farm-field" id="farmField">
-          <canvas id="farmCanvas" width="580" height="280" aria-label="Campo da fazenda virtual"></canvas>
-          <div class="farm-overlay" id="farmOverlay"></div>
-        </div>
-
-        <!-- Log de eventos -->
-        <div class="game-log" id="gameLog">
-          <p class="log-entry">🌿 Bem-vindo à FazendaTech! Compre tecnologias e gerencie sua fazenda para maximizar a produção e sustentabilidade.</p>
-        </div>
-
-        <!-- Botões de ação safra -->
-        <div class="game-actions">
-          <button class="game-btn harvest" id="btnHarvest">🌾 Colher Safra</button>
-          <button class="game-btn event"   id="btnEvent">🎲 Evento Aleatório</button>
-          <button class="game-btn reset"   id="btnReset">🔄 Nova Fazenda</button>
-        </div>
-      </div>
-
-      <!-- Loja de tecnologias -->
-      <div class="game-shop">
-        <h3 class="shop-title">🏪 Loja de Tecnologias</h3>
-        <div class="shop-items" id="shopItems"></div>
-
-        <!-- Tecnologias instaladas -->
-        <div class="installed-techs">
-          <h4>✅ Instaladas</h4>
-          <div id="installedList" class="installed-list"><p class="none-text">Nenhuma ainda</p></div>
-        </div>
-
-        <!-- Ranking -->
-        <div class="game-ranking">
-          <h4>🏆 Ranking das Fazendas</h4>
-          <div id="rankingList" class="ranking-list"></div>
-          <button class="btn-outline-sm" id="btnSaveRank">Salvar no Ranking</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== QUIZ ===== -->
-<section id="quiz" class="section">
+<!-- ========= QUIZ AGROTECH ========= -->
+<section id="quiz" class="section section-dark" data-search-section="quiz" aria-labelledby="quiz-title">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">Quiz Interativo</span>
-      <h2>Teste seus Conhecimentos<br>em AgroTech</h2>
+      <h2 id="quiz-title">Teste seus Conhecimentos<br>em AgroTech</h2>
+      <p>10 perguntas sobre tecnologia, sustentabilidade e o agronegócio paranaense.</p>
     </div>
-    <div class="quiz-wrap reveal" id="quizWrap">
+    <div class="quiz-wrap reveal" id="quizWrap" role="main" aria-label="Quiz AgroTech">
       <div class="quiz-start" id="quizStart">
-        <div class="quiz-trophy">🏆</div>
+        <div class="quiz-trophy" aria-hidden="true">🏆</div>
         <h3>Pronto para o desafio?</h3>
-        <p>10 perguntas sobre tecnologia, sustentabilidade e o agronegócio paranaense!</p>
-        <div class="quiz-badges-preview"><span title="Iniciante">🌱</span><span title="Aprendiz">📚</span><span title="Especialista">🔬</span><span title="Mestre">🏆</span></div>
-        <button class="btn-primary quiz-start-btn" id="quizStartBtn">Começar Quiz</button>
+        <p>Responda 10 perguntas e descubra o quanto você sabe sobre o agronegócio do futuro!</p>
+        <div class="quiz-badges-preview" aria-label="Conquistas disponíveis">
+          <span title="Iniciante">🌱</span>
+          <span title="Aprendiz">📚</span>
+          <span title="Especialista">🔬</span>
+          <span title="Mestre AgroTech">🏆</span>
+        </div>
+        <button class="btn-primary" id="quizStartBtn" style="color:var(--green-deep)">Começar Quiz</button>
         <div class="quiz-best" id="quizBest"></div>
       </div>
       <div class="quiz-game" id="quizGame" hidden>
         <div class="quiz-header">
-          <div class="quiz-progress-wrap"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
-          <span class="quiz-counter" id="quizCounter"></span>
-          <span class="quiz-score-live" id="quizScoreLive"></span>
+          <div class="quiz-progress-wrap">
+            <div class="quiz-progress-bar" id="quizProgressBar" role="progressbar" aria-label="Progresso do quiz"></div>
+          </div>
+          <span class="quiz-counter" id="quizCounter" aria-live="polite"></span>
+          <span class="quiz-score-live" id="quizScoreLive" aria-live="polite"></span>
         </div>
         <div class="quiz-question-area">
-          <p class="quiz-question" id="quizQuestion"></p>
-          <div class="quiz-options" id="quizOptions"></div>
-          <div class="quiz-feedback" id="quizFeedback" hidden></div>
+          <p class="quiz-question" id="quizQuestion" aria-live="polite"></p>
+          <div class="quiz-options" id="quizOptions" role="list"></div>
+          <div class="quiz-feedback" id="quizFeedback" role="alert" aria-live="assertive" hidden></div>
         </div>
       </div>
-      <div class="quiz-result" id="quizResult" hidden>
-        <div class="result-icon" id="resultIcon"></div>
+      <div class="quiz-result" id="quizResult" hidden role="region" aria-label="Resultado do quiz">
+        <div class="result-icon" id="resultIcon" aria-hidden="true"></div>
         <h3 id="resultTitle"></h3>
-        <p class="result-score" id="resultScore"></p>
+        <p class="result-score" id="resultScore" aria-live="polite"></p>
         <p id="resultMsg"></p>
         <div class="result-details" id="resultDetails"></div>
         <div class="result-actions">
-          <button class="btn-primary quiz-restart" id="quizRestart">Jogar Novamente</button>
-          <button class="btn-outline" id="quizShare">Compartilhar</button>
+          <button class="btn-primary" id="quizRestart" style="color:var(--green-deep)">Jogar Novamente</button>
+          <button class="btn-ghost"   id="quizShare">Compartilhar Resultado</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CURIOSIDADES ===== -->
-<section id="curiosidades" class="section section-alt">
+<!-- ========= CURIOSIDADES ========= -->
+<section id="curiosidades" class="section" data-search-section="curiosidades" aria-labelledby="curiosidades-title">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">Sabia que…?</span>
-      <h2>Curiosidades do<br>Paraná AgroTech</h2>
+      <h2 id="curiosidades-title">Curiosidades do<br>Paraná AgroTech</h2>
     </div>
-    <div class="curiosity-grid reveal" id="curiosityGrid"></div>
+    <div class="curiosity-grid" id="curiosityGrid" role="list" aria-label="Curiosidades sobre o Paraná">
+      <!-- Gerado via JS -->
+    </div>
   </div>
 </section>
 
-<!-- ===== CONQUISTAS ===== -->
-<section class="section">
+<!-- ========= PESQUISA DE CAMPO ========= -->
+<section id="pesquisa-campo" class="section section-alt" data-search-section="pesquisa" aria-labelledby="campo-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Nossa Pesquisa de Campo</span>
+      <h2 id="campo-title">Visitamos o Campo<br>para Criar este Projeto</h2>
+      <p>Dados, entrevistas e observações reais coletados na elaboração do Paraná AgroTech.</p>
+    </div>
+    <div class="campo-grid reveal">
+      <div class="campo-card">
+        <div class="campo-icon" aria-hidden="true">👨‍🌾</div>
+        <h3>Produtores Entrevistados</h3>
+        <p class="campo-num">12</p>
+        <p>Agricultores de diferentes regiões do Paraná compartilharam suas experiências com tecnologia no campo.</p>
+      </div>
+      <div class="campo-card">
+        <div class="campo-icon" aria-hidden="true">🏢</div>
+        <h3>Cooperativas Visitadas</h3>
+        <p class="campo-num">4</p>
+        <p>COCAMAR, COAMO, C.Vale e Lar — conhecemos de perto como as cooperativas impulsionam a inovação.</p>
+      </div>
+      <div class="campo-card">
+        <div class="campo-icon" aria-hidden="true">🔬</div>
+        <h3>Centros de Pesquisa</h3>
+        <p class="campo-num">3</p>
+        <p>EMBRAPA Soja (Londrina), IAPAR e UTFPR — onde a ciência se transforma em solução para o campo.</p>
+      </div>
+      <div class="campo-card">
+        <div class="campo-icon" aria-hidden="true">📊</div>
+        <h3>Fontes Consultadas</h3>
+        <p class="campo-num">28</p>
+        <p>IBGE, SEAB-PR, CONAB, MAPA, EMBRAPA e publicações científicas peer-reviewed.</p>
+      </div>
+    </div>
+    <div class="campo-quote reveal">
+      <blockquote>
+        <p>"A tecnologia não substituiu o agricultor — ela multiplicou o que ele pode fazer. Hoje monitoro 800 hectares pelo celular enquanto tomo café."</p>
+        <cite>— Produtor rural de Cascavel, 48 anos, usuário de agricultura de precisão há 6 anos.</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PESQUISA CIENTÍFICA ========= -->
+<section class="section" data-search-section="ciencia" aria-labelledby="ciencia-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="pesquisa.eyebrow">Pesquisa Científica</span>
+      <h2 id="ciencia-title" data-i18n="pesquisa.title">Inovação Nascida<br>nos Laboratórios</h2>
+    </div>
+    <div class="science-grid">
+      <div class="sci-card reveal"><img src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=700&q=80" alt="Pesquisador em laboratório de melhoramento genético" loading="lazy" /><div class="sci-body"><div class="sci-icon" aria-hidden="true">🧬</div><h3 data-i18n="pesquisa.s1t">Melhoramento Genético</h3><p data-i18n="pesquisa.s1p">Desenvolvimento de sementes mais resistentes, produtivas e adaptadas às condições do Paraná.</p></div></div>
+      <div class="sci-card reveal"><img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=700&q=80" alt="Microscópio em laboratório de biotecnologia agrícola" loading="lazy" /><div class="sci-body"><div class="sci-icon" aria-hidden="true">🔬</div><h3 data-i18n="pesquisa.s2t">Biotecnologia</h3><p data-i18n="pesquisa.s2p">Aplicação da ciência para aumentar produtividade, resistência a pragas e sustentabilidade ambiental.</p></div></div>
+      <div class="sci-card reveal"><img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=700&q=80" alt="Radar meteorológico para monitoramento climático agrícola" loading="lazy" /><div class="sci-body"><div class="sci-icon" aria-hidden="true">🌦️</div><h3 data-i18n="pesquisa.s3t">Monitoramento Climático</h3><p data-i18n="pesquisa.s3p">Previsões meteorológicas de alta precisão auxiliam o planejamento e a gestão de riscos agrícolas.</p></div></div>
+      <div class="sci-card reveal"><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=700&q=80" alt="Cientistas em campo realizando pesquisa agrícola aplicada" loading="lazy" /><div class="sci-body"><div class="sci-icon" aria-hidden="true">📚</div><h3 data-i18n="pesquisa.s4t">Pesquisa Aplicada</h3><p data-i18n="pesquisa.s4p">Universidades e centros como EMBRAPA desenvolvem continuamente novas soluções para o campo paranaense.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FUTURO 2050 ========= -->
+<section class="section section-dark" data-search-section="futuro" aria-labelledby="futuro-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="futuro.eyebrow">Visão de Futuro</span>
+      <h2 id="futuro-title" data-i18n="futuro.title">O Agronegócio<br>em 2050</h2>
+    </div>
+    <p class="lead center reveal" data-i18n="futuro.lead">O futuro do campo será marcado pela automação total, inteligência artificial avançada, robótica e plena sustentabilidade ambiental.</p>
+    <div class="future-grid">
+      <div class="fut-card reveal"><div class="fut-icon" aria-hidden="true">🤖</div><h3 data-i18n="futuro.f1t">Robôs Agrícolas</h3><p data-i18n="futuro.f1p">Plantio, colheita e manutenção totalmente automatizados por robôs inteligentes.</p></div>
+      <div class="fut-card reveal"><div class="fut-icon" aria-hidden="true">📡</div><h3 data-i18n="futuro.f2t">Fazendas 5G</h3><p data-i18n="futuro.f2p">Propriedades totalmente conectadas, com sensores em cada centímetro do solo.</p></div>
+      <div class="fut-card reveal"><div class="fut-icon" aria-hidden="true">🧠</div><h3 data-i18n="futuro.f3t">IA Avançada</h3><p data-i18n="futuro.f3p">Sistemas que tomam decisões autônomas para maximizar produtividade e minimizar impactos.</p></div>
+      <div class="fut-card reveal"><div class="fut-icon" aria-hidden="true">🚁</div><h3 data-i18n="futuro.f4t">Frotas de Drones</h3><p data-i18n="futuro.f4p">Centenas de drones coordenados monitorando e tratando lavouras automaticamente.</p></div>
+      <div class="fut-card reveal"><div class="fut-icon" aria-hidden="true">☀️</div><h3 data-i18n="futuro.f5t">Energia 100% Limpa</h3><p data-i18n="futuro.f5p">Propriedades rurais totalmente abastecidas por fontes renováveis, sem dependência de combustíveis.</p></div>
+      <div class="fut-card reveal"><div class="fut-icon" aria-hidden="true">🌎</div><h3 data-i18n="futuro.f6t">Carbono Zero</h3><p data-i18n="futuro.f6p">Agricultura com saldo neutro ou positivo de carbono, revertendo as mudanças climáticas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= SUSTENTABILIDADE ========= -->
+<section class="section" data-search-section="sustentabilidade" aria-labelledby="sust-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="sust.eyebrow">Sustentabilidade</span>
+      <h2 id="sust-title" data-i18n="sust.title">Tecnologia que<br>Cuida do Planeta</h2>
+    </div>
+    <div class="sustain-grid">
+      <div class="sus-card reveal"><div class="sus-icon" aria-hidden="true">💧</div><h3 data-i18n="sust.s1t">Economia de Água</h3><p data-i18n="sust.s1p">Sensores e irrigação inteligente podem reduzir o consumo de água em até 40%.</p><div class="sus-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="40% de economia de água"><div class="sus-fill" style="width:40%">40%</div></div></div>
+      <div class="sus-card reveal"><div class="sus-icon" aria-hidden="true">🌱</div><h3 data-i18n="sust.s2t">Menos Defensivos</h3><p data-i18n="sust.s2p">Aplicação localizada de agroquímicos reduz o uso em até 30%, preservando o ecossistema.</p><div class="sus-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="30% de redução de defensivos"><div class="sus-fill" style="width:30%">30%</div></div></div>
+      <div class="sus-card reveal"><div class="sus-icon" aria-hidden="true">🌾</div><h3 data-i18n="sust.s3t">Solo Saudável</h3><p data-i18n="sust.s3p">Monitoramento constante garante a saúde do solo para as próximas gerações.</p><div class="sus-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="60% de melhoria na saúde do solo"><div class="sus-fill" style="width:60%">+60%</div></div></div>
+      <div class="sus-card reveal"><div class="sus-icon" aria-hidden="true">♻️</div><h3 data-i18n="sust.s4t">Menos Emissões</h3><p data-i18n="sust.s4p">Máquinas modernas e energia solar reduzem emissões de CO₂ em propriedades rurais.</p><div class="sus-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="25% de redução de emissões"><div class="sus-fill" style="width:25%">25%</div></div></div>
+      <div class="sus-card reveal"><div class="sus-icon" aria-hidden="true">☀️</div><h3 data-i18n="sust.s5t">Energia Renovável</h3><p data-i18n="sust.s5p">O Paraná é líder regional em adoção de energia solar em propriedades rurais.</p><div class="sus-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="55% de adoção de energia renovável"><div class="sus-fill" style="width:55%">55%</div></div></div>
+      <div class="sus-card reveal"><div class="sus-icon" aria-hidden="true">🌳</div><h3 data-i18n="sust.s6t">Biodiversidade</h3><p data-i18n="sust.s6p">Tecnologia auxilia no mapeamento e preservação de áreas de mata nativa e corredores ecológicos.</p><div class="sus-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="45% de área preservada"><div class="sus-fill" style="width:45%">45%</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CIDADES ========= -->
+<section class="section section-alt" data-search-section="cidades" aria-labelledby="cidades-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="cidades.eyebrow">Municípios</span>
+      <h2 id="cidades-title" data-i18n="cidades.title">Cidades que Fazem<br>a Diferença</h2>
+    </div>
+    <div class="cities-grid">
+      <div class="city-card reveal"><img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1?w=600&q=80" alt="Vista aérea de Cascavel, polo do agronegócio paranaense" loading="lazy" /><div class="city-overlay"><h3>Cascavel</h3><p data-i18n="cidades.c1">Referência nacional em tecnologia agrícola e agronegócio</p><span class="city-tag">🌱 Agronegócio</span></div></div>
+      <div class="city-card reveal"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80" alt="Centro urbano de Londrina, polo universitário e de pesquisa agrícola" loading="lazy" /><div class="city-overlay"><h3>Londrina</h3><p data-i18n="cidades.c2">Polo universitário e grande centro de pesquisa agrícola</p><span class="city-tag">🔬 Pesquisa</span></div></div>
+      <div class="city-card reveal"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80" alt="Skyline de Maringá, cidade destaque em inovação e cooperativismo" loading="lazy" /><div class="city-overlay"><h3>Maringá</h3><p data-i18n="cidades.c3">Destaque em inovação, cooperativismo e produção agrícola</p><span class="city-tag">🤝 Cooperativas</span></div></div>
+      <div class="city-card reveal"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80" alt="Campos de trigo próximos a Guarapuava" loading="lazy" /><div class="city-overlay"><h3>Guarapuava</h3><p data-i18n="cidades.c4">Uma das maiores produtoras de trigo do Brasil</p><span class="city-tag">🌾 Trigo</span></div></div>
+      <div class="city-card reveal"><img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600&q=80" alt="Área urbana de Toledo, referência em produção de aves e suínos" loading="lazy" /><div class="city-overlay"><h3>Toledo</h3><p data-i18n="cidades.c5">Referência nacional em produção de aves e suínos</p><span class="city-tag">🐔 Aves & Suínos</span></div></div>
+      <div class="city-card reveal"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&q=80" alt="Porto de Paranaguá com estrutura portuária para exportação" loading="lazy" /><div class="city-overlay"><h3>Paranaguá</h3><p data-i18n="cidades.c6">Um dos maiores portos exportadores da América Latina</p><span class="city-tag">🚢 Exportação</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FAQ ========= -->
+<section id="faq" class="section section-dark" data-search-section="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="faq.eyebrow">Perguntas Frequentes</span>
+      <h2 id="faq-title" data-i18n="faq.title">Dúvidas sobre<br>Tecnologia no Campo</h2>
+    </div>
+    <div class="faq-wrap" role="list" aria-label="Perguntas frequentes">
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="faq.q1">O que é agricultura de precisão?</span><span class="faq-arrow" aria-hidden="true">↓</span></button>
+        <div class="faq-a" id="faq-a1" hidden><p data-i18n="faq.a1">É o uso integrado de tecnologias como GPS, sensores, drones e inteligência artificial para gerenciar variações dentro das lavouras, aumentando a eficiência e reduzindo desperdícios de insumos e recursos naturais.</p></div>
+      </div>
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="faq.q2">Como os drones ajudam os agricultores?</span><span class="faq-arrow" aria-hidden="true">↓</span></button>
+        <div class="faq-a" id="faq-a2" hidden><p data-i18n="faq.a2">Drones sobrevoam as lavouras capturando imagens multiespectrais que revelam problemas invisíveis ao olho humano, como deficiências nutricionais, áreas com estresse hídrico e focos iniciais de pragas — tudo em fração do tempo e custo de inspeções convencionais.</p></div>
+      </div>
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="faq.q3">O que a Inteligência Artificial faz na agricultura?</span><span class="faq-arrow" aria-hidden="true">↓</span></button>
+        <div class="faq-a" id="faq-a3" hidden><p data-i18n="faq.a3">A IA processa enormes volumes de dados — histórico climático, imagens de satélite, dados de sensores — para fazer previsões, diagnosticar problemas e recomendar ações precisas: quando plantar, quando colher, quanto fertilizar, quando irrigar.</p></div>
+      </div>
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="faq.q4">Por que o Paraná é referência no agronegócio?</span><span class="faq-arrow" aria-hidden="true">↓</span></button>
+        <div class="faq-a" id="faq-a4" hidden><p data-i18n="faq.a4">O Paraná combina clima favorável, solo fértil e alta tecnologia. O estado lidera a produção nacional de frango, é um dos maiores produtores de soja e milho, possui centros de pesquisa de excelência como a EMBRAPA Soja e universidades com forte vínculo com o setor agrícola.</p></div>
+      </div>
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="faq.q5">Como a tecnologia ajuda o meio ambiente?</span><span class="faq-arrow" aria-hidden="true">↓</span></button>
+        <div class="faq-a" id="faq-a5" hidden><p data-i18n="faq.a5">A tecnologia permite produzir mais com menos: menos água, menos agroquímicos, menos combustível, menos área desmatada. Sensores evitam irrigação em excesso, drones permitem pulverização cirúrgica, e máquinas modernas consomem muito menos energia que equipamentos antigos.</p></div>
+      </div>
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="faq.q6">Pequenos produtores também podem usar essas tecnologias?</span><span class="faq-arrow" aria-hidden="true">↓</span></button>
+        <div class="faq-a" id="faq-a6" hidden><p data-i18n="faq.a6">Sim! Muitas tecnologias estão se tornando acessíveis a pequenos e médios produtores através de cooperativas, modelos de assinatura e programas governamentais. Aplicativos de celular, sensores de baixo custo e serviços de drone por demanda democratizam o acesso à agricultura de precisão.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CONQUISTAS ========= -->
+<section class="section" aria-labelledby="conquistas-title">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">Sua Jornada</span>
-      <h2>Conquistas<br>Desbloqueadas</h2>
+      <h2 id="conquistas-title">Conquistas<br>Desbloqueadas</h2>
+      <p>Explore o site e desbloqueie todas as conquistas!</p>
     </div>
-    <div class="achievements-grid reveal" id="achievementsGrid"></div>
-  </div>
-</section>
-
-<!-- ===== FUTURO 2050 ===== -->
-<section class="section section-dark">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-eyebrow">Visão de Futuro</span>
-      <h2>O Agronegócio<br>em 2050</h2>
-    </div>
-    <p class="lead center reveal">O futuro do campo será marcado pela automação total, inteligência artificial avançada, robótica e plena sustentabilidade ambiental.</p>
-    <div class="future-grid">
-      <div class="fut-card reveal"><div class="fut-icon">🤖</div><h3>Robôs Agrícolas</h3><p>Plantio, colheita e manutenção totalmente automatizados por robôs inteligentes.</p></div>
-      <div class="fut-card reveal"><div class="fut-icon">📡</div><h3>Fazendas 5G</h3><p>Propriedades totalmente conectadas, com sensores em cada centímetro do solo.</p></div>
-      <div class="fut-card reveal"><div class="fut-icon">🧠</div><h3>IA Avançada</h3><p>Sistemas que tomam decisões autônomas para maximizar produtividade e minimizar impactos.</p></div>
-      <div class="fut-card reveal"><div class="fut-icon">🚁</div><h3>Frotas de Drones</h3><p>Centenas de drones coordenados monitorando e tratando lavouras automaticamente.</p></div>
-      <div class="fut-card reveal"><div class="fut-icon">☀️</div><h3>Energia 100% Limpa</h3><p>Propriedades rurais totalmente abastecidas por fontes renováveis.</p></div>
-      <div class="fut-card reveal"><div class="fut-icon">🌎</div><h3>Carbono Zero</h3><p>Agricultura com saldo neutro ou positivo de carbono, revertendo as mudanças climáticas.</p></div>
+    <div class="achievements-grid reveal" id="achievementsGrid" role="list" aria-label="Sistema de conquistas">
+      <!-- Gerado via JS -->
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section id="faq" class="section section-alt">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-eyebrow">Perguntas Frequentes</span>
-      <h2>Dúvidas sobre<br>Tecnologia no Campo</h2>
-    </div>
-    <div class="faq-wrap" id="faqWrap"></div>
-  </div>
-</section>
-
-<!-- ===== CONCLUSÃO ===== -->
-<section class="section section-dark conclusion">
+<!-- ========= CONCLUSÃO ========= -->
+<section class="section section-dark conclusion" aria-labelledby="conclusao-title">
   <div class="container">
     <div class="conclusion-content reveal">
-      <span class="section-eyebrow">Conclusão</span>
-      <h2>O Futuro do Campo<br><em>Começa Hoje</em></h2>
-      <p>O Paraná demonstra para o Brasil e o mundo que ciência, tecnologia e sustentabilidade podem — e devem — caminhar juntas. Produzir mais alimentos, preservar o meio ambiente e impulsionar a economia não são objetivos conflitantes.</p>
+      <span class="section-eyebrow" data-i18n="conclusao.eyebrow">Conclusão</span>
+      <h2 id="conclusao-title" data-i18n="conclusao.title">O Futuro do Campo<br><em>Começa Hoje</em></h2>
+      <p data-i18n="conclusao.p">O Paraná demonstra para o Brasil e o mundo que ciência, tecnologia e sustentabilidade podem — e devem — caminhar juntas. Produzir mais alimentos, preservar o meio ambiente e impulsionar a economia não são objetivos conflitantes, mas complementares quando a inteligência humana e tecnológica trabalham em harmonia com a natureza.</p>
       <div class="conclusion-ctas">
-        <a href="#inicio" class="btn-primary">Voltar ao Início</a>
-        <a href="#jogo"   class="btn-ghost">🎮 Jogar FazendaTech</a>
+        <a href="#inicio" class="btn-primary" data-i18n="conclusao.cta1">Voltar ao Início</a>
+        <a href="#mapa"   class="btn-ghost"   data-i18n="conclusao.cta2">Explorar o Mapa</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
+<!-- ========= FOOTER ========= -->
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-mascot"></div>
+        <span class="logo-icon" aria-hidden="true">🌿</span>
         <span class="footer-name">Paraná<strong>AgroTech</strong></span>
-        <p>Projeto educacional sobre Ciência, Tecnologia, Inovação e Sustentabilidade no Agronegócio Paranaense — Agrinho 2026.</p>
-        <p class="footer-meta">Fontes: IBGE • SEAB-PR • EMBRAPA • CONAB • MAPA • FAO</p>
+        <p data-i18n="footer.desc">Projeto educacional sobre Ciência, Tecnologia, Inovação e Sustentabilidade no Agronegócio Paranaense.</p>
+        <p class="footer-meta">Agrinho 2026 · Item 8.3 · Nível 4</p>
       </div>
       <div class="footer-links">
-        <h4>Navegação</h4>
-        <a href="#sobre">Sobre</a>
+        <h4 data-i18n="footer.nav">Navegação</h4>
+        <a href="#sobre"      data-i18n="nav.sobre">Sobre</a>
         <a href="#timeline">Linha do Tempo</a>
-        <a href="#ferramentas">Calculadoras</a>
-        <a href="#mapa">Mapa</a>
-        <a href="#jogo">Jogo</a>
+        <a href="#desafios"   data-i18n="nav.desafios">Desafios</a>
+        <a href="#ferramentas">Ferramentas</a>
+        <a href="#mapa"       data-i18n="nav.mapa">Mapa</a>
         <a href="#quiz">Quiz</a>
-        <a href="#faq">FAQ</a>
+        <a href="#faq"        data-i18n="nav.faq">FAQ</a>
       </div>
       <div class="footer-temas">
-        <h4>Fontes e Sites</h4>
-        <a href="https://www.embrapa.br" target="_blank" rel="noopener">🔬 EMBRAPA</a>
-        <a href="https://www.seab.pr.gov.br" target="_blank" rel="noopener">🌾 SEAB-PR</a>
-        <a href="https://www.ibge.gov.br" target="_blank" rel="noopener">📊 IBGE</a>
-        <a href="https://www.conab.gov.br" target="_blank" rel="noopener">🌱 CONAB</a>
-        <a href="https://www.fao.org" target="_blank" rel="noopener">🌍 FAO</a>
-        <a href="https://www.mapa.gov.br" target="_blank" rel="noopener">🇧🇷 MAPA</a>
+        <h4 data-i18n="footer.temas">Temas</h4>
+        <a href="#dashboard">📊 <span>Dashboard</span></a>
+        <a href="#tecnologias">⚙️ <span data-i18n="nav.tecnologias">Tecnologias</span></a>
+        <a href="#curiosidades">💡 <span>Curiosidades</span></a>
+        <a href="#pesquisa-campo">🔬 <span>Pesquisa de Campo</span></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Paraná AgroTech · Projeto Educacional · Agrinho 2026 · Item 8.3 · Nível 4</p>
+      <p>© 2026 Paraná AgroTech · <span data-i18n="footer.edu">Projeto Educacional</span> · Agrinho 2026</p>
     </div>
   </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- Skip to content link (accessibility) -->
+<a href="#sobre" class="skip-link">Pular para o conteúdo</a>
+
+<!-- JS Modules -->
 <script src="js/data.js"></script>
-<script src="js/mascot.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/canvas.js"></script>
 <script src="js/ui.js"></script>
-<script src="js/settings.js"></script>
 <script src="js/map.js"></script>
 <script src="js/dashboard.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/game.js"></script>
 <script src="js/quiz.js"></script>
-<script src="js/ai.js"></script>
 <script src="js/achievements.js"></script>
 <script src="js/search.js"></script>
 <script src="js/main.js"></script>
