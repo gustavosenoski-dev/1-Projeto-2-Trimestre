@@ -1,55 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <style>
-        /* Estilos globais ou para o corpo da página */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F4F4F4;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <style>
+    header {
+      background-color: #090063;
+      color: #FFFFFF;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+      border: 5px solid #D900FF;
+    }
 
-        /* Estilização do cabeçalho */
-        header {
-            background-color: #183C63;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 20px;
-        }
+    main {
+      background-color: #FFFFFF;
+      color: #090063;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    article{
+      display: flex;
 
-        /* Estilização do conteúdo principal */
-        main {
-            background-color: #FFFFFF;
-            color: #183C63;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    }
 
-        /* Ajuste fino para o nome do autor */
-        .autor {
-            font-style: italic;
-            color: #555555;
-        }
-    </style>
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .artigo-autor {
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <h1> Asas do BRASIL</h1>
+    <p> Bem-vindo ao Asas do Brasil </p>
+  </header>
+  <main>
+    <article>
+    <img src="caça1.jpeg"
+      alt="Ilustração digital e vetorizada de um caça Saab JAS 39 Gripen cinza em pleno voo diagonal. A aeronave exibe suas características asas em delta, canards frontais e mísseis equipados. O caça está enquadrado em um quadrado de cantos arredondados sobre um fundo borrado que mostra uma paisagem litorânea com colinas e céu azul.">
+    <div>
+      <h2>O Asas do Brasil é o seu portal definitivo de informações sobre a história, a tecnologia e a evolução das
+        aeronaves de caça utilizadas pela Força Aérea Brasileira (FAB).
 
-    <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-    </header>
+        Do pioneirismo dos primeiros jatos até a modernidade e alta tecnologia do F-39 Gripen, nosso objetivo é
+        aproximar os entusiastas da aviação, estudantes e curiosos do universo da defesa aérea nacional.</h2>
+      <p class="artigo-autor"> Por: Frederico</p>
+      <p>O que você encontra aqui:
+        Fichas Técnicas: Detalhes sobre velocidade, armamentos e sistemas dos caças.
 
-    <main>
-        <h2>Meu primeiro post</h2>
-        <p class="autor">Por: Marcelo Paludetto</p>
-        <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
-    </main>
+        História e Evolução: A trajetória da aviação de caça no Brasil, desde os clássicos Gloster Meteor e F-5 Tiger II
+        até os dias atuais.
 
+        Galeria de Mídia: Imagens, ilustrações e infográficos de alta qualidade das aeronaves em ação.
+
+        Notícias e Atualizações: Fique por dentro das novidades sobre a defesa aérea e o desenvolvimento aeroespacial
+        brasileiro.</p>
+      <button>🤮 <span>0</span></button>
+      <button>🤩 <span>0</span></button>
+    </div>
+  </article>
+  <article>
+    <img src="caça1.jpeg"
+   alt="Ilustração digital e vetorizada de um caça Saab JAS 39 Gripen cinza em pleno voo diagonal. A aeronave exibe suas características asas em delta, canards frontais e mísseis equipados. O caça está enquadrado em um quadrado de cantos arredondados sobre um fundo borrado que mostra uma paisagem litorânea com colinas e céu azul.">
+  <div>
+   <h2>O Asas do Brasil é o seu portal definitivo de informações sobre a história, a tecnologia e a evolução das
+     aeronaves de caça utilizadas pela Força Aérea Brasileira (FAB). 
+
+     Do pioneirismo dos primeiros jatos até a modernidade e alta tecnologia do F-39 Gripen, nosso objetivo é
+     aproximar os entusiastas da aviação, estudantes e curiosos do universo da defesa aérea nacional.</h2>
+   <p class="artigo-autor"> Por: Frederico</p>
+   <p>O que você encontra aqui:
+     Fichas Técnicas: Detalhes sobre velocidade, armamentos e sistemas dos caças.
+
+     História e Evolução: A trajetória da aviação de caça no Brasil, desde os clássicos Gloster Meteor e F-5 Tiger II
+     até os dias atuais.
+
+     Galeria de Mídia: Imagens, ilustrações e infográficos de alta qualidade das aeronaves em ação.
+
+     Notícias e Atualizações: Fique por dentro das novidades sobre a defesa aérea e o desenvolvimento aeroespacial
+     brasileiro.</p>
+   <button>🤮 <span>0</span></button>
+   <button>🤩 <span>0</span></button>
+ </div>
+
+    </article>
+  </main>
 </body>
+<script>
+  const botoes = document.querySelectorAll("button");
+
+  botoes.forEach(
+    function (botao) {
+      let curtiu = false;
+      botao.addEventListener("click", botaoClicado);
+
+      function botaoClicado() {
+        consol.log("fui clicado");
+        let texto = botao.querySelector("span");
+        if (curtiu === false){
+          texto.textContent++;
+          curtiu = true;
+
+        }
+        else{
+          texto.textContent--;
+          curtiu = false;
+        }
+      }
+    }
+  )
+
+
+</script>
+
 </html>
