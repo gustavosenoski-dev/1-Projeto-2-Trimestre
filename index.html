@@ -4,94 +4,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechAsa - Engenharia e Construção</title>
+  <title>Blog</title>
   <style>
     header {
-      background-color: #1A2F4C; /* Azul Engenharia */
+      background-color: #066b72;
       color: #FFFFFF;
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
       padding: 16px;
-      border: 5px solid #FF6B35; /* Laranja Construção */
+      border: 5px solid #D900FF;
     }
 
     main {
       background-color: #FFFFFF;
-      color: #1A2F4C;
+      color: #090063;
       max-width: 800px;
       margin: 0 auto;
       padding: 16px;
     }
-
-    article {
+    article{
       display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid #E0E0E0;
-      padding-bottom: 16px;
+
     }
 
     img {
       width: 80px;
       height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      margin-top: 0;
     }
 
     .artigo-autor {
       font-weight: bold;
-      color: #FF6B35;
-    }
-
-    button {
-      cursor: pointer;
-      background-color: #F4F4F4;
-      border: 1px solid #CCC;
-      padding: 4px 8px;
-      border-radius: 4px;
-      margin-right: 8px;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>TechAsa Engenharia</h1>
-    <p>O seu portal sobre plantas baixas, estruturas e inovação na construção civil</p>
+    <h1> Engenharia Tech</h1>
+    <p> Bem-vindo ao Engenharia Tech </p>
   </header>
   <main>
-    
     <article>
-      <img src="planta-baixa.jpeg" alt="Desenho técnico de uma planta baixa residencial detalhada, mostrando a disposição dos cômodos, paredes e aberturas sobre uma mesa de trabalho com ferramentas de desenho.">
-      <div>
-        <h2>Como interpretar plantas baixas residenciais: O guia definitivo para iniciantes e estudantes de engenharia.</h2>
-        <p class="artigo-autor">Por: Engenheiro Frederico</p>
-        <p>Aprender a ler uma planta baixa é o primeiro passo para o sucesso em qualquer obra. Neste artigo, desmistificamos os símbolos técnicos, escalas, representações de portas, janelas e paredes estruturais. Entenda como transformar linhas no papel em construções reais de forma segura e eficiente.</p>
-        <button>👎 <span>0</span></button>
-        <button>🏗️ <span>0</span></button>
-      </div>
-    </article>
+    <img src="planta-baixa.jpeg"
+      alt="Desenho técnico de uma planta baixa residencial detalhada, mostrando a disposição dos cômodos, paredes e aberturas sobre uma mesa de trabalho com ferramentas de desenho.">
+    <div>
+      <h2>Como interpretar plantas baixas residenciais: O guia definitivo para iniciantes e estudantes de engenharia.</h2>
+      <p class="artigo-autor"> Por: Gustavo</p>
+      <p>Aprender a ler uma planta baixa é o primeiro passo para o sucesso em qualquer obra. Neste artigo, desmistificamos os símbolos técnicos, escalas, representações de portas, janelas e paredes estruturais. Entenda como transformar linhas no papel em construções reais de forma segura e eficiente.</p>
+      <button>🤮 <span>0</span></button>
+      <button>🤩 <span>0</span></button>
+    </div>
+  </article>
+  <article>
+    <img src="construcao.jpeg"
+   alt="Canteiro de obras moderno com uma estrutura de concreto armado em crescimento, com pilares e vigas aparentes sob um céu limpo.">
+  <div>
+   <h2>Novas tecnologias na construção civil: O impacto dos materiais sustentáveis e do concreto inteligente.</h2>
+   <p class="artigo-autor"> Por: Gustavo</p>
+   <p>A engenharia moderna exige soluções rápidas e ecológicas. Descubra como os novos aditivos de concreto, estruturas pré-moldadas e o planejamento digital via BIM (Building Information Modeling) estão revolucionando os canteiros de obras no Brasil, reduzindo custos e o desperdício de material.</p>
+   <button>🤮 <span>0</span></button>
+   <button>🤩 <span>0</span></button>
+ </div>
 
-    <article>
-      <img" src="construcao.jpeg" alt="Canteiro de obras moderno com uma estrutura de concreto armado em crescimento, com pilares e vigas aparentes sob um céu limpo.">
-      <div>
-        <h2>Novas tecnologias na construção civil: O impacto dos materiais sustentáveis e do concreto inteligente.</h2>
-        <p class="artigo-autor">Por: Engenheiro Frederico</p>
-        <p>A engenharia moderna exige soluções rápidas e ecológicas. Descubra como os novos aditivos de concreto, estruturas pré-moldadas e o planejamento digital via BIM (Building Information Modeling) estão revolucionando os canteiros de obras no Brasil, reduzindo custos e o desperdício de material.</p>
-        <button>👎 <span>0</span></button>
-        <button>🏗️ <span>0</span></button>
-      </div>
     </article>
-
   </main>
 </body>
-
 <script>
   const botoes = document.querySelectorAll("button");
 
@@ -101,18 +79,22 @@
       botao.addEventListener("click", botaoClicado);
 
       function botaoClicado() {
-        console.log("fui clicado"); // Corrigido: 'consol' para 'console'
+        consol.log("fui clicado");
         let texto = botao.querySelector("span");
-        if (curtiu === false) {
+        if (curtiu === false){
           texto.textContent++;
           curtiu = true;
-        } else {
+
+        }
+        else{
           texto.textContent--;
           curtiu = false;
         }
       }
     }
   )
+
+
 </script>
 
 </html>
