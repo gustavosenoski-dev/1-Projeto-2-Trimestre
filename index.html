@@ -1,100 +1,346 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
-  <style>
-    header {
-      background-color: #066b72;
-      color: #FFFFFF;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 16px;
-      border: 5px solid #063e42;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Apoio ao Estudante | Saúde Emocional</title>
 
-    main {
-      background-color: #FFFFFF;
-      color: #155386;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-    article{
-      display: flex;
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-    }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    img {
-      width: 100px;
-      height: 100px;
-    }
-
-    .artigo-autor {
-      font-weight: bold;
-    }
-  </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
-  <header>
-    <h1> Engenharia Tech</h1>
-    <p> Bem-vindo ao Engenharia Tech </p>
-  </header>
-  <main>
-    <article>
-    <img src="engrenagem.png"
-      alt="Desenho técnico de uma planta baixa residencial detalhada, mostrando a disposição dos cômodos, paredes e aberturas sobre uma mesa de trabalho com ferramentas de desenho.">
-    <div>
-      <h2>Como interpretar plantas baixas residenciais: O guia definitivo para iniciantes e estudantes de engenharia.</h2>
-      <p class="artigo-autor"> Por: Gustavo</p>
-      <p>Aprender a ler uma planta baixa é o primeiro passo para o sucesso em qualquer obra. Neste artigo, desmistificamos os símbolos técnicos, escalas, representações de portas, janelas e paredes estruturais. Entenda como transformar linhas no papel em construções reais de forma segura e eficiente.</p>
-      <button>🤮 <span>0</span></button>
-      <button>🤩 <span>0</span></button>
-    </div>
-  </article>
-  <article>
-    <img src="engrenagem.png"
-   alt="Canteiro de obras moderno com uma estrutura de concreto armado em crescimento, com pilares e vigas aparentes sob um céu limpo.">
-  <div>
-   <h2>Novas tecnologias na construção civil: O impacto dos materiais sustentáveis e do concreto inteligente.</h2>
-   <p class="artigo-autor"> Por: Gustavo</p>
-   <p>A engenharia moderna exige soluções rápidas e ecológicas. Descubra como os novos aditivos de concreto, estruturas pré-moldadas e o planejamento digital via BIM (Building Information Modeling) estão revolucionando os canteiros de obras no Brasil, reduzindo custos e o desperdício de material.</p>
-   <button>🤮 <span>0</span></button>
-   <button>🤩 <span>0</span></button>
- </div>
 
-    </article>
-  </main>
+    <!-- ================= HEADER ================= -->
+
+    <header id="topo">
+
+        <div class="logo">
+
+            <img src="img/logo.png" alt="Logo da escola">
+
+            <h1>Portal de Apoio ao Estudante</h1>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Início</a></li>
+
+                <li><a href="#sobre">Sobre</a></li>
+
+                <li><a href="escuta.html">Portal de Escuta</a></li>
+
+                <li><a href="quiz.html">Quiz</a></li>
+
+                <li><a href="referencias.html">Referências</a></li>
+
+            </ul>
+
+        </nav>
+
+        <button id="darkMode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+<div class="acessibilidade">
+
+    <button onclick="aumentarFonte()">
+        A+
+    </button>
+
+    <button onclick="diminuirFonte()">
+        A-
+    </button>
+
+    <button onclick="altoContraste()">
+        ♿
+    </button>
+
+</div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h2>Saúde Emocional importa.</h2>
+
+            <p>
+
+                Cuidar da mente também faz parte do aprendizado.
+                Este portal foi desenvolvido para acolher,
+                informar e orientar estudantes sobre a importância
+                da saúde emocional dentro e fora da escola.
+
+            </p>
+
+            <a href="escuta.html" class="btn">
+
+                Quero conhecer o Portal
+
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="img/banner.png" alt="Estudantes felizes">
+
+        </div>
+
+    </section>
+
+    <!-- ================= SOBRE ================= -->
+
+    <section id="sobre" class="sobre">
+
+        <h2>O que é Saúde Emocional?</h2>
+
+        <p>
+
+            Saúde emocional é a capacidade de compreender,
+            administrar sentimentos e enfrentar os desafios
+            do dia a dia de maneira saudável.
+
+            Cuidar da saúde emocional ajuda no aprendizado,
+            melhora os relacionamentos e contribui para uma vida
+            mais equilibrada.
+
+        </p>
+
+    </section>
+
+    <!-- ================= CARDS ================= -->
+
+    <section class="cards">
+
+        <article class="card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>Autoconhecimento</h3>
+
+            <p>
+
+                Conhecer seus sentimentos é o primeiro passo
+                para desenvolver equilíbrio emocional.
+
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <h3>Bem-estar</h3>
+
+            <p>
+
+                Dormir bem, praticar atividades físicas
+                e conversar com pessoas de confiança
+                fortalecem a saúde emocional.
+
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <i class="fa-solid fa-hand-holding-heart"></i>
+
+            <h3>Buscar Ajuda</h3>
+
+            <p>
+
+                Pedir ajuda é um ato de coragem.
+                Professores, familiares e amigos
+                podem oferecer apoio quando necessário.
+
+            </p>
+
+        </article>
+
+    </section>
+
+    <!-- ================= IMPORTÂNCIA ================= -->
+
+    <section class="beneficios">
+
+        <h2>Por que cuidar da Saúde Emocional?</h2>
+
+        <div class="beneficios-grid">
+
+            <div>
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <h4>Melhor aprendizagem</h4>
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-users"></i>
+
+                <h4>Relacionamentos saudáveis</h4>
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-face-smile"></i>
+
+                <h4>Mais qualidade de vida</h4>
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-seedling"></i>
+
+                <h4>Mais equilíbrio</h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= AJUDA ================= -->
+
+    <section class="ajuda">
+
+        <h2>Você não está sozinho.</h2>
+
+        <p>
+
+            Caso esteja passando por um momento difícil,
+            converse com alguém de confiança.
+
+        </p>
+
+        <div class="ajuda-cards">
+
+            <div class="help">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+
+                <h3>Professor</h3>
+
+            </div>
+
+            <div class="help">
+
+                <i class="fa-solid fa-school"></i>
+
+                <h3>Coordenação</h3>
+
+            </div>
+
+            <div class="help">
+
+                <i class="fa-solid fa-house"></i>
+
+                <h3>Família</h3>
+
+            </div>
+
+            <div class="help">
+
+                <i class="fa-solid fa-user-group"></i>
+
+                <h3>Adulto de confiança</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CHAMADA ================= -->
+
+    <section class="cta">
+
+        <h2>Quer conversar?</h2>
+
+        <p>
+
+            Nosso Portal de Escuta foi criado para acolher
+            estudantes e incentivar a busca por ajuda.
+
+        </p>
+
+        <a href="escuta.html" class="btn">
+
+            Acessar Portal de Escuta
+
+        </a>
+
+    </section>
+
+    <!-- ================= RODAPÉ ================= -->
+
+    <footer>
+
+        <p>
+
+            <strong>Portal de Apoio ao Estudante</strong>
+
+        </p>
+
+        <p>
+
+            Projeto desenvolvido para fins educacionais.
+
+        </p>
+
+        <p>
+
+            Este portal é uma simulação criada como atividade escolar.
+            Nenhuma informação enviada pelo Portal de Escuta
+            é armazenada ou compartilhada.
+
+        </p>
+
+        <div class="social">
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <i class="fa-brands fa-facebook"></i>
+
+            <i class="fa-brands fa-youtube"></i>
+
+        </div>
+
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+
+    <button id="btnTopo">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+    <!-- JavaScript -->
+
+    <script src="js/script.js"></script>
+
 </body>
-<script>
-  const botoes = document.querySelectorAll("button");
-
-  botoes.forEach(
-    function (botao) {
-      let curtiu = false;
-      botao.addEventListener("click", botaoClicado);
-
-      function botaoClicado() {
-        console.log("fui clicado");
-        let texto = botao.querySelector("span");
-        if (curtiu === false){
-          texto.textContent++;
-          curtiu = true;
-
-        }
-        else{
-          texto.textContent--;
-          curtiu = false;
-        }
-      }
-    }
-  )
-
-
-</script>
 
 </html>
