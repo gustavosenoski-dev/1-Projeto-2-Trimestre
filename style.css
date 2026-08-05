@@ -2,12 +2,13 @@
    1. VARIÁVEIS & TEMAS (Design System)
    ========================================================================== */
 :root {
-  /* Cores Principais */
-  --primary: #1565C0;
-  --primary-light: #42A5F5;
+  /* Cores Inspiradas no Layout Dark */
+  --primary: #0066ff;
+  --primary-dark: #021838;
+  --primary-light: #0088ff;
   --secondary: #4CAF50;
   
-  /* Superfícies e Fundos */
+  /* Fundos */
   --bg-main: #f5f9ff;
   --bg-surface: #ffffff;
   --bg-alt: #f2f5f8;
@@ -15,36 +16,35 @@
   
   /* Textos */
   --text-main: #333333;
-  --text-muted: #555555;
+  --text-muted: #606f7b;
   --text-on-primary: #ffffff;
 
-  /* Sombras & Bordas */
+  /* Sombras e Bordas */
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 15px 35px rgba(21, 101, 192, 0.15);
+  --shadow-lg: 0 15px 35px rgba(0, 102, 255, 0.2);
   
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 20px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 
-  /* Transições */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Modo Escuro */
 body.dark {
-  --bg-main: #121212;
-  --bg-surface: #1e1e1e;
-  --bg-alt: #242424;
-  --bg-accent: #202020;
-  --text-main: #eee;
-  --text-muted: #ddd;
-  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --bg-main: #020d1e;
+  --bg-surface: #0a192f;
+  --bg-alt: #0d2240;
+  --bg-accent: #071326;
+  --text-main: #f0f4f8;
+  --text-muted: #94a3b8;
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* Alto Contraste */
+/* Modo Alto Contraste */
 body.contraste {
   --bg-main: #000000;
   --bg-surface: #000000;
@@ -70,9 +70,7 @@ body.contraste .btn {
 /* ==========================================================================
    2. RESET & BASE
    ========================================================================== */
-*, 
-*::before, 
-*::after {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -86,55 +84,38 @@ body {
   font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
-  line-height: 1.7;
-  text-rendering: optimizeLegibility;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-button, 
-input, 
-textarea {
-  font: inherit;
-}
-
 /* ==========================================================================
-   3. HEADER & NAVEGAÇÃO
+   3. HEADER
    ========================================================================== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 8%;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-  z-index: 999;
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
   transition: background-color var(--transition-normal);
 }
 
 body.dark header {
-  background: rgba(30, 30, 30, 0.95);
+  background: rgba(10, 25, 47, 0.9);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 15px;
-}
-
-.logo img {
-  width: 60px;
+  gap: 12px;
 }
 
 .logo h1 {
@@ -163,458 +144,248 @@ nav a:hover {
 
 #darkMode {
   background: var(--primary);
-  color: var(--text-on-primary);
+  color: #fff;
   border: none;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-full);
   cursor: pointer;
   display: inline-grid;
   place-items: center;
-  transition: transform var(--transition-normal), background-color var(--transition-fast);
+  transition: transform var(--transition-fast);
 }
 
 #darkMode:hover {
-  transform: rotate(20deg);
+  transform: scale(1.1);
 }
 
 /* ==========================================================================
-   4. HERO SECTION
+   4. HERO (ESTILO DA FOTO - 100% CSS SEM DEPENDER DE IMAGENS)
    ========================================================================== */
 .hero {
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 120px 8% 80px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  padding: 140px 8% 80px;
+  background: var(--primary-dark);
   color: var(--text-on-primary);
+  gap: 40px;
 }
 
 .hero-text {
-  width: 50%;
+  max-width: 580px;
 }
 
-.hero-text h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.2;
+/* Badge estilizado da IA */
+.badge-ai {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--primary-light);
+  border-radius: 12px;
+  color: var(--primary-light);
+  font-weight: 700;
+  font-size: 0.85rem;
   margin-bottom: 20px;
 }
 
-.hero-text p {
-  font-size: 1.1rem;
+.hero-text h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.sub-headline {
+  color: var(--primary-light);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.6;
   margin-bottom: 30px;
 }
 
-.hero-image {
-  width: 45%;
-}
-
-.hero-image img {
-  width: 100%;
-  animation: flutuar 4s infinite ease-in-out;
-}
-
-@keyframes flutuar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
+/* Botão da CTA */
 .btn {
-  display: inline-block;
-  padding: 15px 35px;
-  background: var(--bg-surface);
-  color: var(--primary);
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: #ffffff;
   border-radius: var(--radius-full);
   font-weight: 600;
+  text-decoration: none;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
 }
 
 .btn:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ilustração Abstrata em CSS para substituir a Imagem */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-frame {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 8px solid var(--primary);
+  background: radial-gradient(circle, #0b3c7d 0%, #021838 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(0, 102, 255, 0.3);
+}
+
+/* Efeito de IA no centro do círculo */
+.circle-frame::before {
+  content: "AI";
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 4px;
 }
 
 /* ==========================================================================
-   5. SEÇÕES DE CONTEÚDO & GRIDS
+   5. SEÇÕES DE CONTEÚDO (SOBRE, CARDS, BENEFÍCIOS)
    ========================================================================== */
 section {
   padding: 80px 8%;
 }
 
-.sobre, 
-.beneficios, 
-.referencias {
-  background: var(--bg-surface);
+.sobre, .beneficios, .referencias {
+  background-color: var(--bg-surface);
   text-align: center;
 }
 
-.sobre h2, 
-.beneficios h2, 
-.ajuda h2, 
-.cta h2, 
-.referencias h2 {
+.sobre h2, .beneficios h2, .ajuda h2, .cta h2, .referencias h2 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   color: var(--primary);
   margin-bottom: 20px;
 }
 
-.sobre p, 
-.intro {
-  max-width: 900px;
-  margin: 0 auto 50px;
+.sobre p, .intro {
+  max-width: 800px;
+  margin: 0 auto 40px;
   font-size: 1.1rem;
   color: var(--text-muted);
 }
 
-/* Grids Autoadaptáveis */
-.cards, 
-.referencias-grid {
+/* Grids que se ajustam automaticamente */
+.cards, .referencias-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  background: var(--bg-alt);
+  background-color: var(--bg-alt);
 }
 
-.beneficios-grid, 
-.ajuda-cards {
+.beneficios-grid, .ajuda-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 25px;
 }
 
-/* Card Base Styles */
-.card, 
-.help, 
-.referencia-card, 
-.beneficios-grid div {
-  background: var(--bg-surface);
-  padding: 35px;
-  text-align: center;
+.card, .help, .referencia-card, .beneficios-grid div {
+  background-color: var(--bg-surface);
+  padding: 30px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  text-align: center;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  animation: aparecer 0.8s ease;
 }
 
-.card:hover, 
-.help:hover, 
-.referencia-card:hover {
-  transform: translateY(-12px);
+.card:hover, .help:hover, .referencia-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
 .beneficios-grid div {
-  background: #f8fbff;
-  padding: 30px;
+  background-color: var(--bg-main);
   border-radius: var(--radius-md);
 }
 
 .beneficios-grid div:hover {
-  background: var(--primary);
-  color: var(--text-on-primary);
-  transform: scale(1.05);
-}
-
-.beneficios-grid div:hover i,
-.beneficios-grid div:hover h4 {
-  color: var(--text-on-primary);
-}
-
-/* Ícones nos Cards */
-.card i, 
-.help i, 
-.beneficios-grid i, 
-.referencia-card i {
-  font-size: 45px;
-  color: var(--primary);
-  margin-bottom: 20px;
-}
-
-.beneficios-grid i {
-  font-size: 40px;
-  color: var(--secondary);
-  margin-bottom: 15px;
-}
-
-.card h3, 
-.referencia-card h3 {
-  color: var(--primary);
-  margin-bottom: 15px;
-}
-
-.card p {
-  color: var(--text-muted);
-}
-
-.beneficios-grid h4 {
-  font-size: 1.1rem;
-}
-
-.referencia-card a {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: var(--text-on-primary);
-  background: var(--primary);
-  padding: 10px 20px;
-  border-radius: 30px;
-  transition: background-color var(--transition-fast);
-}
-
-.referencia-card a:hover {
-  background: var(--primary-light);
+  background-color: var(--primary);
+  color: #ffffff;
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
-   6. SEÇÕES ESPECÍFICAS (AJUDA, CTA, QUIZ, MENSAGEM)
-   ========================================================================== */
-.ajuda {
-  padding: 80px 8%;
-  text-align: center;
-  background: var(--bg-accent);
-}
-
-.ajuda p {
-  margin: 20px auto 40px;
-}
-
-.cta {
-  padding: 80px 8%;
-  text-align: center;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: var(--text-on-primary);
-}
-
-.cta p {
-  margin-bottom: 30px;
-}
-
-/* Mensagem do Portal de Escuta */
-.mensagem-acolhimento {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #e8f5e9;
-  border-left: 8px solid var(--secondary);
-  border-radius: 15px;
-  text-align: center;
-  animation: aparecer 0.8s ease;
-}
-
-.mensagem-acolhimento i {
-  font-size: 45px;
-  color: var(--secondary);
-  margin-bottom: 15px;
-}
-
-.mensagem-acolhimento h3 {
-  color: var(--primary);
-  margin-bottom: 15px;
-}
-
-.mensagem-acolhimento p {
-  color: #444;
-  margin: 10px;
-}
-
-/* Quiz */
-.pagina-banner {
-  margin-top: 90px;
-  padding: 70px 8%;
-  text-align: center;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: var(--text-on-primary);
-}
-
-.pagina-banner h2 {
-  font-size: 2.5rem;
-}
-
-.quiz-container {
-  padding: 70px 8%;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.pergunta {
-  background: var(--bg-surface);
-  padding: 30px;
-  margin: 25px 0;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
-.pergunta h3 {
-  color: var(--primary);
-  margin-bottom: 20px;
-}
-
-.pergunta label {
-  display: block;
-  padding: 12px;
-  cursor: pointer;
-  transition: background-color var(--transition-fast);
-}
-
-.pergunta label:hover {
-  background: var(--bg-accent);
-  border-radius: var(--radius-sm);
-}
-
-#resultado {
-  margin-top: 40px;
-}
-
-.resultado-box {
-  padding: 30px;
-  text-align: center;
-  background: var(--bg-main);
-  border-left: 8px solid var(--primary-light);
-  border-radius: 15px;
-}
-
-.resultado-box i {
-  font-size: 45px;
-  color: #FFC107;
-}
-
-.agradecimento {
-  padding: 60px 8%;
-  text-align: center;
-  background: var(--bg-accent);
-}
-
-.agradecimento h2 {
-  color: var(--primary);
-}
-
-/* ==========================================================================
-   7. RODAPÉ & BOTÃO TOPO
+   6. RODAPÉ & BOTÃO TOPO
    ========================================================================== */
 footer {
-  background: #0d2b4d;
+  background: #020d1e;
   color: #ffffff;
   text-align: center;
   padding: 40px 8%;
 }
 
-footer p {
-  margin: 10px 0;
-}
-
 footer strong {
-  font-size: 1.4rem;
   color: var(--primary-light);
-}
-
-.social {
-  margin-top: 25px;
-}
-
-.social i {
-  font-size: 25px;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-
-.social i:hover {
-  color: var(--primary-light);
-  transform: translateY(-5px);
 }
 
 #btnTopo {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-full);
   border: none;
   background: var(--primary);
-  color: var(--text-on-primary);
-  font-size: 20px;
+  color: #ffffff;
+  font-size: 1.2rem;
   cursor: pointer;
   display: none;
   place-items: center;
   box-shadow: var(--shadow-md);
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-  z-index: 900;
+  transition: transform var(--transition-fast);
 }
 
 #btnTopo:hover {
-  background: var(--secondary);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 /* ==========================================================================
-   8. ANIMAÇÕES & RESPONSIVIDADE
+   7. RESPONSIVIDADE
    ========================================================================== */
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 1000px) {
-  header {
-    padding: 15px 5%;
-  }
-
-  nav ul {
-    gap: 12px;
-  }
-
+@media (max-width: 900px) {
   .hero {
     flex-direction: column;
     text-align: center;
+    padding-top: 140px;
   }
 
-  .hero-text, 
-  .hero-image {
-    width: 100%;
-  }
-
-  .hero-text h2 {
-    font-size: 2.5rem;
+  .circle-frame {
+    width: 260px;
+    height: 260px;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   header {
     flex-direction: column;
     gap: 15px;
   }
 
   nav ul {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero {
-    padding-top: 180px;
-  }
-
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-
-  .logo h1 {
-    font-size: 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, 
-  *::before, 
-  *::after {
-    animation: none !important;
-    transition: none !important;
+    gap: 15px;
   }
 }
