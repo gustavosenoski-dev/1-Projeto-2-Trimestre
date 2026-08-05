@@ -3,114 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EquilibraMente - Portal de Saúde Emocional do Estudante</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>EquilibraMente | Portal de Saúde Emocional do Estudante</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="accessibility-bar">
-        <button id="increaseFont">A+</button>
-        <button id="decreaseFont">A-</button>
-        <button id="toggleContrast">Alto Contraste</button>
-    </div>
-
+    <!-- Cabeçalho -->
     <header>
-        <a href="index.html" class="logo">
-            <i class="fa-solid fa-heart-pulse"></i> EquilibraMente
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="escuta.html">Portal de Escuta</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="especialistas.html">Especialistas</a></li>
-                <li><a href="referencias.html">Referências</a></li>
-                <li>
-                    <button id="darkMode" class="theme-toggle" aria-label="Modo Escuro">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                </li>
+        <nav class="navbar">
+            <h2 class="logo">🧠 EquilibraMente</h2>
+
+            <ul class="menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#saude">Saúde Emocional</a></li>
+                <li><a href="#conteudos">Conteúdos</a></li>
+                <li><a href="#escuta">Portal de Escuta</a></li>
+                <li><a href="#quiz">Quiz</a></li>
             </ul>
+
+            <button id="tema">🌙</button>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Cuide da sua mente.<br>Fortaleça sua jornada.</h1>
-                <p>Informação, acolhimento e apoio para ajudar estudantes a desenvolverem uma relação mais saudável com suas emoções.</p>
-                <div class="hero-buttons">
-                    <a href="#conteudos" class="btn btn-primary">Explorar conteúdos</a>
-                    <a href="escuta.html" class="btn btn-secondary">Falar com alguém</a>
-                    <a href="quiz.html" class="btn btn-secondary">Fazer o quiz</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-card-illustration">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-            </div>
-        </section>
+    <!-- Hero -->
+    <section id="inicio" class="hero">
 
-        <section id="sobre">
-            <h2 class="section-title">O que é Saúde Emocional?</h2>
-            <p class="section-subtitle">Compreender seus sentimentos é o primeiro passo para uma vida acadêmica e pessoal equilibrada.</p>
-            
-            <div class="grid-4">
-                <div class="card">
-                    <i class="fa-solid fa-brain card-icon"></i>
-                    <h3>Autoconhecimento</h3>
-                    <p>Identificar emoções, gatilhos e reações do dia a dia.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-face-smile card-icon"></i>
-                    <h3>Bem-estar</h3>
-                    <p>Encontrar o equilíbrio entre cobranças e momentos de paz.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-seedling card-icon"></i>
-                    <h3>Autocuidado</h3>
-                    <p>Criar hábitos diários que protegem sua saúde mental.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-hands-holding-child card-icon"></i>
-                    <h3>Apoio</h3>
-                    <p>Entender que pedir ajuda é um sinal de coragem.</p>
-                </div>
-            </div>
-        </section>
+        <div class="hero-texto">
 
-        <section id="conteudos" style="background: var(--bg-alt);">
-            <h2 class="section-title">Conteúdos Educativos</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fa-solid fa-wind card-icon"></i>
-                    <h3>Lidando com a Ansiedade</h3>
-                    <p>Aprenda a reconhecer sinais físicos e mentais da ansiedade e descubra técnicas de respiração e ancoragem.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-book-open card-icon"></i>
-                    <h3>Estresse Escolar</h3>
-                    <p>Dicas práticas para organizar horários de estudos, lidar com a pressão de provas e evitar o esgotamento.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-bed card-icon"></i>
-                    <h3>Rotina de Autocuidado</h3>
-                    <p>A importância de uma boa noite de sono, alimentação balanceada e pausas ativas na sua rotina.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+            <h1>Cuide da sua mente.<br>Fortaleça sua jornada.</h1>
 
+            <p>
+                Informação, acolhimento e apoio para ajudar estudantes
+                a desenvolverem uma relação mais saudável com suas emoções.
+            </p>
+
+            <div class="botoes">
+                <a href="#conteudos" class="btn">Explorar conteúdos</a>
+                <a href="#escuta" class="btn secundario">Falar com alguém</a>
+                <a href="#quiz" class="btn">Fazer o Quiz</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Saúde emocional -->
+    <section id="saude" class="secao">
+
+        <h2>O que é Saúde Emocional?</h2>
+
+        <p class="texto-centro">
+            Saúde emocional é a capacidade de compreender, expressar e lidar
+            com sentimentos de forma equilibrada. Ela influencia os estudos,
+            os relacionamentos e a qualidade de vida.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🧠 Autoconhecimento</h3>
+                <p>Conhecer as próprias emoções ajuda na tomada de decisões.</p>
+            </div>
+
+            <div class="card">
+                <h3>💙 Bem-estar</h3>
+                <p>Cuidar da mente favorece uma rotina mais saudável.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌱 Autocuidado</h3>
+                <p>Descanso, alimentação e lazer fazem parte do equilíbrio.</p>
+            </div>
+
+            <div class="card">
+                <h3>🤝 Apoio</h3>
+                <p>Buscar ajuda é um ato de coragem e responsabilidade.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Conteúdos -->
+    <section id="conteudos" class="secao">
+
+        <h2>Conteúdos Educativos</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Ansiedade</h3>
+
+                <p>
+                    A ansiedade pode causar preocupação excessiva,
+                    dificuldade de concentração e tensão.
+                </p>
+
+                <p>
+                    Respirar profundamente, conversar com alguém
+                    e manter uma rotina saudável podem ajudar.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Estresse Escolar</h3>
+
+                <p>
+                    Provas, trabalhos e responsabilidades podem gerar pressão.
+                </p>
+
+                <p>
+                    Organizar os estudos e reservar momentos de descanso
+                    contribuem para o equilíbrio.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Autocuidado</h3>
+
+                <ul>
+                    <li>😴 Dormir bem.</li>
+                    <li>🥗 Alimentação equilibrada.</li>
+                    <li>🚶 Exercícios físicos.</li>
+                    <li>🎵 Momentos de lazer.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Portal de Escuta -->
+    <section id="escuta" class="secao">
+
+        <h2>Portal de Escuta</h2>
+
+        <p>
+            Este é um espaço educativo e simulado para incentivar
+            a expressão dos sentimentos.
+        </p>
+
+        <form id="formEscuta">
+
+            <input
+                type="text"
+                placeholder="Nome (opcional)"
+            >
+
+            <input
+                type="text"
+                placeholder="Como você está se sentindo?"
+                required
+            >
+
+            <textarea
+                placeholder="Escreva sua mensagem..."
+                required
+            ></textarea>
+
+            <button type="submit" class="btn">
+                Enviar
+            </button>
+
+        </form>
+
+        <div id="mensagem"></div>
+
+        <div class="frases">
+            <p>💙 Você merece ser ouvido.</p>
+            <p>🌱 Seus sentimentos importam.</p>
+            <p>🤝 Buscar ajuda é um ato de coragem.</p>
+        </div>
+
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="secao">
+
+        <h2>Quiz de Saúde Emocional</h2>
+
+        <p>Teste seus conhecimentos.</p>
+
+        <button id="iniciarQuiz" class="btn">
+            Iniciar Quiz
+        </button>
+
+        <div id="quizContainer"></div>
+
+    </section>
+
+    <!-- Rodapé -->
     <footer>
-        <p><strong>EquilibraMente</strong> - Portal de Saúde Emocional do Estudante</p>
-        <p class="disclaimer">Projeto desenvolvido para fins educacionais. Este portal possui caráter informativo e não substitui acompanhamento realizado por profissionais de saúde.</p>
+
+        <h3>EquilibraMente</h3>
+
+        <p>Portal de Saúde Emocional do Estudante</p>
+
+        <p>
+            Projeto desenvolvido para fins educacionais.
+        </p>
+
+        <p>
+            Este portal possui caráter informativo e não substitui
+            acompanhamento realizado por profissionais de saúde.
+        </p>
+
     </footer>
 
-    <button id="btnTopo"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- Botão topo -->
+    <button id="topo">↑</button>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
