@@ -1,399 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>Quiz | Saúde Emocional</title>
-
-
+    <title>Quiz de Saúde Emocional - EquilibraMente</title>
     <link rel="stylesheet" href="css/style.css">
-
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
-
 <body>
-
-
-<header>
-
-
-    <div class="logo">
-
-        <img src="img/logo.png" alt="Logo da escola">
-
-        <h1>Portal de Apoio ao Estudante</h1>
-
+    <div class="accessibility-bar">
+        <button id="increaseFont">A+</button><button id="decreaseFont">A-</button><button id="toggleContrast">Alto Contraste</button>
     </div>
-
-
-
-    <nav>
-
-        <ul>
-
-            <li>
-                <a href="index.html">
-                    Início
-                </a>
-            </li>
-
-
-            <li>
-                <a href="escuta.html">
-                    Portal de Escuta
-                </a>
-            </li>
-
-
-            <li>
-                <a href="quiz.html">
-                    Quiz
-                </a>
-            </li>
-
-
-            <li>
-                <a href="referencias.html">
-                    Referências
-                </a>
-            </li>
-
-        </ul>
-
-
-    </nav>
-
-
-
-    <button id="darkMode">
-
-        <i class="fa-solid fa-moon"></i>
-
-    </button>
-
-
-</header>
-
-
-
-
-
-<section class="pagina-banner">
-
-
-    <h2>
-        Quiz de Saúde Emocional 🧠
-    </h2>
-
-
-    <p>
-        Teste seus conhecimentos sobre cuidado emocional.
-    </p>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="quiz-container">
-
-
-<h2>
-    Responda as perguntas:
-</h2>
-
-
-
-<form id="quizForm">
-
-
-
-<div class="pergunta">
-
-
-<h3>
-1) Cuidar da saúde emocional significa:
-</h3>
-
-
-<label>
-
-<input type="radio" name="q1" value="a">
-
-Ignorar todos os sentimentos
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q1" value="b">
-
-Cuidar dos sentimentos e buscar equilíbrio
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q1" value="c">
-
-Nunca sentir tristeza
-
-</label>
-
-
-</div>
-
-
-
-
-
-<div class="pergunta">
-
-
-<h3>
-2) Quando você está passando por uma dificuldade, uma atitude saudável é:
-</h3>
-
-
-<label>
-
-<input type="radio" name="q2" value="a">
-
-Guardar tudo sozinho
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q2" value="b">
-
-Conversar com alguém de confiança
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q2" value="c">
-
-Evitar qualquer pessoa
-
-</label>
-
-
-</div>
-
-
-
-
-
-<div class="pergunta">
-
-
-<h3>
-3) A ansiedade pode ser:
-</h3>
-
-
-<label>
-
-<input type="radio" name="q3" value="a">
-
-Uma emoção que todos podem sentir
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q3" value="b">
-
-Algo que nunca acontece
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q3" value="c">
-
-Uma fraqueza
-
-</label>
-
-
-</div>
-
-
-
-
-
-<div class="pergunta">
-
-
-<h3>
-4) Uma forma de melhorar o bem-estar é:
-</h3>
-
-
-<label>
-
-<input type="radio" name="q4" value="a">
-
-Dormir pouco sempre
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q4" value="b">
-
-Ter momentos de descanso e lazer
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q4" value="c">
-
-Ignorar seus sentimentos
-
-</label>
-
-
-</div>
-
-
-
-
-
-<div class="pergunta">
-
-
-<h3>
-5) Pedir ajuda quando necessário é:
-</h3>
-
-
-<label>
-
-<input type="radio" name="q5" value="a">
-
-Um sinal de coragem
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q5" value="b">
-
-Algo errado
-
-</label>
-
-
-<label>
-
-<input type="radio" name="q5" value="c">
-
-Algo que deve ser evitado
-
-</label>
-
-
-</div>
-
-
-
-
-<button type="submit" class="btn">
-
-Ver resultado
-
-</button>
-
-
-
-</form>
-
-
-
-
-
-<div id="resultado">
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-<footer>
-
-
-<p>
-
-<strong>
-Portal de Apoio ao Estudante
-</strong>
-
-</p>
-
-
-<p>
-Projeto desenvolvido para fins educacionais.
-</p>
-
-
-</footer>
-
-
-
-
-
-<button id="btnTopo">
-
-<i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-
-
-
-<script src="js/script.js"></script>
-
-<script src="js/quiz.js"></script>
-
-
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-heart-pulse"></i> EquilibraMente</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="escuta.html">Portal de Escuta</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
+                <li><a href="especialistas.html">Especialistas</a></li>
+                <li><a href="referencias.html">Referências</a></li>
+                <li><button id="darkMode" class="theme-toggle"><i class="fa-solid fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding-top: 140px;">
+        <h2 class="section-title">Quiz: Saúde Emocional</h2>
+        <p class="section-subtitle">Teste seus conhecimentos sobre o cuidado com as emoções.</p>
+
+        <div class="quiz-box">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            
+            <div id="quizContent">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>EquilibraMente</strong> - Portal de Saúde Emocional do Estudante</p>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/quiz.js"></script>
 </body>
-
-
 </html>
