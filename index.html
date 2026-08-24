@@ -1,329 +1,319 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EquilibraMente — Portal de Saúde Emocional do Estudante</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Specific Styles for Index */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
-            position: relative;
-            padding-top: 120px;
-            overflow: hidden;
-        }
-
-        body.dark-mode .hero {
-            background: linear-gradient(135deg, #0d1117 0%, #1a1f26 100%);
-        }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            color: var(--primary);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            color: var(--text-muted);
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            animation: floating 6s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Stats Section */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            color: var(--primary);
-        }
-
-        /* Educative Section */
-        .edu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .edu-card {
-            cursor: pointer;
-        }
-
-        .edu-card h3 {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .edu-content {
-            display: none;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--gray-light);
-        }
-
-        .edu-card.active .edu-content {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-btns { justify-content: center; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .stats-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EquilibraMente — Portal de Saúde Emocional do Estudante</title>
+<meta name="description" content="Informação, acolhimento e apoio para ajudar estudantes a desenvolverem uma relação mais saudável com suas emoções.">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Accessibility Controls -->
-    <div class="accessibility-bar">
-        <button class="acc-btn" id="inc-font" aria-label="Aumentar fonte">A+</button>
-        <button class="acc-btn" id="dec-font" aria-label="Diminuir fonte">A-</button>
-        <button class="acc-btn" id="toggle-contrast" aria-label="Alto contraste"><i class="fas fa-adjust"></i></button>
-        <button class="acc-btn" id="toggle-dark" aria-label="Modo escuro"><i class="fas fa-moon"></i></button>
+
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+<!-- ============================= NAVBAR ============================= -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="EquilibraMente — página inicial">
+      <img src="img/logo.svg" alt="" width="42" height="42">
+      <span class="brand-text">
+        <span class="brand-name">EquilibraMente</span>
+        <span class="brand-sub">Portal de Saúde Emocional do Estudante</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#saude-emocional">Saúde emocional</a>
+      <a href="escuta.html">Portal de Escuta</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="especialistas.html">Especialistas</a>
+      <a href="referencias.html">Referências</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn btn-primary" data-goto-escuta type="button">Falar com alguém</button>
+      <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo-container">
-                <span class="logo-text">EquilibraMente</span>
-                <span class="logo-sub">Portal de Saúde Emocional do Estudante</span>
-            </a>
-            
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Navegação mobile">
+    <a href="index.html">Início</a>
+    <a href="index.html#saude-emocional">Saúde emocional</a>
+    <a href="escuta.html">Portal de Escuta</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="especialistas.html">Especialistas</a>
+    <a href="referencias.html">Referências</a>
+    <button class="btn btn-primary btn-block" data-goto-escuta type="button">Falar com alguém</button>
+  </nav>
+</header>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="#saude">Saúde Emocional</a></li>
-                <li><a href="escuta.html">Portal de Escuta</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="especialistas.html">Especialistas</a></li>
-                <li><a href="referencias.html">Referências</a></li>
-                <li><a href="escuta.html" class="btn-talk">Falar com alguém</a></li>
-            </ul>
-        </nav>
-    </header>
+<main id="conteudo-principal">
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-content" data-animate>
-                    <h1>Cuide da sua mente. Fortaleça sua jornada.</h1>
-                    <p>Informação, acolhimento e apoio para ajudar estudantes a desenvolverem uma relação mais saudável com suas emoções.</p>
-                    <div class="hero-btns">
-                        <a href="#conteudos" class="btn btn-primary">Explorar conteúdos</a>
-                        <a href="escuta.html" class="btn btn-outline">Falar com alguém</a>
-                        <a href="quiz.html" class="btn btn-outline">Fazer o quiz</a>
-                    </div>
-                </div>
-                <div class="hero-image" data-animate>
-                    <!-- Placeholder professional illustration -->
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop" alt="Estudantes em ambiente acolhedor">
-                </div>
-            </div>
-        </section>
-
-        <!-- What is Emotional Health -->
-        <section id="saude">
-            <div class="section-title" data-animate>
-                <h2>O que é Saúde Emocional?</h2>
-                <p>Saúde emocional é a habilidade de lidar com os altos e baixos da vida com equilíbrio e resiliência.</p>
-            </div>
-            <div class="edu-grid">
-                <div class="card" data-animate>
-                    <h3><i class="fas fa-brain" style="color: var(--primary);"></i> Autoconhecimento</h3>
-                    <p>Conhecer e compreender melhor os próprios sentimentos é o primeiro passo para o equilíbrio.</p>
-                </div>
-                <div class="card" data-animate>
-                    <h3><i class="fas fa-heart" style="color: var(--primary-light);"></i> Bem-estar emocional</h3>
-                    <p>Desenvolver hábitos que favoreçam equilíbrio e qualidade de vida no dia a dia.</p>
-                </div>
-                <div class="card" data-animate>
-                    <h3><i class="fas fa-seedling" style="color: var(--secondary);"></i> Autocuidado</h3>
-                    <p>Cuidar do corpo, da mente, do descanso e dos momentos de lazer com atenção.</p>
-                </div>
-                <div class="card" data-animate>
-                    <h3><i class="fas fa-hands-helping" style="color: var(--accent);"></i> Apoio e acolhimento</h3>
-                    <p>Entender que pedir ajuda é uma atitude de cuidado consigo mesmo e com os outros.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Educative Contents -->
-        <section id="conteudos" style="background: var(--white);">
-            <div class="section-title" data-animate>
-                <h2>Conteúdos Educativos</h2>
-                <p>Informações essenciais para você entender o que sente e como lidar com os desafios escolares.</p>
-            </div>
-            <div class="edu-grid">
-                <!-- Ansiedade -->
-                <div class="card edu-card" onclick="this.classList.toggle('active')" data-animate>
-                    <h3><i class="fas fa-bolt" style="color: #FFB300;"></i> Ansiedade</h3>
-                    <p>Entenda o que é e como lidar com a preocupação excessiva.</p>
-                    <div class="edu-content">
-                        <p>A ansiedade é uma resposta natural do corpo ao estresse. Em estudantes, pode surgir antes de provas ou apresentações.</p>
-                        <ul style="margin-top: 10px; list-style: disc; padding-left: 20px;">
-                            <li>Sinais: Batimentos acelerados, mãos suadas, pensamentos repetitivos.</li>
-                            <li>Dica: Pratique a respiração diafragmática (inspirar em 4 tempos, segurar 2, expirar em 6).</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Estresse Escolar -->
-                <div class="card edu-card" onclick="this.classList.toggle('active')" data-animate>
-                    <h3><i class="fas fa-book-reader" style="color: var(--primary);"></i> Estresse Escolar</h3>
-                    <p>Pressão por notas e volume de estudos? Saiba como equilibrar.</p>
-                    <div class="edu-content">
-                        <p>O estresse escolar surge quando sentimos que as demandas superam nossa capacidade de lidar com elas.</p>
-                        <ul style="margin-top: 10px; list-style: disc; padding-left: 20px;">
-                            <li>Organização: Use a técnica Pomodoro (25 min de foco, 5 min de descanso).</li>
-                            <li>Dica: Planeje sua semana incluindo horários fixos para lazer e sono.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Autocuidado -->
-                <div class="card edu-card" onclick="this.classList.toggle('active')" data-animate>
-                    <h3><i class="fas fa-sun" style="color: var(--secondary);"></i> Autocuidado</h3>
-                    <p>Pequenos hábitos diários que fazem a diferença na sua saúde mental.</p>
-                    <div class="edu-content">
-                        <p>Cuidar da mente é também cuidar do corpo. O equilíbrio é fundamental para um bom desempenho acadêmico.</p>
-                        <ul style="margin-top: 10px; list-style: disc; padding-left: 20px;">
-                            <li>Sono: Tente dormir entre 7 e 9 horas por noite.</li>
-                            <li>Social: Mantenha contato com amigos e familiares fora do ambiente de estudo.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="stats">
-            <div class="stats-grid">
-                <div class="stat-item" data-animate>
-                    <h3 class="counter" data-target="1000">+0</h3>
-                    <p>Conteúdos Educativos</p>
-                </div>
-                <div class="stat-item" data-animate>
-                    <h3 class="counter" data-target="100">0%</h3>
-                    <p>Foco Educativo</p>
-                </div>
-                <div class="stat-item" data-animate>
-                    <h3 class="counter">24/7</h3>
-                    <p>Acesso à Plataforma</p>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: var(--text-muted);">
-                *Números baseados em metas de alcance pedagógico do portal.
-            </p>
-        </section>
-    </main>
-
-    <div class="scroll-top" aria-label="Voltar ao topo">
-        <i class="fas fa-chevron-up"></i>
+  <!-- ============================= HERO ============================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="hero-eyebrow"><span class="dot"></span> Portal educativo de saúde emocional</span>
+        <h1>Cuide da sua mente. <span class="accent">Fortaleça</span> sua jornada.</h1>
+        <p class="lead">Informação, acolhimento e apoio para ajudar estudantes a desenvolverem uma relação mais saudável com suas emoções.</p>
+        <div class="hero-actions">
+          <a href="#saude-emocional" class="btn btn-primary">Explorar conteúdos</a>
+          <button class="btn btn-outline" data-goto-escuta type="button">Falar com alguém</button>
+          <a href="quiz.html" class="btn btn-ghost">Fazer o quiz</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="img/banner.svg" alt="">
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h4 style="color: var(--primary); margin-bottom: 20px;">EquilibraMente</h4>
-                <p>Portal dedicado à saúde emocional do estudante. Um espaço de informação e acolhimento.</p>
+  <!-- ================= O QUE É SAÚDE EMOCIONAL ================= -->
+  <section id="saude-emocional">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fundamentos</span>
+        <h2>O que é saúde emocional?</h2>
+        <p>Saúde emocional é a capacidade de reconhecer, compreender e lidar com os próprios sentimentos de forma equilibrada. Ela influencia diretamente os estudos, os relacionamentos e a qualidade de vida — por isso, procurar apoio quando necessário é um passo importante e saudável, nunca um sinal de fraqueza.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar-card reveal">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a5.5 5.5 0 0 0-5.5 5.5c0 1.9.9 3.3 2 4.5.7.8 1 1.3 1 2.5v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1c0-1.2.3-1.7 1-2.5 1.1-1.2 2-2.6 2-4.5A5.5 5.5 0 0 0 14.5 2"/><path d="M9 21h6"/></svg>
+          </div>
+          <h3>Autoconhecimento</h3>
+          <p>Conhecer e compreender melhor os próprios sentimentos.</p>
+        </article>
+
+        <article class="pillar-card reveal">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#42A5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+          </div>
+          <h3>Bem-estar emocional</h3>
+          <p>Desenvolver hábitos que favoreçam equilíbrio e qualidade de vida.</p>
+        </article>
+
+        <article class="pillar-card reveal">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3-2 4-2 7a4 4 0 0 0 8 0c0-1-.3-1.7-1-2.5"/><path d="M8 15a6 6 0 1 0 8 0"/></svg>
+          </div>
+          <h3>Autocuidado</h3>
+          <p>Cuidar do corpo, da mente, do descanso e dos momentos de lazer.</p>
+        </article>
+
+        <article class="pillar-card reveal">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#9575CD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9" cy="8" r="4"/><path d="M23 20v-1a4 4 0 0 0-3-3.9"/><path d="M16 4.1a4 4 0 0 1 0 7.8"/></svg>
+          </div>
+          <h3>Apoio e acolhimento</h3>
+          <p>Entender que pedir ajuda é uma atitude de cuidado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTEÚDOS EDUCATIVOS ================= -->
+  <section class="section-alt" id="conteudos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Conteúdos educativos</span>
+        <h2>Entenda mais sobre cada tema</h2>
+        <p>Clique em cada card para expandir. Este conteúdo tem finalidade educativa e não substitui avaliação ou acompanhamento profissional.</p>
+      </div>
+
+      <div class="accordion reveal">
+        <!-- ANSIEDADE -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="label">
+              <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span>
+              <h3>Ansiedade</h3>
+            </span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              <p>A ansiedade é uma resposta natural do corpo diante de situações de incerteza ou pressão, como provas, apresentações ou mudanças na rotina. Em níveis leves, ela pode até ajudar na concentração — mas quando se torna intensa ou frequente, pode gerar desconforto.</p>
+              <p style="margin-top:0.8rem;"><strong>Possíveis sinais:</strong></p>
+              <ul>
+                <li>Preocupação excessiva com situações futuras</li>
+                <li>Dificuldade para relaxar ou dormir</li>
+                <li>Tensão muscular ou inquietação</li>
+                <li>Pensamentos acelerados antes de provas ou eventos</li>
+              </ul>
+              <p style="margin-top:0.8rem;"><strong>Formas saudáveis de lidar com a preocupação:</strong></p>
+              <ul>
+                <li>Respirar profundamente por alguns instantes</li>
+                <li>Organizar tarefas em pequenos passos</li>
+                <li>Conversar sobre o que está sentindo</li>
+                <li>Reservar momentos de descanso e lazer</li>
+              </ul>
+              <div class="tip-box">Se a preocupação for constante e atrapalhar seu dia a dia, converse com um adulto de confiança ou um profissional especializado.</div>
+              <p class="notice-inline">Este conteúdo é educativo e não tem finalidade diagnóstica.</p>
             </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Links Úteis</h4>
-                <ul style="display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="quiz.html">Fazer o Quiz</a></li>
-                    <li><a href="escuta.html">Portal de Escuta</a></li>
-                    <li><a href="referencias.html">Fontes Oficiais</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Apoio</h4>
-                <p>Se estiver em crise, ligue para o CVV (188) - Centro de Valorização da Vida.</p>
-            </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 EquilibraMente. Projeto desenvolvido para fins educacionais.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">Este portal possui caráter informativo e não substitui acompanhamento realizado por profissionais de saúde.</p>
+
+        <!-- ESTRESSE ESCOLAR -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="label">
+              <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="#42A5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z"/><path d="M8 8h8"/><path d="M8 12h8"/></svg></span>
+              <h3>Estresse escolar</h3>
+            </span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              <p>Provas, trabalhos e prazos podem gerar uma sensação de pressão constante. Esse tipo de estresse é comum entre estudantes, mas pode ser amenizado com organização, planejamento e equilíbrio entre estudo e vida pessoal.</p>
+              <p style="margin-top:0.8rem;"><strong>O que costuma contribuir para o estresse escolar:</strong></p>
+              <ul>
+                <li>Acúmulo de tarefas e provas próximas</li>
+                <li>Falta de planejamento dos estudos</li>
+                <li>Poucas pausas para descanso</li>
+                <li>Expectativas altas sobre o próprio desempenho</li>
+              </ul>
+              <div class="tip-box"><strong>Dica prática:</strong> divida o conteúdo em blocos menores e estude por períodos curtos com pequenos intervalos — isso ajuda a manter o foco sem sobrecarregar a mente.</div>
+              <p class="notice-inline">Este conteúdo é educativo e não tem finalidade diagnóstica.</p>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="js/script.js"></script>
-    <script>
-        // Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        const countObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = entry.target;
-                    const targetValue = parseInt(target.getAttribute('data-target'));
-                    if (!isNaN(targetValue)) {
-                        let current = 0;
-                        const increment = targetValue / 100;
-                        const timer = setInterval(() => {
-                            current += increment;
-                            if (current >= targetValue) {
-                                target.innerText = (targetValue === 100 ? '100%' : '+' + targetValue);
-                                clearInterval(timer);
-                            } else {
-                                target.innerText = (targetValue === 100 ? Math.floor(current) + '%' : '+' + Math.floor(current));
-                            }
-                        }, 20);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
+        <!-- AUTOCUIDADO -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="label">
+              <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.7C.7 8.8 2.3 5 6 5c2 0 3.3 1.1 4 2.2C10.7 6.1 12 5 14 5c3.7 0 5.3 3.8 3.5 7.3C19 16.65 12 21 12 21Z"/></svg></span>
+              <h3>Autocuidado</h3>
+            </span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              <p>Autocuidado é o conjunto de pequenas atitudes diárias que ajudam a manter o equilíbrio entre corpo e mente. Não se trata de luxo, mas de necessidade básica para o bem-estar.</p>
+              <p style="margin-top:0.8rem;"><strong>Alguns pilares do autocuidado:</strong></p>
+              <ul>
+                <li>Sono adequado e regular</li>
+                <li>Alimentação equilibrada</li>
+                <li>Atividade física, mesmo que leve</li>
+                <li>Momentos de lazer e hobbies</li>
+                <li>Convivência social com amigos e família</li>
+                <li>Organização da rotina diária</li>
+              </ul>
+              <p class="notice-inline">Este conteúdo é educativo e não tem finalidade diagnóstica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        counters.forEach(c => countObserver.observe(c));
-    </script>
+  <!-- ============================= ESTATÍSTICAS ============================= -->
+  <section id="estatisticas">
+    <div class="container">
+      <div class="stats reveal">
+        <div>
+          <div class="stat-number"><span data-counter="1000" data-suffix="+">0</span></div>
+          <div class="stat-label">Conteúdos educativos</div>
+        </div>
+        <div>
+          <div class="stat-number"><span data-counter="100" data-suffix="%">0</span></div>
+          <div class="stat-label">Foco educativo</div>
+        </div>
+        <div>
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Acesso à plataforma</div>
+        </div>
+      </div>
+      <p class="stats-note">Números ilustrativos sobre o propósito e o alcance da plataforma educativa. Dados sobre saúde emocional e educação podem ser consultados na página de <a href="referencias.html" style="color:var(--color-blue); font-weight:600;">Referências</a>, com base em fontes oficiais.</p>
+    </div>
+  </section>
+
+  <!-- ============================= CTA ============================= -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Você não precisa passar por isso sozinho.</h2>
+        <p>Se algo estiver pesado, converse com um adulto de confiança, um educador ou um profissional de saúde mental. Pedir ajuda é um ato de coragem e cuidado.</p>
+        <div class="cta-actions">
+          <button class="btn btn-primary" data-goto-escuta type="button">Falar com alguém</button>
+          <a href="especialistas.html" class="btn btn-outline">Conhecer especialistas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="img/logo.svg" alt="" width="34" height="34">
+          <span>EquilibraMente</span>
+        </div>
+        <p class="footer-desc">Portal de Saúde Emocional do Estudante. Projeto desenvolvido para fins educacionais — não substitui acompanhamento profissional.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#saude-emocional">Saúde emocional</a></li>
+          <li><a href="escuta.html">Portal de Escuta</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Saiba mais</h4>
+        <ul>
+          <li><a href="especialistas.html">Especialistas</a></li>
+          <li><a href="referencias.html">Referências</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-current-year></span> EquilibraMente — Projeto desenvolvido para fins educacionais.</span>
+      <span>Este portal possui caráter informativo e não substitui acompanhamento realizado por profissionais de saúde.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= COMPONENTES FLUTUANTES ============================= -->
+<button class="back-to-top" aria-label="Voltar ao topo">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<button class="a11y-trigger" aria-label="Abrir painel de acessibilidade" aria-expanded="false">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
+</button>
+
+<div class="a11y-panel" role="dialog" aria-label="Painel de acessibilidade">
+  <h4>Acessibilidade</h4>
+  <div class="a11y-row">
+    <span>Tamanho da fonte</span>
+    <div class="a11y-fontctrls">
+      <button class="a11y-btn" data-font="decrease" aria-label="Diminuir fonte">A-</button>
+      <button class="a11y-btn" data-font="reset" aria-label="Restaurar fonte">A</button>
+      <button class="a11y-btn" data-font="increase" aria-label="Aumentar fonte">A+</button>
+    </div>
+  </div>
+  <div class="a11y-row">
+    <span>Alto contraste</span>
+    <button class="switch" data-toggle="contrast" aria-pressed="false" aria-label="Ativar alto contraste"></button>
+  </div>
+  <div class="a11y-row">
+    <span>Modo escuro</span>
+    <button class="switch" data-toggle="theme" aria-pressed="false" aria-label="Ativar modo escuro"></button>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>
